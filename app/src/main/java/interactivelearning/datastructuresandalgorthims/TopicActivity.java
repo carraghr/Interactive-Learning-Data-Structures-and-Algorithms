@@ -1,7 +1,7 @@
 package interactivelearning.datastructuresandalgorthims;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,32 +11,56 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 
 public class TopicActivity extends ActionBarActivity {
+
+    private Topic [] topics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic);
 
-        populateListView();
-        registerClickCallback();
+        Toast.makeText(TopicActivity.this, "before try", Toast.LENGTH_LONG).show();
+
+        try {
+
+            TopicFileHandler handler = new TopicFileHandler(TopicActivity.this);
+            Toast.makeText(TopicActivity.this, "In try" + handler.numberOfTopics, Toast.LENGTH_LONG).show();
+            topics = handler.getTopics();
+            Toast.makeText(TopicActivity.this, "In try2", Toast.LENGTH_LONG).show();
+
+            populateListView(getTopicNames());
+            registerClickCallback();
+
+        } catch (IOException e) {
+            Toast.makeText(TopicActivity.this, "In catch", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+        //populateListView();
+        //registerClickCallback();
     }
 
+    private String [] getTopicNames(){
+        String [] names = new String [topics.length];
+        for(int i=0;i<topics.length;i++){
+            names[i] = topics[i].getTopicName();
+        }
+        return names;
+    }
+    private void populateListView(String [] topics) {
 
-    private void populateListView() {
-        //Create list of topics
-        String[] myItems={"Bag","Array","ArrayList", "LinkedList","Stack","Queues","Binary Tree"};
-
-        //Build Adapter
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this,                   //Context for the activity
-                R.layout.topic_item,   //Layout to use (create)
-                myItems                 //Items to be displayed
-        );
-        //Configure the list view
-        ListView list = (ListView) findViewById(R.id.ListViewTopicMenu);//this id is from activity_main
-        list.setAdapter(adapter);
+            //Build Adapter
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                    this,                    //Context for the activity
+                    R.layout.topic_item,     //Layout to use (create)
+                    topics                  //Items to be displayed
+            );
+            //Configure the list view
+            ListView list = (ListView) findViewById(R.id.ListViewTopicMenu);//this id is from activity_main
+            list.setAdapter(adapter);
     }
 
     private void registerClickCallback() {
@@ -49,6 +73,11 @@ public class TopicActivity extends ActionBarActivity {
                 String message ="You clicked # " + position
                         + ", which is string:"+ textView.getText().toString();
                 Toast.makeText(TopicActivity.this, message, Toast.LENGTH_LONG).show();
+
+
+
+                // Start OpenGL activity
+
             }
         });
     }

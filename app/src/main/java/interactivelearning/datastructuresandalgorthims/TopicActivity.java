@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
-
 public class TopicActivity extends Activity {
 
     private Topics topics;
@@ -57,7 +56,6 @@ public class TopicActivity extends Activity {
                 String message = "You clicked # " + position
                         + ", which is string: " + textView.getText().toString();
                 Toast.makeText(TopicActivity.this, message, Toast.LENGTH_LONG).show();
-
 
                 // Start OpenGL activity
 

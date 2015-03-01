@@ -8,69 +8,56 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.io.IOException;
+/**
+ * Created by Richard on 27/02/2015.
+ * This activity
+ */
+public class ArrayTopicActivity extends Activity {
 
-public class TopicActivity extends Activity {
-
-    private Topics topics;
+    Topic topic;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic);
 
-        String topic = this.getResources().getString(R.string.topics);
-        final TextView textViewToChange = (TextView) findViewById(R.id.topic);
-        textViewToChange.setText(topic);
+        Intent intent = getIntent();
 
-        try {
-            TopicFileHandler handler = new TopicFileHandler(TopicActivity.this);
-            topics = new Topics(handler.getTopics());
+        topic = getIntent().getParcelableExtra("subtopic");
 
-            populateListView();
-            registerClickCallback();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        populateListView(topic.getSubtopics());
+        registerClickCallback();
     }
 
-    private void populateListView() {
-
-        //Get list of topics from topics
-        String[] topicsNames = topics.getTopicNames();
+    private void populateListView(String[] topics) {
 
         //Build Adapter
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,                    //Context for the activity
                 R.layout.topic_item,     //Layout to use (create)
-                topicsNames                  //Items to be displayed
+                topics                  //Items to be displayed
         );
-
         //Configure the list view
         ListView list = (ListView) findViewById(R.id.ListViewTopicMenu);//this id is from activity_main
         list.setAdapter(adapter);
+
     }
 
     private void registerClickCallback() {
-
         //register a click for each topic in list
         ListView list = (ListView) findViewById(R.id.ListViewTopicMenu);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView textView = (TextView) view;
-                String topic = textView.getText().toString();
+                String message = "You clicked # " + position
+                        + ", which is string: " + textView.getText().toString();
+                Toast.makeText(ArrayTopicActivity.this, message, Toast.LENGTH_LONG).show();
 
-                switch (topic) {
-                    case "Arrays":
-                        Intent intent = new Intent(TopicActivity.this,ArrayTopicActivity.class);
-                        intent.putExtra("subtopic",topics.getTopic("Arrays"));
-                        TopicActivity.this.startActivity(intent);
-                        break;
-                }
+                // Start OpenGL activity
+
             }
         });
     }

@@ -1,8 +1,10 @@
 <resources>
-    <string name="app_name">Data Structures and Algorthims</string>
-    <string name="title_activity_topic">TopicActivity</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="Topics">Topics</string>
+    <string name = "app_name">Data Structures and Algorithms</string>
+    <string name = "title_activity_topic">TopicActivity</string>
+
+    <string name = "array_topic_activity">ArrayTopicActivity</string>
+    <string name = "topics">Topics</string>
+    <string name = "arrays">Arrays</string>
+
 </resources>

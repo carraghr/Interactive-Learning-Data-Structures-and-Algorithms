@@ -3,7 +3,7 @@ package interactivelearning.datastructuresandalgorthims;
 /**
  * Created by Richard on 26/02/2015.
  */
-public class Topics {
+public class Topics{
 
     private Topic[] topics;
 
@@ -17,5 +17,14 @@ public class Topics {
             names[i] = topics[i].getTopicName();
         }
         return names;
+    }
+
+    public Topic getTopic(String name){
+        for(int i=0;i<topics.length;i++ ){
+            if(topics[i].getTopicName().equals(name)){
+                return topics[i];
+            }
+        }
+        return null;
     }
 }

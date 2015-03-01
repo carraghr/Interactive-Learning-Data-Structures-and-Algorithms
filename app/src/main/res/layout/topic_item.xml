@@ -4,8 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/topic_item"
-    android:textSize="20sp"
-    android:paddingBottom="10dp"
+    android:textSize="22sp"
+    android:paddingBottom="2dp"
+    android:paddingTop="5dp"
     android:paddingLeft="10dp">
 
 </TextView>

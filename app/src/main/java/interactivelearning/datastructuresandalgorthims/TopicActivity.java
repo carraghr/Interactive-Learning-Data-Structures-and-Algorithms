@@ -66,9 +66,15 @@ public class TopicActivity extends Activity {
 
                 switch (topic) {
                     case "Arrays":
+
+                        Bundle bundle = new Bundle();
+                        bundle.putStringArray("subtopic",topics.getTopic("Arrays").getSubtopics());
+
                         Intent intent = new Intent(TopicActivity.this,ArrayTopicActivity.class);
-                        intent.putExtra("subtopic",topics.getTopic("Arrays"));
+                        intent.putExtras(bundle);
+
                         TopicActivity.this.startActivity(intent);
+
                         break;
                 }
             }

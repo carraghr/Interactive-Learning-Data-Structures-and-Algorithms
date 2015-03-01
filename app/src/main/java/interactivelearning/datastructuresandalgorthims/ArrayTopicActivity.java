@@ -1,7 +1,6 @@
 package interactivelearning.datastructuresandalgorthims;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,18 +15,23 @@ import android.widget.Toast;
  */
 public class ArrayTopicActivity extends Activity {
 
-    Topic topic;
+    String [] topics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic);
 
-        Intent intent = getIntent();
+        String topic = this.getResources().getString(R.string.arrays);
+        final TextView textViewToChange = (TextView) findViewById(R.id.topic);
+        textViewToChange.setText(topic);
 
-        topic = getIntent().getParcelableExtra("subtopic");
+        Bundle bundle = this.getIntent().getExtras();
+        topics = bundle.getStringArray("subtopic");
 
-        populateListView(topic.getSubtopics());
+        //topics = new String[]{"a","b","c"}; //= intent.getStringArrayExtra("subtopic");
+
+        populateListView(topics);
         registerClickCallback();
     }
 

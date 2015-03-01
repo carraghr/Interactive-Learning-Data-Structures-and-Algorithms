@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * Created by Richard on 27/02/2015.
@@ -57,9 +56,6 @@ public class ArrayTopicActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView textView = (TextView) view;
-                String message = "You clicked # " + position
-                        + ", which is string: " + textView.getText().toString();
-                Toast.makeText(ArrayTopicActivity.this, message, Toast.LENGTH_LONG).show();
 
                 switch(textView.getText().toString()){
                     case "Introduction":
@@ -68,6 +64,10 @@ public class ArrayTopicActivity extends Activity {
 
                         ArrayTopicActivity.this.startActivity(intent);
 
+                        break;
+                    case "":
+
+                        
                         break;
                 }
                 // Start OpenGL activity

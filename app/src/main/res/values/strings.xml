@@ -6,9 +6,38 @@
     <string name = "array_topic_activity">ArrayTopicActivity</string>
     <string name = "array_topic_intro">ArrayTopicIntro</string>
     <string name = "topics">Topics</string>
-    <string name = "arrays">Arrays</string>
-    <string name = "arrays_intro">Arrays intro</string>
 
-    <string name = "arrays_intro_para1">Arrays one of the first data structures that you will be introduced to</string>
+    <string name = "arrays">Arrays</string>
+    <string name = "arrays_intro">Arrays Introduction</string>
+
+    <string name = "arrays_intro_para">Arrays are one of the first data structures that you will be
+                                       introduced to first for primitive data types and then objects.
+                                       If you have some basic programming experience then you should
+                                       already have met the materials with in this topic.
+                                       \n
+                                       \n
+                                       Below is a brief overview of each of the topics covered in
+                                       this topic:
+                                       \n
+                                       \n
+                                       Declaring Arrays of Length - Learn to declare an array of a
+                                                                     fixed length.
+                                       \n
+                                       \n
+                                       Declaring Array with values - Learn to declare an array with
+                                                                      values on declaration.
+                                       \n
+                                       \n
+                                       Different Arrays - Learn what types of Arrays there is.
+
+                                       \n
+                                       \n
+                                       Sorting - Learn how to sort an array in different orders.
+                                       \n
+                                       \n
+                                       Searching - Learn how to efficacy search an array.
+
+                                       </string>
+
 
 </resources>

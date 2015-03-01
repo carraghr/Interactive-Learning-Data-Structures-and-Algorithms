@@ -29,13 +29,24 @@
         <activity
             android:name=".ArrayIntro"
             android:label="@string/array_topic_intro"
-            android:parentActivityName=".TopicActivity">
+            android:parentActivityName=".ArrayTopicActivity">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ArrayTopicActivity"
                 />
         </activity>
+
+        <Activity
+            android:name = "ArrayLengthDeclare"
+            android:label="@string/array_length_declare"
+            android:parentActivityName=".ArrayTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ArrayTopicActivity"
+                />
+        </Activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package interactivelearning.datastructuresandalgorthims;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -60,6 +61,15 @@ public class ArrayTopicActivity extends Activity {
                         + ", which is string: " + textView.getText().toString();
                 Toast.makeText(ArrayTopicActivity.this, message, Toast.LENGTH_LONG).show();
 
+                switch(textView.getText().toString()){
+                    case "Introduction":
+
+                        Intent intent = new Intent(ArrayTopicActivity.this,ArrayIntro.class);
+
+                        ArrayTopicActivity.this.startActivity(intent);
+
+                        break;
+                }
                 // Start OpenGL activity
 
             }

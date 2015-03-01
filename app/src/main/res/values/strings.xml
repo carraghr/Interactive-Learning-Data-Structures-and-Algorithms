@@ -4,7 +4,11 @@
     <string name = "title_activity_topic">TopicActivity</string>
 
     <string name = "array_topic_activity">ArrayTopicActivity</string>
+    <string name = "array_topic_intro">ArrayTopicIntro</string>
     <string name = "topics">Topics</string>
     <string name = "arrays">Arrays</string>
+    <string name = "arrays_intro">Arrays intro</string>
+
+    <string name = "arrays_intro_para1">Arrays one of the first data structures that you will be introduced to</string>
 
 </resources>

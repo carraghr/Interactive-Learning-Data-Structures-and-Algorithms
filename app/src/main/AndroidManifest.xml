@@ -25,7 +25,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ArrayTopicActivity"
             />
+        </activity>
+        <activity
+            android:name=".ArrayIntro"
+            android:label="@string/array_topic_intro"
+            android:parentActivityName=".TopicActivity">
 
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ArrayTopicActivity"
+                />
         </activity>
     </application>
 

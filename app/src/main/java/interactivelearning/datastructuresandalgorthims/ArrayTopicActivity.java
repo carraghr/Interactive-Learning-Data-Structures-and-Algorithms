@@ -9,8 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
-
 /**
  * Created by Richard on 27/02/2015.
  * This activity
@@ -75,7 +73,7 @@ public class ArrayTopicActivity extends Activity {
                         ArrayTopicActivity.this.startActivity(intent);
 
                         break;
-
+/*
                     case "Declare Array Filled with Values":
 
                         intent = new Intent(ArrayTopicActivity.this,ArrayValuesDeclare.class);
@@ -95,7 +93,7 @@ public class ArrayTopicActivity extends Activity {
                         intent = new Intent(ArrayTopicActivity.this,ArraySort.class);
                         ArrayTopicActivity.this.startActivity(intent);
 
-                        break;
+                        break;*/
                 }
             }
         });

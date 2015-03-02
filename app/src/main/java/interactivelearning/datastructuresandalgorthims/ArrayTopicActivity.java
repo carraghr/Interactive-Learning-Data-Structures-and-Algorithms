@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
+
 /**
  * Created by Richard on 27/02/2015.
  * This activity
@@ -57,21 +59,44 @@ public class ArrayTopicActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView textView = (TextView) view;
 
+                Intent intent;
+
                 switch(textView.getText().toString()){
                     case "Introduction":
 
-                        Intent intent = new Intent(ArrayTopicActivity.this,ArrayIntro.class);
-
+                        intent = new Intent(ArrayTopicActivity.this,ArrayIntro.class);
                         ArrayTopicActivity.this.startActivity(intent);
 
                         break;
-                    case "":
 
-                        
+                    case "Declare Array Length":
+
+                        intent = new Intent(ArrayTopicActivity.this,ArrayLengthDeclare.class);
+                        ArrayTopicActivity.this.startActivity(intent);
+
+                        break;
+
+                    case "Declare Array Filled with Values":
+
+                        intent = new Intent(ArrayTopicActivity.this,ArrayValuesDeclare.class);
+                        ArrayTopicActivity.this.startActivity(intent);
+
+                        break;
+
+                    case "Sorting":
+
+                        intent = new Intent(ArrayTopicActivity.this,ArraySearch.class);
+                        ArrayTopicActivity.this.startActivity(intent);
+
+                        break;
+
+                    case "Searching":
+
+                        intent = new Intent(ArrayTopicActivity.this,ArraySort.class);
+                        ArrayTopicActivity.this.startActivity(intent);
+
                         break;
                 }
-                // Start OpenGL activity
-
             }
         });
     }

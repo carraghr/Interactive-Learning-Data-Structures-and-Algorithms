@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,37 +19,22 @@ public class TopicActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic);
 
-        String topic = this.getResources().getString(R.string.topics);
         final TextView textViewToChange = (TextView) findViewById(R.id.topic);
-        textViewToChange.setText(topic);
+        textViewToChange.setText(R.string.topics);
 
         try {
-            TopicFileHandler handler = new TopicFileHandler(TopicActivity.this);
-            topics = new Topics(handler.getTopics());
 
-            populateListView();
+            //read topic file and get topics
+            TopicFileHandler handler = new TopicFileHandler(TopicActivity.this);
+            topics = handler.getTopics();
+            handler.close();
+
+            ListViewPopulate.populateTopicList(this,topics.getTopicNames());
             registerClickCallback();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private void populateListView() {
-
-        //Get list of topics from topics
-        String[] topicsNames = topics.getTopicNames();
-
-        //Build Adapter
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this,                    //Context for the activity
-                R.layout.topic_item,     //Layout to use (create)
-                topicsNames                  //Items to be displayed
-        );
-
-        //Configure the list view
-        ListView list = (ListView) findViewById(R.id.ListViewTopicMenu);//this id is from activity_main
-        list.setAdapter(adapter);
     }
 
     private void registerClickCallback() {

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,38 +14,21 @@ import android.widget.TextView;
  */
 public class ArrayTopicActivity extends Activity {
 
-    String [] topics;
+    String [] subtopics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic);
 
-        String topic = this.getResources().getString(R.string.arrays);
         final TextView textViewToChange = (TextView) findViewById(R.id.topic);
-        textViewToChange.setText(topic);
+        textViewToChange.setText(R.string.arrays);
 
         Bundle bundle = this.getIntent().getExtras();
-        topics = bundle.getStringArray("subtopic");
+        subtopics = bundle.getStringArray("subtopic");
 
-        //topics = new String[]{"a","b","c"}; //= intent.getStringArrayExtra("subtopic");
-
-        populateListView(topics);
+        ListViewPopulate.populateTopicList(this, subtopics);
         registerClickCallback();
-    }
-
-    private void populateListView(String[] topics) {
-
-        //Build Adapter
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this,                    //Context for the activity
-                R.layout.topic_item,     //Layout to use (create)
-                topics                  //Items to be displayed
-        );
-        //Configure the list view
-        ListView list = (ListView) findViewById(R.id.ListViewTopicMenu);//this id is from activity_main
-        list.setAdapter(adapter);
-
     }
 
     private void registerClickCallback() {
@@ -67,7 +49,7 @@ public class ArrayTopicActivity extends Activity {
 
                         break;
 
-                    case "Declare Array Length":
+                    case "Declare an Array":
 
                         intent = new Intent(ArrayTopicActivity.this,ArrayLengthDeclare.class);
                         ArrayTopicActivity.this.startActivity(intent);

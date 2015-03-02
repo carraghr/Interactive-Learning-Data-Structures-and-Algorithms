@@ -6,7 +6,9 @@ package interactivelearning.datastructuresandalgorthims;
 public class Topics{
 
     private Topic[] topics;
+    private int numberOfTopics = 0;
 
+    Topics(int numberOfTopics){ topics = new Topic[numberOfTopics];}
     Topics(Topic[] topics) {
         this.topics = topics;
     }
@@ -26,5 +28,14 @@ public class Topics{
             }
         }
         return null;
+    }
+
+    public boolean putTopic(Topic topic){
+        if( numberOfTopics < topics.length ){
+            topics[numberOfTopics]=topic;
+            numberOfTopics++;
+            return true;
+        }
+        return false;
     }
 }

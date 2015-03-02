@@ -25,10 +25,11 @@ public class TopicActivity extends Activity {
         textViewToChange.setText(topic);
 
         try {
+
             TopicFileHandler handler = new TopicFileHandler(TopicActivity.this);
             topics = new Topics(handler.getTopics());
 
-            populateListView();
+            ListViewPop.populateListView(TopicActivity.this,topics.getTopicNames());
             registerClickCallback();
 
         } catch (IOException e) {

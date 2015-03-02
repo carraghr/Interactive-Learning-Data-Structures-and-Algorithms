@@ -9,8 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
-
 /**
  * Created by Richard on 27/02/2015.
  * This activity
@@ -33,7 +31,7 @@ public class ArrayTopicActivity extends Activity {
 
         //topics = new String[]{"a","b","c"}; //= intent.getStringArrayExtra("subtopic");
 
-        populateListView(topics);
+       ListViewPop.populateListView(ArrayTopicActivity.this, topics);
         registerClickCallback();
     }
 
@@ -76,7 +74,7 @@ public class ArrayTopicActivity extends Activity {
 
                         break;
 
-                    case "Declare Array Filled with Values":
+                    /*case "Declare Array Filled with Values":
 
                         intent = new Intent(ArrayTopicActivity.this,ArrayValuesDeclare.class);
                         ArrayTopicActivity.this.startActivity(intent);
@@ -95,7 +93,7 @@ public class ArrayTopicActivity extends Activity {
                         intent = new Intent(ArrayTopicActivity.this,ArraySort.class);
                         ArrayTopicActivity.this.startActivity(intent);
 
-                        break;
+                      */
                 }
             }
         });

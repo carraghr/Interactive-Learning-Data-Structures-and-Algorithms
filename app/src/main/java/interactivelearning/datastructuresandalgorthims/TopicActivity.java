@@ -20,9 +20,9 @@ public class TopicActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic);
 
-        String topic = this.getResources().getString(R.string.topics);
+
         final TextView textViewToChange = (TextView) findViewById(R.id.topic);
-        textViewToChange.setText(topic);
+        textViewToChange.setText(R.string.topics);
 
         try {
             TopicFileHandler handler = new TopicFileHandler(TopicActivity.this);

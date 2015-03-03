@@ -22,14 +22,11 @@ public class ArrayTopicActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic);
 
-        String topic = this.getResources().getString(R.string.arrays);
         final TextView textViewToChange = (TextView) findViewById(R.id.topic);
-        textViewToChange.setText(topic);
+        textViewToChange.setText(R.string.arrays);
 
         Bundle bundle = this.getIntent().getExtras();
         topics = bundle.getStringArray("subtopic");
-
-        //topics = new String[]{"a","b","c"}; //= intent.getStringArrayExtra("subtopic");
 
         populateListView(topics);
         registerClickCallback();

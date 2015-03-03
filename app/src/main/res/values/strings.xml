@@ -9,7 +9,7 @@
 
     <string name = "arrays">Arrays</string>
     <string name = "arrays_intro">Arrays Introduction</string>
-
+    <string name = "array_declaration">Declaring an Array</string>
     <string name = "arrays_intro_para">Arrays are one of the first data structures that you will be
                                        introduced to first for primitive data types and then objects.
                                        If you have some basic programming experience then you should
@@ -40,4 +40,15 @@
                                        </string>
 
 <string name="array_length_declare">Array Length Declare</string>
+<string name="array_length_declare_para">
+    The following shows the declaration of an array, but the contents of the array would be set to 0 by default.
+    /n
+    int[] myIntArray = new int[3];
+    /n
+    The following shows the declaration as well as initialization of the values in the array.
+    /n
+    The length is defined by the amount of objects (in this case numbers) within the curly brackets.
+    /n
+    int[] myIntArray = {1,2,3};
+</string>
 </resources>

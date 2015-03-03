@@ -11,7 +11,7 @@ import java.io.IOException;
 public class TopicFileHandler {
     public int numberOfTopics ;
     private DataInputStream file;
-    private Topic [] topics;
+    private Topics topics;
     private Context con;
 
     TopicFileHandler(Context con) throws IOException{
@@ -20,8 +20,6 @@ public class TopicFileHandler {
         openFile();
 
         numberOfTopics = file.readInt();
-
-        topics = new Topic[numberOfTopics];
 
     }
 
@@ -33,8 +31,9 @@ public class TopicFileHandler {
 
     }
 
-    public Topic [] getTopics() throws IOException{
+    public Topics getTopics() throws IOException{
 
+        topics = new Topics(numberOfTopics);
         String name;
         int numOfSubTopics;
         String [] subtopics ;
@@ -51,29 +50,9 @@ public class TopicFileHandler {
             else{
                 subtopics = null;
             }
-            topics[i] = new Topic( name, numOfSubTopics, subtopics);
+            topics.putTopic( new Topic( name, numOfSubTopics, subtopics));
         }
         return topics;
-    }
-
-    public String [] getTopicNames() throws IOException{
-
-        String [] names =new String [topics.length];
-        for(int i = 0; i< names.length;i++){
-            names[i]=topics[i].getTopicName();
-        }
-        return names;
-    }
-
-    public String [] getSubtopicNames(String topicName) throws IOException{
-
-        for(int i=0;i<topics.length;i++){
-            String temp =topics[i].getTopicName();
-            if(temp.equals(topicName)){
-                return topics[i].getSubtopics();
-            }
-        }
-        return null;
     }
 
     public void close() throws IOException {

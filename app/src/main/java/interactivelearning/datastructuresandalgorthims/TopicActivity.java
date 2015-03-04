@@ -19,10 +19,6 @@ public class TopicActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
         final TextView textViewToChange = (TextView) findViewById(R.id.topic);
         textViewToChange.setText(R.string.topics);
 

@@ -27,11 +27,11 @@ public class ArrayTopicActivity extends Activity {
         Bundle bundle = this.getIntent().getExtras();
         subtopics = bundle.getStringArray("subtopic");
 
-<<<<<<< HEAD
-        populateListView(topics);
-=======
+
+       // populateListView(topics);
+
         ListViewPopulate.populateTopicList(this, subtopics);
->>>>>>> origin/master
+
         registerClickCallback();
     }
 

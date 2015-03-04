@@ -12,7 +12,7 @@ public class ArrayLengthDeclare extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.arrayintro);
+        setContentView(R.layout.arraydeclaration);
         setUPTutorial();
     }
 
@@ -22,8 +22,8 @@ public class ArrayLengthDeclare extends Activity{
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
         textViewToChange.setText(topic);
 
-        String intro = this.getResources().getString(R.string.arrays_intro_para);
-        textViewToChange = (TextView) findViewById(R.id.arrayIntro);
+        String intro = this.getResources().getString(R.string.array_declare_para);
+        textViewToChange = (TextView) findViewById(R.id.arraydeclaration);
         textViewToChange.setText(intro);
     }
 }

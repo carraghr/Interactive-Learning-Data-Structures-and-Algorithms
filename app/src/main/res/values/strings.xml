@@ -40,7 +40,7 @@
                                        </string>
 
 <string name="array_length_declare">Array Length Declare</string>
-<string name="array_length_declare_para">
+<string name="array_declare_para">
     The following shows the declaration of an array, but the contents of the array would be set to 0 by default.
     /n
     int[] myIntArray = new int[3];

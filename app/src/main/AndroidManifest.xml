@@ -3,50 +3,58 @@
     package="interactivelearning.datastructuresandalgorthims" >
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:allowBackup = "true"
+        android:icon = "@mipmap/ic_launcher"
+        android:label = "@string/app_name"
+        android:theme = "@style/AppTheme" >
+
+        <supports-screens
+
+            android:smallScreens = "false"
+            android:normalScreens = "true"
+            android:largeScreens = "true"
+            android:xlargeScreens = "true"/>
+
         <activity
-            android:name=".TopicActivity"
-            android:label="@string/title_activity_topic" >
+            android:name = ".TopicActivity"
+            android:label = "@string/title_activity_topic" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name = "android.intent.action.MAIN" />
+                <category android:name = "android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity
-            android:name=".ArrayTopicActivity"
-            android:label="@string/array_topic_activity"
-            android:parentActivityName=".TopicActivity">
+            android:name = ".ArrayTopicActivity"
+            android:label = "@string/array_topic_activity"
+            android:parentActivityName = ".TopicActivity">
 
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ArrayTopicActivity"
+                android:name = "android.support.PARENT_ACTIVITY"
+                android:value = ".ArrayTopicActivity"
             />
         </activity>
         <activity
-            android:name=".ArrayIntro"
-            android:label="@string/array_topic_intro"
-            android:parentActivityName=".ArrayTopicActivity">
+            android:name = ".ArrayIntro"
+            android:label = "@string/array_topic_intro"
+            android:parentActivityName = ".ArrayTopicActivity">
 
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ArrayTopicActivity"
+                android:name = "android.support.PARENT_ACTIVITY"
+                android:value = ".ArrayTopicActivity"
                 />
         </activity>
 
         <Activity
             android:name = "ArrayLengthDeclare"
-            android:label="@string/array_length_declare"
-            android:parentActivityName=".ArrayTopicActivity">
+            android:label = "@string/array_length_declare"
+            android:parentActivityName = ".ArrayTopicActivity">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ArrayTopicActivity"
                 />
         </Activity>
-    </application>
 
+    </application>
 </manifest>

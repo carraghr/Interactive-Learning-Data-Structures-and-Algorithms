@@ -2,7 +2,10 @@ package interactivelearning.datastructuresandalgorthims;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by Richard on 01/03/2015.
@@ -13,17 +16,19 @@ public class ArrayLengthDeclare extends Activity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.arraydeclaration);
-        setUPTutorial();
-    }
+        Button button = (Button) findViewById(R.id.arraydeclarationbutton);
 
-    private void setUPTutorial() {
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Toast toast = Toast.makeText(getApplicationContext(), "You sure showed me!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
         //TODO write function to out new strings for declaring arrays of set length.
-        String topic = this.getResources().getString(R.string.array_declaration);
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
-        textViewToChange.setText(topic);
+        textViewToChange.setText(R.string.array_declaration);
 
-        String intro = this.getResources().getString(R.string.array_declare_para);
         textViewToChange = (TextView) findViewById(R.id.arraydeclaration);
-        textViewToChange.setText(intro);
+        textViewToChange.setText(R.string.array_declare_para);
     }
 }

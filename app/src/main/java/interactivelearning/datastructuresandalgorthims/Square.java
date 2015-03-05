@@ -59,7 +59,7 @@ public class Square{
 
     public Square(float [] center, float radius, float [] color){
 
-        this.center = center;
+        this.centerPoint = center;
         this.radius = radius;
 
         recreateSquare();

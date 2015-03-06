@@ -3,7 +3,8 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/">
 
     <TextView
         android:layout_height="wrap_content"
@@ -35,12 +36,10 @@
         android:layout_height="wrap_content"
         android:text="Declaration go!"
         android:id="@+id/arraydeclarationbutton"
+        android:layout_marginTop="140dp"
         android:layout_below="@+id/arraydeclaration"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="69dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignLeft="@+id/arrayinitialisationbutton"
+        android:layout_alignStart="@+id/arrayinitialisationbutton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -72,5 +71,22 @@
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/numberInput"
         android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textSize="18sp"
+        android:layout_below="@+id/arraydeclaration"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textSize="18sp"
+        android:layout_below="@+id/textView"
+        />
 
 </RelativeLayout>

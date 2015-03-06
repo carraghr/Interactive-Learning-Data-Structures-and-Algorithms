@@ -9,6 +9,7 @@ import java.nio.ShortBuffer;
 
 /**
  * Created by Richard on 04/03/2015.
+ * Based on Jessica's work
  */
 public class Square{
 
@@ -62,7 +63,7 @@ public class Square{
         this.centerPoint = center;
         this.radius = radius;
 
-        recreateSquare();
+        createSquare();
 
         //initialize vertex byte buffer for shape coordinated.
         ByteBuffer bb = ByteBuffer.allocateDirect(squareCoords.length * 4);
@@ -91,13 +92,13 @@ public class Square{
         GLES20.glLinkProgram(MyProgram);                    //create OpenGL program executables
     }
 
-    private void recreateSquare() {
+    private void createSquare() {
 
         /**
          * so we start with a center point and a radius from there we want to create four sides/corners
          * we do this by moving out to the side by radius this will get the sides left and right x points
          * to get the y points we go up and down from the sides
-         * REMEMBER THAT EVERYTHING IS INVERTED.
+         * REMEMBER THAT EVERYTHING IS INVERTED. ie + = - and - = +,  left=right down=up
          */
                                     //    x                                   y           z - 2d never changes
         squareCoords = new float[] {(centerPoint[0] + radius), (centerPoint[1] - radius), 0.00f,
@@ -108,8 +109,32 @@ public class Square{
 
     }
 
+    /**
+     * with in the 4 move methods below moveDown, moveUp, moveRight and moveLeft
+     * if amount is a - been taking in going through a moveUp or moveRight it will result in a
+     * -m - -n = - +n which is wrong and will result in errors in movement.
+     * The methods below need some check for amount for error handling
+     * TODO ^
+     * @param amount
+     */
+    public void moveDown(float amount){
+        centerPoint[1] = centerPoint[1] + amount;
+        createSquare();
+    }
 
-    //@param mvpMatrix - The model View project matrix fin
+    public void moveUp(float amount){
+        centerPoint[1] = centerPoint[1] - amount;
+        createSquare();
+    }
+    public void moveRight(float amount){
+        centerPoint[0] = centerPoint[0] - amount;
+        createSquare();
+    }
+    public void moveLeft(float amount){
+        centerPoint[0] = centerPoint[0] + amount;
+        createSquare();
+    }
+
     // which to draw this shape.
     public void draw(){
 

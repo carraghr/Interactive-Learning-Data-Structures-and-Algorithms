@@ -33,44 +33,85 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Declaration go!"
+        android:text="@string/arrayDeclarationButtonText"
         android:id="@+id/arraydeclarationbutton"
+        android:layout_marginTop="96dp"
         android:layout_below="@+id/arraydeclaration"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="69dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignRight="@+id/numberInput2"
+        android:layout_alignEnd="@+id/numberInput2" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Initialisation Go!"
+        android:text="@string/arrayInitialisationButtonText"
         android:id="@+id/arrayinitialisationbutton"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/numberInput"
-        android:autoText="false"
-        android:hint="Enter numbers"
-        android:layout_above="@+id/arrayinitialisationbutton"
         android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/arrayinitialisation"
-        android:layout_below="@+id/arraydeclarationbutton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:textSize="18sp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/numberInput"
-        android:textSize="18sp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/numberInput1"
+        android:layout_below="@+id/arraydeclarationbutton" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/numberInput1"
+        android:autoText="false"
+        android:hint="@string/numberInputOneHint"
+        android:numeric="integer"
+        android:maxLines="1"
+        android:maxLength="1"
+        android:layout_above="@+id/arrayinitialisationbutton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/arrayinitialisationbutton"
+        android:layout_toStartOf="@+id/arrayinitialisationbutton" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/numberInput2"
+        android:autoText="false"
+        android:hint="@string/numberInputTwoHint"
+        android:numeric="integer"
+        android:maxLines="1"
+        android:maxLength="1"
+        android:maxWidth="5dp"
+        android:layout_alignTop="@+id/numberInput1"
+        android:layout_alignLeft="@+id/arrayinitialisationbutton"
+        android:layout_alignStart="@+id/arrayinitialisationbutton"
+        android:layout_alignRight="@+id/arrayinitialisationbutton"
+        android:layout_alignEnd="@+id/arrayinitialisationbutton" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/numberInput3"
+        android:autoText="false"
+        android:hint="@string/numberInputThreeHint"
+        android:numeric="integer"
+        android:maxLines="1"
+        android:maxLength="1"
+        android:layout_alignTop="@+id/numberInput2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/arrayinitialisationbutton"
+        android:layout_toEndOf="@+id/arrayinitialisationbutton" />
 
 </RelativeLayout>

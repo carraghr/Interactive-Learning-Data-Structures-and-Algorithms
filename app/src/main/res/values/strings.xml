@@ -52,4 +52,9 @@
         \n
         int[] myIntArray = {1,2,3};
     </string>
+    <string name="numberInputOneHint">1st number</string>
+    <string name="numberInputTwoHint">2nd number</string>
+    <string name="numberInputThreeHint">3rd number</string>
+    <string name="arrayInitialisationButtonText">Initialisation Go!</string>
+    <string name="arrayDeclarationButtonText">Declaration go!</string>
 </resources>

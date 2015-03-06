@@ -53,5 +53,38 @@
                 />
         </activity>
 
+        <activity
+            android:name = ".LinkedListTopicActivity"
+            android:label = "@string/LinkedList_topic_activity"
+            android:parentActivityName = ".TopicActivity">
+
+            <meta-data
+                android:name = "android.support.PARENT_ACTIVITY"
+                android:value = ".LinkedListTopicActivity"
+                />
+        </activity>
+
+        <activity
+            android:name = ".LinkedListIntro"
+            android:label = "@string/LinkedList_topic_intro"
+            android:parentActivityName = ".LinkedListTopicActivity">
+
+            <meta-data
+                android:name = "android.support.PARENT_ACTIVITY"
+                android:value = ".LinkedListTopicActivity"
+                />
+        </activity>
+        <!--
+                <activity
+                    android:name = "LinkedListDeclare"
+                    android:label = "@string/LinkedList_declare"
+                    android:parentActivityName = ".LinkedListTopicActivity">
+
+                    <meta-data
+                        android:name="android.support.PARENT_ACTIVITY"
+                        android:value=".LinkedListTopicActivity"
+                        />
+                </activity>
+        -->
     </application>
 </manifest>

@@ -40,6 +40,7 @@ public class TopicActivity extends Activity {
     private void registerClickCallback() {
 
         //register a click for each topic in list
+
         ListView list = (ListView) findViewById(R.id.ListViewTopicMenu);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -47,14 +48,28 @@ public class TopicActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView textView = (TextView) view;
                 String topic = textView.getText().toString();
-
+                Bundle bundle;
+                Intent intent;
                 switch (topic) {
                     case "Arrays":
 
-                        Bundle bundle = new Bundle();
+                        bundle = new Bundle();
                         bundle.putStringArray("subtopic",topics.getTopic("Arrays").getSubtopics());
 
-                        Intent intent = new Intent(TopicActivity.this,ArrayTopicActivity.class);
+
+                        intent = new Intent(TopicActivity.this,ArrayTopicActivity.class);
+                        intent.putExtras(bundle);
+
+                        TopicActivity.this.startActivity(intent);
+
+                        break;
+
+                    case "LinkedLists":
+
+                        bundle = new Bundle();
+                        bundle.putStringArray("subtopic",topics.getTopic("LinkedLists").getSubtopics());
+
+                        intent = new Intent(TopicActivity.this,LinkedListTopicActivity.class);
                         intent.putExtras(bundle);
 
                         TopicActivity.this.startActivity(intent);

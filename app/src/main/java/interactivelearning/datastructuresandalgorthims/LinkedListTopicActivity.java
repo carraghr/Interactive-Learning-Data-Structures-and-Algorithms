@@ -52,9 +52,9 @@ public class LinkedListTopicActivity extends Activity{
 
                             break;
 
-                        case "Declare an LinkedList":
+                        case "Declaration":
 
-                            intent = new Intent(LinkedListTopicActivity.this,LinkedListDeclare.class);
+                            intent = new Intent(LinkedListTopicActivity.this,LinkedListDeclaration.class);
                             LinkedListTopicActivity.this.startActivity(intent);
 
                             break;

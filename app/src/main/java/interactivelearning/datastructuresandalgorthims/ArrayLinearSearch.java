@@ -30,9 +30,9 @@ public class ArrayLinearSearch extends Activity {
 
     //TODO write function to out new strings for declaring arrays of set length.
     TextView textViewToChange = (TextView) findViewById(R.id.topic);
-    textViewToChange.setText(R.string.arrays_linear_search_heading);
+    textViewToChange.setText(R.string.array_linear_search);
 
-    textViewToChange = (TextView) findViewById(R.id.array_linear_search_text);
+    textViewToChange = (TextView) findViewById(R.id.array_text);
     textViewToChange.setText(R.string.array_linear_search_para);
     }
 }

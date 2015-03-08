@@ -25,7 +25,7 @@ public class ArrayIntroduction extends Activity{
         textViewToChange.setText(topic);
 
         String intro = this.getResources().getString(R.string.arrays_intro_paragraph);
-        textViewToChange = (TextView) findViewById(R.id.array_introduction);
+        textViewToChange = (TextView) findViewById(R.id.array_text);
         textViewToChange.setText(intro);
     }
 }

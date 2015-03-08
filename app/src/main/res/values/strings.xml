@@ -4,10 +4,8 @@
     <string name = "topics">Topics</string>
     <string name = "title_activity_topic">Interactive Learning</string>
 
-    <string name = "array_topic_activity">ArrayTopicActivity</string>
+    <string name = "array_topic_activity">Arrays</string>
     <string name="linkedList_topic_activity">LinkedListTopicActivity</string>
-
-    <string name = "arrays_topic_heading">Arrays</string>
 
     <string name = "array_introduction">Array Introduction</string>
 
@@ -63,58 +61,50 @@
 
     <string name="array_select_sort">Select Sort</string>
     <string name="array_select_sort_button_text">Submit values</string>
-    <string name="arrays_select_sort_heading">Select Sort</string>
     <string name="array_select_sort_para">Paragraph about select sort</string>
 
     <string name="array_bubble_sort_button_text">submit values</string>
-    <string name="arrays_bubble_sort_heading">Bubble Sort</string>
     <string name="array_bubble_sort_para">Paragraph about bubble sort</string>
     <string name="array_bubble_sort">Bubble Sort</string>
 
     <string name="array_merge_sort">Merge Sort</string>
     <string name="array_merge_sort_button_text">submit values</string>
-    <string name="arrays_merge_sort_heading">Merge Sort</string>
     <string name="array_merge_sort_para">Paragraph about Merge Sort</string>
 
     <string name="array_linear_search">Linear Search</string>
     <string name="array_linear_search_button_text">submit values</string>
-    <string name="arrays_linear_search_heading">Linear Search</string>
     <string name="array_linear_search_para">Paragraph about Linear search</string>
 
     <string name="array_binary_search">Binary Search</string>
-    <string name="arrays_binary_search_heading">Binary Search</string>
     <string name="array_binary_search_para">Paragraph about binary search</string>
 
-    <string name="linkedList_topic_intro">LinkedListIntro</string>
     <string name="linkedLists_topic_heading">LinkedLists</string>
 
-    <string name="LinkedList_declare">LinkedListDeclare</string>
-    <string name="linkedlist_intro_heading">LinkedList Introduction</string>
-    <string name="linkedlist_intro_para1">
-        LinkedLists are an implementation of a list and the way javas
-        standard library does this is in a doubly linked list of nodes.
-        However before we get too in depth lets revise what a list is.
+    <string name="linkedList_introduction">Introduction</string>
+    <string name="linkedList_declaration">Declaration</string>
+
+    <string name="linkedList_introduction_linkedlist_description">
+       a linked list is a data structure consisting of a group of nodes which together represent a sequence.
+        Each node is composed of a data and a reference (in other words, a link),
+        to the next node in the sequence. more complex variants add additional links.
+        This structure allows for efficient insertion or removal of elements from any position in the sequence.
+        \n
+        Here is an example of a singly linkedlist:
         \n
         \n
-        NEEDS TO BE CHANGED / REMOVED AS ARRAYLISTS ARE NOT COVERED IN APP
-        As seen before in ArrayList a list is a sequence of elements where
-        each element has a position in the list and elements can be repeated
-        within the list. LinkedList and ArrayList are both ways of storing
-        a list but have different implementations that lead to different
-        advantages and disadvantages which will be outlined with in all
-        topics of LinkedLists.
+        <!--http://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Singly-linked-list.svg/408px-Singly-linked-list.svg.png -->
+        REQUIRES IMAGE
         \n
         \n
-        SHOULD BE MOVED TO DECLARING A LINKEDLIST
-        LinkedLists can be implemented in one of two ways through a singly
-        or doubly linked list of nodes. A node is a data structure that
-        contains an element with is an item for a type the list wants to
-        store and a connection with the next node. Below you will see a
-        simple implementation of a node using T as a generic type.
+        Here is an example of a doubly linkedlist:
+        \n
+        \n
+        <!--http://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Doubly-linked-list.svg/610px-Doubly-linked-list.svg.png -->
+        REQUIRES IMAGE
     </string>
-    <string name="linkedlist_intro_para2">
+    <string name="linkedList_introduction_other_topics">
         Through the topics and examples give in this topic we will
-        use singly linked nodes till doubly linked are needed.
+        use singly linked nodes until doubly linked are required.
         \n
         \n
         The topics covered within LinkedLists are:
@@ -135,5 +125,7 @@
         Rotating a LinkedList - learn how to alter a LinkedList of
         the items are rotated around themselves.
     </string>
+    <string name="linkedlist_declaration_paragraph">Paragraph about linkedlist declaration</string>
+    <string name="linkedList_initialisation_para">Paragraph about linked list initialisation</string>
 
 </resources>

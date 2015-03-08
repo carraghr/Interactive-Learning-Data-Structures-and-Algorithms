@@ -21,7 +21,7 @@
         />
 
     <TextView
-        android:id="@+id/array_linear_search_text"
+        android:id="@+id/array_text"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:paddingLeft="5dp"
@@ -37,7 +37,7 @@
         android:text="@string/arrayDeclarationButtonText"
         android:id="@+id/arraydeclarationbutton"
         android:layout_marginTop="96dp"
-        android:layout_below="@+id/array_linear_search_text"
+        android:layout_below="@+id/array_text"
         android:layout_alignRight="@+id/numberInput2"
         android:layout_alignEnd="@+id/numberInput2" />
 

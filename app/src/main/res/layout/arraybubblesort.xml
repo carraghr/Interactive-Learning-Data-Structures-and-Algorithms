@@ -21,7 +21,7 @@
         />
 
     <TextView
-        android:id="@+id/array_linear_search_text"
+        android:id="@+id/array_text"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:paddingLeft="5dp"

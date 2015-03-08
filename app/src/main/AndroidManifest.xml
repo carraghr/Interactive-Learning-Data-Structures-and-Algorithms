@@ -121,7 +121,7 @@
 
         <activity
             android:name = ".LinkedListIntro"
-            android:label = "@string/linkedList_topic_intro"
+            android:label = "@string/linkedList_introduction"
             android:parentActivityName = ".LinkedListTopicActivity">
 
             <meta-data
@@ -135,13 +135,13 @@
            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ArrayDeclare"/>
+                android:value=".ArrayDeclaration"/>
 
         </activity>
-        <!--
+
                 <activity
-                    android:name = "LinkedListDeclare"
-                    android:label = "@string/LinkedList_declare"
+                    android:name = "LinkedListDeclaration"
+                    android:label = "@string/linkedList_declaration"
                     android:parentActivityName = ".LinkedListTopicActivity">
 
                     <meta-data
@@ -149,6 +149,6 @@
                         android:value=".LinkedListTopicActivity"
                         />
                 </activity>
-        -->
+
     </application>
 </manifest>

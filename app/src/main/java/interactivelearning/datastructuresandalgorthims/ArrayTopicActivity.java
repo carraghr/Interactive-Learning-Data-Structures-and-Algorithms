@@ -22,7 +22,7 @@ public class ArrayTopicActivity extends Activity {
         setContentView(R.layout.activity_topic);
 
         final TextView textViewToChange = (TextView) findViewById(R.id.topic);
-        textViewToChange.setText(R.string.arrays_topic_heading);
+        textViewToChange.setText(R.string.array_topic_activity);
 
         Bundle bundle = this.getIntent().getExtras();
         subtopics = bundle.getStringArray("subtopic");

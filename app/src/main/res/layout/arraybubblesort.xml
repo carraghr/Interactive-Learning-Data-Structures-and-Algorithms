@@ -34,34 +34,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/arrayDeclarationButtonText"
-        android:id="@+id/arraydeclarationbutton"
-        android:layout_marginTop="96dp"
-        android:layout_below="@+id/array_bubble_sort_text"
-        android:layout_alignRight="@+id/numberInput2"
-        android:layout_alignEnd="@+id/numberInput2" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/arrayInitialisationButtonText"
+        android:text="@string/array_bubble_sort_button_text"
         android:id="@+id/array_bubble_sort_button"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/arrayinitialisation"
-        android:textSize="18sp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/numberInput1"
-        android:layout_below="@+id/arraydeclarationbutton" />
+        android:layout_centerHorizontal="true"
+        android:singleLine="true"/>
 
     <EditText
         android:layout_width="wrap_content"

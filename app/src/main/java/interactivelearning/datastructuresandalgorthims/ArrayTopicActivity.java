@@ -66,14 +66,14 @@ public class ArrayTopicActivity extends Activity {
                         ArrayTopicActivity.this.startActivity(intent);
 
                         break;
-/*
-                    case "Sorting":
 
-                        intent = new Intent(ArrayTopicActivity.this,ArraySearch.class);
+                    case "Bubble Sort":
+
+                        intent = new Intent(ArrayTopicActivity.this,ArrayBubbleSort.class);
                         ArrayTopicActivity.this.startActivity(intent);
 
                         break;
-
+/*
                     case "Searching":
 
                         intent = new Intent(ArrayTopicActivity.this,ArraySort.class);

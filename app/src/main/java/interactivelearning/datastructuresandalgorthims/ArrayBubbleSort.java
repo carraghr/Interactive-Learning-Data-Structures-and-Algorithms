@@ -9,30 +9,30 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * Created by Jessica on 08/03/2015.
+ * Created by Jecca on 08/03/2015.
  */
-public class ArraySelectSort extends Activity{
+public class ArrayBubbleSort extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.arrayselectsort);
+        setContentView(R.layout.arraybubblesort);
         Button selectSortButton = (Button) findViewById(R.id.array_bubble_sort_button);
 
         selectSortButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "You sure showed that select sort button", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), "You sure showed that bubble sort button", Toast.LENGTH_SHORT);
                 toast.show();
 
-                Intent intent = new Intent(ArraySelectSort.this,SurfaceActivity.class);
-                ArraySelectSort.this.startActivity(intent);
+                Intent intent = new Intent(ArrayBubbleSort.this,SurfaceActivity.class);
+                ArrayBubbleSort.this.startActivity(intent);
             }
         });
 
         //TODO write function to out new strings for declaring arrays of set length.
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
-        textViewToChange.setText(R.string.arrays_select_sort_heading);
+        textViewToChange.setText(R.string.arrays_bubble_sort_heading);
 
         textViewToChange = (TextView) findViewById(R.id.array_bubble_sort_text);
-        textViewToChange.setText(R.string.array_select_sort_para);
+        textViewToChange.setText(R.string.array_bubble_sort_para);
     }
 }

@@ -68,8 +68,15 @@
     <string name="arrayInitialisationButtonText">Submit Initialisation</string>
     <string name="arrayDeclarationButtonText">Submit Declaration</string>
 
-    <string name="array_select_sort">select sort</string>
-
+    <string name="array_select_sort">Select Sort</string>
+    <string name="array_select_sort_button_text">Submit values</string>
+    <string name="arrays_select_sort_heading">Select Sort</string>
+    <string name="array_select_sort_para">Paragraph about select sort</string>
+    
+    <string name="array_bubble_sort_button_text">submit values</string>
+    <string name="arrays_bubble_sort_heading">Bubble Sort</string>
+    <string name="array_bubble_sort_para">Paragraph about bubble sort</string>
+    <string name="array_bubble_sort">Bubble Sort</string>
 
     <string name="LinkedList_declare">LinkedListDeclare</string>
     <string name="linkedlist_intro_heading">LinkedList Introduction</string>
@@ -118,8 +125,6 @@
         Rotating a LinkedList - learn how to alter a LinkedList of
         the items are rotated around themselves.
     </string>
-    <string name="array_select_sort_button_text">Submit values</string>
-    <string name="arrays_select_sort_heading">Select Sort</string>
-    <string name="array_select_sort_para">Paragraph about select sort</string>
+
 
 </resources>

@@ -22,8 +22,8 @@ public class ArrayDeclare extends Activity{
                 Toast toast = Toast.makeText(getApplicationContext(), "You sure showed that declaration button", Toast.LENGTH_SHORT);
                 toast.show();
 
-                Intent intent = new Intent(ArrayLengthDeclare.this,SurfaceActivity.class);
-                ArrayLengthDeclare.this.startActivity(intent);
+                Intent intent = new Intent(ArrayDeclare.this,SurfaceActivity.class);
+                ArrayDeclare.this.startActivity(intent);
             }
         });
 

@@ -74,6 +74,15 @@
                 android:value = ".LinkedListTopicActivity"
                 />
         </activity>
+        <activity
+            android:name=".SurfaceActivity"
+            android:label="SurfaceActivity"
+           >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ArrayLengthDeclare"/>
+
+        </activity>
         <!--
                 <activity
                     android:name = "LinkedListDeclare"

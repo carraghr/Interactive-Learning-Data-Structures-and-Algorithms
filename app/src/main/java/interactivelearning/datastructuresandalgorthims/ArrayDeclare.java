@@ -1,6 +1,7 @@
 package interactivelearning.datastructuresandalgorthims;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,9 @@ public class ArrayDeclare extends Activity{
             public void onClick(View v) {
                 Toast toast = Toast.makeText(getApplicationContext(), "You sure showed that declaration button", Toast.LENGTH_SHORT);
                 toast.show();
+
+                Intent intent = new Intent(ArrayLengthDeclare.this,SurfaceActivity.class);
+                ArrayLengthDeclare.this.startActivity(intent);
             }
         });
 

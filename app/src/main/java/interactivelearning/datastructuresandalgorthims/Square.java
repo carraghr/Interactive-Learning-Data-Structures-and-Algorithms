@@ -18,7 +18,7 @@ public class Square{
             "uniform mat4 uMVPMatrix;" +
             "attribute vec4 vPosition;" +
             "void main() {" +
-            " gl_Position = uMVPMatrix * v{psition;"+"" +
+            "  gl_Position = uMVPMatrix * vPosition;"+
             "}";
 
     private final String FragmentShaderCode =
@@ -29,7 +29,7 @@ public class Square{
            " gl_FragColor = vColor;" +
            "}";
 
-    private final FloatBuffer vertextBuffer;
+    private final FloatBuffer vertexBuffer;
     private final ShortBuffer drawListBuffer;
     private final int MyProgram;
     private int myPositionHandle;
@@ -39,17 +39,14 @@ public class Square{
     //number of coordinate per vertext in this array
     static final int COORDS_PER_VERTEX = 3;
 
-    float [] squareCoords = {0.00f , 0.00f, 0.00f,//top left
-                             0.00f , 0.00f, 0.00f,//bottom left
-                             0.00f , 0.00f, 0.00f,//bottom right
-                             0.00f , 0.00f, 0.00f};//top right
+    private float [] squareCoords;
 
-    private final short [] drawOrder ={0,1,3,0,2,3}; //order to draw vertices in an
-                                                    // anti-clock wise direction
+    private final short [] drawOrder ={0, 1, 2, 0, 2, 3}; //order to draw vertices in an
+                                                          // anti-clock wise direction
 
     private final int VertexStride = COORDS_PER_VERTEX * 4; // 4 bytes per vertex
 
-    float [] colour;// Format of RGB Alpha.
+    float [] color;// Format of RGB Alpha.
 
     float [] centerPoint;
     float radius;
@@ -63,15 +60,16 @@ public class Square{
         this.centerPoint = center;
         this.radius = radius;
 
+        this.color=color;
+
         createSquare();
 
         //initialize vertex byte buffer for shape coordinated.
         ByteBuffer bb = ByteBuffer.allocateDirect(squareCoords.length * 4);
         bb.order(ByteOrder.nativeOrder());
-
-        vertextBuffer = bb.asFloatBuffer();
-        vertextBuffer.put(squareCoords);
-        vertextBuffer.position(0);
+        vertexBuffer = bb.asFloatBuffer();
+        vertexBuffer.put(squareCoords);
+        vertexBuffer.position(0);
 
         //initialize byte buffer for the draw list.
         ByteBuffer drawListB = ByteBuffer.allocateDirect( // number of coordinate values * 2 bytes per short
@@ -101,10 +99,10 @@ public class Square{
          * REMEMBER THAT EVERYTHING IS INVERTED. ie + = - and - = +,  left=right down=up
          */
                                     //    x                                   y           z - 2d never changes
-        squareCoords = new float[] {(centerPoint[0] + radius), (centerPoint[1] - radius), 0.00f,
-                                    (centerPoint[0] + radius), (centerPoint[1] + radius), 0.00f,
-                                    (centerPoint[0] - radius), (centerPoint[1] + radius), 0.00f,
-                                    (centerPoint[0] - radius), (centerPoint[1] - radius), 0.00f};
+        squareCoords = new float[] {(centerPoint[0] + radius), (centerPoint[1] - radius), 0.00f,//LT
+                                    (centerPoint[0] + radius), (centerPoint[1] + radius), 0.00f,//LB
+                                    (centerPoint[0] - radius), (centerPoint[1] + radius), 0.00f,//RB
+                                    (centerPoint[0] - radius), (centerPoint[1] - radius), 0.00f};//RT
 
 
     }
@@ -135,8 +133,26 @@ public class Square{
         createSquare();
     }
 
+    public float [] getRightCenterPoint(){
+        return new float[]{ centerPoint[0] - radius, centerPoint[2], 0.00f};
+    }
+
+    public float [] getLeftCenterPoint(){
+        return new float[]{ centerPoint[0] + radius, centerPoint[2], 0.00f};
+    }
+
+    public float [] getTopCenterPoint(){
+        return new float[]{ centerPoint[0], centerPoint[2] - radius, 0.00f};
+    }
+
+    public float [] getBottomCenterPoint(){
+        return new float[]{ centerPoint[0], centerPoint[2] + radius, 0.00f};
+    }
+
+
+
     // which to draw this shape.
-    public void draw(){
+    public void draw(float[] mvpMatrix){
 
        //Add program to OpenGL environment
         GLES20.glUseProgram(MyProgram);
@@ -150,23 +166,27 @@ public class Square{
         //Prepare the triangle coordinate data
         GLES20.glVertexAttribPointer(myPositionHandle,COORDS_PER_VERTEX,
                                      GLES20.GL_FLOAT,false,
-                                     VertexStride,vertextBuffer);
+                                     VertexStride, vertexBuffer);
 
         //get handle to fragment shader vColor member
         myColorHandle = GLES20.glGetUniformLocation(MyProgram,"vColor");
 
         //Set color for drawing the triangle
-        GLES20.glUniform4fv(myColorHandle,1,colour,0);
+        GLES20.glUniform4fv(myColorHandle, 1, color, 0);
 
         //get handle to shapes transformation matrix
         myMVPMatrixHandle = GLES20.glGetUniformLocation(MyProgram,"uMVPMatrix");
         MyRenderer.checkGlError("glGetUniformLocation");
 
+        // Apply the projection and view transformation
+        GLES20.glUniformMatrix4fv(myMVPMatrixHandle, 1, false, mvpMatrix, 0);
+        MyRenderer.checkGlError("glUniformMatrix4fv");
+
         //Draw the square
-        GLES20.glDrawElements(GLES20.GL_TRIANGLES,drawOrder.length,
-                              GLES20.GL_UNSIGNED_SHORT,drawListBuffer);
+        GLES20.glDrawElements(GLES20.GL_TRIANGLES, drawOrder.length,
+                              GLES20.GL_UNSIGNED_SHORT, drawListBuffer);
 
         //Disable vertex array
-        GLES20.glDisableVertexAttribArray(myPositionHandle);
+        //GLES20.glDisableVertexAttribArray(myPositionHandle);
     }
 }

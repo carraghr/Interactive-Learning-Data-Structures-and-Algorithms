@@ -15,7 +15,7 @@ public class ArrayDeclare extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.arraydeclaration);
         Button declarationButton = (Button) findViewById(R.id.arraydeclarationbutton);
-        Button initialisationButton = (Button) findViewById(R.id.arrayinitialisationbutton);
+        Button initialisationButton = (Button) findViewById(R.id.array_select_sort_button);
 
         declarationButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -38,7 +38,7 @@ public class ArrayDeclare extends Activity{
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
         textViewToChange.setText(R.string.arrays_declaration_heading);
 
-        textViewToChange = (TextView) findViewById(R.id.arraydeclaration);
+        textViewToChange = (TextView) findViewById(R.id.array_select_sort_text);
         textViewToChange.setText(R.string.array_declaration_para);
 
         textViewToChange = (TextView) findViewById(R.id.arrayinitialisation);

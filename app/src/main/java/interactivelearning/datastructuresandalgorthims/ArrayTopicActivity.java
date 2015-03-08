@@ -59,14 +59,14 @@ public class ArrayTopicActivity extends Activity {
                         ArrayTopicActivity.this.startActivity(intent);
 
                         break;
-/*
-                    case "Declare Array Filled with Values":
 
-                        intent = new Intent(ArrayTopicActivity.this,ArrayValuesDeclare.class);
+                    case "Select Sort":
+
+                        intent = new Intent(ArrayTopicActivity.this,ArraySelectSort.class);
                         ArrayTopicActivity.this.startActivity(intent);
 
                         break;
-
+/*
                     case "Sorting":
 
                         intent = new Intent(ArrayTopicActivity.this,ArraySearch.class);

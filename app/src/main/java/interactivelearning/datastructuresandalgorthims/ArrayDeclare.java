@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ArrayLengthDeclare extends Activity{
+public class ArrayDeclare extends Activity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -32,7 +32,7 @@ public class ArrayLengthDeclare extends Activity{
 
         //TODO write function to out new strings for declaring arrays of set length.
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
-        textViewToChange.setText(R.string.array_declaration);
+        textViewToChange.setText(R.string.arrays_declaration_heading);
 
         textViewToChange = (TextView) findViewById(R.id.arraydeclaration);
         textViewToChange.setText(R.string.array_declaration_para);

@@ -2,14 +2,23 @@
 
     <string name = "app_name">Data Structures and Algorithms</string>
     <string name = "topics">Topics</string>
-    <string name = "title_activity_topic">TopicActivity</string>
+    <string name = "title_activity_topic">Interactive Learning</string>
 
     <string name = "array_topic_activity">ArrayTopicActivity</string>
+    <string name="linkedList_topic_activity">LinkedListTopicActivity</string>
+
+
     <string name = "array_topic_intro">ArrayTopicIntro</string>
-    <string name = "arrays">Arrays</string>
-    <string name = "arrays_intro">Arrays Introduction</string>
-    <string name = "array_declaration">Declaring an Array</string>
-    <string name = "arrays_intro_para">
+    <string name="linkedList_topic_intro">LinkedListIntro</string>
+
+
+    <string name = "arrays_topic_heading">Arrays</string>
+    <string name="linkedLists_topic_heading">LinkedLists</string>
+
+    <string name = "arrays_intro_heading">Arrays Introduction</string>
+    <string name = "arrays_declaration_heading">Declaring an Array</string>
+
+    <string name = "arrays_intro_paragraph">
         Arrays are one of the first data structures that you will be introduced to first for primitive
         data types and then objects. If you have some basic programming experience then you should
         already have met the materials with in this topic.
@@ -32,7 +41,8 @@
         \n
         Searching - Learn how to efficacy search an array.
     </string>
-    <string name="array_length_declare">Array Length Declare</string>
+
+    <string name="array_declare">Array Length Declare</string>
     <string name="array_declaration_para">
         The following shows the declaration of an array, but the contents of the array would be set to 0 by default.
         \n
@@ -58,9 +68,9 @@
     <string name="arrayInitialisationButtonText">Initialisation Go!</string>
     <string name="arrayDeclarationButtonText">Declaration go!</string>
 
-    <string name="LinkedLists">LinkedLists</string>
-    <string name="LinkedList_topic_activity">LinkedListTopicActivity</string>
-    <string name="LinkedList_topic_intro">LinkedListIntro</string>
+
+
+
     <string name="LinkedList_declare">LinkedListDeclare</string>
     <string name="linkedlist_intro">Arrays Introduction</string>
     <string name="linkedlist_intro_para">Paragraph about linkedlist</string>

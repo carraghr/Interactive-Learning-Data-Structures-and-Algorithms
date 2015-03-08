@@ -43,8 +43,8 @@
         </activity>
 
         <activity
-            android:name = "ArrayLengthDeclare"
-            android:label = "@string/array_length_declare"
+            android:name = "ArrayDeclare"
+            android:label = "@string/array_declare"
             android:parentActivityName = ".ArrayTopicActivity">
 
             <meta-data
@@ -55,7 +55,7 @@
 
         <activity
             android:name = ".LinkedListTopicActivity"
-            android:label = "@string/LinkedList_topic_activity"
+            android:label = "@string/linkedList_topic_activity"
             android:parentActivityName = ".TopicActivity">
 
             <meta-data
@@ -66,7 +66,7 @@
 
         <activity
             android:name = ".LinkedListIntro"
-            android:label = "@string/LinkedList_topic_intro"
+            android:label = "@string/linkedList_topic_intro"
             android:parentActivityName = ".LinkedListTopicActivity">
 
             <meta-data

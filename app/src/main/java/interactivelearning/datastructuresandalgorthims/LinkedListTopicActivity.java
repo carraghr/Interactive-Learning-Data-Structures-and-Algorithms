@@ -21,7 +21,7 @@ public class LinkedListTopicActivity extends Activity{
             setContentView(R.layout.activity_topic);
 
             final TextView textViewToChange = (TextView) findViewById(R.id.topic);
-            textViewToChange.setText(R.string.LinkedLists);
+            textViewToChange.setText(R.string.linkedLists_topic_heading);
 
             Bundle bundle = this.getIntent().getExtras();
             subtopics = bundle.getStringArray("subtopic");

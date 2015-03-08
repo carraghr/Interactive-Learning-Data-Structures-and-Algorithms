@@ -34,11 +34,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/array_bubble_sort_button_text"
+        android:text="@string/array_merge_sort_button_text"
         android:id="@+id/array_linear_search_button"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:singleLine="true"/>
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"

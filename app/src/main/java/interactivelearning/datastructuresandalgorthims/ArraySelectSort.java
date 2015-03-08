@@ -16,7 +16,7 @@ public class ArraySelectSort extends Activity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.arrayselectsort);
-        Button selectSortButton = (Button) findViewById(R.id.array_bubble_sort_button);
+        Button selectSortButton = (Button) findViewById(R.id.array_linear_search_button);
 
         selectSortButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -32,7 +32,7 @@ public class ArraySelectSort extends Activity{
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
         textViewToChange.setText(R.string.arrays_select_sort_heading);
 
-        textViewToChange = (TextView) findViewById(R.id.array_bubble_sort_text);
+        textViewToChange = (TextView) findViewById(R.id.array_linear_search_text);
         textViewToChange.setText(R.string.array_select_sort_para);
     }
 }

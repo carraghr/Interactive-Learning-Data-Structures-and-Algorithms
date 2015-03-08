@@ -76,6 +76,39 @@
         </activity>
 
         <activity
+            android:name = "ArrayMergeSort"
+            android:label = "@string/array_merge_sort"
+            android:parentActivityName = ".ArrayTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ArrayTopicActivity"
+                />
+        </activity>
+
+        <activity
+            android:name = "ArrayLinearSearch"
+            android:label = "@string/array_linear_search"
+            android:parentActivityName = ".ArrayTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ArrayTopicActivity"
+                />
+        </activity>
+
+        <activity
+            android:name = "ArrayBinarySearch"
+            android:label = "@string/array_binary_search"
+            android:parentActivityName = ".ArrayTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ArrayTopicActivity"
+                />
+        </activity>
+
+        <activity
             android:name = ".LinkedListTopicActivity"
             android:label = "@string/linkedList_topic_activity"
             android:parentActivityName = ".TopicActivity">

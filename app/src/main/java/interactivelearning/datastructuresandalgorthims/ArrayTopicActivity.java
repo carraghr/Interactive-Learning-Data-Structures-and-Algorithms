@@ -73,13 +73,27 @@ public class ArrayTopicActivity extends Activity {
                         ArrayTopicActivity.this.startActivity(intent);
 
                         break;
-/*
-                    case "Searching":
 
-                        intent = new Intent(ArrayTopicActivity.this,ArraySort.class);
+                    case "Merge Sort":
+
+                        intent = new Intent(ArrayTopicActivity.this,ArrayMergeSort.class);
                         ArrayTopicActivity.this.startActivity(intent);
 
-                        break;*/
+                        break;
+
+                    case "Linear Search":
+
+                        intent = new Intent(ArrayTopicActivity.this,ArrayLinearSearch.class);
+                        ArrayTopicActivity.this.startActivity(intent);
+
+                        break;
+
+                    case "Binary Search":
+
+                        intent = new Intent(ArrayTopicActivity.this,ArrayBinarySearch.class);
+                        ArrayTopicActivity.this.startActivity(intent);
+
+                        break;
                 }
             }
         });

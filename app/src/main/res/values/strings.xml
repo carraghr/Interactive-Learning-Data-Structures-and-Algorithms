@@ -7,16 +7,10 @@
     <string name = "array_topic_activity">ArrayTopicActivity</string>
     <string name="linkedList_topic_activity">LinkedListTopicActivity</string>
 
-
-    <string name = "array_topic_intro">ArrayTopicIntro</string>
-    <string name="linkedList_topic_intro">LinkedListIntro</string>
-
-
     <string name = "arrays_topic_heading">Arrays</string>
-    <string name="linkedLists_topic_heading">LinkedLists</string>
 
-    <string name = "arrays_intro_heading">Arrays Introduction</string>
-    <string name = "arrays_declaration_heading">Declaring an Array</string>
+    <string name = "array_introduction">Array Introduction</string>
+
 
     <string name = "arrays_intro_paragraph">
                 Arrays are one of the first data structures that you will be introduced to first for primitive
@@ -42,9 +36,8 @@
         Searching - Learn how to efficacy search an array.
     </string>
 
-    <string name="array_declare">Array Declare</string>
-
-    <string name="array_declaration_para">
+    <string name="array_declaration">Declaring an Array</string>
+    <string name="array_declaration_paragraph">
         The following shows the declaration of an array, but the contents of the array would be set to 0 by default.
         \n
         \n
@@ -77,6 +70,23 @@
     <string name="arrays_bubble_sort_heading">Bubble Sort</string>
     <string name="array_bubble_sort_para">Paragraph about bubble sort</string>
     <string name="array_bubble_sort">Bubble Sort</string>
+
+    <string name="array_merge_sort">Merge Sort</string>
+    <string name="array_merge_sort_button_text">submit values</string>
+    <string name="arrays_merge_sort_heading">Merge Sort</string>
+    <string name="array_merge_sort_para">Paragraph about Merge Sort</string>
+
+    <string name="array_linear_search">Linear Search</string>
+    <string name="array_linear_search_button_text">submit values</string>
+    <string name="arrays_linear_search_heading">Linear Search</string>
+    <string name="array_linear_search_para">Paragraph about Linear search</string>
+
+    <string name="array_binary_search">Binary Search</string>
+    <string name="arrays_binary_search_heading">Binary Search</string>
+    <string name="array_binary_search_para">Paragraph about binary search</string>
+
+    <string name="linkedList_topic_intro">LinkedListIntro</string>
+    <string name="linkedLists_topic_heading">LinkedLists</string>
 
     <string name="LinkedList_declare">LinkedListDeclare</string>
     <string name="linkedlist_intro_heading">LinkedList Introduction</string>
@@ -125,17 +135,5 @@
         Rotating a LinkedList - learn how to alter a LinkedList of
         the items are rotated around themselves.
     </string>
-    <string name="array_merge_sort">Merge Sort</string>
-    <string name="array_merge_sort_button_text">submit values</string>
-    <string name="arrays_merge_sort_heading">Merge Sort</string>
-    <string name="array_merge_sort_para">Paragraph about Merge Sort</string>
-    <string name="array_linear_search">Array Linear Search</string>
-    <string name="array_binary_search">Binary Search</string>
-    <string name="array_linear_search_button_text">submit values</string>
-    <string name="arrays_linear_search_heading">Linear Search</string>
-    <string name="array_linear_search_para">Paragraph about Linear search</string>
-    <string name="arrays_binary_search_heading">Binary Search</string>
-    <string name="array_binary_search_para">Paragraph about binary search</string>
-
 
 </resources>

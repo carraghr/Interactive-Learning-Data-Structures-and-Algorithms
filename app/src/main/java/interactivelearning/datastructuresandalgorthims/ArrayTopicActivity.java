@@ -48,14 +48,14 @@ public class ArrayTopicActivity extends Activity {
                 switch(textView.getText().toString()){
                     case "Introduction":
 
-                        intent = new Intent(ArrayTopicActivity.this,ArrayIntro.class);
+                        intent = new Intent(ArrayTopicActivity.this,ArrayIntroduction.class);
                         ArrayTopicActivity.this.startActivity(intent);
 
                         break;
 
                     case "Declare an Array":
 
-                        intent = new Intent(ArrayTopicActivity.this,ArrayDeclare.class);
+                        intent = new Intent(ArrayTopicActivity.this,ArrayDeclaration.class);
                         ArrayTopicActivity.this.startActivity(intent);
 
                         break;

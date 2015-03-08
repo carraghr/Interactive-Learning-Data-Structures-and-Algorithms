@@ -30,7 +30,7 @@ public class ArrayBinarySearch extends Activity{
 
     //TODO write function to out new strings for declaring arrays of set length.
     TextView textViewToChange = (TextView) findViewById(R.id.topic);
-    textViewToChange.setText(R.string.arrays_binary_search_heading);
+    textViewToChange.setText(R.string.array_binary_search);
 
     textViewToChange = (TextView) findViewById(R.id.array_linear_search_text);
     textViewToChange.setText(R.string.array_binary_search_para);

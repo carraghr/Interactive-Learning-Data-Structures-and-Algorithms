@@ -32,8 +32,8 @@
             />
         </activity>
         <activity
-            android:name = ".ArrayIntro"
-            android:label = "@string/array_topic_intro"
+            android:name = ".ArrayIntroduction"
+            android:label = "@string/array_introduction"
             android:parentActivityName = ".ArrayTopicActivity">
 
             <meta-data
@@ -43,8 +43,8 @@
         </activity>
 
         <activity
-            android:name = "ArrayDeclare"
-            android:label = "@string/array_declare"
+            android:name = "ArrayDeclaration"
+            android:label = "@string/array_declaration"
             android:parentActivityName = ".ArrayTopicActivity">
 
             <meta-data

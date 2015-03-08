@@ -7,6 +7,7 @@
     android:textSize="22sp"
     android:paddingBottom="2dp"
     android:paddingTop="5dp"
-    android:paddingLeft="10dp">
+    android:paddingLeft="10dp"
+    android:background="#ffffff">
 
 </TextView>

@@ -2,7 +2,7 @@
 
     <string name = "app_name">Data Structures and Algorithms</string>
     <string name = "topics">Topics</string>
-    <string name = "title_activity_topic">Interactive Learning</string>
+    <string name = "title_activity_topic">Data Structures and Algorithms with Java</string>
 
     <string name = "array_topic_activity">Arrays</string>
     <string name="linkedList_topic_activity">LinkedListTopicActivity</string>

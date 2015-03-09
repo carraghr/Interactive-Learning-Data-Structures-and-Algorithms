@@ -134,19 +134,19 @@ public class Square{
     }
 
     public float [] getRightCenterPoint(){
-        return new float[]{ centerPoint[0] - radius, centerPoint[2], 0.00f};
+        return new float[]{ centerPoint[0] - radius, centerPoint[1], 0.00f};
     }
 
     public float [] getLeftCenterPoint(){
-        return new float[]{ centerPoint[0] + radius, centerPoint[2], 0.00f};
+        return new float[]{ centerPoint[0] + radius, centerPoint[1], 0.00f};
     }
 
     public float [] getTopCenterPoint(){
-        return new float[]{ centerPoint[0], centerPoint[2] - radius, 0.00f};
+        return new float[]{ centerPoint[0], centerPoint[1] - radius, 0.00f};
     }
 
     public float [] getBottomCenterPoint(){
-        return new float[]{ centerPoint[0], centerPoint[2] + radius, 0.00f};
+        return new float[]{ centerPoint[0], centerPoint[1] + radius, 0.00f};
     }
 
 

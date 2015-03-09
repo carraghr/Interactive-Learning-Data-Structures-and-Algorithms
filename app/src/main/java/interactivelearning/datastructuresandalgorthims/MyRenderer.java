@@ -17,7 +17,8 @@ public class MyRenderer implements GLSurfaceView.Renderer{
 
     private static final String TAG = "MyRenderer";
 
-    private Square mySquare;
+    private Square mySquare, mySq;
+    private Line myline;
 
     // myMVPMatrix is an abbreviation for "Model View Projection Matrix"
     private final float[] mMVPMatrix = new float[16];
@@ -31,8 +32,10 @@ public class MyRenderer implements GLSurfaceView.Renderer{
         GLES20.glClearColor(0.6f, 0.0f, 0.0f, 0.0f);
 
        // set up shapes
-        mySquare = new Square(new float[]{0.0f,0.0f}, 0.005f, new float[]{1.f,1.f,1.f,1.f});
+        mySquare = new Square(new float[]{0.0f,0.0f}, 0.05f, new float[]{1.f,1.f,1.f,1.f});
+        mySq = new Square(new float[]{0.6f,0.0f}, 0.05f, new float[]{1.f,1.f,1.f,1.f});
 
+        myline = new Line(0.5f,mySq.getRightCenterPoint(),mySquare.getLeftCenterPoint(), new float[]{0.f,0.f,0.f,0.f});
     }
 
     @Override
@@ -48,9 +51,10 @@ public class MyRenderer implements GLSurfaceView.Renderer{
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
 
         // Draw square
-      mySquare.draw(mMVPMatrix);
-
-
+        mySquare.draw(mMVPMatrix);
+        mySq.draw(mMVPMatrix);
+        //Draw connected line
+        myline.draw(mMVPMatrix);
     }
 
     @Override

@@ -61,15 +61,39 @@
 
     <string name="array_select_sort">Select Sort</string>
     <string name="array_select_sort_button_text">Submit values</string>
-    <string name="array_select_sort_para">Paragraph about select sort</string>
+    <string name="array_select_sort_para">
+        The algorithm divides the input list into two parts:
+        the sublist of sorted items, which is built up from left to right,
+        and the sublist of unsorted items that occupy the rest of the list.
+        Initially, the sorted sublist is empty and the unsorted sublist is the entire input list.
+        \n
+        The algorithm proceeds by finding the smallest (or largest,
+        depending on sorting order) element in the unsorted sublist,
+        exchanging it with the leftmost unsorted element (putting it in sorted order),
+        and moving the sublist boundaries one element to the right.
+    </string>
 
-    <string name="array_bubble_sort_button_text">submit values</string>
-    <string name="array_bubble_sort_para">Paragraph about bubble sort</string>
     <string name="array_bubble_sort">Bubble Sort</string>
+    <string name="array_bubble_sort_button_text">submit values</string>
+    <string name="array_bubble_sort_para">
+        From the start, compare every adjacent pair, swap their position if they are not in the right order
+        (the right value is smaller than the left). After each iteration, one less element
+        is needed to be compared until there are no more elements left to be compared.
+    </string>
+
 
     <string name="array_merge_sort">Merge Sort</string>
     <string name="array_merge_sort_button_text">submit values</string>
-    <string name="array_merge_sort_para">Paragraph about Merge Sort</string>
+    <string name="array_merge_sort_para">
+        The algorithm divides the input list into two parts:
+        the sublist of sorted items, which is built up from left to right,
+        and the sublist of unsorted items that occupy the rest of the list.
+        Initially, the sorted sublist is empty and the unsorted sublist is the entire input list.
+        \n
+        The algorithm proceeds by finding the smallest (or largest,
+        depending on sorting order) element in the unsorted sublist,
+        exchanging it with the leftmost unsorted element (putting it in sorted order),
+        and moving the sublist boundaries one element to the right.</string>
 
     <string name="array_linear_search">Linear Search</string>
     <string name="array_linear_search_button_text">submit values</string>

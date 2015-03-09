@@ -20,12 +20,10 @@ public class ArrayIntroduction extends Activity{
     private void setUPTutorial(){
         //this method sets up the page to include information about the tutorial.
 
-        String topic = this.getResources().getString(R.string.array_introduction);
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
-        textViewToChange.setText(topic);
+        textViewToChange.setText(this.getResources().getString(R.string.array_introduction));
 
-        String intro = this.getResources().getString(R.string.arrays_intro_paragraph);
         textViewToChange = (TextView) findViewById(R.id.array_text);
-        textViewToChange.setText(intro);
+        textViewToChange.setText(this.getResources().getString(R.string.arrays_intro_paragraph));
     }
 }

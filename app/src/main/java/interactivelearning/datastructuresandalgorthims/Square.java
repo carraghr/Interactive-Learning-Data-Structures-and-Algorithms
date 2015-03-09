@@ -91,7 +91,6 @@ public class Square{
     }
 
     private void createSquare() {
-
         /**
          * so we start with a center point and a radius from there we want to create four sides/corners
          * we do this by moving out to the side by radius this will get the sides left and right x points
@@ -103,7 +102,6 @@ public class Square{
                                     (centerPoint[0] + radius), (centerPoint[1] + radius), 0.00f,//LB
                                     (centerPoint[0] - radius), (centerPoint[1] + radius), 0.00f,//RB
                                     (centerPoint[0] - radius), (centerPoint[1] - radius), 0.00f};//RT
-
 
     }
 

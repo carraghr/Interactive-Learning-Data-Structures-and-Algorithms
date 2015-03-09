@@ -84,19 +84,19 @@ public class Line {
 
     }
 
-    public void createLink(float[] a, float [] b){
+    public void createLink(float[] start, float [] end){
 
-        lineCoords = new float[] {a[0], a[1] - height, 0.00f, //LT
-                                  a[0], a[1] + height, 0.00f, //LB
-                                  b[0], b[1] + height, 0.00f, //RB
-                                  b[0], b[1] - height, 0.00f};//RT
+        lineCoords = new float[] {start[0], start[1] - height, 0.00f, //LT
+                                  start[0], start[1] + height, 0.00f, //LB
+                                  end[0], end[1] + height, 0.00f, //RB
+                                  end[0], end[1] - height, 0.00f};//RT
     }
 
     public void changeColor(float[] color){
         this.color = color;
     }
 
-    public void changeBlodness(float height){
+    public void changeBoldness(float height){
         //re-construct coords.
         lineCoords = new float[]{ lineCoords[0], (lineCoords[1] + this.height) - height,  lineCoords[2],
                                   lineCoords[3], (lineCoords[4] - this.height) + height,  lineCoords[5],

@@ -71,6 +71,9 @@
         depending on sorting order) element in the unsorted sublist,
         exchanging it with the leftmost unsorted element (putting it in sorted order),
         and moving the sublist boundaries one element to the right.
+        \n
+        Select sorts complexity is rated for best, worst and average case as O(n^2).
+        It is mainly used for real-time computing as it\'s behaviour is identical no matter what.
     </string>
 
     <string name="array_bubble_sort">Bubble Sort</string>
@@ -79,21 +82,26 @@
         From the start, compare every adjacent pair, swap their position if they are not in the right order
         (the right value is smaller than the left). After each iteration, one less element
         is needed to be compared until there are no more elements left to be compared.
+        \n
+        \n
+        Bubble sorts complexity comes in at an O(n^2) for it\'s worst, average and best case.
+        It is mainly used when a list is mostly sorted, with only a few items out of place.
     </string>
 
 
     <string name="array_merge_sort">Merge Sort</string>
     <string name="array_merge_sort_button_text">submit values</string>
     <string name="array_merge_sort_para">
-        The algorithm divides the input list into two parts:
-        the sublist of sorted items, which is built up from left to right,
-        and the sublist of unsorted items that occupy the rest of the list.
-        Initially, the sorted sublist is empty and the unsorted sublist is the entire input list.
+        First divide the list into the smallest unit (1 element),
+        then compare each element with the adjacent list to sort and merge the two adjacent lists.
+        Finally all the elements are sorted and merged.
         \n
-        The algorithm proceeds by finding the smallest (or largest,
-        depending on sorting order) element in the unsorted sublist,
-        exchanging it with the leftmost unsorted element (putting it in sorted order),
-        and moving the sublist boundaries one element to the right.</string>
+        Merge sort is very quick and efficient. It\'s worst and average complexity time is O(n log n).
+        It\'s worst case is 39% fast than quick sorts average case.
+        \n
+        The downside to it, is that it uses up a lot of space so if that is an issue,
+        other options should be considered.
+    </string>
 
     <string name="array_linear_search">Linear Search</string>
     <string name="array_linear_search_button_text">submit values</string>

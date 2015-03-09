@@ -123,7 +123,7 @@ public class Square{
         createSquare();
     }
     public void moveRight(float amount){
-        centerPoint[0] = centerPoint[0] - amount;
+        centerPoint[0] -= amount;
         createSquare();
     }
     public void moveLeft(float amount){
@@ -185,6 +185,6 @@ public class Square{
                               GLES20.GL_UNSIGNED_SHORT, drawListBuffer);
 
         //Disable vertex array
-        //GLES20.glDisableVertexAttribArray(myPositionHandle);
+        GLES20.glDisableVertexAttribArray(myPositionHandle);
     }
 }

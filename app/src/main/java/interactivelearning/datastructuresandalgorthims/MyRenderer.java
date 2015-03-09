@@ -1,14 +1,14 @@
 package interactivelearning.datastructuresandalgorthims;
 
+import android.content.Context;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
 import android.util.Log;
+import android.widget.Toast;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-
-import static android.opengl.GLSurfaceView.Renderer;
 
 /**
  * Created by Richard on 04/03/2015.
@@ -24,18 +24,23 @@ public class MyRenderer implements GLSurfaceView.Renderer{
     private final float[] mMVPMatrix = new float[16];
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
+    Context context;
 
+    MyRenderer(Context context){
+        super();
+        this.context = context;
+    }
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 
         // Set the background frame colour
         GLES20.glClearColor(0.6f, 0.0f, 0.0f, 0.0f);
 
-       // set up shapes
+        // set up shapes
         mySquare = new Square(new float[]{0.0f,0.0f}, 0.05f, new float[]{1.f,1.f,1.f,1.f});
-        mySq = new Square(new float[]{0.6f,0.0f}, 0.05f, new float[]{1.f,1.f,1.f,1.f});
+        //mySq = new Square(new float[]{0.6f,0.0f}, 0.05f, new float[]{1.f,1.f,1.f,1.f});
 
-        myline = new Line(0.5f,mySq.getRightCenterPoint(),mySquare.getLeftCenterPoint(), new float[]{0.f,0.f,0.f,0.f});
+        //myline = new Line(0.5f,mySq.getRightCenterPoint(),mySquare.getLeftCenterPoint(), new float[]{0.f,0.f,0.f,0.f});
     }
 
     @Override
@@ -52,9 +57,9 @@ public class MyRenderer implements GLSurfaceView.Renderer{
 
         // Draw square
         mySquare.draw(mMVPMatrix);
-        mySq.draw(mMVPMatrix);
+       // mySq.draw(mMVPMatrix);
         //Draw connected line
-        myline.draw(mMVPMatrix);
+        //myline.draw(mMVPMatrix);
     }
 
     @Override
@@ -86,5 +91,13 @@ public class MyRenderer implements GLSurfaceView.Renderer{
             Log.e(TAG, glOperation + ": glError " + error);
             throw new RuntimeException(glOperation + ": glError " + error);
         }
+    }
+
+    public void moveSq(){
+        mySquare.moveRight(0.0005f);
+        float [] a = mySquare.getRightCenterPoint();
+        String coords ="x = "+ a[0] ;
+        Toast toast = Toast.makeText(context,coords , Toast.LENGTH_SHORT);
+        toast.show();
     }
 }

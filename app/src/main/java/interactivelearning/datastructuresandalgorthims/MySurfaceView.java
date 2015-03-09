@@ -38,7 +38,6 @@ public class MySurfaceView extends GLSurfaceView{
         // and other input controls. In this case, you are only
         // interested in events where the touch position changed.
 
-
         myRenderer.moveSq();
         requestRender();
 
@@ -46,5 +45,4 @@ public class MySurfaceView extends GLSurfaceView{
         //toast.show();
         return true;
     }
-
 }

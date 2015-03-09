@@ -1,5 +1,6 @@
 package interactivelearning.datastructuresandalgorthims;
 
+import android.content.Context;
 import android.opengl.GLES20;
 
 import java.nio.ByteBuffer;
@@ -29,6 +30,8 @@ public class Square{
            " gl_FragColor = vColor;" +
            "}";
 
+
+    Context context;
     private final FloatBuffer vertexBuffer;
     private final ShortBuffer drawListBuffer;
     private final int MyProgram;
@@ -151,6 +154,10 @@ public class Square{
 
     // which to draw this shape.
     public void draw(float[] mvpMatrix){
+
+        vertexBuffer.put(squareCoords);
+        vertexBuffer.position(0);
+
 
        //Add program to OpenGL environment
         GLES20.glUseProgram(MyProgram);

@@ -25,6 +25,7 @@ public class MyRenderer implements GLSurfaceView.Renderer{
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
     Context context;
+    int count;
 
     MyRenderer(Context context){
         super();
@@ -57,6 +58,10 @@ public class MyRenderer implements GLSurfaceView.Renderer{
 
         // Draw square
         mySquare.draw(mMVPMatrix);
+       // if(count >= 1) {
+         //   Toast toast = Toast.makeText(context, "Draw frame", Toast.LENGTH_SHORT);
+           // toast.show();
+        //}
        // mySq.draw(mMVPMatrix);
         //Draw connected line
         //myline.draw(mMVPMatrix);
@@ -94,9 +99,10 @@ public class MyRenderer implements GLSurfaceView.Renderer{
     }
 
     public void moveSq(){
-        mySquare.moveRight(0.0005f);
+        mySquare.moveRight(0.5f);
         float [] a = mySquare.getRightCenterPoint();
         String coords ="x = "+ a[0] ;
+        count++;
         Toast toast = Toast.makeText(context,coords , Toast.LENGTH_SHORT);
         toast.show();
     }

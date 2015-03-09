@@ -37,10 +37,11 @@ public class MySurfaceView extends GLSurfaceView{
         // MotionEvent reports input details from the touch screen
         // and other input controls. In this case, you are only
         // interested in events where the touch position changed.
-
-        myRenderer.moveSq();
-        requestRender();
-
+        switch (e.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                myRenderer.moveSq();
+                //requestRender();
+        }
         //Toast toast = Toast.makeText(context, "You sure showed that bubble sort button", Toast.LENGTH_SHORT);
         //toast.show();
         return true;

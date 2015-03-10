@@ -2,7 +2,6 @@ package interactivelearning.datastructuresandalgorthims;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -26,14 +25,7 @@ public class LinkedListIntro extends Activity{
         textViewToChange.setText(this.getResources().getString(R.string.linkedList_introduction));
 
         textViewToChange = (TextView) findViewById(R.id.linkedListIntroPara1);
-        textViewToChange.setText(this.getResources().getString(R.string.linkedList_introduction_linkedlist_description));
-
-        ImageView image = (ImageView) findViewById(R.id.image);
-        image.setImageResource(R.mipmap.singly_linked_node);
-
-        textViewToChange = (TextView) findViewById(R.id.linkedListIntroPara2);
-        textViewToChange.setText(this.getResources().getString(R.string.linkedList_introduction_other_topics));
-
+        textViewToChange.setText(this.getResources().getString(R.string.linkedList_introduction_para));
     }
 }
 

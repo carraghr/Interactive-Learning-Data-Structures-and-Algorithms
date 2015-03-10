@@ -11,27 +11,9 @@
 
 
     <string name = "arrays_intro_paragraph">
-                Arrays are one of the first data structures that you will be introduced to first for primitive
-        data types and then objects. If you have some basic programming experience then you should
-        already have met the materials with in this topic.
-        \n
-        \n
-        Below is a brief overview of each of the topics covered in this topic:
-        \n
-        \n
-        Declaring Arrays of Length - Learn to declare an array of a fixed length.
-        \n
-        \n
-        Declaring Array with values - Learn to declare an array with values on declaration.
-        \n
-        \n
-        Different Arrays - Learn what types of Arrays there is.
-        \n
-        \n
-        Sorting - Learn how to sort an array in different orders.
-        \n
-        \n
-        Searching - Learn how to efficacy search an array.
+                Arrays are one of the first data structures that you will be introduced to first for
+                primitive data types and then objects. If you have some basic programming experience
+                then you should already have met the materials with in this topic.
     </string>
 
     <string name="array_declaration">Declaring an Array</string>
@@ -113,51 +95,98 @@
     <string name="linkedLists_topic_heading">LinkedLists</string>
 
     <string name="linkedList_introduction">Introduction</string>
-    <string name="linkedList_declaration">Declaration</string>
+    <string name="linkedList_introduction_para">
+                    A linkedList is a data structure, of a sequence of linked nodes, that stores a
+                    sequence of elements that can be repeated.
+                    \n
+                    \n
+                    Each node in a LinkedList is composed of a data item and a reference or
+                    references depending on its implementation.
+                    \n
+                    \n
+                    The java standard library implements a doubly LinkedList. LinkedList are generally
+                    faster at inserting and removing elements,especially at either end of the list,
+                    over their counter part ArrayList.
+                    \n
+                    \n
+                    Through out the topics and examples given in this topic we will use singly linked
+                    nodes until doubly linked are required. These are described later on in declaring
+                    a LinkedList
+    </string>
 
-    <string name="linkedList_introduction_linkedlist_description">
-       a linked list is a data structure consisting of a group of nodes which together represent a sequence.
-        Each node is composed of a data and a reference (in other words, a link),
-        to the next node in the sequence. more complex variants add additional links.
-        This structure allows for efficient insertion or removal of elements from any position in the sequence.
-        \n
-        Here is an example of a singly linkedlist:
-        \n
-        \n
-        <!--http://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Singly-linked-list.svg/408px-Singly-linked-list.svg.png -->
-        REQUIRES IMAGE
-        \n
-        \n
-        Here is an example of a doubly linkedlist:
-        \n
-        \n
-        <!--http://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Doubly-linked-list.svg/610px-Doubly-linked-list.svg.png -->
-        REQUIRES IMAGE
-    </string>
-    <string name="linkedList_introduction_other_topics">
-        Through the topics and examples give in this topic we will
-        use singly linked nodes until doubly linked are required.
-        \n
-        \n
-        The topics covered within LinkedLists are:
-        \n
-        \n
-        Declaring a LinkedList - Learn how to declare a LinkedList
-        and how it works with nodes.
-        \n
-        \n
-        Adding to A LinkedList - Learn about adding to an item and
-        a node to a LinkedList
-        \n
-        \n
-        Removing from a LinkedList - Learn about the process of
-        removing an node from a LinkedList and the problems you have to live with.
-        \n
-        \n
-        Rotating a LinkedList - learn how to alter a LinkedList of
-        the items are rotated around themselves.
-    </string>
-    <string name="linkedlist_declaration_paragraph">Paragraph about linkedlist declaration</string>
-    <string name="linkedList_initialisation_para">Paragraph about linked list initialisation</string>
+    <string name="linkedList_declaration">Declaration</string>
+    <string name="linkedlist_declaration_para">
+                      A LinkedList can be created though the use of a singly or doubly linked nodes.
+                      A node is made up of a data item and a node or nodes referencing the next or
+                      previous nodes in a sequence.
+                      \n
+                      \n
+                      Example of singly LinkedList node
+                      \n
+                      \n
+                      public static class Singly_Linked_Node T {\n
+	                  \t  T item;\n
+	                  \t  Node T next;\n
+                      \t  Node(T item, Node T next){\n
+		              \t\t    this.item = item;\n
+		              \t\t    this.next = next;\n
+	                  \t  }\n
+                      }
+                      \n
+                      \n
+                      Example of doubly LinkedList node
+                      \n
+                      \n
+                      public static class Singly_Linked_Node T{
+                      \n
+                      \t      T item;\n
+                      \t      Node T previous;\n
+                      \t      Node T next;\n
+
+                      \t      Node(T item, Node T previous, Node T next){\n
+                      \t\t         this.item = item;\n
+                      \t\t         this.previous = previous;\n
+                      \t\t          this.next = next;\n
+                      \t      }\n
+                      }\n
+                      \n
+                      \n
+
+                      As you have seen in both implementations for a LinkedList, both nodes use a
+                      generic data type (T). This allows the linked node and LinkedList to contain
+                      any Object of the same type to be placed within the LinkedList.
+                      \n
+                      \n
+                      The next and previous nodes are used to reference the adjacent nodes in the LinkedList
+                      \n
+                      \n
+                      We will see later how to add / remove references. However below you will see
+                      how to set up a skeletal implementation a LinkedList.
+                      \n
+                      \n
+                      public class LinkedList T {\n
+
+                      \t\t  private static class Node T { 8230;}\n
+
+                      \t\t      Node T head, last;\n
+
+                      \t\t      //Methods for add and remove for LinkedList.\n
+                        }
+                      \n
+                      \n
+
+                      To declare a LinkedList from the standard java library import the java package
+                      java.util.LinkedList; and create a LinkedList variable defining what object it
+                      can take.
+                      \n
+                      \n
+                      examples
+                      \n
+                      \n
+                      LinkedList String stringList = new LinkedList();
+                      \n
+                      \n
+                      LinkedList Integer intList = new LinkedList();
+              </string>
 
 </resources>

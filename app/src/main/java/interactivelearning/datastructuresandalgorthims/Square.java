@@ -101,10 +101,10 @@ public class Square{
          * REMEMBER THAT EVERYTHING IS INVERTED. ie + = - and - = +,  left=right down=up
          */
                                     //    x                                   y           z - 2d never changes
-        squareCoords = new float[] {(centerPoint[0] + radius), (centerPoint[1] - radius), 0.00f,//LT
-                                    (centerPoint[0] + radius), (centerPoint[1] + radius), 0.00f,//LB
-                                    (centerPoint[0] - radius), (centerPoint[1] + radius), 0.00f,//RB
-                                    (centerPoint[0] - radius), (centerPoint[1] - radius), 0.00f};//RT
+        squareCoords = new float[] {(centerPoint[0] + radius), (centerPoint[1] - radius), 0.00f,    //LT
+                                    (centerPoint[0] + radius), (centerPoint[1] + radius), 0.00f,    //LB
+                                    (centerPoint[0] - radius), (centerPoint[1] + radius), 0.00f,    //RB
+                                    (centerPoint[0] - radius), (centerPoint[1] - radius), 0.00f};   //RT
 
     }
 

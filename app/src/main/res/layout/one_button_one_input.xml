@@ -15,4 +15,14 @@
         android:layout_alignTop="@+id/first_paragraph"
         android:layout_centerHorizontal="true"/>
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_below="@+id/first_diagram"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="83dp"/>
+
 </RelativeLayout>

@@ -36,7 +36,7 @@ public class MySurfaceView extends GLSurfaceView{
         switch (e.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 myRenderer.moveSq();
-                requestRender();
+               requestRender();
         }
         return true;
     }

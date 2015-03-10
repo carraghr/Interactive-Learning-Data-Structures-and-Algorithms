@@ -117,12 +117,12 @@ public class Square{
      * @param amount
      */
     public void moveDown(float amount){
-        centerPoint[1] = centerPoint[1] + amount;
+        centerPoint[1] = centerPoint[1] - amount;
         createSquare();
     }
 
     public void moveUp(float amount){
-        centerPoint[1] = centerPoint[1] - amount;
+        centerPoint[1] = centerPoint[1] + amount;
         createSquare();
     }
     public void moveRight(float amount){

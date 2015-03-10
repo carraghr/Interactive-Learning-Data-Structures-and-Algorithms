@@ -18,7 +18,7 @@ public class MyRenderer implements GLSurfaceView.Renderer{
     private static final String TAG = "MyRenderer";
 
     private Square mySquare, mySq;
-    private Line myline;
+    //private Line myline;
 
     // myMVPMatrix is an abbreviation for "Model View Projection Matrix"
     private final float[] mMVPMatrix = new float[16];
@@ -39,7 +39,7 @@ public class MyRenderer implements GLSurfaceView.Renderer{
 
         // set up shapes
         mySquare = new Square(new float[]{0.0f,0.0f}, 0.05f, new float[]{1.f,1.f,1.f,1.f});
-        //mySq = new Square(new float[]{0.6f,0.0f}, 0.05f, new float[]{1.f,1.f,1.f,1.f});
+        mySq = new Square(new float[]{0.6f,0.0f}, 0.05f, new float[]{1.f,1.f,1.f,1.f});
 
         //myline = new Line(0.5f,mySq.getRightCenterPoint(),mySquare.getLeftCenterPoint(), new float[]{0.f,0.f,0.f,0.f});
     }
@@ -62,7 +62,7 @@ public class MyRenderer implements GLSurfaceView.Renderer{
          //   Toast toast = Toast.makeText(context, "Draw frame", Toast.LENGTH_SHORT);
            // toast.show();
         //}
-       // mySq.draw(mMVPMatrix);
+       mySq.draw(mMVPMatrix);
         //Draw connected line
         //myline.draw(mMVPMatrix);
     }
@@ -99,7 +99,7 @@ public class MyRenderer implements GLSurfaceView.Renderer{
     }
 
     public void moveSq(){
-        mySquare.moveRight(0.5f);
+        mySquare.moveLeft(0.5f);
         float [] a = mySquare.getRightCenterPoint();
         String coords ="x = "+ a[0] ;
         count++;

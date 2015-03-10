@@ -262,7 +262,7 @@
                     \n
                     In the case above we check to see if there is anything in the list to remove and
                     if there is then we simply reference the next node. This removes any reference to
-                    the head node and so it's removed from memory. Something very similar can be done
+                    the head node and so it\'s removed from memory. Something very similar can be done
                     for removing nodes from the middle of a LinkedList
                     \n
                     \n

@@ -189,4 +189,174 @@
                       LinkedList Integer intList = new LinkedList();
               </string>
 
+    <string name = "linkedlist_insertion">Insertion</string>
+    <string name = "linkedlist_insertion_para">
+                    You can add an item to a LinkedList at the start, middle or end. LinkedList has
+                    an efficient way of adding nodes to either the start and end of collections of nodes.
+                    \n
+                    \n
+                    To insert a node and item to the start of a LinkedList you can simply get the head
+                    to reference itself as the next node and place the item you want as the new head item.
+                    \n
+                    \n
+                    Example:
+                    \n
+                    public void insertStart(T item){\n
+                    \t     if(head==null){\n
+                    \t \t         head = new Node (item,null);\n
+                    \t \t         head=last;\n
+                    \t     }\n
+                    \t     else{\n
+                    \t \t         head = new Node (item,head);\n
+                    \t     }\n
+                    }\n
+                    \n
+                    As you can see its is one simple instruction being carried out. Inserting to the
+                    end of a LinkedList is also as simple as adding to beginning
+                    \n
+                    \n
+                    example
+                    \n
+                    public void insertLast(T item){\n
+                        last.next = new Node(item,null);\n
+                    }\n
+                    \n
+                    \n
+                    As you see it is again one line of code been executed. You should note that a null
+                    value is to denote an end in a LinkedList.
+                    \n
+                    \n
+                    Inserting into the middle of a LinkedList becomes a little less efficient as the
+                    list grows. When adding to the middle you must read through x number of nodes from
+                    the start until you get to the position you want to add an item.
+                    \n
+                    \n
+                    example
+                    \n
+                    public boolean insertMiddle(int index;T item){\n
+                    \t    Node T temp = head;\n
+                    \t     int place;\n
+                    \t     for(place=0;place (less then) index &amp; temp.next!= null; place++ ){}\n
+                    \t     if(place == index){\n
+                    \t \t         temp= new node(item,temp);\n
+                    \t \t         return true;\n
+                    \t     }\n
+                    \t     return false;\n
+                    }</string>
+
+    <string name = "linkedlist_Removal">Removal</string>
+    <string name = "linkedlist_Removal_para">
+                    You can remove a node from any point in a LinkedList. Removing the first element
+                    in a LinkedList is very straightforward.All you do is get the head to reference
+                    the next node instead of the current one.
+                    \n
+                    \n
+                    example
+                    \n
+                    public void removeFirst(){ \n
+                        if(head != null){ \n
+                            head=head.next; \n
+                        } \n
+                    }
+                    \n
+                    \n
+                    In the case above we check to see if there is anything in the list to remove and
+                    if there is then we simply reference the next node. This removes any reference to
+                    the head node and so it's removed from memory. Something very similar can be done
+                    for removing nodes from the middle of a LinkedList
+                    \n
+                    \n
+                    example
+                     \n
+                    public void removeIndex(int index){ \n
+                     \t   temp = head; \n
+                     \t   next = head.next \n
+
+                     \t   if(index > length){ \n
+                     \t\t       return; \n
+                     \t   } \n
+                     \t   else if(index == 1){ \n
+                     \t\t       removeFirst(); \n
+                     \t   } \n
+                     \t   for(int i = 1; i (less then) index;i++){ \n
+                     \t\t       temp = temp.next; \n
+                     \t\t       next = next.next; \n
+                     \t   } \n
+                     \t   temp.next = next.next; \n
+                    }
+                     \n
+                     \n
+                    The code above assumes length of the LinkedList is being tracked using some sort
+                    of count variable which is being increased and decreased accordingly.For removing
+                    from an index you first check if the index is within bounds.You then check if the
+                    index is the head if so you can remove it straight away and finish the method efficiently.
+                    If you have to go looking for an index you start with temp at head and next at
+                    the node after head so it stays once step ahead. As you loop to the required index,
+                    you move the nodes along the LinkedList. When the loop finishes, next has the
+                    required node.From there we tell temp to replace its next node with the required node.
+                     \n
+                     \n
+                    Removing central nodes is a lot more complex than removing the first node. When
+                    removing the last singly linked node, you must go through the entire LinkedList
+                    to find the second last node. To counteract this, doubly LinkedLists can be used.
+                    Instead of only referencing the next node we could also references the previous
+                    node that it is connected to. This means that to remove the last node in a LinkedList,
+                    we only have to tell the Tail pointer to reference the previous node instead and
+                    remove its reference to the last node.
+                     \n
+                     \n
+                    example
+                    \n
+                    public void removeLast(){ \n
+                    \t    last = last.previous; \n
+                    \t    last.next = null; \n
+                    }
+                    \n
+                    \n
+                    Of course if you were to implement doubly LinkedList, you would have to do it for
+                    both removal of the first and middle nodes. These are not implemented in this tutorial.
+    </string>
+
+    <string name = "linkedlist_Rotation">Rotation</string>
+    <string name = "linkedlist_Rotation_para">
+        There are many alterations you may want to do to a LinkedList for many reasons, and on of these
+        alterations maybe to rotate the list right or left by a certain amount. To rotate a LinkedList
+        you have to alter the both the head and tail of a list, in different orders depending on which
+        way to wish to rotate the list.
+        \n
+        \n
+        To rotate left you must move the head item to the end of the LinkedList and more the heads next
+        reference to the head. Below shows how to active this.
+        \n
+        \n
+        public void leftRotate(){\n
+        \t    if(head==tail){\n
+        \t\t      return;\n
+        \t    }\n
+        \t     else{\n
+        \t        tail.next= new Node(head.item,null);\n
+        \t        tail=tail.next;\n
+        \t        head=head.next;\n
+        \t     }\n
+        }
+        \n
+        \n
+        To rotate right to apply the same logic but in the reverse order. To rotate right you move the
+        last item to the head and move the second last reference to the tail of the list. This implemenation
+        would require a doubly linked node for the best results in speed and time.
+        \n
+        \n
+        public void rightRotate(){\n
+        \t    if(head==tail){\n
+        \t        return;\n
+        \t    }\n
+        \t    else{\n
+        \t        T temp = tail.item;\n
+        \t        last = last.previous;\n
+        \t        last.next = null;\n
+        \t        head = new Node(temp,head,null);\n
+        \t    }\n
+        }\n
+    </string>
+
 </resources>

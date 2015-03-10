@@ -16,7 +16,7 @@ public class ArrayBinarySearch extends Activity{
     protected void onCreate(Bundle savedInstanceState){
     super.onCreate(savedInstanceState);
     setContentView(R.layout.arraybinarysearch);
-    Button selectSortButton = (Button) findViewById(R.id.submit_five);
+    Button selectSortButton = (Button) findViewById(R.id.array_linear_search_button);
 
     selectSortButton.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
@@ -27,6 +27,7 @@ public class ArrayBinarySearch extends Activity{
             ArrayBinarySearch.this.startActivity(intent);
         }
     });
+
     //TODO write function to out new strings for declaring arrays of set length.
     TextView textViewToChange = (TextView) findViewById(R.id.topic);
     textViewToChange.setText(R.string.array_binary_search);

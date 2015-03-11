@@ -38,8 +38,8 @@ public class MyRenderer implements GLSurfaceView.Renderer{
         GLES20.glClearColor(0.6f, 0.0f, 0.0f, 0.0f);
 
         // set up shapes
-        mySquare = new Square(new float[]{0.0f,0.0f}, 0.05f, new float[]{1.f,1.f,1.f,1.f});
-        mySq = new Square(new float[]{0.6f,0.0f}, 0.05f, new float[]{1.f,1.f,1.f,1.f});
+        mySquare = new Square(new float[]{0.0f,0.0f}, 0.075f, new float[]{1.f,1.f,1.f,1.f});
+        mySq = new Square(new float[]{0.5f,0.0f}, 0.075f, new float[]{1.f,1.f,1.f,1.f});
 
         //myline = new Line(0.5f,mySq.getRightCenterPoint(),mySquare.getLeftCenterPoint(), new float[]{0.f,0.f,0.f,0.f});
     }

@@ -13,8 +13,11 @@ import android.widget.Toast;
  */
 public class ArraySelectSort extends Activity{
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setUI();
+    }
+        private void setUI(){
         setContentView(R.layout.five_input_page);
         Button selectSortButton = (Button) findViewById(R.id.submit_five);
 
@@ -32,7 +35,7 @@ public class ArraySelectSort extends Activity{
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
         textViewToChange.setText(R.string.array_select_sort);
 
-        textViewToChange = (TextView) findViewById(R.id.array_text);
+        textViewToChange = (TextView) findViewById(R.id.first_text_block);
         textViewToChange.setText(R.string.array_select_sort_para);
     }
 }

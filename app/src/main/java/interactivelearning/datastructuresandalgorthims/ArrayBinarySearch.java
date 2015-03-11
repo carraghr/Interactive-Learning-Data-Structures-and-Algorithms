@@ -13,8 +13,12 @@ import android.widget.Toast;
  */
 public class ArrayBinarySearch extends Activity{
     @Override
-    protected void onCreate(Bundle savedInstanceState){
-    super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setUI();
+    }
+
+    private void setUI(){
     setContentView(R.layout.one_input_page);
     Button selectSortButton = (Button) findViewById(R.id.submit_one);
 

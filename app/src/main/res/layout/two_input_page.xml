@@ -5,18 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <include layout = "@layout/topic_and_textview"
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:layout_alignParentTop="true"
+                 android:id="@+id/topic_and_textview">
 
-    <include layout = "@layout/topic_and_textview"
-             android:layout_height="wrap_content"
-             android:layout_width="match_parent"
-             android:layout_alignParentTop="true"
-             android:id="@+id/topic_and_textview">
+            </include>
 
-    </include>
-
-    <include layout = "@layout/one_button_two_inputs"
-             android:layout_height="wrap_content"
-             android:layout_width="match_parent"
-             android:layout_below="@+id/topic_and_textview">
-    </include>
+            <include layout = "@layout/one_button_two_inputs"
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:layout_below="@+id/topic_and_textview">
+            </include>
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

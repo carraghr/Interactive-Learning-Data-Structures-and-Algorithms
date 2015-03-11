@@ -5,7 +5,7 @@
     <string name = "title_activity_topic">Data Structures and Algorithms with Java</string>
 
     <string name = "array_topic_activity">Arrays</string>
-    <string name="linkedList_topic_activity">LinkedListTopicActivity</string>
+
 
     <string name = "array_introduction">Array Introduction</string>
 
@@ -92,7 +92,7 @@
     <string name="array_binary_search">Binary Search</string>
     <string name="array_binary_search_para">Paragraph about binary search</string>
 
-    <string name="linkedLists_topic_heading">LinkedLists</string>
+    <string name="linkedList_topic_activity">LinkedLists</string>
 
     <string name="linkedList_introduction">Introduction</string>
     <string name="linkedList_introduction_para">

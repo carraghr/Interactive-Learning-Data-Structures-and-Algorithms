@@ -9,14 +9,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * Created by Jecca on 08/03/2015.
+ * Created by Jessica on 08/03/2015.
  */
 public class ArrayBubbleSort extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.arraybubblesort);
-        Button selectSortButton = (Button) findViewById(R.id.array_linear_search_button);
+        setContentView(R.layout.five_input_page);
+        Button selectSortButton = (Button) findViewById(R.id.submit_five);
 
         selectSortButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -32,7 +32,7 @@ public class ArrayBubbleSort extends Activity{
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
         textViewToChange.setText(R.string.array_bubble_sort);
 
-        textViewToChange = (TextView) findViewById(R.id.array_text);
+        textViewToChange = (TextView) findViewById(R.id.first_text_block);
         textViewToChange.setText(R.string.array_bubble_sort_para);
     }
 }

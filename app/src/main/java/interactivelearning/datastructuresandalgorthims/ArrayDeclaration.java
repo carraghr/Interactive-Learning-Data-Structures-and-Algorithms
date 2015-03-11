@@ -14,8 +14,8 @@ public class ArrayDeclaration extends Activity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.arraydeclaration);
-        Button declarationButton = (Button) findViewById(R.id.arraydeclarationbutton);
-        Button initialisationButton = (Button) findViewById(R.id.array_linear_search_button);
+        Button declarationButton = (Button) findViewById(R.id.submit_one);
+        Button initialisationButton = (Button) findViewById(R.id.submit_five);
 
         declarationButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -31,6 +31,9 @@ public class ArrayDeclaration extends Activity{
             public void onClick(View v) {
                 Toast toast = Toast.makeText(getApplicationContext(), "You sure showed that initialisation button", Toast.LENGTH_SHORT);
                 toast.show();
+
+                Intent intent = new Intent(ArrayDeclaration.this,SurfaceActivity.class);
+                ArrayDeclaration.this.startActivity(intent);
             }
         });
 
@@ -38,10 +41,10 @@ public class ArrayDeclaration extends Activity{
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
         textViewToChange.setText(R.string.array_declaration);
 
-        textViewToChange = (TextView) findViewById(R.id.array_text);
+        textViewToChange = (TextView) findViewById(R.id.first_text_block);
         textViewToChange.setText(R.string.array_declaration_paragraph);
 
-        textViewToChange = (TextView) findViewById(R.id.arrayinitialisation);
+        textViewToChange = (TextView) findViewById(R.id.second_text_block);
         textViewToChange.setText(R.string.array_initialisation_para);
     }
 }

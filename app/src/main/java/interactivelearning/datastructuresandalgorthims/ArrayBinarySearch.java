@@ -15,8 +15,8 @@ public class ArrayBinarySearch extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState){
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.arraybinarysearch);
-    Button selectSortButton = (Button) findViewById(R.id.array_linear_search_button);
+    setContentView(R.layout.one_input_page);
+    Button selectSortButton = (Button) findViewById(R.id.submit_one);
 
     selectSortButton.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
@@ -32,7 +32,7 @@ public class ArrayBinarySearch extends Activity{
     TextView textViewToChange = (TextView) findViewById(R.id.topic);
     textViewToChange.setText(R.string.array_binary_search);
 
-    textViewToChange = (TextView) findViewById(R.id.array_text);
+    textViewToChange = (TextView) findViewById(R.id.first_text_block);
     textViewToChange.setText(R.string.array_binary_search_para);
     }
 }

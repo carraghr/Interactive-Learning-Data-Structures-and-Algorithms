@@ -13,122 +13,36 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:textSize="30sp"
-                android:padding="6dp"
-                android:textColor="#FAEBD7"
-                android:background="#0b85dc"
-                android:id="@+id/topic"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                />
+            <include layout = "@layout/topic_and_textview"
+                     android:id="@+id/topic_and_textview"
+                     android:layout_height="wrap_content"
+                     android:layout_width="match_parent"
+                     android:layout_alignParentTop="true">
+
+            </include>
+
+            <include layout = "@layout/one_button_one_input"
+                     android:id="@+id/one_button_one_input"
+                     android:layout_height="wrap_content"
+                     android:layout_width="match_parent"
+                     android:layout_below="@+id/topic_and_textview">
+            </include>
+
 
             <TextView
-                android:id="@+id/array_text"
+                android:id="@+id/second_text_block"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:textSize="18sp"
-                android:layout_below="@+id/topic"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="false" />
+                android:layout_below="@+id/one_button_one_input"/>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/arrayDeclarationButtonText"
-                android:id="@+id/arraydeclarationbutton"
-                android:layout_below="@+id/declaration_length"
-                android:layout_centerHorizontal="true"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/arrayinitialisation"
-                android:textSize="18sp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:layout_alignTop="@+id/array_linear_search_button"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="94dp"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/arrayInitialisationButtonText"
-                android:id="@+id/array_linear_search_button"
-                android:layout_alignParentBottom="true"
-                android:layout_toRightOf="@+id/arrayinitialisation"
-                android:layout_alignRight="@+id/numberInput3"
-                android:layout_alignEnd="@+id/numberInput3"/>
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/numberInput1"
-                android:autoText="false"
-                android:hint="@string/numberInputOneHint"
-                android:numeric="integer"
-                android:maxLines="1"
-                android:maxLength="1"
-                android:layout_above="@+id/array_linear_search_button"
-                android:layout_alignLeft="@+id/array_linear_search_button"
-                android:layout_alignStart="@+id/array_linear_search_button"
-                android:layout_toLeftOf="@+id/numberInput2"
-                android:layout_toStartOf="@+id/numberInput2"/>
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/numberInput2"
-                android:autoText="false"
-                android:hint="@string/numberInputTwoHint"
-                android:numeric="integer"
-                android:maxLines="1"
-                android:maxLength="1"
-                android:maxWidth="5dp"
-                android:layout_alignTop="@+id/numberInput1"
-                android:layout_alignLeft="@+id/arraydeclarationbutton"
-                android:layout_alignStart="@+id/arraydeclarationbutton"
-                android:layout_alignRight="@+id/arraydeclarationbutton"
-                android:layout_alignEnd="@+id/arraydeclarationbutton"/>
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/numberInput3"
-                android:autoText="false"
-                android:hint="@string/numberInputThreeHint"
-                android:numeric="integer"
-                android:maxLines="1"
-                android:maxLength="1"
-                android:layout_above="@+id/array_linear_search_button"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_toRightOf="@+id/numberInput2"
-                android:layout_toEndOf="@+id/numberInput2"/>
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/declaration_length"
-                android:layout_below="@+id/array_text"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="31dp"
-                android:maxLength="1"/>
+            <include layout = "@layout/one_button_five_inputs"
+                     android:layout_height="wrap_content"
+                     android:layout_width="match_parent"
+                     android:layout_below="@+id/second_text_block">
+            </include>
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

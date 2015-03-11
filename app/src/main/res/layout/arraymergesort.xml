@@ -31,64 +31,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="false" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/array_merge_sort_button_text"
-        android:id="@+id/array_linear_search_button"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/numberInput1"
-        android:autoText="false"
-        android:hint="@string/numberInputOneHint"
-        android:numeric="integer"
-        android:maxLines="1"
-        android:maxLength="1"
-        android:layout_above="@+id/array_linear_search_button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/array_linear_search_button"
-        android:layout_toStartOf="@+id/array_linear_search_button" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/numberInput2"
-        android:autoText="false"
-        android:hint="@string/numberInputTwoHint"
-        android:numeric="integer"
-        android:maxLines="1"
-        android:maxLength="1"
-        android:maxWidth="5dp"
-        android:layout_alignTop="@+id/numberInput1"
-        android:layout_alignLeft="@+id/array_linear_search_button"
-        android:layout_alignStart="@+id/array_linear_search_button"
-        android:layout_alignRight="@+id/array_linear_search_button"
-        android:layout_alignEnd="@+id/array_linear_search_button" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/numberInput3"
-        android:autoText="false"
-        android:hint="@string/numberInputThreeHint"
-        android:numeric="integer"
-        android:maxLines="1"
-        android:maxLength="1"
-        android:layout_alignTop="@+id/numberInput2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/array_linear_search_button"
-        android:layout_toEndOf="@+id/array_linear_search_button" />
-
+    <include layout = "@layout/one_button_five_inputs"
+             android:layout_below="@id/array_text"
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent">
+    </include>
 </RelativeLayout>

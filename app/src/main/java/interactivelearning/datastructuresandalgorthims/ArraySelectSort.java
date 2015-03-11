@@ -15,8 +15,8 @@ public class ArraySelectSort extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.arrayselectsort);
-        Button selectSortButton = (Button) findViewById(R.id.array_linear_search_button);
+        setContentView(R.layout.five_input_page);
+        Button selectSortButton = (Button) findViewById(R.id.submit_five);
 
         selectSortButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

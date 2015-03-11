@@ -15,8 +15,8 @@ public class ArrayLinearSearch extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.arraylinearsearch);
-    Button selectSortButton = (Button) findViewById(R.id.array_linear_search_button);
+    setContentView(R.layout.five_input_page);
+    Button selectSortButton = (Button) findViewById(R.id.submit_five);
 
     selectSortButton.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
@@ -32,7 +32,7 @@ public class ArrayLinearSearch extends Activity {
     TextView textViewToChange = (TextView) findViewById(R.id.topic);
     textViewToChange.setText(R.string.array_linear_search);
 
-    textViewToChange = (TextView) findViewById(R.id.array_text);
+    textViewToChange = (TextView) findViewById(R.id.first_text_block);
     textViewToChange.setText(R.string.array_linear_search_para);
     }
 }

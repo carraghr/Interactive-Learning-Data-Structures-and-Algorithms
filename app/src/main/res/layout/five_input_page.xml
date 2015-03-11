@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <include layout = "@layout/topic_and_textview"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_alignParentTop="true"
+            android:id="@+id/topic_and_textview">
+
+     </include>
+
+    <include layout = "@layout/one_button_five_inputs"
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             android:layout_below="@+id/topic_and_textview">
+    </include>
+</RelativeLayout>

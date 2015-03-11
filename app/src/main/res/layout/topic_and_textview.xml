@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffffff">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
     <TextView
         android:layout_height="wrap_content"
@@ -21,7 +18,7 @@
         />
 
     <TextView
-        android:id="@+id/array_text"
+        android:id="@+id/first_text_block"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:paddingLeft="5dp"
@@ -30,10 +27,4 @@
         android:layout_below="@+id/topic"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="false" />
-
-    <include layout = "@layout/one_button_five_inputs"
-             android:layout_below="@id/array_text"
-             android:layout_height="wrap_content"
-             android:layout_width="match_parent">
-    </include>
 </RelativeLayout>

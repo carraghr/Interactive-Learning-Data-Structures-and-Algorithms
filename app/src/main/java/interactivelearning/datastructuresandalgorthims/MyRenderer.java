@@ -35,8 +35,7 @@ public class MyRenderer implements GLSurfaceView.Renderer{
 
         // Set the background frame colour
         GLES20.glClearColor(0.24f, 0.522f, 0.863f, 0.0f);
-
-        numberOfSquares=4;
+        numberOfSquares = 4;
         squares = new Square[numberOfSquares];
         setUpSquares();
 
@@ -100,10 +99,11 @@ public class MyRenderer implements GLSurfaceView.Renderer{
     }
 
     public void moveSq(){
-        squares[1].moveUp(0.01f);
-        squares[3].moveUp(0.01f);
-        squares[0].moveDown(0.01f);
-        squares[2].moveDown(0.01f);
+        squares[0].moveUp(0.01f);
+        squares[1].moveDown(0.01f);
+        squares[2].moveUp(0.01f);
+        //squares[3].moveUp(0.01f);
+        //squares[4].moveDown(0.01f);
     }
     private void setUpSquares(){
 
@@ -112,10 +112,12 @@ public class MyRenderer implements GLSurfaceView.Renderer{
         if(numberOfSquares%2!=0){
             squares[numberOfSquares/2] = new Square(new float[]{0.0f,0.0f},radius,new float[]{1.f,1.f,1.f,1.f});
             offset+=2*radius;
+            right =  numberOfSquares/2+1;
         }else{
             offset+=radius;
+            right =  numberOfSquares/2;
         }
-        for(right =  numberOfSquares/2,left = numberOfSquares/2 -1; right<numberOfSquares && left >-1; right++, left-=1){
+        for(left = numberOfSquares/2 -1; right<numberOfSquares && left >-1;right++, left-=1){
             squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},radius,new float[]{1.f,1.f,1.f,1.f});
             squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},radius,new float[]{1.f,1.f,1.f,1.f});
             offset+=(2*radius)+0.002f;

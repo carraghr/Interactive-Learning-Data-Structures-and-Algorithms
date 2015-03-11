@@ -12,7 +12,7 @@ public class LinkedListRotation extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.linkedlistintro);
+        setContentView(R.layout.five_input_page);
         setUPTutorial();
     }
 
@@ -22,7 +22,7 @@ public class LinkedListRotation extends Activity {
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
         textViewToChange.setText(this.getResources().getString(R.string.linkedlist_Rotation));
 
-        textViewToChange = (TextView) findViewById(R.id.linkedListIntroPara1);
+        textViewToChange = (TextView) findViewById(R.id.first_text_block);
         textViewToChange.setText(this.getResources().getString(R.string.linkedlist_Rotation_para));
     }
 }

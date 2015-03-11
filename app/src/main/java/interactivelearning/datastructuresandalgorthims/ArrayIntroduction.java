@@ -13,17 +13,16 @@ public class ArrayIntroduction extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.arrayintroduction);
-        setUPTutorial();
-    }
+        setUI();
+}
 
-    private void setUPTutorial(){
+    private void setUI(){
         //this method sets up the page to include information about the tutorial.
-
+        setContentView(R.layout.topic_and_textview);
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
         textViewToChange.setText(this.getResources().getString(R.string.array_introduction));
 
-        textViewToChange = (TextView) findViewById(R.id.array_text);
+        textViewToChange = (TextView) findViewById(R.id.first_text_block);
         textViewToChange.setText(this.getResources().getString(R.string.arrays_intro_paragraph));
     }
 }

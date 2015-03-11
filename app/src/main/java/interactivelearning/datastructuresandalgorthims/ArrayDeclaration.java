@@ -11,15 +11,19 @@ import android.widget.Toast;
 public class ArrayDeclaration extends Activity{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setUI();
+    }
+
+    private void setUI(){
         setContentView(R.layout.arraydeclaration);
         Button declarationButton = (Button) findViewById(R.id.submit_one);
         Button initialisationButton = (Button) findViewById(R.id.submit_five);
 
         declarationButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "You sure showed that declaration button", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), "x", Toast.LENGTH_SHORT);
                 toast.show();
 
                 Intent intent = new Intent(ArrayDeclaration.this,SurfaceActivity.class);
@@ -29,7 +33,7 @@ public class ArrayDeclaration extends Activity{
 
         initialisationButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "You sure showed that initialisation button", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), "x", Toast.LENGTH_SHORT);
                 toast.show();
 
                 Intent intent = new Intent(ArrayDeclaration.this,SurfaceActivity.class);

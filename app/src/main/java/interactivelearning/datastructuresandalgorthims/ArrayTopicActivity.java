@@ -17,8 +17,12 @@ public class ArrayTopicActivity extends Activity {
     String [] subtopics;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setUI();
+    }
+
+    private void setUI() {
         setContentView(R.layout.activity_topic);
 
         final TextView textViewToChange = (TextView) findViewById(R.id.topic);

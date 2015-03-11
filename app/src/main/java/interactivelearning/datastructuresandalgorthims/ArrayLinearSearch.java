@@ -13,10 +13,14 @@ import android.widget.Toast;
  */
 public class ArrayLinearSearch extends Activity {
     @Override
-    protected void onCreate(Bundle savedInstanceState){
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.five_input_page);
-    Button selectSortButton = (Button) findViewById(R.id.submit_five);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setUI();
+    }
+
+    private void setUI(){
+    setContentView(R.layout.one_input_page);
+    Button selectSortButton = (Button) findViewById(R.id.submit_one);
 
     selectSortButton.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {

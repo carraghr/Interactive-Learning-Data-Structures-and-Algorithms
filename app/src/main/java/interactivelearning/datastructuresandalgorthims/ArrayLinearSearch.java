@@ -37,6 +37,6 @@ public class ArrayLinearSearch extends Activity {
     textViewToChange.setText(R.string.array_linear_search);
 
     textViewToChange = (TextView) findViewById(R.id.first_text_block);
-    textViewToChange.setText(R.string.array_linear_search_para);
+    textViewToChange.setText(R.string.array_linear_search_paragraph);
     }
 }

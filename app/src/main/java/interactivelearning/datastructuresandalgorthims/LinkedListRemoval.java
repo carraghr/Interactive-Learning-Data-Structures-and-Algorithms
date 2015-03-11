@@ -19,9 +19,9 @@ public class LinkedListRemoval extends Activity {
         //this method sets up the page to include information about the tutorial.
 
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
-        textViewToChange.setText(this.getResources().getString(R.string.linkedlist_Removal));
+        textViewToChange.setText(this.getResources().getString(R.string.linkedList_removal));
 
         textViewToChange = (TextView) findViewById(R.id.first_text_block);
-        textViewToChange.setText(this.getResources().getString(R.string.linkedlist_Removal_para));
+        textViewToChange.setText(this.getResources().getString(R.string.linkedList_removal_paragraph));
     }
 }

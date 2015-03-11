@@ -33,6 +33,6 @@ public class ArrayMergeSort extends Activity{
         textViewToChange.setText(R.string.array_merge_sort);
 
         textViewToChange = (TextView) findViewById(R.id.first_text_block);
-        textViewToChange.setText(R.string.array_merge_sort_para);
+        textViewToChange.setText(R.string.array_merge_sort_paragraph);
     }
 }

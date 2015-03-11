@@ -23,6 +23,6 @@ public class LinkedListDeclaration extends Activity {
         textViewToChange.setText(this.getResources().getString(R.string.linkedList_declaration));
 
         textViewToChange = (TextView) findViewById(R.id.first_text_block);
-        textViewToChange.setText(this.getResources().getString(R.string.linkedlist_declaration_para));
+        textViewToChange.setText(this.getResources().getString(R.string.linkedList_declaration_paragraph));
     }
 }

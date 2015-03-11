@@ -49,6 +49,6 @@ public class ArrayDeclaration extends Activity{
         textViewToChange.setText(R.string.array_declaration_paragraph);
 
         textViewToChange = (TextView) findViewById(R.id.second_text_block);
-        textViewToChange.setText(R.string.array_initialisation_para);
+        textViewToChange.setText(R.string.array_initialisation_paragraph);
     }
 }

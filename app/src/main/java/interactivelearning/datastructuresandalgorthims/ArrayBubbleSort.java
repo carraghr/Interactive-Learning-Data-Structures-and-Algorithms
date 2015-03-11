@@ -37,7 +37,7 @@ public class ArrayBubbleSort extends Activity{
         textViewToChange.setText(R.string.array_bubble_sort);
 
         textViewToChange = (TextView) findViewById(R.id.first_text_block);
-        textViewToChange.setText(R.string.array_bubble_sort_para);
+        textViewToChange.setText(R.string.array_bubble_sort_paragraph);
     }
 }
 

@@ -20,9 +20,9 @@ public class LinkedListRotation extends Activity {
         //this method sets up the page to include information about the tutorial.
 
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
-        textViewToChange.setText(this.getResources().getString(R.string.linkedlist_Rotation));
+        textViewToChange.setText(this.getResources().getString(R.string.linkedList_rotation));
 
         textViewToChange = (TextView) findViewById(R.id.first_text_block);
-        textViewToChange.setText(this.getResources().getString(R.string.linkedlist_Rotation_para));
+        textViewToChange.setText(this.getResources().getString(R.string.linkedList_rotation_paragraph));
     }
 }

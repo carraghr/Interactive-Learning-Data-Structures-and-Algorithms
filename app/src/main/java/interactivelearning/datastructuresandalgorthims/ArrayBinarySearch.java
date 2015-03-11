@@ -37,6 +37,6 @@ public class ArrayBinarySearch extends Activity{
     textViewToChange.setText(R.string.array_binary_search);
 
     textViewToChange = (TextView) findViewById(R.id.first_text_block);
-    textViewToChange.setText(R.string.array_binary_search_para);
+    textViewToChange.setText(R.string.array_binary_search_paragraph);
     }
 }

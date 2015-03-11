@@ -10,10 +10,17 @@
     <string name = "array_introduction">Array Introduction</string>
 
 
-    <string name = "arrays_intro_paragraph">
-                Arrays are one of the first data structures that you will be introduced to first for
-                primitive data types and then objects. If you have some basic programming experience
-                then you should already have met the materials with in this topic.
+    <string name = "array_introduction_paragraph">
+        An array stores a sequence of values that are all of the same type.
+        We want not just to store values but also to be able to quickly access each individual value.
+        The method that we use to refer to individual values in an array is to number and then index them—if we have N values,
+        we think of them as being numbered from 0 to N-1.
+        \n
+        \n
+        Arrays have a fixed size, which means that they are mainly used when you know how many objects will be required.
+        Ie. array with a length of 12 for months in the year.
+
+
     </string>
 
     <string name="array_declaration">Declaring an Array</string>
@@ -23,7 +30,7 @@
         \n
         int[] myIntArray = new int[3];
     </string>
-    <string name="array_initialisation_para">
+    <string name="array_initialisation_paragraph">
 
         \n
         \n
@@ -35,15 +42,9 @@
         int[] myIntArray = {1,2,3};
     </string>
 
-    <string name="numberInputOneHint">1st number</string>
-    <string name="numberInputTwoHint">2nd number</string>
-    <string name="numberInputThreeHint">3rd number</string>
-    <string name="arrayInitialisationButtonText">Submit Initialisation</string>
-    <string name="arrayDeclarationButtonText">Submit Declaration</string>
-
     <string name="array_select_sort">Select Sort</string>
     <string name="array_select_sort_button_text">Submit values</string>
-    <string name="array_select_sort_para">
+    <string name="array_select_sort_paragraph">
         The algorithm divides the input list into two parts:
         the sublist of sorted items, which is built up from left to right,
         and the sublist of unsorted items that occupy the rest of the list.
@@ -59,8 +60,7 @@
     </string>
 
     <string name="array_bubble_sort">Bubble Sort</string>
-    <string name="array_bubble_sort_button_text">submit values</string>
-    <string name="array_bubble_sort_para">
+    <string name="array_bubble_sort_paragraph">
         From the start, compare every adjacent pair, swap their position if they are not in the right order
         (the right value is smaller than the left). After each iteration, one less element
         is needed to be compared until there are no more elements left to be compared.
@@ -72,8 +72,7 @@
 
 
     <string name="array_merge_sort">Merge Sort</string>
-    <string name="array_merge_sort_button_text">submit values</string>
-    <string name="array_merge_sort_para">
+    <string name="array_merge_sort_paragraph">
         First divide the list into the smallest unit (1 element),
         then compare each element with the adjacent list to sort and merge the two adjacent lists.
         Finally all the elements are sorted and merged.
@@ -86,16 +85,15 @@
     </string>
 
     <string name="array_linear_search">Linear Search</string>
-    <string name="array_linear_search_button_text">submit values</string>
-    <string name="array_linear_search_para">Paragraph about Linear search</string>
+    <string name="array_linear_search_paragraph">Paragraph about Linear search</string>
 
     <string name="array_binary_search">Binary Search</string>
-    <string name="array_binary_search_para">Paragraph about binary search</string>
+    <string name="array_binary_search_paragraph">Paragraph about binary search</string>
 
     <string name="linkedList_topic_activity">LinkedLists</string>
 
     <string name="linkedList_introduction">Introduction</string>
-    <string name="linkedList_introduction_para">
+    <string name="linkedList_introduction_paragraph">
                     A linkedList is a data structure, of a sequence of linked nodes, that stores a
                     sequence of elements that can be repeated.
                     \n
@@ -115,7 +113,7 @@
     </string>
 
     <string name="linkedList_declaration">Declaration</string>
-    <string name="linkedlist_declaration_para">
+    <string name="linkedList_declaration_paragraph">
                       A LinkedList can be created though the use of a singly or doubly linked nodes.
                       A node is made up of a data item and a node or nodes referencing the next or
                       previous nodes in a sequence.
@@ -189,8 +187,8 @@
                       LinkedList Integer intList = new LinkedList();
               </string>
 
-    <string name = "linkedlist_insertion">Insertion</string>
-    <string name = "linkedlist_insertion_para">
+    <string name = "linkedList_insertion">Insertion</string>
+    <string name = "linkedList_insertion_paragraph">
                     You can add an item to a LinkedList at the start, middle or end. LinkedList has
                     an efficient way of adding nodes to either the start and end of collections of nodes.
                     \n
@@ -244,8 +242,8 @@
                     \t     return false;\n
                     }</string>
 
-    <string name = "linkedlist_Removal">Removal</string>
-    <string name = "linkedlist_Removal_para">
+    <string name = "linkedList_removal">Removal</string>
+    <string name = "linkedList_removal_paragraph">
                     You can remove a node from any point in a LinkedList. Removing the first element
                     in a LinkedList is very straightforward.All you do is get the head to reference
                     the next node instead of the current one.
@@ -317,8 +315,8 @@
                     both removal of the first and middle nodes. These are not implemented in this tutorial.
     </string>
 
-    <string name = "linkedlist_Rotation">Rotation</string>
-    <string name = "linkedlist_Rotation_para">
+    <string name = "linkedList_rotation">Rotation</string>
+    <string name = "linkedList_rotation_paragraph">
         There are many alterations you may want to do to a LinkedList for many reasons, and on of these
         alterations maybe to rotate the list right or left by a certain amount. To rotate a LinkedList
         you have to alter the both the head and tail of a list, in different orders depending on which

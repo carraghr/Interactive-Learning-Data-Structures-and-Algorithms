@@ -36,6 +36,6 @@ public class ArraySelectSort extends Activity{
         textViewToChange.setText(R.string.array_select_sort);
 
         textViewToChange = (TextView) findViewById(R.id.first_text_block);
-        textViewToChange.setText(R.string.array_select_sort_para);
+        textViewToChange.setText(R.string.array_select_sort_paragraph);
     }
 }

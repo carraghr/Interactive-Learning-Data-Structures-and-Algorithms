@@ -152,7 +152,7 @@
 
         <activity
             android:name = ".LinkedListInsert"
-            android:label = "@string/linkedlist_insertion"
+            android:label = "@string/linkedList_insertion"
             android:parentActivityName = ".LinkedListTopicActivity">
 
             <meta-data
@@ -163,7 +163,7 @@
 
         <activity
             android:name = ".LinkedListRemoval"
-            android:label = "@string/linkedlist_Removal"
+            android:label = "@string/linkedList_removal"
             android:parentActivityName = ".LinkedListTopicActivity">
 
             <meta-data
@@ -174,7 +174,7 @@
 
         <activity
             android:name = ".LinkedListRotation"
-            android:label = "@string/linkedlist_Rotation"
+            android:label = "@string/linkedList_rotation"
             android:parentActivityName = ".LinkedListTopicActivity">
 
             <meta-data

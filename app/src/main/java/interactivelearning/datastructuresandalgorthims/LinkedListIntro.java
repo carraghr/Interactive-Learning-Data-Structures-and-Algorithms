@@ -19,12 +19,12 @@ public class LinkedListIntro extends Activity{
 
     private void setUI(){
         //this method sets up the page to include information about the tutorial.
-        setContentView(R.layout.linkedlistintro);
+        setContentView(R.layout.topic_and_textview);
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
         textViewToChange.setText(this.getResources().getString(R.string.linkedList_introduction));
 
-        textViewToChange = (TextView) findViewById(R.id.linkedListIntroPara1);
-        textViewToChange.setText(this.getResources().getString(R.string.linkedList_introduction_para));
+        textViewToChange = (TextView) findViewById(R.id.first_text_block);
+        textViewToChange.setText(this.getResources().getString(R.string.linkedList_introduction_paragraph));
     }
 }
 

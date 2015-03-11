@@ -5,7 +5,6 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
 import android.util.Log;
-import android.widget.Toast;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -17,15 +16,15 @@ public class MyRenderer implements GLSurfaceView.Renderer{
 
     private static final String TAG = "MyRenderer";
 
-    private Square mySquare, mySq;
-    //private Line myline;
+    private Square[] squares;
+    int numberOfSquares;
+    final float radius = 0.075f;
 
     // myMVPMatrix is an abbreviation for "Model View Projection Matrix"
     private final float[] mMVPMatrix = new float[16];
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
     Context context;
-    int count;
 
     MyRenderer(Context context){
         super();
@@ -35,13 +34,12 @@ public class MyRenderer implements GLSurfaceView.Renderer{
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 
         // Set the background frame colour
-        GLES20.glClearColor(0.6f, 0.0f, 0.0f, 0.0f);
+        GLES20.glClearColor(0.24f, 0.522f, 0.863f, 0.0f);
 
-        // set up shapes
-        mySquare = new Square(new float[]{0.0f,0.0f}, 0.05f, new float[]{1.f,1.f,1.f,1.f});
-        mySq = new Square(new float[]{0.6f,0.0f}, 0.05f, new float[]{1.f,1.f,1.f,1.f});
+        numberOfSquares=4;
+        squares = new Square[numberOfSquares];
+        setUpSquares();
 
-        //myline = new Line(0.5f,mySq.getRightCenterPoint(),mySquare.getLeftCenterPoint(), new float[]{0.f,0.f,0.f,0.f});
     }
 
     @Override
@@ -56,13 +54,16 @@ public class MyRenderer implements GLSurfaceView.Renderer{
         // Calculate the projection and view transformation
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
 
-        // Draw square
-        mySquare.draw(mMVPMatrix);
-       // if(count >= 1) {
-         //   Toast toast = Toast.makeText(context, "Draw frame", Toast.LENGTH_SHORT);
-           // toast.show();
+        //Draw square
+        //mySquare.draw(mMVPMatrix);
+        //if(count >= 1) {
+        //Toast toast = Toast.makeText(context, "Draw frame", Toast.LENGTH_SHORT);
+        //toast.show();
         //}
-       mySq.draw(mMVPMatrix);
+        for(int i=0;i<numberOfSquares;i++) {
+            squares[i].draw(mMVPMatrix);
+        }
+        //mySq.draw(mMVPMatrix);
         //Draw connected line
         //myline.draw(mMVPMatrix);
     }
@@ -99,11 +100,25 @@ public class MyRenderer implements GLSurfaceView.Renderer{
     }
 
     public void moveSq(){
-        mySquare.moveLeft(0.5f);
-        float [] a = mySquare.getRightCenterPoint();
-        String coords ="x = "+ a[0] ;
-        count++;
-        Toast toast = Toast.makeText(context,coords , Toast.LENGTH_SHORT);
-        toast.show();
+        squares[1].moveUp(0.01f);
+        squares[3].moveUp(0.01f);
+        squares[0].moveDown(0.01f);
+        squares[2].moveDown(0.01f);
+    }
+    private void setUpSquares(){
+
+        float offset = 0.001f;
+        int left,right;
+        if(numberOfSquares%2!=0){
+            squares[numberOfSquares/2] = new Square(new float[]{0.0f,0.0f},radius,new float[]{1.f,1.f,1.f,1.f});
+            offset+=2*radius;
+        }else{
+            offset+=radius;
+        }
+        for(right =  numberOfSquares/2,left = numberOfSquares/2 -1; right<numberOfSquares && left >-1; right++, left-=1){
+            squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},radius,new float[]{1.f,1.f,1.f,1.f});
+            squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},radius,new float[]{1.f,1.f,1.f,1.f});
+            offset+=(2*radius)+0.002f;
+        }
     }
 }

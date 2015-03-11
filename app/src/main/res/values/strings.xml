@@ -13,12 +13,19 @@
     <string name = "array_introduction_paragraph">
         An array stores a sequence of values that are all of the same type.
         We want not just to store values but also to be able to quickly access each individual value.
+        \n
         The method that we use to refer to individual values in an array is to number and then index them—if we have N values,
         we think of them as being numbered from 0 to N-1.
         \n
         \n
         Arrays have a fixed size, which means that they are mainly used when you know how many objects will be required.
         Ie. array with a length of 12 for months in the year.
+        \n
+        Arrays work with memory allocation in Java but not all languages.
+        When you use the new keyword to create an array, Java reserves space in memory for it.
+        \n
+        As you will see in the next few topics, when using an array,
+        you must be very aware of the size and bounds of an array. Otherwise you will get an Out Of Bounds error.
 
 
     </string>
@@ -85,10 +92,108 @@
     </string>
 
     <string name="array_linear_search">Linear Search</string>
-    <string name="array_linear_search_paragraph">Paragraph about Linear search</string>
+    <string name="array_linear_search_paragraph">
+        Linear Search is the most easiest way of searching elements from an Array.
+        In this approach we iterate over an Array and  try every element in it until,
+         we have found the element or until we reach the end of the collection or Array.
+        Here is an example.
+        \n
+        \n
+        public class LinearSearch {
+        \n
+
+
+        \t int searchElementLinear(int numList[], int toSearch) {
+        \n
+        \t\t  int foundIndex = 0;
+        \n
+        \t\t  for (int i = 0; i &lt; numList.length; i++) {
+        \n
+        \t\t\t   if (numList[i] == toSearch) {
+        \n
+        \t\t\t\t    foundIndex = i;
+        \n
+        \t\t\t}
+        \n
+        \t\t  }
+        \n
+        \t\t  return foundIndex;
+        \n
+        \t }
+        }
+
+        Linear Search iterate over each element until it found the right element,
+        hence it has a variable best case and a fixed average and worst case complexity of O(n).
+
+    </string>
 
     <string name="array_binary_search">Binary Search</string>
-    <string name="array_binary_search_paragraph">Paragraph about binary search</string>
+    <string name="array_binary_search_paragraph">
+        Binary search is more efficient and merely used search algorithm in java programming.
+        To implement Binary search we must have an sorted array or collection.
+        Binary Search searches element in middle of the Array.
+        The array is than divided into sub-array in each iteration accordingly,
+        if the element is greater than the middle element or smaller than the middle element,
+        the respective sub-array is used for further searching.
+        Here is a simple Java Program demonstrating binary search in Java.
+        \n
+        \n
+
+        public class BinarySearch {
+        \n
+        \t int searchElementBinary(int numList[], int toSearch) {
+        \n
+        \t\t  int startIndex = 0;
+        \n
+        \t\t  int endIndex = numList.length - 1;
+        \n
+        \t\t  int midindex = (startIndex + endIndex) / 2;
+        \n
+        \t\t  int midElement = numList[midindex];
+        \n
+        \t\t  int foundIndex = 0;
+        \n
+        \t\t  while (startIndex &lt;= endIndex) {
+        \n
+        \t\t\t   if (midElement &lt; toSearch) {
+        \n
+        \t\t\t\t    startIndex = midindex + 1;
+        \n
+        \t\t\t\t    midindex = (startIndex + endIndex) / 2;
+        \n
+        \t\t\t\t    midElement = numList[midindex];
+        \n
+        \t\t\t   }
+        \n
+        \t\t  else if (midElement > toSearch) {
+        \n
+        \t\t\t  endIndex = midindex - 1;
+        \n
+        \t\t\t  midindex = (startIndex + endIndex) / 2;
+        \n
+        \t\t\t  midElement = numList[midindex];
+        \n
+        \t\t  }
+        \n
+        \t\t else {
+        \n
+        \t\t\t foundIndex = midindex;
+        \n
+        \t\t\t break;
+        \n
+        \t\t}
+        \n
+        \t}
+        \n
+        return foundIndex;
+        \n
+        }
+        \n
+
+        }
+
+        Binary Search divided the search space into half in each iteration and hence has a O(log n) complexity.
+    </string>
 
     <string name="linkedList_topic_activity">LinkedLists</string>
 

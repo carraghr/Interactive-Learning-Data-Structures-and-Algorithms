@@ -166,7 +166,7 @@
                       \n
                       public class LinkedList T {\n
 
-                      \t\t  private static class Node T { 8230;}\n
+                      \t\t  private static class Node T { &#8230;}\n
 
                       \t\t      Node T head, last;\n
 
@@ -254,9 +254,9 @@
                     example
                     \n
                     public void removeFirst(){ \n
-                        if(head != null){ \n
-                            head=head.next; \n
-                        } \n
+                    \t    if(head != null){ \n
+                    \t\t        head=head.next; \n
+                    \t    } \n
                     }
                     \n
                     \n

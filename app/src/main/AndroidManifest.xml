@@ -129,6 +129,7 @@
                 android:value = ".LinkedListTopicActivity"
                 />
         </activity>
+
         <activity
             android:name=".SurfaceActivity"
             android:label="SurfaceActivity"
@@ -136,19 +137,51 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ArrayDeclaration"/>
-
         </activity>
 
-                <activity
-                    android:name = "LinkedListDeclaration"
-                    android:label = "@string/linkedList_declaration"
-                    android:parentActivityName = ".LinkedListTopicActivity">
+        <activity
+            android:name = ".LinkedListDeclaration"
+            android:label = "@string/linkedList_declaration"
+            android:parentActivityName = ".LinkedListTopicActivity">
 
-                    <meta-data
-                        android:name="android.support.PARENT_ACTIVITY"
-                        android:value=".LinkedListTopicActivity"
-                        />
-                </activity>
+            <meta-data
+                android:name = "android.support.PARENT_ACTIVITY"
+                android:value = ".LinkedListTopicActivity"
+                />
+        </activity>
+
+        <activity
+            android:name = ".LinkedListInsert"
+            android:label = "@string/linkedlist_insertion"
+            android:parentActivityName = ".LinkedListTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LinkedListTopicActivity"
+            />
+        </activity>
+
+        <activity
+            android:name = ".LinkedListRemoval"
+            android:label = "@string/linkedlist_Removal"
+            android:parentActivityName = ".LinkedListTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LinkedListTopicActivity"
+                />
+        </activity>
+
+        <activity
+            android:name = ".LinkedListRotation"
+            android:label = "@string/linkedlist_Rotation"
+            android:parentActivityName = ".LinkedListTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LinkedListTopicActivity"
+                />
+        </activity>
 
     </application>
 </manifest>

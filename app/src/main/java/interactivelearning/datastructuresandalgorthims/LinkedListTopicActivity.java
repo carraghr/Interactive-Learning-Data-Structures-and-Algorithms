@@ -13,74 +13,72 @@ import android.widget.TextView;
  */
 public class LinkedListTopicActivity extends Activity{
 
-        String [] subtopics;
+    String [] subtopics;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_topic);
+
+        final TextView textViewToChange = (TextView) findViewById(R.id.topic);
+        textViewToChange.setText(R.string.linkedLists_topic_heading);
+
+        Bundle bundle = this.getIntent().getExtras();
+        subtopics = bundle.getStringArray("subtopic");
+
+        ListViewPopulate.populateTopicList(this, subtopics);
+
+        registerClickCallback();
+    }
+
+    private void registerClickCallback() {
+        //register a click for each topic in list
+        ListView list = (ListView) findViewById(R.id.ListViewTopicMenu);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
         @Override
-        protected void onCreate(Bundle savedInstanceState){
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_topic);
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            TextView textView = (TextView) view;
 
-            final TextView textViewToChange = (TextView) findViewById(R.id.topic);
-            textViewToChange.setText(R.string.linkedLists_topic_heading);
+            Intent intent;
 
-            Bundle bundle = this.getIntent().getExtras();
-            subtopics = bundle.getStringArray("subtopic");
+            switch(textView.getText().toString()){
+                case "Introduction":
 
+                    intent = new Intent(LinkedListTopicActivity.this,LinkedListIntro.class);
+                    LinkedListTopicActivity.this.startActivity(intent);
 
-            // populateListView(topics);
+                    break;
 
-            ListViewPopulate.populateTopicList(this, subtopics);
+                case "Declaration":
 
-            registerClickCallback();
-        }
+                    intent = new Intent(LinkedListTopicActivity.this,LinkedListDeclaration.class);
+                    LinkedListTopicActivity.this.startActivity(intent);
 
-        private void registerClickCallback() {
-            //register a click for each topic in list
-            ListView list = (ListView) findViewById(R.id.ListViewTopicMenu);
-            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    TextView textView = (TextView) view;
+                    break;
 
-                    Intent intent;
+                case "Adding Nodes":
 
-                    switch(textView.getText().toString()){
-                        case "Introduction":
+                    intent = new Intent(LinkedListTopicActivity.this,LinkedListInsert.class);
+                    LinkedListTopicActivity.this.startActivity(intent);
 
-                            intent = new Intent(LinkedListTopicActivity.this,LinkedListIntro.class);
-                            LinkedListTopicActivity.this.startActivity(intent);
+                    break;
 
-                            break;
+                case "Removing Nodes":
 
-                        case "Declaration":
+                    intent = new Intent(LinkedListTopicActivity.this,LinkedListRemoval.class);
+                    LinkedListTopicActivity.this.startActivity(intent);
 
-                            intent = new Intent(LinkedListTopicActivity.this,LinkedListDeclaration.class);
-                            LinkedListTopicActivity.this.startActivity(intent);
+                    break;
 
-                            break;
-/*
-                    case "Declare Array Filled with Values":
+                case "Rotation":
 
-                        intent = new Intent(ArrayTopicActivity.this,ArrayValuesDeclare.class);
-                        ArrayTopicActivity.this.startActivity(intent);
+                    intent = new Intent(LinkedListTopicActivity.this,LinkedListRotation.class);
+                    LinkedListTopicActivity.this.startActivity(intent);
 
-                        break;
-
-                    case "Sorting":
-
-                        intent = new Intent(ArrayTopicActivity.this,ArraySearch.class);
-                        ArrayTopicActivity.this.startActivity(intent);
-
-                        break;
-
-                    case "Searching":
-
-                        intent = new Intent(ArrayTopicActivity.this,ArraySort.class);
-                        ArrayTopicActivity.this.startActivity(intent);
-
-                        break;*/
-                }
+                    break;
             }
+        }
         });
     }
 }

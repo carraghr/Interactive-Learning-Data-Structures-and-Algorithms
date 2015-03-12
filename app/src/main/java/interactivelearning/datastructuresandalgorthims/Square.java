@@ -73,7 +73,7 @@ public class Square{
     private final FloatBuffer imageBuffer;
     private String imageFilename;
     private Context context;
-
+    private int [] texturenames;
     /**
      * Sets up the drawing object data for use in an OpenGL ES context
      */
@@ -123,7 +123,7 @@ public class Square{
         imageBuffer.position(0);
 
         //Generate Textures
-        int [] texturenames = new int[1];
+        texturenames = new int[1];
         GLES20.glGenTextures(1,texturenames,0);
 
         //Retrieve image from resources
@@ -209,6 +209,7 @@ public class Square{
         vertexBuffer.put(squareCoords);
         vertexBuffer.position(0);
 
+        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,texturenames[0]);
 
        //Add program to OpenGL environment
         GLES20.glUseProgram(MyProgram);

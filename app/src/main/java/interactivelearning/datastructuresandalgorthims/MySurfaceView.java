@@ -20,10 +20,11 @@ public class MySurfaceView extends GLSurfaceView{
         setEGLContextClientVersion(2);
 
         //set the Renderer for drawing on the surfaceview
-        if(type.equals("Declare")) {
-            myRenderer = new MyRenderer(context, number_of_slots);
+        if(type.equals("Declaration")) {
+            myRenderer = new MyRenderer(this.context, number_of_slots);
         }else{
-            myRenderer = new MyRenderer(context, number_of_slots,values);
+            String [] fileNames = InputContorls.addImageNames(values);
+            myRenderer = new MyRenderer(this.context, number_of_slots,fileNames);
         }
         setRenderer(myRenderer);
         //render the view only when there is a change in the drawing data

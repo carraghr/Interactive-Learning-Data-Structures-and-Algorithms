@@ -34,7 +34,7 @@ public class ArrayDeclaration extends Activity{
                 }else {
                     Bundle bundle = new Bundle();
 
-                    bundle.putString("type",getApplicationContext().getString( R.string.array_declaration));
+                    bundle.putString("type","Declaration");
                     bundle.putString("number_of_Slots", input);
                     Intent intent = new Intent(ArrayDeclaration.this, SurfaceActivity.class);
                     intent.putExtras(bundle);
@@ -45,11 +45,36 @@ public class ArrayDeclaration extends Activity{
 
         initialisationButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "x", Toast.LENGTH_SHORT);
-                toast.show();
 
-                Intent intent = new Intent(ArrayDeclaration.this,SurfaceActivity.class);
-                ArrayDeclaration.this.startActivity(intent);
+                EditText one_input = (EditText) findViewById(R.id.input_one);
+                EditText two_input = (EditText) findViewById(R.id.input_two);
+                EditText three_input = (EditText) findViewById(R.id.input_three);
+                EditText four_input = (EditText) findViewById(R.id.input_four);
+                EditText five_input = (EditText) findViewById(R.id.input_five);
+
+                String [] values = new String[]{one_input.getText().toString(),
+                                                two_input.getText().toString(),
+                                                three_input.getText().toString(),
+                                                four_input.getText().toString(),
+                                                five_input.getText().toString()};
+                values = InputContorls.sortedValues(values);
+
+                if(values.length == 0){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please input values to initialize array"
+                                                                        , Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                else {
+                    Bundle bundle = new Bundle();
+
+                    bundle.putString("type","Initialization");
+                    bundle.putString("number_of_Slots", ""+values.length);
+                    bundle.putStringArray("values",values);
+                    Intent intent = new Intent(ArrayDeclaration.this, SurfaceActivity.class);
+                    intent.putExtras(bundle);
+                    ArrayDeclaration.this.startActivity(intent);
+
+                }
             }
         });
 

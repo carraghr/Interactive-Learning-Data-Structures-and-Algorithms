@@ -5,6 +5,7 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
 import android.util.Log;
+import android.widget.Toast;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -31,17 +32,20 @@ public class MyRenderer implements GLSurfaceView.Renderer{
         super();
         this.context = context;
         this.numberOfSquares = numberOfSquares;
-        fileNames = new String[numberOfSquares];
-
-        for(int i=0; i < numberOfSquares; i++) {
+        fileNames = new String[this.numberOfSquares];
+        Toast toast = Toast.makeText(context, "Everything set to 0"
+                , Toast.LENGTH_SHORT);
+        toast.show();
+        for(int i=0; i < this.numberOfSquares; i++) {
             fileNames[i] = "number_0";
         }
 
-        squares = new Square[numberOfSquares];
+        squares = new Square[this.numberOfSquares];
         setUpSquares();
     }
 
     MyRenderer(Context context, int numberOfSquares, String [] fileNames){
+
         super();
         this.context = context;
         this.numberOfSquares = numberOfSquares;
@@ -49,6 +53,7 @@ public class MyRenderer implements GLSurfaceView.Renderer{
 
         squares = new Square[numberOfSquares];
         setUpSquares();
+
     }
 
     @Override
@@ -114,9 +119,6 @@ public class MyRenderer implements GLSurfaceView.Renderer{
     public void moveSq(){
         squares[0].moveLeft(0.01f);
         squares[1].moveDown(0.01f);
-       // squares[2].moveUp(0.01f);
-     //   squares[3].moveRight(0.01f);
-        //squares[4].moveDown(0.01f);
     }
     private void setUpSquares(){
 

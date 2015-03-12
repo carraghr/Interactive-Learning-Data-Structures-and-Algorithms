@@ -19,10 +19,10 @@ public class SurfaceActivity extends Activity {
         String type = bundle.getString("type");
         int num =Integer.parseInt(bundle.getString("number_of_Slots"));
         String [] values;
-        if(!type.equals("Declare")){
-            values = bundle.getStringArray("values");
-        }else{
+        if(type.equals("Declaration")){
             values=null;
+        }else{
+            values = bundle.getStringArray("values");
         }
 
         myView = new MySurfaceView(getApplicationContext(),type,num,values);

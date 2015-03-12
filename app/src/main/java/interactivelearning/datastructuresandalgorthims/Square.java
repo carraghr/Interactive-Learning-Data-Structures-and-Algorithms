@@ -59,7 +59,7 @@ public class Square{
     float [] color;// Format of RGB Alpha.
 
     float [] centerPoint;
-    float radius;
+    private final static float radius = 0.075f;
 
     /**
      * Image shaders and coords below.
@@ -78,12 +78,10 @@ public class Square{
      * Sets up the drawing object data for use in an OpenGL ES context
      */
 
-    public Square(float [] center, float radius, float [] color,Context context,String imageFilename){
+    public Square(float [] center,Context context,String imageFilename){
 
+        this.context = context;
         this.centerPoint = center;
-        this.radius = radius;
-
-        this.color=color;
 
         createSquare();
 
@@ -115,7 +113,7 @@ public class Square{
 
         // Image variables
         this.context=context;
-        //this.imageFilename = imageFilename;
+        this.imageFilename = imageFilename;
 
         //The texture buffer
         ByteBuffer imagebb = ByteBuffer.allocateDirect(imageVertex.length * 4);
@@ -129,7 +127,7 @@ public class Square{
         GLES20.glGenTextures(1,texturenames,0);
 
         //Retrieve image from resources
-        int id = context.getResources().getIdentifier(imageFilename,"drawable",context.getPackageName());
+        int id = context.getResources().getIdentifier(this.imageFilename,"drawable",context.getPackageName());
 
         //Temporary create a bitmap
         Bitmap bmp= BitmapFactory.decodeResource(context.getResources(), id);
@@ -153,12 +151,6 @@ public class Square{
     }
 
     private void createSquare() {
-        /**
-         * so we start with a center point and a radius from there we want to create four sides/corners
-         * we do this by moving out to the side by radius this will get the sides left and right x points
-         * to get the y points we go up and down from the sides
-         * REMEMBER THAT EVERYTHING IS INVERTED. ie + = - and - = +,  left=right down=up
-         */
                                     //    x                                   y           z - 2d never changes
         squareCoords = new float[] {(centerPoint[0] + radius), (centerPoint[1] - radius), 0.00f,    //LT
                                     (centerPoint[0] + radius), (centerPoint[1] + radius), 0.00f,    //LB
@@ -259,5 +251,9 @@ public class Square{
         //Disable vertex array
         GLES20.glDisableVertexAttribArray(myPositionHandle);
         GLES20.glDisableVertexAttribArray(mTexCoordLoc);
+    }
+
+    public static float getRadius(){
+        return radius;
     }
 }

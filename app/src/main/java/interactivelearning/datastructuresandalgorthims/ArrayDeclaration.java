@@ -26,16 +26,20 @@ public class ArrayDeclaration extends Activity{
             public void onClick(View v) {
 
                 EditText one_input = (EditText) findViewById(R.id.input_box_one);
-                String test = one_input.getText().toString();
-                Toast toast = Toast.makeText(getApplicationContext(), test, Toast.LENGTH_SHORT);
-                if (test == null)
-                    toast = Toast.makeText(getApplicationContext(),"String is null", Toast.LENGTH_SHORT);
-                else
-                    toast = Toast.makeText(getApplicationContext(),"String is empty", Toast.LENGTH_SHORT);
-                toast.show();
+                String input = one_input.getText().toString();
 
-                Intent intent = new Intent(ArrayDeclaration.this,SurfaceActivity.class);
-                ArrayDeclaration.this.startActivity(intent);
+                if(input.equals("")) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please input a length for an array", Toast.LENGTH_SHORT);
+                    toast.show();
+                }else {
+                    Bundle bundle = new Bundle();
+
+                    bundle.putString("type",getApplicationContext().getString( R.string.array_declaration));
+                    bundle.putString("number_of_Slots", input);
+                    Intent intent = new Intent(ArrayDeclaration.this, SurfaceActivity.class);
+                    intent.putExtras(bundle);
+                    ArrayDeclaration.this.startActivity(intent);
+                }
             }
         });
 

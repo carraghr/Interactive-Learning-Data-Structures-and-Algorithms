@@ -15,8 +15,17 @@ public class SurfaceActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Bundle bundle = this.getIntent().getExtras();
+        String type = bundle.getString("type");
+        int num =Integer.parseInt(bundle.getString("number_of_Slots"));
+        String [] values;
+        if(!type.equals("Declare")){
+            values = bundle.getStringArray("values");
+        }else{
+            values=null;
+        }
 
-        myView = new MySurfaceView(getApplicationContext());
+        myView = new MySurfaceView(getApplicationContext(),type,num,values);
         setContentView(myView);
     }
 }

@@ -13,17 +13,19 @@ public class MySurfaceView extends GLSurfaceView{
 
     Context context;
 
-    public MySurfaceView(Context context){
+    public MySurfaceView(Context context,String type, int number_of_slots,String[] values){
         super(context);
         this.context=context;
         //Create an OpenGL ES 2.0 context.
         setEGLContextClientVersion(2);
 
         //set the Renderer for drawing on the surfaceview
-        myRenderer= new MyRenderer(context);
+        if(type.equals("Declare")) {
+            myRenderer = new MyRenderer(context, number_of_slots);
+        }else{
+            myRenderer = new MyRenderer(context, number_of_slots,values);
+        }
         setRenderer(myRenderer);
-
-
         //render the view only when there is a change in the drawing data
         setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
     }

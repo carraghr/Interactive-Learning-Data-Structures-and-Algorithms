@@ -10,12 +10,12 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 /**
- * Created by Richard on 04/03/2015.
+ * Created by Richard on 11/03/2015.
  */
-public class MyRenderer implements GLSurfaceView.Renderer{
+public class ArrayDeclarationRenderer implements GLSurfaceView.Renderer {
 
-    private static final String TAG = "MyRenderer";
 
+    private static final String TAG = " ArrayDeclareRenderer";
     private Square[] squares;
     int numberOfSquares;
     String [] fileNames;
@@ -27,7 +27,7 @@ public class MyRenderer implements GLSurfaceView.Renderer{
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
 
-    MyRenderer(Context context, int numberOfSquares){
+    ArrayDeclarationRenderer(Context context, int numberOfSquares){
         super();
         this.context = context;
         this.numberOfSquares = numberOfSquares;
@@ -38,32 +38,39 @@ public class MyRenderer implements GLSurfaceView.Renderer{
         }
 
         squares = new Square[numberOfSquares];
-        setUpSquares();
     }
 
-    MyRenderer(Context context, int numberOfSquares, String [] fileNames){
+    ArrayDeclarationRenderer(Context context, int numberOfSquares, String [] fileNames){
         super();
         this.context = context;
         this.numberOfSquares = numberOfSquares;
         this.fileNames = fileNames;
 
         squares = new Square[numberOfSquares];
-        setUpSquares();
     }
 
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-
         // Set the background frame colour
         GLES20.glClearColor(0.24f, 0.522f, 0.863f, 0.0f);
 
         // set up shapes
         setUpSquares();
+    }
+
+    @Override
+    public void onSurfaceChanged(GL10 gl, int width, int height) {
+
+        GLES20.glViewport(0, 0, width, height);
+
+        float ratio = (float) width/height;
+
+        Matrix.frustumM(mProjectionMatrix, 0, -ratio, ratio, -1, 1, 3, 7);
 
     }
 
     @Override
-    public void onDrawFrame(GL10 unused){
+    public void onDrawFrame(GL10 gl) {
 
         //Draw background color
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
@@ -75,18 +82,9 @@ public class MyRenderer implements GLSurfaceView.Renderer{
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
 
         for(int i=0;i<numberOfSquares;i++) {
-            if( squares[i]!=null)
-                squares[i].draw(mMVPMatrix);
+            squares[i].draw(mMVPMatrix);
         }
-    }
 
-    @Override
-    public void onSurfaceChanged(GL10 unused,int width,int height){
-        GLES20.glViewport(0, 0, width, height);
-
-        float ratio = (float) width/height;
-
-        Matrix.frustumM(mProjectionMatrix, 0, -ratio, ratio, -1, 1, 3, 7);
     }
 
     public static int loadShader(int type,String shaderCode){
@@ -111,18 +109,11 @@ public class MyRenderer implements GLSurfaceView.Renderer{
         }
     }
 
-    public void moveSq(){
-        squares[0].moveLeft(0.01f);
-        squares[1].moveDown(0.01f);
-       // squares[2].moveUp(0.01f);
-     //   squares[3].moveRight(0.01f);
-        //squares[4].moveDown(0.01f);
-    }
-    private void setUpSquares(){
+    private void setUpSquares() {
 
         float offset = 0.001f;
         int left,right;
-        float radius =Square.getRadius();
+        float radius = new Square(new float[]{0.0f,0.0f},context,"").getRadius();
         if(numberOfSquares%2!=0){
             squares[numberOfSquares/2] = new Square(new float[]{0.0f,0.0f},context,fileNames[numberOfSquares/2]);
             offset+=2*radius;
@@ -131,10 +122,11 @@ public class MyRenderer implements GLSurfaceView.Renderer{
             offset+=radius;
             right =  numberOfSquares/2;
         }
-        for(left = numberOfSquares/2 -1; right<numberOfSquares && left >-1; right++, left--){
+        for(right =  numberOfSquares/2 +1,left = numberOfSquares/2 -1; right<numberOfSquares && left >-1; right++, left--){
             squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[right]);
             squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[left]);
             offset+=(2*radius)+0.002f;
         }
     }
 }
+

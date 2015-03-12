@@ -41,7 +41,7 @@ public class ArrayDeclareRenderer implements GLSurfaceView.Renderer {
         GLES20.glClearColor(0.24f, 0.522f, 0.863f, 0.0f);
 
         // set up shapes
-        setUpSquares();
+    //    setUpSquares();
     }
 
     @Override
@@ -53,8 +53,8 @@ public class ArrayDeclareRenderer implements GLSurfaceView.Renderer {
     public void onDrawFrame(GL10 gl) {
 
     }
-
-    private void setUpSquares(){
+    /*
+    private void setUpSquares() {
 
         float offset;
         int left,right;
@@ -69,5 +69,6 @@ public class ArrayDeclareRenderer implements GLSurfaceView.Renderer {
             squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},radius,new float[]{1.f,1.f,1.f,1.f});
             offset+=(2*radius);
         }
-    }
+    }*/
 }
+

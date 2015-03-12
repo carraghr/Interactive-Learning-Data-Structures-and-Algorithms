@@ -16,7 +16,7 @@ public class SurfaceActivity extends Activity {
         super.onCreate(savedInstanceState);
 
 
-        myView = new MySurfaceView(this);
+        myView = new MySurfaceView(getApplicationContext());
         setContentView(myView);
     }
 }

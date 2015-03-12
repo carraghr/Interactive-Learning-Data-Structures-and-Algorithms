@@ -99,18 +99,22 @@ public class MyRenderer implements GLSurfaceView.Renderer{
     }
 
     public void moveSq(){
-        squares[0].moveUp(0.01f);
+        squares[0].moveLeft(0.01f);
         squares[1].moveDown(0.01f);
         squares[2].moveUp(0.01f);
-        //squares[3].moveUp(0.01f);
+        squares[3].moveRight(0.01f);
         //squares[4].moveDown(0.01f);
     }
     private void setUpSquares(){
 
+        int id = context.getResources().getIdentifier("number_0","mipmap-xxhdpi",context.getPackageName());
+//        Toast toast = Toast.makeText(context,""+ id, Toast.LENGTH_LONG);
+  //      toast.show();
+
         float offset = 0.001f;
         int left,right;
         if(numberOfSquares%2!=0){
-            squares[numberOfSquares/2] = new Square(new float[]{0.0f,0.0f},radius,new float[]{1.f,1.f,1.f,1.f});
+            squares[numberOfSquares/2] = new Square(new float[]{0.0f,0.0f},radius,new float[]{1.f,1.f,1.f,1.f},context,"number_2");
             offset+=2*radius;
             right =  numberOfSquares/2+1;
         }else{
@@ -118,8 +122,8 @@ public class MyRenderer implements GLSurfaceView.Renderer{
             right =  numberOfSquares/2;
         }
         for(left = numberOfSquares/2 -1; right<numberOfSquares && left >-1;right++, left-=1){
-            squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},radius,new float[]{1.f,1.f,1.f,1.f});
-            squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},radius,new float[]{1.f,1.f,1.f,1.f});
+            squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},radius,new float[]{1.f,1.f,1.f,1.f},context,"number_0");
+            squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},radius,new float[]{1.f,1.f,1.f,1.f},context,"number_1");
             offset+=(2*radius)+0.002f;
         }
     }

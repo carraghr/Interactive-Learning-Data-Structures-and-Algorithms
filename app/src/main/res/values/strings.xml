@@ -461,5 +461,6 @@
         \t    }\n
         }\n
     </string>
+    <string name="button_text">Submit</string>
 
 </resources>

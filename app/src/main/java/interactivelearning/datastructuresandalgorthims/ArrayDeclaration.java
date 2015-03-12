@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,14 @@ public class ArrayDeclaration extends Activity{
 
         declarationButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "x", Toast.LENGTH_SHORT);
+
+                EditText one_input = (EditText) findViewById(R.id.input_box_one);
+                String test = one_input.getText().toString();
+                Toast toast = Toast.makeText(getApplicationContext(), test, Toast.LENGTH_SHORT);
+                if (test == null)
+                    toast = Toast.makeText(getApplicationContext(),"String is null", Toast.LENGTH_SHORT);
+                else
+                    toast = Toast.makeText(getApplicationContext(),"String is empty", Toast.LENGTH_SHORT);
                 toast.show();
 
                 Intent intent = new Intent(ArrayDeclaration.this,SurfaceActivity.class);

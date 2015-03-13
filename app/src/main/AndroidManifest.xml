@@ -183,5 +183,16 @@
                 />
         </activity>
 
+        <activity
+            android:name = ".CodeTopicActivity"
+            android:label = "@string/Code_topic_activity"
+            android:parentActivityName = ".TopicActivity">
+
+            <meta-data
+                android:name = "android.support.PARENT_ACTIVITY"
+                android:value = ".CodeTopicActivity"
+                />
+        </activity>
+
     </application>
 </manifest>

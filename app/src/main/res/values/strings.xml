@@ -462,5 +462,8 @@
         }\n
     </string>
     <string name="button_text">Submit</string>
+    <string name="next_button_text">next</string>
+    <string name="previous_button_text">previous</string>
+    <string name="Code_topic_activity">Code</string>
 
 </resources>

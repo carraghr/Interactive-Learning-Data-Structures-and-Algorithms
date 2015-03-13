@@ -12,17 +12,10 @@ public class Txt_to_Dat {
     public static void main(String [] args){
         String line;
         try{
-            System.out.println("1");
-
-            System.out.println("w");
-
-            //Scanner txt = new Scanner( new File (getAssets().open(String.format("topics.txt"))));
-
+            
             Scanner brTxt = new Scanner(new File("topics.txt"));
 
-            System.out.println("w2");
             RandomAccessFile topicFile = new RandomAccessFile("topics.dat","rw");
-            System.out.println("w3");
             if(brTxt.hasNext()){
                 line = brTxt.nextLine();
                 topicFile.writeInt(Integer.parseInt(line));
@@ -53,7 +46,7 @@ public class Txt_to_Dat {
             topicFile.close();
 
         }catch(Exception e){
-            System.out.println("adsaewrdad");
+            System.out.println("Error");
         }
     }
 }

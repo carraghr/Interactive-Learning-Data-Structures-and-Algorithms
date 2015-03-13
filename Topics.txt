@@ -1,4 +1,4 @@
-8
+9
 Arrays 7
 Introduction
 Declare an Array
@@ -20,3 +20,13 @@ ArrayLists 0
 Stacks 0
 Queues 0
 Binary_Trees 0
+Code 9
+Array_Merge_Sort
+Array_Bubble_Sort
+Array_Select_Sort
+Array_Linear_Search
+Array_Binary_Search
+LinkedList_Declaration
+LinkedList_Adding a node
+LinkedList_Removing a node
+LinkedList_Rotation

@@ -79,6 +79,18 @@ public class TopicActivity extends Activity {
                         TopicActivity.this.startActivity(intent);
 
                         break;
+
+                    case "Code":
+
+                        bundle = new Bundle();
+                        bundle.putStringArray("subtopic",topics.getTopic("Code").getSubtopics());
+
+                        intent = new Intent(TopicActivity.this,CodeTopicActivity.class);
+                        intent.putExtras(bundle);
+
+                        TopicActivity.this.startActivity(intent);
+
+                        break;
                 }
             }
         });

@@ -54,7 +54,7 @@ public class ArrayDeclarationRenderer implements GLSurfaceView.Renderer {
         // Set the background frame colour
         GLES20.glClearColor(0.24f, 0.522f, 0.863f, 0.0f);
 
-        // set up shapes
+        // set up squares
         setUpSquares();
     }
 
@@ -113,7 +113,7 @@ public class ArrayDeclarationRenderer implements GLSurfaceView.Renderer {
 
         float offset = 0.001f;
         int left,right;
-        float radius = new Square(new float[]{0.0f,0.0f},context,"").getRadius();
+        float radius = Square.getRadius();
         if(numberOfSquares%2!=0){
             squares[numberOfSquares/2] = new Square(new float[]{0.0f,0.0f},context,fileNames[numberOfSquares/2]);
             offset+=2*radius;
@@ -122,11 +122,20 @@ public class ArrayDeclarationRenderer implements GLSurfaceView.Renderer {
             offset+=radius;
             right =  numberOfSquares/2;
         }
-        for(right =  numberOfSquares/2 +1,left = numberOfSquares/2 -1; right<numberOfSquares && left >-1; right++, left--){
-            squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[right]);
-            squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[left]);
+        for(left = numberOfSquares/2 -1; right<numberOfSquares && left >-1; right++, left--){
+            squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[left]);
+            squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[right]);
             offset+=(2*radius)+0.002f;
         }
     }
+    public void moveSq(){
+        squares[0].moveLeft(0.05f);
+        squares[1].moveDown(0.05f);
+    }
 }
-
+/***
+ * TODO redo this class so that loadshader and checkGLError are't in this.
+ * Change the MyRenderer so that it is the only think in that class.
+ * its not need for anything else.
+ * Also rename to basserenderer or something to that affect.
+ */

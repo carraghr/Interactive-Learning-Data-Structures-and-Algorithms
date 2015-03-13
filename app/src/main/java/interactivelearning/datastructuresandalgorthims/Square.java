@@ -93,10 +93,10 @@ public class Square{
         vertexBuffer.position(0);
 
         //initialize byte buffer for the draw list.
-        ByteBuffer drawListB = ByteBuffer.allocateDirect( // number of coordinate values * 2 bytes per short
+        ByteBuffer drawListBb = ByteBuffer.allocateDirect( // number of coordinate values * 2 bytes per short
                                                             drawOrder.length * 2   );
-        drawListB.order(ByteOrder.nativeOrder());
-        drawListBuffer = drawListB.asShortBuffer();
+        drawListBb.order(ByteOrder.nativeOrder());
+        drawListBuffer = drawListBb.asShortBuffer();
         drawListBuffer.put(drawOrder);
         drawListBuffer.position(0);
 

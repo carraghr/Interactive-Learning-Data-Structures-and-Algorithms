@@ -3,70 +3,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+    <include layout = "@layout/five_input_buttons"
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             android:layout_alignParentTop="true"
+             android:id="@+id/five_input_buttons">
+    </include>
+
     <Button
         android:id="@+id/submit_five"
         android:text="@string/button_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/input_one"
+        android:layout_below="@+id/five_input_buttons"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"/>
 
-    <EditText
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/input_one"
-        android:maxLength="1"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/input_two"
-        android:layout_toEndOf="@+id/input_two"/>
-
-    <EditText
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/input_two"
-        android:maxLength="1"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/input_three"
-        android:layout_toEndOf="@+id/input_three"/>
-
-    <EditText
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/input_three"
-        android:maxLength="1"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/input_four"
-        android:layout_toEndOf="@+id/input_four"/>
-
-    <EditText
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/input_four"
-        android:maxLength="1"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/input_five"
-        android:layout_toEndOf="@+id/input_five"/>
-
-    <EditText
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/input_five"
-        android:maxLength="1"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-    </EditText>
 </RelativeLayout>

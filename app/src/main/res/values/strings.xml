@@ -465,5 +465,8 @@
     <string name="next_button_text">next</string>
     <string name="previous_button_text">previous</string>
     <string name="Code_topic_activity">Code</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="previosu">Previous</string>
 
 </resources>

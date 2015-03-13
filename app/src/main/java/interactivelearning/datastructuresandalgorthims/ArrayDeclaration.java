@@ -57,7 +57,7 @@ public class ArrayDeclaration extends Activity{
                                                 three_input.getText().toString(),
                                                 four_input.getText().toString(),
                                                 five_input.getText().toString()};
-                values = InputContorls.sortedValues(values);
+                values = InputControls.sortedValues(values);
 
                 if(values.length == 0){
                     Toast toast = Toast.makeText(getApplicationContext(), "Please input values to initialize array"

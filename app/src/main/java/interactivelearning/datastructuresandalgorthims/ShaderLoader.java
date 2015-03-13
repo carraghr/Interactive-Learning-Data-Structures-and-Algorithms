@@ -6,7 +6,7 @@ import android.util.Log;
 /**
  * Created by Richard on 04/03/2015.
  */
-public class MyRenderer{
+public class ShaderLoader{
 
     private static final String TAG = "MyRenderer";
 

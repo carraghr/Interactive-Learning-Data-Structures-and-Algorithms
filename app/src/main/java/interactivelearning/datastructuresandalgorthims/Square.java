@@ -101,8 +101,8 @@ public class Square{
         drawListBuffer.position(0);
 
         //prepare the two shaders
-        int vertexShader = MyRenderer.loadShader(GLES20.GL_VERTEX_SHADER, VertexShaderCode);
-        int fragmentShader = MyRenderer.loadShader(GLES20.GL_FRAGMENT_SHADER, FragmentShaderCode);
+        int vertexShader = ShaderLoader.loadShader(GLES20.GL_VERTEX_SHADER, VertexShaderCode);
+        int fragmentShader = ShaderLoader.loadShader(GLES20.GL_FRAGMENT_SHADER, FragmentShaderCode);
 
         //prepare OpenGL Program and bind the shaders for square
         MyProgram = GLES20.glCreateProgram();               //create empty OpenGL Program

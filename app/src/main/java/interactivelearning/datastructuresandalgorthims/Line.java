@@ -73,8 +73,8 @@ public class Line {
         drawListBuffer.position(0);
 
         //prepare the two shaders
-        int vertexShader = MyRenderer.loadShader(GLES20.GL_VERTEX_SHADER, VertexShaderCode);
-        int fragmentShader = MyRenderer.loadShader(GLES20.GL_FRAGMENT_SHADER, FragmentShaderCode);
+        int vertexShader = ShaderLoader.loadShader(GLES20.GL_VERTEX_SHADER, VertexShaderCode);
+        int fragmentShader = ShaderLoader.loadShader(GLES20.GL_FRAGMENT_SHADER, FragmentShaderCode);
 
         //prepare OpenGL Program and bind the shaders
         MyProgram = GLES20.glCreateProgram();               //create empty OpenGL Program
@@ -129,11 +129,11 @@ public class Line {
 
         //get handle to shapes transformation matrix
         myMVPMatrixHandle = GLES20.glGetUniformLocation(MyProgram,"uMVPMatrix");
-        MyRenderer.checkGlError("glGetUniformLocation");
+        ShaderLoader.checkGlError("glGetUniformLocation");
 
         // Apply the projection and view transformation
         GLES20.glUniformMatrix4fv(myMVPMatrixHandle, 1, false, mvpMatrix, 0);
-        MyRenderer.checkGlError("glUniformMatrix4fv");
+        ShaderLoader.checkGlError("glUniformMatrix4fv");
 
         //Draw the square
         GLES20.glDrawElements(GLES20.GL_TRIANGLES, drawOrder.length,

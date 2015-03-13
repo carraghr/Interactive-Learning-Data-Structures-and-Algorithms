@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by Richard on 12/03/2015.
  */
-public class InputContorls {
+public class InputControls {
 
     public static String [] sortedValues(String [] values){
 

@@ -22,7 +22,7 @@ public class MySurfaceView extends GLSurfaceView{
         if(type.equals("Declaration")) {
             arrayDeclarationRenderer = new ArrayDeclarationRenderer(this.context, number_of_slots);
         }else{
-            String [] fileNames = InputContorls.addImageNames(values);
+            String [] fileNames = InputControls.addImageNames(values);
             arrayDeclarationRenderer = new ArrayDeclarationRenderer(this.context, number_of_slots,fileNames);
         }
         setRenderer(arrayDeclarationRenderer);

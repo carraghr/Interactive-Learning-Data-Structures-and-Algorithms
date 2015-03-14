@@ -32,8 +32,8 @@ public class ArrayDeclaration extends Activity{
                     Toast toast = Toast.makeText(getApplicationContext(), "Please input a length for an array", Toast.LENGTH_SHORT);
                     toast.show();
                 }else {
-                    Bundle bundle = new Bundle();
 
+                    Bundle bundle = new Bundle();
                     bundle.putString("type","Declaration");
                     bundle.putString("number_of_Slots", input);
                     Intent intent = new Intent(ArrayDeclaration.this, SurfaceActivity.class);

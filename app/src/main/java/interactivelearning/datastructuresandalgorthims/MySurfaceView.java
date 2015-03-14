@@ -14,7 +14,9 @@ public class MySurfaceView extends GLSurfaceView{
 
     public MySurfaceView(Context context,String type, int number_of_slots,String[] values){
         super(context);
+
         this.context=context;
+
         //Create an OpenGL ES 2.0 context.
         setEGLContextClientVersion(2);
 
@@ -28,5 +30,9 @@ public class MySurfaceView extends GLSurfaceView{
         setRenderer(arrayDeclarationRenderer);
         //render the view only when there is a change in the drawing data
         setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+
+
     }
+
+    /////////
 }

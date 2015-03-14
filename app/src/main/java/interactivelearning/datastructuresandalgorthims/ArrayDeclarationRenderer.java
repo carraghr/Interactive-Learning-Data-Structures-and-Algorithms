@@ -4,7 +4,6 @@ import android.content.Context;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
-import android.util.Log;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -14,8 +13,6 @@ import javax.microedition.khronos.opengles.GL10;
  */
 public class ArrayDeclarationRenderer implements GLSurfaceView.Renderer {
 
-
-    private static final String TAG = " ArrayDeclareRenderer";
     private Square[] squares;
     int numberOfSquares;
     String [] fileNames;
@@ -87,28 +84,6 @@ public class ArrayDeclarationRenderer implements GLSurfaceView.Renderer {
 
     }
 
-    public static int loadShader(int type,String shaderCode){
-
-        // create a vertex shader type (GLES20.GL_VERTEX_SHADER)
-        // or a fragment shader type (GLES20.GL_FRAGMENT_SHADER)
-
-        int shader = GLES20.glCreateShader(type);
-
-        GLES20.glShaderSource(shader,shaderCode);
-        GLES20.glCompileShader(shader);
-
-        return shader;
-    }
-
-    public static void checkGlError(String glOperation){
-        int error;
-
-        while ((error = GLES20.glGetError()) != GLES20.GL_NO_ERROR) {
-            Log.e(TAG, glOperation + ": glError " + error);
-            throw new RuntimeException(glOperation + ": glError " + error);
-        }
-    }
-
     private void setUpSquares() {
 
         float offset = 0.001f;
@@ -122,7 +97,7 @@ public class ArrayDeclarationRenderer implements GLSurfaceView.Renderer {
             offset+=radius;
             right =  numberOfSquares/2;
         }
-        for(left = numberOfSquares/2 -1; right<numberOfSquares && left >-1; right++, left--){
+        for(left = numberOfSquares/2 - 1; right<numberOfSquares && left >-1; right++, left--){
             squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[left]);
             squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[right]);
             offset+=(2*radius)+0.002f;

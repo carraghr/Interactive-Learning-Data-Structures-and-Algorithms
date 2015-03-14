@@ -54,6 +54,17 @@
         </activity>
 
         <activity
+            android:name = "ArrayDeclarationSurfaceActivity"
+            android:label = "Array Declaration Surface Activity"
+            android:parentActivityName = ".ArrayDeclaration">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ArrayTopicActivity"
+                />
+        </activity>
+
+        <activity
             android:name = "ArraySelectSort"
             android:label = "@string/array_select_sort"
             android:parentActivityName = ".ArrayTopicActivity">
@@ -90,6 +101,16 @@
             android:name = "ArrayLinearSearch"
             android:label = "@string/array_linear_search"
             android:parentActivityName = ".ArrayTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ArrayTopicActivity"
+                />
+        </activity>
+        <activity
+            android:name = "ArrayLinearSearchSurfaceActivity"
+            android:label = "Array Linear Search Surface Activity"
+            android:parentActivityName = ".ArrayLinearSearch">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

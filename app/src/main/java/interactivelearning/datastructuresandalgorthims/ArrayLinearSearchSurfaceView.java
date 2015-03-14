@@ -11,7 +11,7 @@ import android.widget.Toast;
  */
 public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
 
-    private final ArrayLinearSearchRenderer arrayLinearSearchRenderer;
+    private ArrayLinearSearchRenderer arrayLinearSearchRenderer;
 
     Context context;
 
@@ -36,7 +36,7 @@ public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
 
     private void setUpRenderer(){
 
-        arrayLinearSearchRenderer = new ArrayLinearSearchRenderer(context,values,fileNames,searchForImage);
+        arrayLinearSearchRenderer = new ArrayLinearSearchRenderer(context,values.length,fileNames,searchForImage);
         setRenderer(arrayLinearSearchRenderer);
 
         //render the view only when there is a change in the drawing data

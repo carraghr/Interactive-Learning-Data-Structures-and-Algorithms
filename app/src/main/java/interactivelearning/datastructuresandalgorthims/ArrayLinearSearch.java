@@ -53,7 +53,7 @@ public class ArrayLinearSearch extends Activity {
 
                 Bundle bundle = new Bundle();
                 bundle.putString("value", value);
-                Intent intent = new Intent(ArrayLinearSearch.this, ArrayDeclarationSurfaceActivity.class);
+                Intent intent = new Intent(ArrayLinearSearch.this, ArrayLinearSearchSurfaceActivity.class);
                 intent.putExtras(bundle);
                 ArrayLinearSearch.this.startActivity(intent);
             }

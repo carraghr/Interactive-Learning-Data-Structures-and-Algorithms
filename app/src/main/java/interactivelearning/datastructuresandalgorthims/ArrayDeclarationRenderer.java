@@ -98,8 +98,8 @@ public class ArrayDeclarationRenderer implements GLSurfaceView.Renderer {
             right =  numberOfSquares/2;
         }
         for(left = numberOfSquares/2 - 1; right<numberOfSquares && left >-1; right++, left--){
-            squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[left]);
-            squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[right]);
+            squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[right]);
+            squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[left]);
             offset+=(2*radius)+0.002f;
         }
     }

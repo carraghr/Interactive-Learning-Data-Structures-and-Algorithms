@@ -14,9 +14,11 @@ import javax.microedition.khronos.opengles.GL10;
 public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
 
     private Square[] squares;
+    private int numberOfSquares;
+    private String [] fileNames;
     private Square searchFor;
-    int numberOfSquares;
-    String [] fileNames;
+    private String searchForImage;
+
 
     Context context;
 
@@ -25,7 +27,7 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
 
-    ArrayLinearSearchRenderer(Context context,int numberOfSquares,String [] fileNames){
+    ArrayLinearSearchRenderer(Context context,int numberOfSquares,String [] fileNames,String searchForImage){
 
         super();
         this.context = context;
@@ -33,6 +35,10 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
         this.fileNames = fileNames;
 
         squares = new Square[numberOfSquares];
+
+        this.searchForImage = searchForImage;
+
+        this.searchFor = searchFor;
     }
 
     @Override
@@ -97,13 +103,13 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
     }
 
     public void highLight(int place){
-        squares[place].moveUp(2*Square.getRadius());
+        //squares[place].moveUp(2*Square.getRadius());
     }
     public void removeHighLight(int place){
-        squares[place].moveDown( 2*Square.getRadius());
+//        squares[place].moveDown(2 * Square.getRadius());
     }
     public void addSearchFor(){
-
+       // searchFor = new Square()
     }
     public void moveSearchItemNexted(){}
 }

@@ -17,30 +17,21 @@
 
     <ScrollView
         android:layout_width="match_parent"
-<<<<<<< HEAD
         android:layout_height="match_parent">
-=======
-        android:layout_height="match_parent"
-        android:layout_below="@+id/header">
->>>>>>> origin/master
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-<<<<<<< HEAD
-            <include layout = "@layout/topic_and_textview"
-=======
-            <include layout = "@layout/textview"
->>>>>>> origin/master
+            <include
+                 layout = "@layout/textview"
                  android:layout_height="wrap_content"
                  android:layout_width="match_parent"
                  android:layout_alignParentTop="true"
-                 android:id="@+id/textview">
+                 android:id="@+id/textview"/>
 
-            </include>
-
-            <include layout = "@layout/one_button_two_inputs"
+            <include
+                layout = "@layout/one_button_two_inputs"
                  android:layout_height="wrap_content"
                  android:layout_width="match_parent"
                  android:layout_below="@+id/textview">

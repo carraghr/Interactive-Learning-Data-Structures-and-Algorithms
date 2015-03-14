@@ -26,8 +26,8 @@ public class ArraySelectSort extends Activity{
                 Toast toast = Toast.makeText(getApplicationContext(), "You sure showed that select sort button", Toast.LENGTH_SHORT);
                 toast.show();
 
-                Intent intent = new Intent(ArraySelectSort.this,SurfaceActivity.class);
-                ArraySelectSort.this.startActivity(intent);
+            //    Intent intent = new Intent(ArraySelectSort.this,SurfaceActivity.class);
+            //    ArraySelectSort.this.startActivity(intent);
             }
         });
 

@@ -131,15 +131,6 @@
         </activity>
 
         <activity
-            android:name=".SurfaceActivity"
-            android:label="SurfaceActivity"
-           >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ArrayDeclaration"/>
-        </activity>
-
-        <activity
             android:name = ".LinkedListDeclaration"
             android:label = "@string/linkedList_declaration"
             android:parentActivityName = ".LinkedListTopicActivity">

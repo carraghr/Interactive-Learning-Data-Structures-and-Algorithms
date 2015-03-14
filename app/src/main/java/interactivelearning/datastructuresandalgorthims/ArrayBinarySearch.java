@@ -27,8 +27,8 @@ public class ArrayBinarySearch extends Activity{
             Toast toast = Toast.makeText(getApplicationContext(), "You sure showed that select sort button", Toast.LENGTH_SHORT);
             toast.show();
 
-            Intent intent = new Intent(ArrayBinarySearch.this,SurfaceActivity.class);
-            ArrayBinarySearch.this.startActivity(intent);
+           // Intent intent = new Intent(ArrayBinarySearch.this,SurfaceActivity.class);
+           // ArrayBinarySearch.this.startActivity(intent);
         }
     });
 

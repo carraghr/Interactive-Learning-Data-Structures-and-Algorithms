@@ -7,7 +7,7 @@ import android.os.Bundle;
 /**
  * Created by Richard Carragher on 06/03/2015.
  */
-public class SurfaceActivity extends Activity {
+public class ArrayDeclarationSurfaceActivity extends Activity {
 
     private GLSurfaceView myView;
 
@@ -25,7 +25,7 @@ public class SurfaceActivity extends Activity {
             values = bundle.getStringArray("values");
         }
 
-        myView = new MySurfaceView(getApplicationContext(),type,num,values);
+        myView = new ArrayDeclarationSurfaceView(getApplicationContext(),type,num,values);
         setContentView(myView);
     }
 }

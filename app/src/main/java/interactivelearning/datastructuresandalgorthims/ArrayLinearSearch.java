@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,11 +25,22 @@ public class ArrayLinearSearch extends Activity {
 
     selectSortButton.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
-            Toast toast = Toast.makeText(getApplicationContext(), "You sure showed that select sort button", Toast.LENGTH_SHORT);
-            toast.show();
+            EditText input = (EditText) findViewById(R.id.input_box_one);
+            String value = input.getText().toString();
+            if(value.equals("")) {
+                Toast toast = Toast.makeText(getApplicationContext(),
+                                                "Please enter a value to be searched for",
+                                                    Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            else {
 
-            Intent intent = new Intent(ArrayLinearSearch.this,SurfaceActivity.class);
-            ArrayLinearSearch.this.startActivity(intent);
+                Bundle bundle = new Bundle();
+                bundle.putString("value", value);
+                Intent intent = new Intent(ArrayLinearSearch.this, ArrayDeclarationSurfaceActivity.class);
+                intent.putExtras(bundle);
+                ArrayLinearSearch.this.startActivity(intent);
+            }
         }
     });
 

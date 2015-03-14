@@ -27,8 +27,8 @@ public class ArrayBubbleSort extends Activity{
                 Toast toast = Toast.makeText(getApplicationContext(), "x", Toast.LENGTH_SHORT);
                 toast.show();
 
-                Intent intent = new Intent(ArrayBubbleSort.this, SurfaceActivity.class);
-                ArrayBubbleSort.this.startActivity(intent);
+                //Intent intent = new Intent(ArrayBubbleSort.this, SurfaceActivity.class);
+               // ArrayBubbleSort.this.startActivity(intent);
             }
         });
 

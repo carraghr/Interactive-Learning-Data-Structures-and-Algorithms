@@ -26,8 +26,11 @@ public class InputControls {
         String [] files = new String[values.length];
 
         for(int i=0; i<values.length;i++){
-            files[i] = "number_"+values[i];
+            files[i] = "number_" + values[i];
         }
         return files;
+    }
+    public static String addImageName(String value){
+        return "number_" + value;
     }
 }

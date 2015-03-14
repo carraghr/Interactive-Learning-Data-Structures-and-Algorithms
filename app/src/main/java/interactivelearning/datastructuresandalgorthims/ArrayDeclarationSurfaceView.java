@@ -6,13 +6,13 @@ import android.opengl.GLSurfaceView;
 /**
  * Created by Richard Carragher on 06/03/2015.
  */
-public class MySurfaceView extends GLSurfaceView{
+public class ArrayDeclarationSurfaceView extends GLSurfaceView{
 
     private final ArrayDeclarationRenderer arrayDeclarationRenderer;
 
     Context context;
 
-    public MySurfaceView(Context context,String type, int number_of_slots,String[] values){
+    public ArrayDeclarationSurfaceView(Context context,String type, int number_of_slots,String[] values){
         super(context);
 
         this.context=context;

@@ -36,7 +36,7 @@ public class ArrayDeclaration extends Activity{
                     Bundle bundle = new Bundle();
                     bundle.putString("type","Declaration");
                     bundle.putString("number_of_Slots", input);
-                    Intent intent = new Intent(ArrayDeclaration.this, SurfaceActivity.class);
+                    Intent intent = new Intent(ArrayDeclaration.this, ArrayDeclarationSurfaceActivity.class);
                     intent.putExtras(bundle);
                     ArrayDeclaration.this.startActivity(intent);
                 }
@@ -70,7 +70,7 @@ public class ArrayDeclaration extends Activity{
                     bundle.putString("type","Initialization");
                     bundle.putString("number_of_Slots", ""+values.length);
                     bundle.putStringArray("values",values);
-                    Intent intent = new Intent(ArrayDeclaration.this, SurfaceActivity.class);
+                    Intent intent = new Intent(ArrayDeclaration.this, ArrayDeclarationSurfaceActivity.class);
                     intent.putExtras(bundle);
                     ArrayDeclaration.this.startActivity(intent);
 

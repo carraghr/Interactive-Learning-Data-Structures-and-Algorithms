@@ -19,21 +19,13 @@ public class ArrayBinarySearch extends Activity{
     }
 
     private void setUI(){
-    setContentView(R.layout.one_input_page);
+    setContentView(R.layout.binary_search);
     Button binarySearchButton = (Button) findViewById(R.id.submit_one);
     Button previous = (Button) findViewById(R.id.previous);
-    Button next = (Button) findViewById(R.id.next);
 
     previous.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
             Intent intent = new Intent(ArrayBinarySearch.this, ArrayLinearSearch.class);
-            ArrayBinarySearch.this.startActivity(intent);
-        }
-    });
-
-    next.setOnClickListener(new View.OnClickListener() {
-        public void onClick(View v) {
-            Intent intent = new Intent(ArrayBinarySearch.this, LinkedListIntro.class);
             ArrayBinarySearch.this.startActivity(intent);
         }
     });

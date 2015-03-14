@@ -21,7 +21,7 @@ public class LinkedListDeclaration extends Activity {
 
     private void setUI() {
         //this method sets up the page to include information about the tutorial.
-        setContentView(R.layout.introduction);
+        setContentView(R.layout.arraydeclaration);
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
         textViewToChange.setText(this.getResources().getString(R.string.linkedList_declaration));
 
@@ -33,7 +33,7 @@ public class LinkedListDeclaration extends Activity {
 
         previous.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(LinkedListDeclaration .this, LinkedListIntro.class);
+                Intent intent = new Intent(LinkedListDeclaration.this, LinkedListIntro.class);
                 LinkedListDeclaration.this.startActivity(intent);
             }
         });

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout = "@layout/last_topic_button"
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             android:layout_alignParentTop="true"
+             android:id="@+id/last_topic_button">
+    </include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/last_topic_button">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout = "@layout/textview"
+                     android:layout_height="wrap_content"
+                     android:layout_width="match_parent"
+                     android:id="@+id/textview">
+            </include>
+
+            <include layout = "@layout/one_button_one_input"
+                     android:layout_height="wrap_content"
+                     android:layout_width="match_parent"
+                     android:layout_below="@+id/textview">
+            </include>
+
+        </RelativeLayout>
+
+        </ScrollView>
+
+</RelativeLayout>

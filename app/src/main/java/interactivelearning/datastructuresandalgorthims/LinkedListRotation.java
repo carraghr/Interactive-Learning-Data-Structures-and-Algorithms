@@ -15,7 +15,7 @@ public class LinkedListRotation extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.five_input_page);
+        setContentView(R.layout.rotation);
         setUPTutorial();
     }
 

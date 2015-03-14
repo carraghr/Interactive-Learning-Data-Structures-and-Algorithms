@@ -5,16 +5,25 @@
     android:layout_height="match_parent"
     android:background="#ffffff">
 
+    <include layout = "@layout/header"
+             android:id="@+id/header"
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             android:layout_alignParentTop="true">
+
+    </include>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <include layout = "@layout/topic_and_textview"
-                     android:id="@+id/topic_and_textview"
+            <include layout = "@layout/textview"
+                     android:id="@+id/textview"
                      android:layout_height="wrap_content"
                      android:layout_width="match_parent"
                      android:layout_alignParentTop="true">
@@ -25,7 +34,7 @@
                      android:id="@+id/one_button_one_input"
                      android:layout_height="wrap_content"
                      android:layout_width="match_parent"
-                     android:layout_below="@+id/topic_and_textview">
+                     android:layout_below="@+id/textview">
             </include>
 
 

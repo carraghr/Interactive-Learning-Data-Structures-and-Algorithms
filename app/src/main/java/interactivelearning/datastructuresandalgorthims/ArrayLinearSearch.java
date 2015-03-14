@@ -22,6 +22,22 @@ public class ArrayLinearSearch extends Activity {
     private void setUI(){
     setContentView(R.layout.one_input_page);
     Button selectSortButton = (Button) findViewById(R.id.submit_one);
+    Button previous = (Button) findViewById(R.id.previous);
+    Button next = (Button) findViewById(R.id.next);
+
+    previous.setOnClickListener(new View.OnClickListener() {
+        public void onClick(View v) {
+            Intent intent = new Intent(ArrayLinearSearch.this, ArrayMergeSort.class);
+            ArrayLinearSearch.this.startActivity(intent);
+        }
+    });
+
+    next.setOnClickListener(new View.OnClickListener() {
+        public void onClick(View v) {
+            Intent intent = new Intent(ArrayLinearSearch.this, ArrayBinarySearch.class);
+            ArrayLinearSearch.this.startActivity(intent);
+        }
+    });
 
     selectSortButton.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {

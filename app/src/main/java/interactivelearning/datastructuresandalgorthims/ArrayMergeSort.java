@@ -16,9 +16,25 @@ public class ArrayMergeSort extends Activity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.five_input_page);
-        Button selectSortButton = (Button) findViewById(R.id.submit_five);
+        Button mergeSortButton = (Button) findViewById(R.id.submit_five);
+        Button previous = (Button) findViewById(R.id.previous);
+        Button next = (Button) findViewById(R.id.next);
 
-        selectSortButton.setOnClickListener(new View.OnClickListener() {
+        previous.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(ArrayMergeSort.this, ArrayBubbleSort.class);
+                ArrayMergeSort.this.startActivity(intent);
+            }
+        });
+
+        next.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(ArrayMergeSort.this, ArrayLinearSearch.class);
+                ArrayMergeSort.this.startActivity(intent);
+            }
+        });
+
+        mergeSortButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast toast = Toast.makeText(getApplicationContext(), "You sure showed that select sort button", Toast.LENGTH_SHORT);
                 toast.show();

@@ -20,9 +20,25 @@ public class ArrayBinarySearch extends Activity{
 
     private void setUI(){
     setContentView(R.layout.one_input_page);
-    Button selectSortButton = (Button) findViewById(R.id.submit_one);
+    Button binarySearchButton = (Button) findViewById(R.id.submit_one);
+    Button previous = (Button) findViewById(R.id.previous);
+    Button next = (Button) findViewById(R.id.next);
 
-    selectSortButton.setOnClickListener(new View.OnClickListener() {
+    previous.setOnClickListener(new View.OnClickListener() {
+        public void onClick(View v) {
+            Intent intent = new Intent(ArrayBinarySearch.this, ArrayLinearSearch.class);
+            ArrayBinarySearch.this.startActivity(intent);
+        }
+    });
+
+    next.setOnClickListener(new View.OnClickListener() {
+        public void onClick(View v) {
+            Intent intent = new Intent(ArrayBinarySearch.this, LinkedListIntro.class);
+            ArrayBinarySearch.this.startActivity(intent);
+        }
+    });
+
+    binarySearchButton.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
             Toast toast = Toast.makeText(getApplicationContext(), "You sure showed that select sort button", Toast.LENGTH_SHORT);
             toast.show();

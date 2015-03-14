@@ -20,6 +20,22 @@ public class ArraySelectSort extends Activity{
         private void setUI(){
         setContentView(R.layout.five_input_page);
         Button selectSortButton = (Button) findViewById(R.id.submit_five);
+        Button previous = (Button) findViewById(R.id.previous);
+        Button next = (Button) findViewById(R.id.next);
+
+        previous.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(ArraySelectSort.this, ArrayDeclaration.class);
+                ArraySelectSort.this.startActivity(intent);
+            }
+        });
+
+        next.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(ArraySelectSort.this, ArrayBubbleSort.class);
+                ArraySelectSort.this.startActivity(intent);
+            }
+        });
 
         selectSortButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

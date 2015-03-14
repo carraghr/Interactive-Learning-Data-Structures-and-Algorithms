@@ -30,15 +30,7 @@ public class ArrayIntroduction extends Activity{
         textViewToChange.setText(this.getResources().getString(R.string.array_introduction_paragraph));
 
         Button nextButton = (Button) findViewById(R.id.next);
-/*
-        previousButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
 
-                Intent intent = new Intent(ArrayIntroduction.this, ArrayTopicActivity.class);
-                ArrayIntroduction.this.startActivity(intent);
-            }
-        });
-*/
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 

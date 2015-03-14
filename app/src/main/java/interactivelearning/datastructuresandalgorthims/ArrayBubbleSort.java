@@ -20,9 +20,26 @@ public class ArrayBubbleSort extends Activity{
 
     private void setUI() {
         setContentView(R.layout.five_input_page);
-        Button selectSortButton = (Button) findViewById(R.id.submit_five);
+        Button bubbleSortButton = (Button) findViewById(R.id.submit_five);
 
-        selectSortButton.setOnClickListener(new View.OnClickListener() {
+        Button previous = (Button) findViewById(R.id.previous);
+        Button next = (Button) findViewById(R.id.next);
+
+        previous.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(ArrayBubbleSort.this, ArraySelectSort.class);
+                ArrayBubbleSort.this.startActivity(intent);
+            }
+        });
+
+        next.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(ArrayBubbleSort.this, ArrayMergeSort.class);
+                ArrayBubbleSort.this.startActivity(intent);
+            }
+        });
+
+        bubbleSortButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast toast = Toast.makeText(getApplicationContext(), "x", Toast.LENGTH_SHORT);
                 toast.show();

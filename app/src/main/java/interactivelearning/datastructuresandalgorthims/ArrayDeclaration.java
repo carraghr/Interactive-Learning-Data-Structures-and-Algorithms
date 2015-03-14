@@ -21,40 +21,24 @@ public class ArrayDeclaration extends Activity{
         setContentView(R.layout.arraydeclaration);
         final Button declarationButton = (Button) findViewById(R.id.submit_one);
         final Button initialisationButton = (Button) findViewById(R.id.submit_five);
-        final Button previousButton = (Button) findViewById(R.id.previous);
-        final Button nextButton = (Button) findViewById(R.id.next);
-/*
-        previousButton.setOnClickListener(new View.OnClickListener() {
+
+        Button previous = (Button) findViewById(R.id.previous);
+        Button next = (Button) findViewById(R.id.next);
+
+        previous.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putString("type","Declaration");
-                bundle.putString("number_of_Slots", input);
-                Intent intent = new Intent(ArrayDeclaration.this, SurfaceActivity.class);
-                intent.putExtras(bundle);
+                Intent intent = new Intent(ArrayDeclaration.this, ArrayIntroduction.class);
                 ArrayDeclaration.this.startActivity(intent);
             }
         });
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
+        next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                EditText one_input = (EditText) findViewById(R.id.input_box_one);
-                String input = one_input.getText().toString();
-
-                if(input.equals("")) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Please input a length for an array", Toast.LENGTH_SHORT);
-                    toast.show();
-                }else {
-
-                    Bundle bundle = new Bundle();
-                    bundle.putString("type","Declaration");
-                    bundle.putString("number_of_Slots", input);
-                    Intent intent = new Intent(ArrayDeclaration.this, SurfaceActivity.class);
-                    intent.putExtras(bundle);
-                    ArrayDeclaration.this.startActivity(intent);
-                }
+                Intent intent = new Intent(ArrayDeclaration.this, ArraySelectSort.class);
+                ArrayDeclaration.this.startActivity(intent);
             }
         });
-*/
+
         declarationButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 EditText one_input = (EditText) findViewById(R.id.input_box_one);

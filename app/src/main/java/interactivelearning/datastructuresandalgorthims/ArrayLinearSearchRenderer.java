@@ -17,8 +17,8 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
     private Square[] squares;
     private int numberOfSquares;
     private String [] fileNames;
-    //private Square searchFor;
-    //private String searchForImage;
+    private Square searchFor;
+    private String searchForImage;
 
 
     Context context;
@@ -39,7 +39,7 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
 
         squares = new Square[this.numberOfSquares];
 
-       // this.searchForImage = searchForImage;
+        this.searchForImage = searchForImage;
 
     }
 
@@ -78,10 +78,9 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
         for(int i=0;i<numberOfSquares;i++) {
             squares[i].draw(mMVPMatrix);
         }
-       /* if(!(searchFor == null)){
+        if(!(searchFor == null)){
             searchFor.draw(mMVPMatrix);
         }
-*/
     }
 
     public void setUpSquares() {
@@ -90,7 +89,7 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
         int left,right;
         float radius = Square.getRadius();
         if(numberOfSquares%2!=0){
-            squares[numberOfSquares/2] = new Square(new float[]{0.0f,0.0f},context,fileNames[numberOfSquares/2]);
+            squares[numberOfSquares/2] = new Square(new float[]{0.0f,0.0f},context,fileNames[numberOfSquares/2],numberOfSquares/2);
             offset+=2*radius;
             right =  numberOfSquares/2+1;
         }else{
@@ -98,22 +97,27 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
             right =  numberOfSquares/2;
         }
         for(left = numberOfSquares/2 - 1; right<numberOfSquares && left >-1; right++, left--){
-            squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[right]);
-            squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[left]);
+            squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[right],right);
+            squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[left],left);
             offset+=(2*radius)+0.002f;
         }
     }
 
     public void highLight(int place){
-        //squares[place].moveUp(2*Square.getRadius());
+        squares[place].moveUp(2*Square.getRadius());
     }
     public void removeHighLight(int place){
-        squares[place].moveDown(Square.getRadius());
+        squares[place].moveDown(Square.getRadius()*2);
     }
     public void addSearchFor(){
-       // searchFor = new Square()
+      float[] startPoint = squares[0].getTopCenterPoint();
+      startPoint[1]+=Square.getRadius()*4;
+      searchFor = new Square(startPoint,context,searchForImage,0);
     }
-    public void moveSearchItemNexted(){}
+    public void moveSearchItemNexted(int place){
+        float [] a = squares[place].getTopCenterPoint();
+        searchFor.moveRight(a[1]-Square.getRadius());
+    }
     public float[] return1(){
         return squares[numberOfSquares/2].getBottomCenterPoint();
     }

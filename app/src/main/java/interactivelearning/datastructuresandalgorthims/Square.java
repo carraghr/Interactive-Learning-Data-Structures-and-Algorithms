@@ -40,7 +40,7 @@ public class Square{
 
     private final FloatBuffer vertexBuffer;
     private final ShortBuffer drawListBuffer;
-    private final int MyProgram;
+    private int MyProgram;
     private int myPositionHandle;
     private int myMVPMatrixHandle;
     private int mTexCoordLoc;
@@ -66,9 +66,9 @@ public class Square{
      */
 
     private float [] imageVertex = new float[]{0.0f, 0.0f,
-                                       0.0f, 1.0f,
-                                       1.0f, 1.0f,
-                                       1.0f, 0.0f};
+                                               0.0f, 1.0f,
+                                               1.0f, 1.0f,
+                                               1.0f, 0.0f};
 
     private final FloatBuffer imageBuffer;
     private String imageFilename;
@@ -137,8 +137,8 @@ public class Square{
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,texturenames[0]);
 
         //set filtering
-        GLES20.glTexParameteri(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MIN_FILTER, GLES20.GL_LINEAR);
-        GLES20.glTexParameteri(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MAG_FILTER, GLES20.GL_LINEAR);
+        GLES20.glTexParameteri(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MIN_FILTER,  GLES20.GL_NEAREST);
+        GLES20.glTexParameteri(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MAG_FILTER,  GLES20.GL_NEAREST);
 
         //set wrapping node
         GLES20.glTexParameteri(GLES20.GL_TEXTURE_2D,GLES20.GL_TEXTURE_WRAP_S,GLES20.GL_CLAMP_TO_EDGE);
@@ -147,7 +147,7 @@ public class Square{
         //load the bitmap into the bound texture
         GLUtils.texImage2D(GLES20.GL_TEXTURE_2D,0,bmp,0);
         //recycle bitmap
-        //bmp.recycle();
+        bmp.recycle();
     }
 
     private void createSquare() {
@@ -206,13 +206,17 @@ public class Square{
     // which to draw this shape.
     public void draw(float[] mvpMatrix){
 
+
+        //Add program to OpenGL environment
+        GLES20.glUseProgram(MyProgram);
+
         vertexBuffer.put(squareCoords);
         vertexBuffer.position(0);
 
-        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,texturenames[0]);
+        imageBuffer.put(imageVertex);
+        imageBuffer.position(0);
 
-       //Add program to OpenGL environment
-        GLES20.glUseProgram(MyProgram);
+        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,texturenames[0]);
 
         //get handle to vertex shader vPosition member
         myPositionHandle = GLES20.glGetAttribLocation(MyProgram,"vPosition");
@@ -234,9 +238,11 @@ public class Square{
 
         //get handler to shapes's transformation matrix
         myMVPMatrixHandle = GLES20.glGetUniformLocation(MyProgram, "uMVPMatrix");
+        ShaderLoader.checkGlError("glGetUniformLocation");
 
         // Apply the projection and view transformation
         GLES20.glUniformMatrix4fv(myMVPMatrixHandle, 1, false, mvpMatrix, 0);
+        ShaderLoader.checkGlError("glUniformMatrix4fv");
 
 
         //get handle to textures locations
@@ -250,8 +256,8 @@ public class Square{
                               GLES20.GL_UNSIGNED_SHORT, drawListBuffer);
 
         //Disable vertex array
-        GLES20.glDisableVertexAttribArray(myPositionHandle);
-        GLES20.glDisableVertexAttribArray(mTexCoordLoc);
+       // GLES20.glDisableVertexAttribArray(myPositionHandle);
+       // GLES20.glDisableVertexAttribArray(mTexCoordLoc);
     }
 
     public static float getRadius(){

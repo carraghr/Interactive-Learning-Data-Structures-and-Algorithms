@@ -4,6 +4,7 @@ import android.content.Context;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
+import android.widget.Toast;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -16,8 +17,8 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
     private Square[] squares;
     private int numberOfSquares;
     private String [] fileNames;
-    private Square searchFor;
-    private String searchForImage;
+    //private Square searchFor;
+    //private String searchForImage;
 
 
     Context context;
@@ -34,11 +35,12 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
 
         this.fileNames = fileNames;
 
-        squares = new Square[numberOfSquares];
+        this.numberOfSquares=numberOfSquares;
 
-        this.searchForImage = searchForImage;
+        squares = new Square[this.numberOfSquares];
 
-        this.searchFor = searchFor;
+       // this.searchForImage = searchForImage;
+
     }
 
     @Override
@@ -76,13 +78,13 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
         for(int i=0;i<numberOfSquares;i++) {
             squares[i].draw(mMVPMatrix);
         }
-        if(!(searchFor == null)){
+       /* if(!(searchFor == null)){
             searchFor.draw(mMVPMatrix);
         }
-
+*/
     }
 
-    private void setUpSquares() {
+    public void setUpSquares() {
 
         float offset = 0.001f;
         int left,right;
@@ -96,8 +98,8 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
             right =  numberOfSquares/2;
         }
         for(left = numberOfSquares/2 - 1; right<numberOfSquares && left >-1; right++, left--){
-            squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[left]);
-            squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[right]);
+            squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[right]);
+            squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[left]);
             offset+=(2*radius)+0.002f;
         }
     }
@@ -106,10 +108,13 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
         //squares[place].moveUp(2*Square.getRadius());
     }
     public void removeHighLight(int place){
-//        squares[place].moveDown(2 * Square.getRadius());
+        squares[place].moveDown(Square.getRadius());
     }
     public void addSearchFor(){
        // searchFor = new Square()
     }
     public void moveSearchItemNexted(){}
+    public float[] return1(){
+        return squares[numberOfSquares/2].getBottomCenterPoint();
+    }
 }

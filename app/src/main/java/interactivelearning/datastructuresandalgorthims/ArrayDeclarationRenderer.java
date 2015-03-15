@@ -103,14 +103,4 @@ public class ArrayDeclarationRenderer implements GLSurfaceView.Renderer {
             offset+=(2*radius)+0.002f;
         }
     }
-    public void moveSq(){
-        squares[0].moveLeft(0.05f);
-        squares[1].moveDown(0.05f);
-    }
 }
-/***
- * TODO redo this class so that loadshader and checkGLError are't in this.
- * Change the MyRenderer so that it is the only think in that class.
- * its not need for anything else.
- * Also rename to basserenderer or something to that affect.
- */

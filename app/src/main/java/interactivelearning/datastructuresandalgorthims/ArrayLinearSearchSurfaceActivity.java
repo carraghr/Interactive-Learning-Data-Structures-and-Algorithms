@@ -20,7 +20,7 @@ public class ArrayLinearSearchSurfaceActivity extends Activity{
         String searchFor = bundle.getString("value");
         String [] values = SearchValues.ARRAY_LINEAR_SEARCH;
 
-        myView = new ArrayLinearSearchSurfaceView(getApplicationContext(), searchFor, SearchValues.ARRAY_LINEAR_SEARCH);
+        myView = new ArrayLinearSearchSurfaceView(getApplicationContext(), searchFor, values);
         setContentView(myView);
     }
 }

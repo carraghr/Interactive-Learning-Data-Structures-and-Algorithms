@@ -22,6 +22,7 @@ public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
     boolean repeat = false;
 
     public ArrayLinearSearchSurfaceView(Context context, String searchFor, String[] values){
+
         super(context);
 
         this.context = context;
@@ -29,52 +30,51 @@ public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
         this.values = values;
         fileNames = InputControls.addImageNames(values);
         searchForImage = InputControls.addImageName(searchFor);
-        setUpRenderer();
 
-        startProcess();
-    }
-
-    private void setUpRenderer(){
-
-        arrayLinearSearchRenderer = new ArrayLinearSearchRenderer(context,values.length,fileNames,searchForImage);
+        arrayLinearSearchRenderer = new ArrayLinearSearchRenderer(context,5,fileNames,searchForImage);
         setRenderer(arrayLinearSearchRenderer);
 
         //render the view only when there is a change in the drawing data
         setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
 
-        startProcess();
-
-        Toast message;
-        message = Toast.makeText(context, "Tap to repeat."
-                , Toast.LENGTH_LONG);
+        //Square a = arrayLinearSearchRenderer.return1();
+        //float[] a = arrayLinearSearchRenderer.return1();
+       // Toast message = Toast.makeText(context, "Values "+a[0]
+        //        , Toast.LENGTH_SHORT);
+       // message.show();
     }
 
-    private void startProcess(){
-
-        Toast message;
+   /* private void startProcess(){
+        //arrayLinearSearchRenderer.setUpSquares();
+        requestRender();
+        //Toast message;
         arrayLinearSearchRenderer.addSearchFor(); //add the item been searched for to display.
+        requestRender();
         for(int i=0; i < values.length;i++ ){
             //highlight where you are.
             arrayLinearSearchRenderer.highLight(i);
+            requestRender();
             //display toast message.
-            message = Toast.makeText(context, "We check" + values[i] + " and see if its equal to " + searchFor
-                    , Toast.LENGTH_LONG);
-            message.show();
+            //message = Toast.makeText(context, "We check" + values[i] + " and see if its equal to " + searchFor
+              //      , Toast.LENGTH_LONG);
+           // message.show();
             if(searchFor.equals(values[i])){
-                message = Toast.makeText(context, "They are the same", Toast.LENGTH_LONG);
-                message.show();
+              //  message = Toast.makeText(context, "They are the same", Toast.LENGTH_LONG);
+              //  message.show();
                 repeat = true;
                 return;
             }
             arrayLinearSearchRenderer.removeHighLight(i);
-            message = Toast.makeText(context, "They are different me move to the next"
-                    , Toast.LENGTH_LONG);
-            message.show();
-            arrayLinearSearchRenderer.moveSearchItemNexted();
+            requestRender();
+            //message = Toast.makeText(context, "They are different me move to the next"
+            //        , Toast.LENGTH_LONG);
+          //  message.show();
+            //arrayLinearSearchRenderer.moveSearchItemNexted();
+            requestRender();
         }
-        message = Toast.makeText(context, "We have checked all elements " + searchFor + "is not in the array"
-                , Toast.LENGTH_LONG);
-        message.show();
+      //  message = Toast.makeText(context, "We have checked all elements " + searchFor + "is not in the array"
+      //          , Toast.LENGTH_LONG);
+       // message.show();
         repeat = true;
     }
 
@@ -84,10 +84,11 @@ public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
         switch (e.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 if(repeat) {
-                setUpRenderer();
+                arrayLinearSearchRenderer.setUpSquares();
                 startProcess();
                 }break;
         }
         return true;
     }
+    */
 }

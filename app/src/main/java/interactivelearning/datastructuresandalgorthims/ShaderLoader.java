@@ -8,7 +8,7 @@ import android.util.Log;
  */
 public class ShaderLoader{
 
-    private static final String TAG = "MyRenderer";
+    private static final String TAG = "ShaderLoader";
 
     public static int loadShader(int type,String shaderCode){
 

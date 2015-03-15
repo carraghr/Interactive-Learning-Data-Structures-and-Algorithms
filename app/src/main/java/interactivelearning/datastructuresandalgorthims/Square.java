@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
+import android.util.Log;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -16,6 +17,8 @@ import java.nio.ShortBuffer;
  * Based on Jessica's work
  */
 public class Square{
+
+    private final String TAG ="Square";
 
     private final String VertexShaderCode =
             //Is necessary for drawing
@@ -107,8 +110,11 @@ public class Square{
         //prepare OpenGL Program and bind the shaders for square
         MyProgram = GLES20.glCreateProgram();               //create empty OpenGL Program
         GLES20.glAttachShader(MyProgram,vertexShader);      //add the vertex shader to program
+        ShaderLoader.checkGlError("glAttachShader");
         GLES20.glAttachShader(MyProgram,fragmentShader);    //add the fragment shader to program
+        ShaderLoader.checkGlError("glAttachShader");
         GLES20.glLinkProgram(MyProgram);                    //create OpenGL program executables
+        ShaderLoader.checkGlError("glLinkProgram");
 
 
         // Image variables
@@ -209,7 +215,7 @@ public class Square{
 
         //Add program to OpenGL environment
         GLES20.glUseProgram(MyProgram);
-
+        checkGlError("glUseProgram");
         vertexBuffer.put(squareCoords);
         vertexBuffer.position(0);
 
@@ -238,11 +244,11 @@ public class Square{
 
         //get handler to shapes's transformation matrix
         myMVPMatrixHandle = GLES20.glGetUniformLocation(MyProgram, "uMVPMatrix");
-        ShaderLoader.checkGlError("glGetUniformLocation");
+        checkGlError("glGetUniformLocation");
 
         // Apply the projection and view transformation
         GLES20.glUniformMatrix4fv(myMVPMatrixHandle, 1, false, mvpMatrix, 0);
-        ShaderLoader.checkGlError("glUniformMatrix4fv");
+        checkGlError("glUniformMatrix4fv");
 
 
         //get handle to textures locations
@@ -262,5 +268,14 @@ public class Square{
 
     public static float getRadius(){
         return radius;
+    }
+
+    public void checkGlError(String glOperation){
+        int error;
+
+        while ((error = GLES20.glGetError()) != GLES20.GL_NO_ERROR) {
+            Log.e(TAG, glOperation + ": glError " + error);
+            throw new RuntimeException(glOperation + ": glError " + error);
+        }
     }
 }

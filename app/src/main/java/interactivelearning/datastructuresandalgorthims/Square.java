@@ -18,7 +18,7 @@ import java.nio.ShortBuffer;
  */
 public class Square{
 
-    private final String TAG ="Square";
+    private String TAG ="Square";
 
     private final String VertexShaderCode =
             //Is necessary for drawing
@@ -43,7 +43,7 @@ public class Square{
 
     private final FloatBuffer vertexBuffer;
     private final ShortBuffer drawListBuffer;
-    private int MyProgram;
+    private static int MyProgram;
     private int myPositionHandle;
     private int myMVPMatrixHandle;
     private int mTexCoordLoc;
@@ -81,12 +81,14 @@ public class Square{
      * Sets up the drawing object data for use in an OpenGL ES context
      */
 
-    public Square(float [] center,Context context,String imageFilename){
+    public Square(float [] center,Context context,String imageFilename,int count){
 
         this.context = context;
         this.centerPoint = center;
 
         createSquare();
+
+        TAG+=count;
 
         //initialize vertex byte buffer for shape coordinated.
         ByteBuffer bb = ByteBuffer.allocateDirect(squareCoords.length * 4);
@@ -107,14 +109,6 @@ public class Square{
         int vertexShader = ShaderLoader.loadShader(GLES20.GL_VERTEX_SHADER, VertexShaderCode);
         int fragmentShader = ShaderLoader.loadShader(GLES20.GL_FRAGMENT_SHADER, FragmentShaderCode);
 
-        //prepare OpenGL Program and bind the shaders for square
-        MyProgram = GLES20.glCreateProgram();               //create empty OpenGL Program
-        GLES20.glAttachShader(MyProgram,vertexShader);      //add the vertex shader to program
-        ShaderLoader.checkGlError("glAttachShader");
-        GLES20.glAttachShader(MyProgram,fragmentShader);    //add the fragment shader to program
-        ShaderLoader.checkGlError("glAttachShader");
-        GLES20.glLinkProgram(MyProgram);                    //create OpenGL program executables
-        ShaderLoader.checkGlError("glLinkProgram");
 
 
         // Image variables
@@ -152,8 +146,19 @@ public class Square{
 
         //load the bitmap into the bound texture
         GLUtils.texImage2D(GLES20.GL_TEXTURE_2D,0,bmp,0);
+        ShaderLoader.checkGlError("texImage2D");
         //recycle bitmap
         bmp.recycle();
+
+        //prepare OpenGL Program and bind the shaders for square
+        MyProgram = GLES20.glCreateProgram();               //create empty OpenGL Program
+        GLES20.glAttachShader(MyProgram,vertexShader);      //add the vertex shader to program
+        ShaderLoader.checkGlError("glAttachShader");
+        GLES20.glAttachShader(MyProgram,fragmentShader);    //add the fragment shader to program
+        ShaderLoader.checkGlError("glAttachShader");
+        GLES20.glLinkProgram(MyProgram);                    //create OpenGL program executables
+        ShaderLoader.checkGlError("glLinkProgram");
+
     }
 
     private void createSquare() {

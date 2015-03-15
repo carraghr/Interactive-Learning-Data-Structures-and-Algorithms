@@ -36,15 +36,9 @@ public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
 
         //render the view only when there is a change in the drawing data
         setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
-
-        //Square a = arrayLinearSearchRenderer.return1();
-        //float[] a = arrayLinearSearchRenderer.return1();
-       // Toast message = Toast.makeText(context, "Values "+a[0]
-        //        , Toast.LENGTH_SHORT);
-       // message.show();
     }
 
-   /* private void startProcess(){
+    private void startProcess(){
         //arrayLinearSearchRenderer.setUpSquares();
         requestRender();
         //Toast message;
@@ -69,12 +63,9 @@ public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
             //message = Toast.makeText(context, "They are different me move to the next"
             //        , Toast.LENGTH_LONG);
           //  message.show();
-            //arrayLinearSearchRenderer.moveSearchItemNexted();
+            arrayLinearSearchRenderer.moveSearchItemNexted(i);
             requestRender();
         }
-      //  message = Toast.makeText(context, "We have checked all elements " + searchFor + "is not in the array"
-      //          , Toast.LENGTH_LONG);
-       // message.show();
         repeat = true;
     }
 
@@ -90,5 +81,4 @@ public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
         }
         return true;
     }
-    */
 }

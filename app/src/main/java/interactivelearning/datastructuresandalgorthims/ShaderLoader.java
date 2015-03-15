@@ -16,9 +16,11 @@ public class ShaderLoader{
         // or a fragment shader type (GLES20.GL_FRAGMENT_SHADER)
 
         int shader = GLES20.glCreateShader(type);
-
+        ShaderLoader.checkGlError("glCreateShader");
         GLES20.glShaderSource(shader,shaderCode);
+        ShaderLoader.checkGlError("glShaderSource");
         GLES20.glCompileShader(shader);
+        ShaderLoader.checkGlError("glCompileShader");
 
         return shader;
     }

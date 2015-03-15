@@ -206,5 +206,104 @@
                 />
         </activity>
 
+        <activity
+            android:name = ".CodeMergeSort"
+            android:label = "@string/code_merge_sort"
+            android:parentActivityName = ".CodeTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CodeTopicActivity"
+                />
+        </activity>
+
+        <activity
+            android:name = ".CodeBubbleSort"
+            android:label = "@string/code_bubble_sort"
+            android:parentActivityName = ".CodeTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CodeTopicActivity"
+                />
+        </activity>
+
+        <activity
+            android:name = ".CodeSelectSort"
+            android:label = "@string/code_select_sort"
+            android:parentActivityName = ".CodeTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CodeTopicActivity"
+                />
+        </activity>
+
+        <activity
+            android:name = ".CodeLinearSearch"
+            android:label = "@string/code_linear_search"
+            android:parentActivityName = ".CodeTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CodeTopicActivity"
+                />
+        </activity>
+
+        <activity
+            android:name = ".CodeBinarySearch"
+            android:label = "@string/code_binary_search"
+            android:parentActivityName = ".CodeTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CodeTopicActivity"
+                />
+        </activity>
+
+        <activity
+            android:name = ".CodeLinkedListDeclaration"
+            android:label = "@string/code_LinkedList_Declaration"
+            android:parentActivityName = ".CodeTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CodeTopicActivity"
+                />
+        </activity>
+
+        <activity
+            android:name = ".CodeAddingANode"
+            android:label = "@string/code_adding_a_node"
+            android:parentActivityName = ".CodeTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CodeTopicActivity"
+                />
+        </activity>
+
+        <activity
+            android:name = ".CodeRemoval"
+            android:label = "@string/code_removal"
+            android:parentActivityName = ".CodeTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CodeTopicActivity"
+                />
+        </activity>
+
+        <activity
+            android:name = ".CodeRotation"
+            android:label = "@string/code_rotation"
+            android:parentActivityName = ".CodeTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CodeTopicActivity"
+                />
+        </activity>
+
     </application>
 </manifest>

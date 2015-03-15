@@ -96,8 +96,9 @@ public class Square{
         vertexBuffer.position(0);
 
         //initialize byte buffer for the draw list.
-        ByteBuffer drawListBb = ByteBuffer.allocateDirect( // number of coordinate values * 2 bytes per short
-                                                            drawOrder.length * 2   );
+        // number of coordinate values * 2 bytes per short
+        ByteBuffer drawListBb = ByteBuffer.allocateDirect( drawOrder.length * 2 );
+
         drawListBb.order(ByteOrder.nativeOrder());
         drawListBuffer = drawListBb.asShortBuffer();
         drawListBuffer.put(drawOrder);
@@ -215,8 +216,9 @@ public class Square{
 
         //Add program to OpenGL environment
         GLES20.glUseProgram(MyProgram);
-        checkGlError("glUseProgram");
+        //checkGlError("glUseProgram");
         vertexBuffer.put(squareCoords);
+
         vertexBuffer.position(0);
 
         imageBuffer.put(imageVertex);

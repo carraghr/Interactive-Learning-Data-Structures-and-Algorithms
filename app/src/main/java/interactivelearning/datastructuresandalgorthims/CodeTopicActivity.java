@@ -49,35 +49,63 @@ public class CodeTopicActivity extends Activity{
                 switch(textView.getText().toString()){
                     case "Array Merge Sort":
 
-                        intent = new Intent(CodeTopicActivity.this,LinkedListIntro.class);
+                        intent = new Intent(CodeTopicActivity.this,CodeMergeSort.class);
                         CodeTopicActivity.this.startActivity(intent);
 
                         break;
 
                     case "Array Bubble Sort":
 
-                        intent = new Intent(CodeTopicActivity.this,LinkedListDeclaration.class);
+                        intent = new Intent(CodeTopicActivity.this,CodeBubbleSort.class);
                         CodeTopicActivity.this.startActivity(intent);
 
                         break;
 
                     case "Array Select Sort":
 
-                        intent = new Intent(CodeTopicActivity.this,LinkedListInsert.class);
+                        intent = new Intent(CodeTopicActivity.this,CodeSelectSort.class);
                         CodeTopicActivity.this.startActivity(intent);
 
                         break;
 
                     case "Array Linear Search":
 
-                        intent = new Intent(CodeTopicActivity.this,LinkedListRemoval.class);
+                        intent = new Intent(CodeTopicActivity.this, CodeLinearSearch.class);
                         CodeTopicActivity.this.startActivity(intent);
 
                         break;
 
                     case "Array Binary Search":
 
-                        intent = new Intent(CodeTopicActivity.this,LinkedListRotation.class);
+                        intent = new Intent(CodeTopicActivity.this, CodeBinarySearch.class);
+                        CodeTopicActivity.this.startActivity(intent);
+
+                        break;
+
+                    case "LinkedList Declaration":
+
+                        intent = new Intent(CodeTopicActivity.this,CodeLinkedListDeclaration.class);
+                        CodeTopicActivity.this.startActivity(intent);
+
+                        break;
+
+                    case "LinkedList Adding a node":
+
+                        intent = new Intent(CodeTopicActivity.this,CodeAddingANode.class);
+                        CodeTopicActivity.this.startActivity(intent);
+
+                        break;
+
+                    case "LinkedList Removing a node":
+
+                        intent = new Intent(CodeTopicActivity.this, CodeRemoval.class);
+                        CodeTopicActivity.this.startActivity(intent);
+
+                        break;
+
+                    case "LinkedList Rotation":
+
+                        intent = new Intent(CodeTopicActivity.this, CodeRotation.class);
                         CodeTopicActivity.this.startActivity(intent);
 
                         break;

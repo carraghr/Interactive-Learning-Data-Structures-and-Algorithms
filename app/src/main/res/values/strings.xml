@@ -467,6 +467,23 @@
     <string name="Code_topic_activity">Code</string>
     <string name="previous">Previous</string>
     <string name="next">Next</string>
-    <string name="previosu">Previous</string>
+    <string name="code_merge_sort">Merge Sort Code</string>
+    <string name="code_bubble_sort">Bubble Sort Code</string>
+    <string name="code_select_sort">Select Sort Code</string>
+    <string name="code_linear_search">Linear Search Code</string>
+    <string name="code_binary_search">Binary Search Code</string>
+    <string name="code_LinkedList_Declaration">LinkedList Declaration Code</string>
+    <string name="code_adding_a_node">Adding A Node Code</string>
+    <string name="code_removal">Removing a node Code</string>
+    <string name="code_rotation">Rotation Code</string>
+    <string name="code_merge_sort_paragraph">Code for merge sort</string>
+    <string name="code_bubble_sort_paragraph">Paragraph about bubble sort</string>
+    <string name="code_select_sort_paragraph">Code for select sort</string>
+    <string name="code_linear_search_paragraph">linear search code</string>
+    <string name="code_linkedList_declaration_paragraph">linkedlist declaration paragraph</string>
+    <string name="code_removal_paragraph">removing code</string>
+    <string name="code_rotation_paragraph">code for rotation</string>
+    <string name="code_binary_search_paragraph">binary search code</string>
+    <string name="code_adding_a_node_paragraph">adding a node code</string>
 
 </resources>

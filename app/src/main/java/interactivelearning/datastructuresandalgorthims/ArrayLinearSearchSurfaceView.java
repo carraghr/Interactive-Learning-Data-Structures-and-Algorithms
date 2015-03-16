@@ -11,47 +11,49 @@ import android.widget.Toast;
  */
 public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
 
+    //private ArrayLinearSearchRenderer arrayLinearSearchRenderer;
     private ArrayLinearSearchRenderer arrayLinearSearchRenderer;
-
     Context context;
 
     String searchFor;
-    String searchForImage;
     String[] values;
-    String [] fileNames;
-    boolean repeat = false;
+   boolean repeat = false;
 
     public ArrayLinearSearchSurfaceView(Context context, String searchFor, String[] values){
 
         super(context);
+        //Create an OpenGL ES 2.0 context.
+        setEGLContextClientVersion(2);
 
         this.context = context;
         this.searchFor = searchFor;
         this.values = values;
-        fileNames = InputControls.addImageNames(values);
-        searchForImage = InputControls.addImageName(searchFor);
+        String [] fileNames = InputControls.addImageNames(values);
+        String searchForImage = InputControls.addImageName(this.searchFor);
 
         arrayLinearSearchRenderer = new ArrayLinearSearchRenderer(context,5,fileNames,searchForImage);
         setRenderer(arrayLinearSearchRenderer);
 
         //render the view only when there is a change in the drawing data
         setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+        //startProcess();
     }
 
     private void startProcess(){
         //arrayLinearSearchRenderer.setUpSquares();
-        requestRender();
-        //Toast message;
-        arrayLinearSearchRenderer.addSearchFor(); //add the item been searched for to display.
-        requestRender();
+        //requestRender();
+        Toast message;
+        //arrayLinearSearchRenderer.addSearchFor(); //add the item been searched for to display.
+        //requestRender();
         for(int i=0; i < values.length;i++ ){
             //highlight where you are.
+            message = Toast.makeText(context, "We check" + values[i] + " and see if its equal to " + searchFor
+                  , Toast.LENGTH_LONG);
+            message.show();
             arrayLinearSearchRenderer.highLight(i);
             requestRender();
             //display toast message.
-            //message = Toast.makeText(context, "We check" + values[i] + " and see if its equal to " + searchFor
-              //      , Toast.LENGTH_LONG);
-           // message.show();
+
             if(searchFor.equals(values[i])){
               //  message = Toast.makeText(context, "They are the same", Toast.LENGTH_LONG);
               //  message.show();
@@ -74,6 +76,8 @@ public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
 
         switch (e.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                arrayLinearSearchRenderer.highLight(1);
+                requestRender();
                 if(repeat) {
                 arrayLinearSearchRenderer.setUpSquares();
                 startProcess();

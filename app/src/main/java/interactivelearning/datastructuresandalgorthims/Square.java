@@ -13,8 +13,7 @@ import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
 
 /**
- * Created by Richard on 04/03/2015.
- * Based on Jessica's work
+ * Created on 04/03/2015.
  */
 public class Square{
 
@@ -44,27 +43,19 @@ public class Square{
     private final FloatBuffer vertexBuffer;
     private final ShortBuffer drawListBuffer;
     private static int MyProgram;
-    private int myPositionHandle;
-    private int myMVPMatrixHandle;
-    private int mTexCoordLoc;
-    private int mSamplerLoc;
 
     //number of coordinate per vertext in this array
     static final int COORDS_PER_VERTEX = 3;
 
     private float [] squareCoords;
 
-    private final short [] drawOrder ={0, 1, 2, 0, 2, 3}; //order to draw vertices in an
+    static final short [] drawOrder ={0, 1, 2, 0, 2, 3}; //order to draw vertices in an
                                                           // anti-clock wise direction
-
-    private final int VertexStride = COORDS_PER_VERTEX * 4; // 4 bytes per vertex
-
-    float [] color;// Format of RGB Alpha.
 
     float [] centerPoint;
     private final static float radius = 0.075f;
 
-    /**
+    /*
      * Image shaders and coords below.
      */
 
@@ -74,10 +65,9 @@ public class Square{
                                                1.0f, 0.0f};
 
     private final FloatBuffer imageBuffer;
-    private String imageFilename;
     private Context context;
     private int [] texturenames;
-    /**
+    /*
      * Sets up the drawing object data for use in an OpenGL ES context
      */
 
@@ -114,7 +104,6 @@ public class Square{
 
         // Image variables
         this.context=context;
-        this.imageFilename = imageFilename;
 
         //The texture buffer
         ByteBuffer imagebb = ByteBuffer.allocateDirect(imageVertex.length * 4);
@@ -128,7 +117,7 @@ public class Square{
         GLES20.glGenTextures(1,texturenames,0);
 
         //Retrieve image from resources
-        int id = context.getResources().getIdentifier(this.imageFilename,"drawable",context.getPackageName());
+        int id = context.getResources().getIdentifier(imageFilename,"drawable",context.getPackageName());
 
         //Temporary create a bitmap
         Bitmap bmp= BitmapFactory.decodeResource(context.getResources(), id);
@@ -159,6 +148,14 @@ public class Square{
         ShaderLoader.checkGlError("glAttachShader");
         GLES20.glLinkProgram(MyProgram);                    //create OpenGL program executables
         ShaderLoader.checkGlError("glLinkProgram");
+        int[] linkStatus = new int[1];
+        GLES20.glGetProgramiv(MyProgram, GLES20.GL_LINK_STATUS, linkStatus, 0);
+        if (linkStatus[0] != GLES20.GL_TRUE) {
+            Log.e(TAG, "Could not link program: ");
+            Log.e(TAG, GLES20.glGetProgramInfoLog(MyProgram));
+            GLES20.glDeleteProgram(MyProgram);
+            MyProgram = 0;
+        }
 
     }
 
@@ -171,14 +168,6 @@ public class Square{
 
     }
 
-    /**
-     * with in the 4 move methods below moveDown, moveUp, moveRight and moveLeft
-     * if amount is a - been taking in going through a moveUp or moveRight it will result in a
-     * -m - -n = - +n which is wrong and will result in errors in movement.
-     * The methods below need some check for amount for error handling
-     * TODO ^
-     * @param amount
-     */
     public void moveDown(float amount){
         centerPoint[1] = centerPoint[1] - amount;
         createSquare();
@@ -213,14 +202,15 @@ public class Square{
         return new float[]{ centerPoint[0], centerPoint[1] + radius, 0.00f};
     }
 
-
-
     // which to draw this shape.
     public void draw(float[] mvpMatrix){
 
 
+        GLES20.glIsProgram(MyProgram);
+        //checkGlError("glIsProgram");
         //Add program to OpenGL environment
         GLES20.glUseProgram(MyProgram);
+
         //checkGlError("glUseProgram");
         vertexBuffer.put(squareCoords);
 
@@ -232,7 +222,7 @@ public class Square{
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,texturenames[0]);
 
         //get handle to vertex shader vPosition member
-        myPositionHandle = GLES20.glGetAttribLocation(MyProgram,"vPosition");
+        int myPositionHandle = GLES20.glGetAttribLocation(MyProgram, "vPosition");
 
         //Enable a handle to the triangle vertices
         GLES20.glEnableVertexAttribArray(myPositionHandle);
@@ -243,23 +233,23 @@ public class Square{
                                      0, vertexBuffer);
 
         //get handle to texture coordinates location
-        mTexCoordLoc = GLES20.glGetAttribLocation(MyProgram,"a_texCoord");
+        int mTexCoordLoc = GLES20.glGetAttribLocation(MyProgram, "a_texCoord");
 
-        GLES20.glEnableVertexAttribArray ( mTexCoordLoc );
+        GLES20.glEnableVertexAttribArray (mTexCoordLoc);
 
         GLES20.glVertexAttribPointer(mTexCoordLoc, 2, GLES20.GL_FLOAT, false, 0, imageBuffer);
 
         //get handler to shapes's transformation matrix
-        myMVPMatrixHandle = GLES20.glGetUniformLocation(MyProgram, "uMVPMatrix");
-        checkGlError("glGetUniformLocation");
+        int myMVPMatrixHandle = GLES20.glGetUniformLocation(MyProgram, "uMVPMatrix");
+        //checkGlError("glGetUniformLocation");
 
         // Apply the projection and view transformation
         GLES20.glUniformMatrix4fv(myMVPMatrixHandle, 1, false, mvpMatrix, 0);
-        checkGlError("glUniformMatrix4fv");
+        //checkGlError("glUniformMatrix4fv");
 
 
         //get handle to textures locations
-        mSamplerLoc = GLES20.glGetUniformLocation (MyProgram, "s_texture" );
+        int mSamplerLoc = GLES20.glGetUniformLocation(MyProgram, "s_texture");
 
         //set the sampler texture unit to 0,where we have saved the texture
         GLES20.glUniform1f(mSamplerLoc,0);

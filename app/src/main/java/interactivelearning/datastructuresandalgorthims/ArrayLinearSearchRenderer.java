@@ -4,7 +4,6 @@ import android.content.Context;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
-import android.widget.Toast;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -50,6 +49,7 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
 
         // set up squares
         setUpSquares();
+        addSearchFor();
     }
 
     @Override
@@ -117,8 +117,5 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
     public void moveSearchItemNexted(int place){
         float [] a = squares[place].getTopCenterPoint();
         searchFor.moveRight(a[1]-Square.getRadius());
-    }
-    public float[] return1(){
-        return squares[numberOfSquares/2].getBottomCenterPoint();
     }
 }

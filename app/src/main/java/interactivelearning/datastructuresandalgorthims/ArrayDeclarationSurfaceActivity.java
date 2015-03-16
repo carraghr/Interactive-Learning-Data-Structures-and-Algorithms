@@ -5,7 +5,7 @@ import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 
 /**
- * Created by Richard Carragher on 06/03/2015.
+ * Created on 06/03/2015.
  */
 public class ArrayDeclarationSurfaceActivity extends Activity {
 

@@ -77,7 +77,7 @@ public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
                 if(repeat) {
                 arrayLinearSearchRenderer.setUpSquares();
                 startProcess();
-                }break;
+                }
         }
         return true;
     }

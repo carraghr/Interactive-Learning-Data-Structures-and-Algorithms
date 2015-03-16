@@ -5,7 +5,7 @@ import android.opengl.GLSurfaceView;
 import android.widget.Toast;
 
 /**
- * Created by Richard Carragher on 06/03/2015.
+ * Created on 06/03/2015.
  */
 public class ArrayDeclarationSurfaceView extends GLSurfaceView{
 
@@ -32,5 +32,5 @@ public class ArrayDeclarationSurfaceView extends GLSurfaceView{
         //render the view only when there is a change in the drawing data
         setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
     }
-    /////////
+
 }

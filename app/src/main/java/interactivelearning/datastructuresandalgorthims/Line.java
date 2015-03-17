@@ -8,7 +8,7 @@ import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
 
 /**
- * Created by Richard Carragher on 08/03/2015.
+ * Created on 08/03/2015.
  */
 public class Line {
 

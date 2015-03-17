@@ -3,7 +3,7 @@ package interactivelearning.datastructuresandalgorthims;
 import java.util.ArrayList;
 
 /**
- * Created by Richard on 12/03/2015.
+ * Created on 12/03/2015.
  */
 public class InputControls {
 

@@ -5,7 +5,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 /**
- * Created by Richard on 02/03/2015. - full implementation of populateTopicList
+ * Created on 02/03/2015.
  */
 public class ListViewPopulate {
 

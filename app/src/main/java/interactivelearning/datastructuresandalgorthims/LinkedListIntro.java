@@ -8,8 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 /**
- * Created by Jessica on 06/03/2015.
- * Edited by Richard on 7/3/15 - added text and image from resources I created for the intro to LinkedList
+ * Created on 06/03/2015.
  */
 
 public class LinkedListIntro extends Activity{

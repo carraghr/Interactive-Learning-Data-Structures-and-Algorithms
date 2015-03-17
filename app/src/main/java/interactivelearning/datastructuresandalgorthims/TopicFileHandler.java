@@ -6,7 +6,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 
 /**
- * Created by Richard on 26/02/2015.
+ * Created on 26/02/2015.
  */
 public class TopicFileHandler {
     public int numberOfTopics ;

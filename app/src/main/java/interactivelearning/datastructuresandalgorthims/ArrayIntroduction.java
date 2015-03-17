@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 /**
- * Created by Richard on 01/03/2015.
+ * Created on 01/03/2015.
  */
 
 public class ArrayIntroduction extends Activity{

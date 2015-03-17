@@ -1,7 +1,7 @@
 package interactivelearning.datastructuresandalgorthims;
 
 /**
- * Created by Richard on 26/02/2015.
+ * Created on 26/02/2015.
  */
 public class Topic{
 
@@ -18,10 +18,6 @@ public class Topic{
 
     public String getTopicName(){
         return name;
-    }
-
-    public int getNumOfSubtopics(){
-        return numOfSubtopics;
     }
 
     public String [] getSubtopics(){

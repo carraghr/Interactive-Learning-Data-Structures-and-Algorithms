@@ -9,8 +9,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 /**
- * Created by Richard on 27/02/2015.
- * This activity
+ * Created on 27/02/2015.
  */
 public class ArrayTopicActivity extends Activity {
 

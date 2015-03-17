@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 /**
- * Created by Richard on 10/03/2015.
+ * Created on 10/03/2015.
  */
 public class LinkedListInsert extends Activity{
 

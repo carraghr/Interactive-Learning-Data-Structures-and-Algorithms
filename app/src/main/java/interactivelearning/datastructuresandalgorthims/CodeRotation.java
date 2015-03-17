@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 /**
- * Created by Jessica on 15/03/2015.
+ * Created  on 15/03/2015.
  */
 public class CodeRotation extends Activity {
     @Override

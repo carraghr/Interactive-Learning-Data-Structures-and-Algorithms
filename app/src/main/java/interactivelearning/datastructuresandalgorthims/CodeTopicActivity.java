@@ -9,7 +9,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 /**
- * Created by Jessica on 13/03/2015.
+ * Created on 13/03/2015.
  */
 public class CodeTopicActivity extends Activity{
 

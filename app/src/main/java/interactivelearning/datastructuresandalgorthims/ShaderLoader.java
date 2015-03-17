@@ -4,7 +4,7 @@ import android.opengl.GLES20;
 import android.util.Log;
 
 /**
- * Created by Richard on 04/03/2015.
+ * Created on 04/03/2015.
  */
 public class ShaderLoader{
 

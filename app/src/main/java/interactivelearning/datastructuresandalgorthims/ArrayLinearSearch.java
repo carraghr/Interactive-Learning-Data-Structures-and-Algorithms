@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * Created by Jessica on 08/03/2015.
+ * Created on 08/03/2015.
  */
 public class ArrayLinearSearch extends Activity {
     @Override

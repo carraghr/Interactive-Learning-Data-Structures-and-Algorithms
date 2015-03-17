@@ -9,7 +9,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 /**
- * Created by Richard Carragher on 14/03/2015.
+ * Created on 14/03/2015.
  */
 public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
 

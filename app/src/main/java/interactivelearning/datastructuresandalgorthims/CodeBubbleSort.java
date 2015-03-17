@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 /**
- * Created by Jecca on 15/03/2015.
+ * Created on 15/03/2015.
  */
 public class CodeBubbleSort extends Activity {
     @Override

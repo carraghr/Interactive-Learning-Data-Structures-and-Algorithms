@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 
 /**
- * Created by Richard Carragher on 14/03/2015.
+ * Created on 14/03/2015.
  */
 public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
 

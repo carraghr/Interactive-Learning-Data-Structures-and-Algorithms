@@ -9,7 +9,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 /**
- * Created by Jessica on 06/03/2015.
+ * Created on 06/03/2015.
  */
 public class LinkedListTopicActivity extends Activity{
 

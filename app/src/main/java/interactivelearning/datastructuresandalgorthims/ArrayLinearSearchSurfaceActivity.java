@@ -5,8 +5,7 @@ import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 
 /**
- * Created by Richard Carragher on 14/03/2015.
- * TODO add to man
+ * Created on 14/03/2015.
  */
 public class ArrayLinearSearchSurfaceActivity extends Activity{
 

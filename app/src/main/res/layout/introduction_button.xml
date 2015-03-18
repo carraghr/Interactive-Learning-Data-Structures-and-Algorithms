@@ -16,7 +16,7 @@
             android:id="@+id/next"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/next_button_text"
+            android:text="@string/next"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:layout_weight="1"

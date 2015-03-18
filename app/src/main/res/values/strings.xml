@@ -97,30 +97,6 @@
         In this approach we iterate over an Array and  try every element in it until,
          we have found the element or until we reach the end of the collection or Array.
         Here is an example.
-        \n
-        \n
-        public class LinearSearch {
-        \n
-
-
-        \t int searchElementLinear(int numList[], int toSearch) {
-        \n
-        \t\t  int foundIndex = 0;
-        \n
-        \t\t  for (int i = 0; i &lt; numList.length; i++) {
-        \n
-        \t\t\t   if (numList[i] == toSearch) {
-        \n
-        \t\t\t\t    foundIndex = i;
-        \n
-        \t\t\t}
-        \n
-        \t\t  }
-        \n
-        \t\t  return foundIndex;
-        \n
-        \t }
-        }
 
         Linear Search iterate over each element until it found the right element,
         hence it has a variable best case and a fixed average and worst case complexity of O(n).
@@ -135,62 +111,7 @@
         The array is than divided into sub-array in each iteration accordingly,
         if the element is greater than the middle element or smaller than the middle element,
         the respective sub-array is used for further searching.
-        Here is a simple Java Program demonstrating binary search in Java.
-        \n
-        \n
-
-        public class BinarySearch {
-        \n
-        \t int searchElementBinary(int numList[], int toSearch) {
-        \n
-        \t\t  int startIndex = 0;
-        \n
-        \t\t  int endIndex = numList.length - 1;
-        \n
-        \t\t  int midindex = (startIndex + endIndex) / 2;
-        \n
-        \t\t  int midElement = numList[midindex];
-        \n
-        \t\t  int foundIndex = 0;
-        \n
-        \t\t  while (startIndex &lt;= endIndex) {
-        \n
-        \t\t\t   if (midElement &lt; toSearch) {
-        \n
-        \t\t\t\t    startIndex = midindex + 1;
-        \n
-        \t\t\t\t    midindex = (startIndex + endIndex) / 2;
-        \n
-        \t\t\t\t    midElement = numList[midindex];
-        \n
-        \t\t\t   }
-        \n
-        \t\t  else if (midElement > toSearch) {
-        \n
-        \t\t\t  endIndex = midindex - 1;
-        \n
-        \t\t\t  midindex = (startIndex + endIndex) / 2;
-        \n
-        \t\t\t  midElement = numList[midindex];
-        \n
-        \t\t  }
-        \n
-        \t\t else {
-        \n
-        \t\t\t foundIndex = midindex;
-        \n
-        \t\t\t break;
-        \n
-        \t\t}
-        \n
-        \t}
-        \n
-        return foundIndex;
-        \n
-        }
-        \n
-
-        }
+        See the code section for sample code
 
         Binary Search divided the search space into half in each iteration and hence has a O(log n) complexity.
     </string>
@@ -222,39 +143,8 @@
                       A LinkedList can be created though the use of a singly or doubly linked nodes.
                       A node is made up of a data item and a node or nodes referencing the next or
                       previous nodes in a sequence.
-                      \n
-                      \n
-                      Example of singly LinkedList node
-                      \n
-                      \n
-                      public static class Singly_Linked_Node T {\n
-	                  \t  T item;\n
-	                  \t  Node T next;\n
-                      \t  Node(T item, Node T next){\n
-		              \t\t    this.item = item;\n
-		              \t\t    this.next = next;\n
-	                  \t  }\n
-                      }
-                      \n
-                      \n
-                      Example of doubly LinkedList node
-                      \n
-                      \n
-                      public static class Singly_Linked_Node T{
-                      \n
-                      \t      T item;\n
-                      \t      Node T previous;\n
-                      \t      Node T next;\n
-
-                      \t      Node(T item, Node T previous, Node T next){\n
-                      \t\t         this.item = item;\n
-                      \t\t         this.previous = previous;\n
-                      \t\t          this.next = next;\n
-                      \t      }\n
-                      }\n
-                      \n
-                      \n
-
+                      An example of declaring singly and doubly linked list can be found in the Code section.
+                        \n
                       As you have seen in both implementations for a LinkedList, both nodes use a
                       generic data type (T). This allows the linked node and LinkedList to contain
                       any Object of the same type to be placed within the LinkedList.
@@ -263,33 +153,12 @@
                       The next and previous nodes are used to reference the adjacent nodes in the LinkedList
                       \n
                       \n
-                      We will see later how to add / remove references. However below you will see
-                      how to set up a skeletal implementation a LinkedList.
+                      We will see later how to add / remove references.
                       \n
-                      \n
-                      public class LinkedList T {\n
-
-                      \t\t  private static class Node T { &#8230;}\n
-
-                      \t\t      Node T head, last;\n
-
-                      \t\t      //Methods for add and remove for LinkedList.\n
-                        }
-                      \n
-                      \n
-
                       To declare a LinkedList from the standard java library import the java package
                       java.util.LinkedList; and create a LinkedList variable defining what object it
                       can take.
                       \n
-                      \n
-                      examples
-                      \n
-                      \n
-                      LinkedList String stringList = new LinkedList();
-                      \n
-                      \n
-                      LinkedList Integer intList = new LinkedList();
               </string>
 
     <string name = "linkedList_insertion">Insertion</string>
@@ -302,50 +171,19 @@
                     to reference itself as the next node and place the item you want as the new head item.
                     \n
                     \n
-                    Example:
+                    An example of insertion can be found in the code section.
+
+                    As you can see its is one simple instruction being carried out. Inserting at the
+                    beginning, is very similar to inserting at the end.
                     \n
-                    public void insertStart(T item){\n
-                    \t     if(head==null){\n
-                    \t \t         head = new Node (item,null);\n
-                    \t \t         head=last;\n
-                    \t     }\n
-                    \t     else{\n
-                    \t \t         head = new Node (item,head);\n
-                    \t     }\n
-                    }\n
-                    \n
-                    As you can see its is one simple instruction being carried out. Inserting to the
-                    end of a LinkedList is also as simple as adding to beginning
-                    \n
-                    \n
-                    example
-                    \n
-                    public void insertLast(T item){\n
-                        last.next = new Node(item,null);\n
-                    }\n
-                    \n
-                    \n
-                    As you see it is again one line of code been executed. You should note that a null
-                    value is to denote an end in a LinkedList.
-                    \n
-                    \n
-                    Inserting into the middle of a LinkedList becomes a little less efficient as the
+                    However adding into the middle of a LinkedList becomes a little less efficient as the
                     list grows. When adding to the middle you must read through x number of nodes from
                     the start until you get to the position you want to add an item.
+
+                    Once again, see the code section for an example of this.
+
                     \n
-                    \n
-                    example
-                    \n
-                    public boolean insertMiddle(int index;T item){\n
-                    \t    Node T temp = head;\n
-                    \t     int place;\n
-                    \t     for(place=0;place (less then) index &amp; temp.next!= null; place++ ){}\n
-                    \t     if(place == index){\n
-                    \t \t         temp= new node(item,temp);\n
-                    \t \t         return true;\n
-                    \t     }\n
-                    \t     return false;\n
-                    }</string>
+                   </string>
 
     <string name = "linkedList_removal">Removal</string>
     <string name = "linkedList_removal_paragraph">
@@ -354,44 +192,16 @@
                     the next node instead of the current one.
                     \n
                     \n
-                    example
-                    \n
-                    public void removeFirst(){ \n
-                    \t    if(head != null){ \n
-                    \t\t        head=head.next; \n
-                    \t    } \n
-                    }
-                    \n
-                    \n
-                    In the case above we check to see if there is anything in the list to remove and
+                    In the case above, we check to see if there is anything in the list to remove and
                     if there is then we simply reference the next node. This removes any reference to
                     the head node and so it\'s removed from memory. Something very similar can be done
                     for removing nodes from the middle of a LinkedList
                     \n
                     \n
-                    example
-                     \n
-                    public void removeIndex(int index){ \n
-                     \t   temp = head; \n
-                     \t   next = head.next \n
 
-                     \t   if(index > length){ \n
-                     \t\t       return; \n
-                     \t   } \n
-                     \t   else if(index == 1){ \n
-                     \t\t       removeFirst(); \n
-                     \t   } \n
-                     \t   for(int i = 1; i (less then) index;i++){ \n
-                     \t\t       temp = temp.next; \n
-                     \t\t       next = next.next; \n
-                     \t   } \n
-                     \t   temp.next = next.next; \n
-                    }
-                     \n
-                     \n
-                    The code above assumes length of the LinkedList is being tracked using some sort
-                    of count variable which is being increased and decreased accordingly.For removing
-                    from an index you first check if the index is within bounds.You then check if the
+                    The code for removing from the middle assumes length of the LinkedList is being tracked
+                    using some sort of count variable which is being increased and decreased accordingly.
+                    For removing from an index you first check if the index is within bounds.You then check if the
                     index is the head if so you can remove it straight away and finish the method efficiently.
                     If you have to go looking for an index you start with temp at head and next at
                     the node after head so it stays once step ahead. As you loop to the required index,
@@ -406,15 +216,9 @@
                     node that it is connected to. This means that to remove the last node in a LinkedList,
                     we only have to tell the Tail pointer to reference the previous node instead and
                     remove its reference to the last node.
-                     \n
-                     \n
-                    example
                     \n
-                    public void removeLast(){ \n
-                    \t    last = last.previous; \n
-                    \t    last.next = null; \n
-                    }
-                    \n
+                    See the Code section for all of the above
+                     \n
                     \n
                     Of course if you were to implement doubly LinkedList, you would have to do it for
                     both removal of the first and middle nodes. These are not implemented in this tutorial.
@@ -429,41 +233,16 @@
         \n
         \n
         To rotate left you must move the head item to the end of the LinkedList and more the heads next
-        reference to the head. Below shows how to active this.
-        \n
-        \n
-        public void leftRotate(){\n
-        \t    if(head==tail){\n
-        \t\t      return;\n
-        \t    }\n
-        \t     else{\n
-        \t        tail.next= new Node(head.item,null);\n
-        \t        tail=tail.next;\n
-        \t        head=head.next;\n
-        \t     }\n
-        }
+        reference to the head.
         \n
         \n
         To rotate right to apply the same logic but in the reverse order. To rotate right you move the
-        last item to the head and move the second last reference to the tail of the list. This implemenation
+        last item to the head and move the second last reference to the tail of the list. This implementation
         would require a doubly linked node for the best results in speed and time.
         \n
-        \n
-        public void rightRotate(){\n
-        \t    if(head==tail){\n
-        \t        return;\n
-        \t    }\n
-        \t    else{\n
-        \t        T temp = tail.item;\n
-        \t        last = last.previous;\n
-        \t        last.next = null;\n
-        \t        head = new Node(temp,head,null);\n
-        \t    }\n
-        }\n
+        The code section shows how to achieve this.
     </string>
     <string name="button_text">Submit</string>
-    <string name="next_button_text">next</string>
-    <string name="previous_button_text">previous</string>
     <string name="Code_topic_activity">Code</string>
     <string name="previous">Previous</string>
     <string name="next">Next</string>
@@ -476,14 +255,424 @@
     <string name="code_adding_a_node">Adding A Node Code</string>
     <string name="code_removal">Removing a node Code</string>
     <string name="code_rotation">Rotation Code</string>
-    <string name="code_merge_sort_paragraph">Code for merge sort</string>
-    <string name="code_bubble_sort_paragraph">Paragraph about bubble sort</string>
-    <string name="code_select_sort_paragraph">Code for select sort</string>
-    <string name="code_linear_search_paragraph">linear search code</string>
-    <string name="code_linkedList_declaration_paragraph">linkedlist declaration paragraph</string>
-    <string name="code_removal_paragraph">removing code</string>
-    <string name="code_rotation_paragraph">code for rotation</string>
-    <string name="code_binary_search_paragraph">binary search code</string>
-    <string name="code_adding_a_node_paragraph">adding a node code</string>
+
+
+    <string name="code_merge_sort_paragraph">
+    \n
+        public class MergeSort {
+    \n
+    \t\t    public static int[] mergeSort(int [] list) {
+    \n
+    \t\t\t\t    if (list.length &lt;= 1) {
+    \n
+    \t\t\t\t\t\t    return list;
+    \n
+    \t\t\t\t    }
+    \n
+    \n
+    \t\t\t\t    int[] first = new int[list.length / 2];
+    \n
+    \t\t\t\t    int[] second = new int[list.length - first.length];
+    \n
+    \t\t\t\t    System.arraycopy(list, 0, first, 0, first.length);
+    \n
+    \t\t\t\t    System.arraycopy(list, first.length, second, 0, second.length);
+    \n
+    \t\t\t\t    mergeSort(first);
+    \n
+    \t\t\t\t    mergeSort(second);
+    \n
+    \t\t\t\t    merge(first, second, list);
+    \n
+    \t\t\t\t    return list;
+    \n
+    \t\t}
+    \n
+    \t\t   private static void merge(int[] first, int[] second, int [] result) {
+    \n
+    \t\t\t\t    int iFirst = 0;
+    \n
+    \t\t\t\t    int iSecond = 0;
+    \n
+    \t\t\t\t    int j = 0;
+    \n
+    \t\t\t\t    while (iFirst &lt; first.length &amp;&amp; iSecond &lt; second.length) {
+    \n
+     \t\t\t\t\t\t   if (first[iFirst] &lt; second[iSecond]) {
+     \n
+     \t\t\t\t\t\t\t\t   result[j] = first[iFirst];
+     \n
+     \t\t\t\t\t\t\t\t   iFirst++;
+     \n
+     \t\t\t\t\t\t   }
+     \n
+     \t\t\t\t\t\t   else {
+     \n
+     \t\t\t\t\t\t\t\t   result[j] = second[iSecond];
+     \n
+     \t\t\t\t\t\t\t\t   iSecond++;
+     \n
+     \t\t\t\t\t\t   }
+     \n
+     \t\t\t\t\t\t   j++;
+     \n
+     \t\t\t\t   }
+     \n
+     \t\t\t\t   System.arraycopy(first, iFirst, result, j, first.length - iFirst);
+     \n
+     \t\t\t\t   System.arraycopy(second, iSecond, result, j, second.length - iSecond);
+     \n
+     \t\t  }
+    </string>
+    <string name="code_bubble_sort_paragraph">
+    public void bubbleSort(int[] arr) {
+    \n
+    \t\t   boolean swapped = true;
+    \n
+    \t\t   int j = 0;
+    \n
+    \t\t   int tmp;
+    \n
+    \t\t   while (swapped) {
+    \n
+    \t\t\t\t    swapped = false;
+    \n
+    \t\t\t\t    j++;
+    \n
+    \t\t\t\t    for (int i = 0; i &#60; arr.length - j; i++) {
+    \n
+    \t\t\t\t\t\t          if (arr[i] > arr[i + 1]) {
+    \n
+    \t\t\t\t\t\t\t\t                tmp = arr[i];
+    \n
+    \t\t\t\t\t\t\t\t                arr[i] = arr[i + 1];
+    \n
+    \t\t\t\t\t\t\t\t                arr[i + 1] = tmp;
+    \n
+    \t\t\t\t\t\t\t\t                swapped = true;
+    \n
+    \t\t\t\t\t\t          }
+    \n
+    \t\t\t\t    }
+    \n
+    \t\t    }
+    \n
+        }
+    \n
+    </string>
+    <string name="code_select_sort_paragraph">
+
+    public static int[] doSelectionSort(int[] arr){
+    \n
+    \t\t
+    \t\t    for (int i = 0; i &lt; arr.length - 1; i++){
+    \n
+    \t\t    int index = i;
+    \n
+    \t\t    for (int j = i + 1; j &lt; arr.length; j++)
+    \n
+    \t\t\t\t    if (arr[j] &lt; arr[index]){
+    \n
+    \t\t\t\t\t\t        index = j;
+    \n
+    \t\t\t\t    }
+    \n
+
+    \t\t\t\t    int smallerNumber = arr[index];
+    \n
+    \t\t\t\t     arr[index] = arr[i];
+    \n
+    \t\t\t\t     arr[i] = smallerNumber;
+    \n
+    \t\t    }
+    \n
+    \t\t    return arr;
+    \n
+        }
+    </string>
+    <string name="code_linear_search_paragraph">
+       \n
+        \t\t int linearSearch(int numbers[], int x) {
+        \n
+        \t\t\t\t  int foundIndex = 0;
+        \n
+        \t\t\t\t  for (int i = 0; i &lt; numbers.length; i++) {
+        \n
+        \t\t\t\t\t\t   if (numbers[i] == x) {
+        \n
+        \t\t\t\t\t\t\t\t    foundIndex = i;
+        \n
+        \t\t\t\t\t\t}
+        \n
+        \t\t\t\t  }
+        \n
+        \t\t\t\t  return foundIndex;
+        \n
+        \t\t }
+        \n}
+    </string>
+    <string name="code_linkedList_declaration_paragraph">
+
+         \n
+          public static class Singly_Linked_Node T {
+        \n
+          \t\t  T item;\n
+          \t\t  Node T next;
+        \n
+          \t\t  Node(T item, Node T next){
+        \n
+          \t\t\t\t    this.item = item;
+        \n
+          \t\t\t\t    this.next = next;
+        \n
+          \t\t  }
+        \n
+          }
+        \n
+        \n
+
+        \t\t      T item;
+        \n
+        \t\t      Node T previous;
+        \n
+        \t\t      Node T next;
+        \n
+
+        \t\t      Node(T item, Node T previous, Node T next){
+        \n
+        \t\t\t\t         this.item = item;
+        \n
+        \t\t\t\t     this.previous = previous;
+        \n
+        \t\t\t\t          this.next = next;
+        \n
+        \t\t      }
+        \n
+        }
+        \n
+        \n
+        \n
+        public class LinkedList T {
+        \n
+
+        \t\t  private static class Node T { &#8230;}
+        \n
+
+        \t\t      Node T head, last;
+        \n
+
+        \t\t      //Methods for add and remove for LinkedList.
+        \n
+        }
+        \n
+    </string>
+    <string name="code_removal_paragraph">
+        \n
+        public void removeFirst(){
+        \n
+        \t\t    if(head != null){
+        \n
+        \t\t\t\t        head=head.next;
+        \n
+        \t\t    }
+        \n
+        }
+        \n
+        \n
+        \n
+        public void removeIndex(int index){
+        \n
+        \t\t   temp = head;
+        \n
+        \t\t   next = head.next
+        \n
+
+        \t\t   if(index > length){
+        \n
+        \t\t\t\t       return;
+        \n
+        \t\t   }
+        \n
+        \t\t   else if(index == 1){
+        \n
+        \t\t\t\t       removeFirst();
+        \n
+        \t\t   }
+        \n
+        \t\t   for(int i = 1; i (less then) index;i++){
+        \n
+        \t\t\t\t       temp = temp.next;
+        \n
+        \t\t\t\t       next = next.next;
+        \n
+        \t\t   }
+        \n
+        \t\t   temp.next = next.next;
+        \n
+        }
+        \n
+        \n
+        \n
+        public void removeLast(){
+        \n
+        \t\t    last = last.previous;
+        \n
+        \t\t    last.next = null;
+        \n
+        }
+        \n
+    </string>
+    <string name="code_rotation_paragraph">
+        \n
+        public void leftRotate(){
+        \n
+        \t\t    if(head==tail){
+        \n
+        \t\t\t\t      return;
+        \n
+        \t\t    }
+        \n
+        \t\t     else{
+        \n
+        \t\t\t\t        tail.next= new Node(head.item,null);
+        \n
+        \t\t\t\t        tail=tail.next;
+        \n
+        \t\t\t\t        head=head.next;
+        \n
+        \t\t     }
+        \n
+        }
+        \n
+        \n
+        \n
+        public void rightRotate(){
+        \n
+        \t\t    if(head==tail){
+        \n
+        \t\t\t\t        return;
+        \n
+        \t\t    }
+        \n
+        \t\t    else{
+        \n
+        \t\t\t\t        T temp = tail.item;
+        \n
+        \t\t\t\t        last = last.previous;
+        \n
+        \t\t\t\t        last.next = null;
+        \n
+        \t\t\t\t        head = new Node(temp,head,null);
+        \n
+        \t\t    }
+        \n
+        }\n
+    </string>
+    <string name="code_binary_search_paragraph">
+
+         \n
+        \t\t int searchElementBinary(int numList[], int toSearch) {
+        \n
+        \t\t\t\t  int startIndex = 0;
+        \n
+        \t\t\t\t  int endIndex = numList.length - 1;
+        \n
+        \t\t\t\t  int midindex = (startIndex + endIndex) / 2;
+        \n
+        \t\t\t\t  int midElement = numList[midindex];
+        \n
+        \t\t\t\t  int foundIndex = 0;
+        \n
+        \t\t\t\t  while (startIndex &lt;= endIndex) {
+        \n
+        \t\t\t\t\t\t   if (midElement &lt; toSearch) {
+        \n
+        \t\t\t\t\t\t\t\t    startIndex = midindex + 1;
+        \n
+        \t\t\t\t\t\t\t\t    midindex = (startIndex + endIndex) / 2;
+        \n
+        \t\t\t\t\t\t\t\t    midElement = numList[midindex];
+        \n
+        \t\t\t\t\t\t   }
+        \n
+        \t\t\t\t\t\t  else if (midElement > toSearch) {
+        \n
+        \t\t\t\t\t\t\t\t  endIndex = midindex - 1;
+        \n
+        \t\t\t\t\t\t\t\t  midindex = (startIndex + endIndex) / 2;
+        \n
+        \t\t\t\t\t\t\t\t  midElement = numList[midindex];
+        \n
+        \t\t\t\t\t\t  }
+        \n
+        \t\t\t\t\t\t else {
+        \n
+        \t\t\t\t\t\t\t\t foundIndex = midindex;
+        \n
+        \t\t\t\t\t\t\t\t break;
+        \n
+        \t\t\t\t\t\t  }
+        \n
+        \t\t\t\t }
+        \n
+        \t\t\t\t return foundIndex;
+        \n
+        \t\t}
+        \n
+
+    </string>
+    <string name="code_adding_a_node_paragraph">
+
+        \n
+            public void insertStart(T item){
+        \n
+        \t\t     if(head==null){
+        \n
+        \t\t\t\t         head = new Node (item,null);
+        \n
+        \t\t\t\t         head=last;
+        \n
+        \t\t     }
+        \n
+        \t\t     else{
+        \n
+        \t\t\t\t         head = new Node (item,head);
+        \n
+        \t\t     }
+        \n
+           }
+        \n
+        \n
+        \n
+        public void insertLast(T item){
+        \n
+        \t\t    last.next = new Node(item,null);
+        \n
+        }
+        \n
+            \n
+
+        public boolean insertMiddle(int index;T item){
+        \n
+        \t\t    Node T temp = head;
+        \n
+        \t\t     int place;
+        \n
+        \t\t     for(place=0;place (less then) index &amp; temp.next!= null; place++ ){}
+        \n
+        \t\t     if(place == index){
+        \n
+        \t\t\t\t         temp= new node(item,temp);
+        \n
+        \t\t\t\t         return true;
+        \n
+        \t\t     }
+        \n
+        \t\t     return false;
+        \n
+        }
+    </string>
 
 </resources>
+
+

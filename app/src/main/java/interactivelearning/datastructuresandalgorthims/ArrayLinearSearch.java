@@ -54,11 +54,6 @@ public class ArrayLinearSearch extends Activity {
                 Bundle bundle = new Bundle();
                 bundle.putString("value", value);
 
-                Toast toast = Toast.makeText(getApplicationContext(),
-                        value,
-                        Toast.LENGTH_SHORT);
-                toast.show();
-
                 Intent intent = new Intent(ArrayLinearSearch.this, ArrayLinearSearchSurfaceActivity.class);
                 intent.putExtras(bundle);
                 ArrayLinearSearch.this.startActivity(intent);

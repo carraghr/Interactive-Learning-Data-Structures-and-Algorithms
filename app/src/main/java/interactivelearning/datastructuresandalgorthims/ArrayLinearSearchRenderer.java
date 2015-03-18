@@ -111,11 +111,11 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
     }
     public void addSearchFor(){
       float[] startPoint = squares[0].getTopCenterPoint();
-      startPoint[1]+=Square.getRadius()*4;
+      startPoint[1]+=(Square.getRadius()*5)+0.005f;
       searchFor = new Square(startPoint,context,searchForImage,0);
     }
     public void moveSearchItemNexted(int place){
         float [] a = squares[place].getTopCenterPoint();
-        searchFor.moveRight(a[1]-Square.getRadius());
+        searchFor.moveRight(0.075f * 2);
     }
 }

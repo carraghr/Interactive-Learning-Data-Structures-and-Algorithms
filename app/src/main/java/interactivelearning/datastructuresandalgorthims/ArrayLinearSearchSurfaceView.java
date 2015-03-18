@@ -17,7 +17,7 @@ public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
 
     String searchFor;
     String[] values;
-   boolean repeat = false;
+    boolean start = true;
 
     public ArrayLinearSearchSurfaceView(Context context, String searchFor, String[] values){
 
@@ -35,52 +35,50 @@ public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
         setRenderer(arrayLinearSearchRenderer);
 
         //render the view only when there is a change in the drawing data
-        setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+        setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
         //startProcess();
     }
 
-    private void startProcess(){
-        //arrayLinearSearchRenderer.setUpSquares();
-        //requestRender();
+    private void messages() {
         Toast message;
-        //arrayLinearSearchRenderer.addSearchFor(); //add the item been searched for to display.
-        //requestRender();
-        for(int i=0; i < values.length;i++ ){
-            //highlight where you are.
-            message = Toast.makeText(context, "We check" + values[i] + " and see if its equal to " + searchFor
-                  , Toast.LENGTH_LONG);
-            message.show();
-            arrayLinearSearchRenderer.highLight(i);
-            requestRender();
-            //display toast message.
-
-            if(searchFor.equals(values[i])){
-              //  message = Toast.makeText(context, "They are the same", Toast.LENGTH_LONG);
-              //  message.show();
-                repeat = true;
-                return;
-            }
-            arrayLinearSearchRenderer.removeHighLight(i);
-            requestRender();
-            //message = Toast.makeText(context, "They are different me move to the next"
-            //        , Toast.LENGTH_LONG);
-          //  message.show();
-            arrayLinearSearchRenderer.moveSearchItemNexted(i);
-            requestRender();
-        }
-        repeat = true;
+        message = Toast.makeText(context, "We check each number and see if its equal to " + searchFor
+                , Toast.LENGTH_LONG);
+        message.show();
+        message = Toast.makeText(context, "When they are different, it moves to the next slot in the array."
+                , Toast.LENGTH_LONG);
+        message.show();
     }
 
+    private void startProcess(){
+
+        try {
+            start = false;
+            for (int i = 0; i < values.length; i++) {
+                //highlight where you are.
+                arrayLinearSearchRenderer.highLight(i);
+                Thread.sleep(500);
+                if (searchFor.equals(values[i])) {
+                    messages();
+                    Toast message = Toast.makeText(context, "They are the same, so we are done.", Toast.LENGTH_LONG);
+                    message.show();
+                    return;
+                }
+                arrayLinearSearchRenderer.removeHighLight(i);
+                arrayLinearSearchRenderer.moveSearchItemNexted(i);
+                Thread.sleep(500);
+            }
+            messages();
+            Toast message = Toast.makeText(context, "Array doesn't contain "+searchFor, Toast.LENGTH_LONG);
+            message.show();
+        }catch (Exception e){}
+    }
 
     public boolean onTouchEvent(MotionEvent e) {
 
         switch (e.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                arrayLinearSearchRenderer.highLight(1);
-                requestRender();
-                if(repeat) {
-                arrayLinearSearchRenderer.setUpSquares();
-                startProcess();
+                if(start) {
+                    startProcess();
                 }
         }
         return true;

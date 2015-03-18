@@ -76,6 +76,17 @@
         </activity>
 
         <activity
+            android:name = ".ArraySelectSortSurfaceActivty"
+            android:label = "Array Select Sort Surface Activty"
+            android:parentActivityName = ".ArraySelectSort">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ArraySelectSort"
+                />
+        </activity>
+
+        <activity
             android:name = "ArrayBubbleSort"
             android:label = "@string/array_bubble_sort"
             android:parentActivityName = ".ArrayTopicActivity">

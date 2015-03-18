@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,15 +40,35 @@ public class ArraySelectSort extends Activity{
 
         selectSortButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "You sure showed that select sort button", Toast.LENGTH_SHORT);
-                toast.show();
+                EditText one_input = (EditText) findViewById(R.id.input_one);
+                EditText two_input = (EditText) findViewById(R.id.input_two);
+                EditText three_input = (EditText) findViewById(R.id.input_three);
+                EditText four_input = (EditText) findViewById(R.id.input_four);
+                EditText five_input = (EditText) findViewById(R.id.input_five);
 
-            //    Intent intent = new Intent(ArraySelectSort.this,SurfaceActivity.class);
-            //    ArraySelectSort.this.startActivity(intent);
+                String [] values = new String[]{one_input.getText().toString(),
+                                                two_input.getText().toString(),
+                                                three_input.getText().toString(),
+                                                four_input.getText().toString(),
+                                                five_input.getText().toString()};
+                values = InputControls.sortedValues(values);
+
+                if(values.length == 0){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please input values to sort"
+                            , Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                else {
+                    Bundle bundle = new Bundle();
+                    bundle.putStringArray("values",values);
+                    Intent intent = new Intent(ArraySelectSort.this, ArraySelectSortSurfaceActivty.class);
+                    intent.putExtras(bundle);
+                    ArraySelectSort.this.startActivity(intent);
+
+                }
             }
         });
 
-        //TODO write function to out new strings for declaring arrays of set length.
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
         textViewToChange.setText(R.string.array_select_sort);
 

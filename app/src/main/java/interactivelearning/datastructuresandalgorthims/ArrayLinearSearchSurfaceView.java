@@ -11,7 +11,6 @@ import android.widget.Toast;
  */
 public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
 
-    //private ArrayLinearSearchRenderer arrayLinearSearchRenderer;
     private ArrayLinearSearchRenderer arrayLinearSearchRenderer;
     Context context;
 
@@ -22,6 +21,7 @@ public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
     public ArrayLinearSearchSurfaceView(Context context, String searchFor, String[] values){
 
         super(context);
+
         //Create an OpenGL ES 2.0 context.
         setEGLContextClientVersion(2);
 
@@ -31,12 +31,14 @@ public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
         String [] fileNames = InputControls.addImageNames(values);
         String searchForImage = InputControls.addImageName(this.searchFor);
 
-        arrayLinearSearchRenderer = new ArrayLinearSearchRenderer(context,5,fileNames,searchForImage);
+        arrayLinearSearchRenderer = new ArrayLinearSearchRenderer(context,values.length,fileNames,searchForImage);
         setRenderer(arrayLinearSearchRenderer);
 
         //render the view only when there is a change in the drawing data
         setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
-        //startProcess();
+
+        Toast toast = Toast.makeText(context,"Please tap the screen to begin !",Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     private void messages() {

@@ -40,28 +40,22 @@ public class ArrayBubbleSortSurfaceView extends GLSurfaceView {
     private void startProcess(){
         start = false;
         try {
-            String temp;
-
             for(int i=0; i < values.length; i++){
                 for(int j=1; j < (values.length-i); j++){
                     arrayBubbleSortRenderer.moveUp(j-1);
-                    Thread.sleep(500);
                     arrayBubbleSortRenderer.moveUp(j);
                     Thread.sleep(500);
 
                     if(values[j-1].compareTo( values[j]) > 0){
                         //swap the elements!
-                        //swapSquares( pointA, pointB);
+                        swapSquares(j);
+                    }
+                    else{
+                        //Replace raised squares and move along
+                        arrayBubbleSortRenderer.moveDown(j);
                         arrayBubbleSortRenderer.moveDown(j-1);
                         Thread.sleep(500);
-                        arrayBubbleSortRenderer.moveRight(j-1);
-                        arrayBubbleSortRenderer.moveLeft(j);
-                        Thread.sleep(500);
-                        temp = values[j-1];
-                        values[j-1] = values[j];
-                        values[j] = temp;
                     }
-
                 }
             }
         }catch (Exception e){
@@ -69,35 +63,36 @@ public class ArrayBubbleSortSurfaceView extends GLSurfaceView {
         }
     }
 
-    private void swapSquares(int pointA,int pointB){
-        //Get start and end point
-        float [] pointsA = arrayBubbleSortRenderer.getSquareTopPoint(pointA);
-        float [] pointsB = arrayBubbleSortRenderer.getSquareTopPoint(pointB);
-
+    public void swapSquares(int j){
+        arrayBubbleSortRenderer.moveDown(j-1);
         try {
-            arrayBubbleSortRenderer.moveDown(pointA);
             Thread.sleep(500);
-            while (!(pointsB[0] == pointsA[0])) {//while Point A's x does not equal point B's old x axis
-                arrayBubbleSortRenderer.moveRight(pointA);
-                arrayBubbleSortRenderer.moveLeft(pointB);
-                Thread.sleep(500);
-                pointsA = arrayBubbleSortRenderer.getSquareTopPoint(pointA);
-            }
-            arrayBubbleSortRenderer.moveUp(pointA);
-            arrayBubbleSortRenderer.moveDown(pointB);
+            arrayBubbleSortRenderer.moveRight(j-1);
             Thread.sleep(500);
-            arrayBubbleSortRenderer.swap(pointA, pointB);
+            arrayBubbleSortRenderer.moveLeft(j);
             Thread.sleep(500);
-        }catch(Exception e){
-            System.err.println("Error in swap squares");
+            arrayBubbleSortRenderer.moveDown(j);
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            System.err.println("Error in swapSquares");
         }
-        //do a swap with the actually array of squares so everything is the same.
+        String temp = values[j-1];
+        values[j-1] = values[j];
+        values[j] = temp;
+        arrayBubbleSortRenderer.swap(j-1,j);
     }
 
-    private void swapValues(int pointA,int pointB){
-        String temp = values[pointA];
-        values[pointA] = values[pointB];
-        values[pointB]=temp;
+    private void messages() {
+        Toast message;
+        message = Toast.makeText(context, "We check two numbers and see if they're in order"
+                , Toast.LENGTH_LONG);
+        message.show();
+        message = Toast.makeText(context, "When they are, it moves up one position in the array."
+                , Toast.LENGTH_LONG);
+        message.show();
+        message = Toast.makeText(context, "If not, they're swapped, and it moves on"
+                , Toast.LENGTH_LONG);
+        message.show();
     }
 
     public boolean onTouchEvent(MotionEvent e) {

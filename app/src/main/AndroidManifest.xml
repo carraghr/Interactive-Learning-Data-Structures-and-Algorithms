@@ -98,6 +98,17 @@
         </activity>
 
         <activity
+            android:name = "ArrayBubbleSortSurfaceActivity"
+            android:label = "Array Bubble Sort Surface Activity"
+            android:parentActivityName = ".ArrayBubbleSort">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ArrayTopicActivity"
+                />
+        </activity>
+
+        <activity
             android:name = "ArrayMergeSort"
             android:label = "@string/array_merge_sort"
             android:parentActivityName = ".ArrayTopicActivity">

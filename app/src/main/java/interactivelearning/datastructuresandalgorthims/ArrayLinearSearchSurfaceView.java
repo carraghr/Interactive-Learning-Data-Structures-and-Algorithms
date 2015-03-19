@@ -66,7 +66,7 @@ public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
                     return;
                 }
                 arrayLinearSearchRenderer.removeHighLight(i);
-                arrayLinearSearchRenderer.moveSearchItemNexted(i);
+                arrayLinearSearchRenderer.moveSearchItemNext(i);
                 Thread.sleep(500);
             }
             messages();

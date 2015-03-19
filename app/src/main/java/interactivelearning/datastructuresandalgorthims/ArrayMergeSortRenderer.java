@@ -9,9 +9,9 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 /**
- * Created on 14/03/2015.
+ * Created on 19/03/2015.
  */
-public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
+public class ArrayMergeSortRenderer implements GLSurfaceView.Renderer {
 
     private Square[] squares;
     private int numberOfSquares;
@@ -27,7 +27,7 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
 
-    ArrayLinearSearchRenderer(Context context,int numberOfSquares,String [] fileNames,String searchForImage){
+    ArrayMergeSortRenderer(Context context,int numberOfSquares,String [] fileNames,String searchForImage){
 
         super();
         this.context = context;
@@ -102,19 +102,39 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
         }
     }
 
-    public void highLight(int place){
+    public void moveUp(int place){
         squares[place].moveUp(2*Square.getRadius());
     }
-    public void removeHighLight(int place){
+    public void  moveDown(int place){
         squares[place].moveDown(Square.getRadius()*2);
     }
     public void addSearchFor(){
-      float[] startPoint = squares[0].getTopCenterPoint();
-      startPoint[1]+=(Square.getRadius()*5)+0.005f;
-      searchFor = new Square(startPoint,context,searchForImage);
+        float[] startPoint = squares[0].getTopCenterPoint();
+        startPoint[1]+=(Square.getRadius()*5)+0.005f;
+        searchFor = new Square(startPoint,context,searchForImage);
     }
     public void moveSearchItemNext(int place){
         float [] a = squares[place].getTopCenterPoint();
         searchFor.moveRight(0.075f * 2);
+    }
+
+    public void moveLeft(int place){
+        squares[place].moveLeft(2*Square.getRadius());
+    }
+
+    public void moveRight(int place){
+        squares[place].moveRight(2*Square.getRadius());
+    }
+
+    public void splitLeft(int place){
+        for(int i = 0; i < place ; i++){
+            squares[i].moveLeft(Square.getRadius()/2);
+        }
+    }
+
+    public void splitRight(int place){
+        for(int i = 0; i < place ; i++){
+            squares[i].moveRight(Square.getRadius()/2);
+        }
     }
 }

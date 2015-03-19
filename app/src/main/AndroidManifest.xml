@@ -120,6 +120,17 @@
         </activity>
 
         <activity
+            android:name = "ArrayMergeSortSurfaceActivity"
+            android:label = "Array Merge Sort Surface Activity"
+            android:parentActivityName = ".ArrayMergeSort">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ArrayTopicActivity"
+                />
+        </activity>
+
+        <activity
             android:name = "ArrayLinearSearch"
             android:label = "@string/array_linear_search"
             android:parentActivityName = ".ArrayTopicActivity">

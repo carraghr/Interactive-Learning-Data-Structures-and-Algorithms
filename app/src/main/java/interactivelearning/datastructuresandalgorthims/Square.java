@@ -246,13 +246,4 @@ public class Square{
     public static float getRadius(){
         return radius;
     }
-
-    public void checkGlError(String glOperation){
-        int error;
-
-        while ((error = GLES20.glGetError()) != GLES20.GL_NO_ERROR) {
-            Log.e(TAG, glOperation + ": glError " + error);
-            throw new RuntimeException(glOperation + ": glError " + error);
-        }
-    }
 }

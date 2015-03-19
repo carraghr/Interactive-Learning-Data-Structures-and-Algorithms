@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,17 +31,29 @@ public class ArrayBinarySearch extends Activity{
         }
     });
 
-    binarySearchButton.setOnClickListener(new View.OnClickListener() {
-        public void onClick(View v) {
-            Toast toast = Toast.makeText(getApplicationContext(), "You sure showed that select sort button", Toast.LENGTH_SHORT);
-            toast.show();
+        binarySearchButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            EditText input = (EditText) findViewById(R.id.input_box_one);
+            String value = input.getText().toString();
+            if(value.equals("")) {
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "Please enter a value to be searched for",
+                        Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            else {
 
-           // Intent intent = new Intent(ArrayBinarySearch.this,SurfaceActivity.class);
-           // ArrayBinarySearch.this.startActivity(intent);
+                Bundle bundle = new Bundle();
+                bundle.putString("value", value);
+
+                Intent intent = new Intent(ArrayBinarySearch.this, ArrayBinarySearchSurfaceActivity.class);
+                intent.putExtras(bundle);
+                ArrayBinarySearch.this.startActivity(intent);
+            }
+
         }
     });
 
-    //TODO write function to out new strings for declaring arrays of set length.
     TextView textViewToChange = (TextView) findViewById(R.id.topic);
     textViewToChange.setText(R.string.array_binary_search);
 

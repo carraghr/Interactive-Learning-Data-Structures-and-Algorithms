@@ -21,7 +21,7 @@ public class ArrayLinearSearch extends Activity {
 
     private void setUI(){
     setContentView(R.layout.one_input_page);
-    Button selectSortButton = (Button) findViewById(R.id.submit_one);
+    Button linearSearchButton = (Button) findViewById(R.id.submit_one);
     Button previous = (Button) findViewById(R.id.previous);
     Button next = (Button) findViewById(R.id.next);
 
@@ -39,7 +39,7 @@ public class ArrayLinearSearch extends Activity {
         }
     });
 
-    selectSortButton.setOnClickListener(new View.OnClickListener() {
+    linearSearchButton.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
             EditText input = (EditText) findViewById(R.id.input_box_one);
             String value = input.getText().toString();

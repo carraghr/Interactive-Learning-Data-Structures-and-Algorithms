@@ -61,7 +61,7 @@ public class ArraySelectSort extends Activity{
                 else {
                     Bundle bundle = new Bundle();
                     bundle.putStringArray("values",values);
-                    Intent intent = new Intent(ArraySelectSort.this, ArraySelectSortSurfaceActivty.class);
+                    Intent intent = new Intent(ArraySelectSort.this, ArraySelectSortSurfaceActivity.class);
                     intent.putExtras(bundle);
                     ArraySelectSort.this.startActivity(intent);
 

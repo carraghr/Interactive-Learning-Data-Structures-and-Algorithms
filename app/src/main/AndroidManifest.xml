@@ -76,7 +76,7 @@
         </activity>
 
         <activity
-            android:name = ".ArraySelectSortSurfaceActivty"
+            android:name = ".ArraySelectSortSurfaceActivity"
             android:label = "Array Select Sort Surface Activty"
             android:parentActivityName = ".ArraySelectSort">
 

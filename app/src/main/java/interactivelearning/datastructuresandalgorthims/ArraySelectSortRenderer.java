@@ -23,7 +23,7 @@ public class ArraySelectSortRenderer implements GLSurfaceView.Renderer {
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
 
-    ArraySelectSortRenderer(Context context,int numberOfSquares,String [] fileNames){
+    ArraySelectSortRenderer(Context context, int numberOfSquares, String[] fileNames){
 
         super();
 

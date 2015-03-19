@@ -5,10 +5,9 @@ import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 
 /**
- * Created on 18/03/2015.
+ * Created on 19/03/2015.
  */
-public class ArraySelectSortSurfaceActivty extends Activity {
-
+public class ArrayBubbleSortSurfaceActivity extends Activity {
     private GLSurfaceView myView;
 
     @Override
@@ -18,7 +17,7 @@ public class ArraySelectSortSurfaceActivty extends Activity {
         Bundle bundle = this.getIntent().getExtras();
         String [] values = bundle.getStringArray("values");
 
-        myView = new ArraySelectSortSurfaceView(getApplicationContext(), values);
+        myView = new ArrayBubbleSortSurfaceView(getApplicationContext(), values);
         setContentView(myView);
     }
 }

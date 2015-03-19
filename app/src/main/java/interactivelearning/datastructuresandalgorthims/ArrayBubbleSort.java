@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,11 +42,32 @@ public class ArrayBubbleSort extends Activity{
 
         bubbleSortButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "x", Toast.LENGTH_SHORT);
-                toast.show();
+                EditText one_input = (EditText) findViewById(R.id.input_one);
+                EditText two_input = (EditText) findViewById(R.id.input_two);
+                EditText three_input = (EditText) findViewById(R.id.input_three);
+                EditText four_input = (EditText) findViewById(R.id.input_four);
+                EditText five_input = (EditText) findViewById(R.id.input_five);
 
-                //Intent intent = new Intent(ArrayBubbleSort.this, SurfaceActivity.class);
-               // ArrayBubbleSort.this.startActivity(intent);
+                String [] values = new String[]{one_input.getText().toString(),
+                        two_input.getText().toString(),
+                        three_input.getText().toString(),
+                        four_input.getText().toString(),
+                        five_input.getText().toString()};
+                values = InputControls.sortedValues(values);
+
+                if(values.length == 0){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please input values to sort"
+                            , Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                else {
+                    Bundle bundle = new Bundle();
+                    bundle.putStringArray("values",values);
+                    Intent intent = new Intent(ArrayBubbleSort.this, ArrayBubbleSortSurfaceActivity.class);
+                    intent.putExtras(bundle);
+                    ArrayBubbleSort.this.startActivity(intent);
+
+                }
             }
         });
 

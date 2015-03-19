@@ -11,25 +11,23 @@ import javax.microedition.khronos.opengles.GL10;
 /**
  * Created on 19/03/2015.
  */
-public class ArrayBinarySearchRenderer implements GLSurfaceView.Renderer{
 
-    private Square[] squares;
+public class ArrayBubbleSortRenderer implements GLSurfaceView.Renderer {
+
+    private Context context;
     private int numberOfSquares;
-    private String [] fileNames;
-    private Square searchFor;
-    private String searchForImage;
-
-
-    Context context;
+    private Square[] squares;
+    private String[] fileNames;
 
     // myMVPMatrix is an abbreviation for "Model View Projection Matrix"
     private final float[] mMVPMatrix = new float[16];
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
 
-    ArrayBinarySearchRenderer(Context context,int numberOfSquares,String [] fileNames,String searchForImage){
+    ArrayBubbleSortRenderer(Context context, int numberOfSquares, String[] fileNames){
 
         super();
+
         this.context = context;
 
         this.fileNames = fileNames;
@@ -37,8 +35,6 @@ public class ArrayBinarySearchRenderer implements GLSurfaceView.Renderer{
         this.numberOfSquares=numberOfSquares;
 
         squares = new Square[this.numberOfSquares];
-
-        this.searchForImage = searchForImage;
 
     }
 
@@ -49,23 +45,19 @@ public class ArrayBinarySearchRenderer implements GLSurfaceView.Renderer{
 
         // set up squares
         setUpSquares();
-        addSearchFor();
     }
 
     @Override
     public void onSurfaceChanged(GL10 gl, int width, int height) {
-
         GLES20.glViewport(0, 0, width, height);
 
         float ratio = (float) width/height;
 
         Matrix.frustumM(mProjectionMatrix, 0, -ratio, ratio, -1, 1, 3, 7);
-
     }
 
     @Override
     public void onDrawFrame(GL10 gl) {
-
         //Draw background color
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
 
@@ -78,14 +70,11 @@ public class ArrayBinarySearchRenderer implements GLSurfaceView.Renderer{
         for(int i=0;i<numberOfSquares;i++) {
             squares[i].draw(mMVPMatrix);
         }
-        if(!(searchFor == null)){
-            searchFor.draw(mMVPMatrix);
-        }
     }
 
     public void setUpSquares() {
 
-        float offset = 0.001f;
+        float offset = 0.00f;
         int left,right;
         float radius = Square.getRadius();
         if(numberOfSquares%2!=0){
@@ -99,41 +88,33 @@ public class ArrayBinarySearchRenderer implements GLSurfaceView.Renderer{
         for(left = numberOfSquares/2 - 1; right<numberOfSquares && left >-1; right++, left--){
             squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[right]);
             squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[left]);
-            offset+=(2*radius)+0.002f;
+            offset+=(2*radius)+0.00f;
         }
     }
 
-    public void highLight(int place){
+    public void moveUp(int place){
         squares[place].moveUp(2*Square.getRadius());
     }
-    public void removeHighLight(int place){
+    public void moveDown(int place){
         squares[place].moveDown(Square.getRadius()*2);
     }
-    public void addSearchFor(){
-        float[] startPoint = squares[0].getTopCenterPoint();
-        startPoint[1]+=(Square.getRadius()*5)+0.005f;
-        searchFor = new Square(startPoint,context,searchForImage);
+
+    public void swap(int pointA, int pointB){
+        Square temp = squares[pointA];
+        squares[pointA] = squares[pointB];
+        squares[pointB] = temp;
     }
 
+    public float[] getSquareTopPoint(int place){
+        return squares[place].getRightCenterPoint();
+    }
 
+    public void moveRight(int place){
+        squares[place].moveRight(2*Square.getRadius());
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public void moveLeft(int place){
+        squares[place].moveLeft(2*Square.getRadius());
+    }
 }
+

@@ -16,7 +16,7 @@ public class ArrayBinarySearchSurfaceView extends GLSurfaceView{
     String searchFor;
     String[] values;
     boolean start = true;
-    boolean found = false;
+    int middle;
 
     public ArrayBinarySearchSurfaceView(Context context, String searchFor, String[] values){
         super(context);
@@ -42,10 +42,16 @@ public class ArrayBinarySearchSurfaceView extends GLSurfaceView{
 
     private void messages() {
         Toast message;
-        message = Toast.makeText(context, "We check each number and see if its equal to " + searchFor
+        message = Toast.makeText(context, "We find the middle value of the array "
                 , Toast.LENGTH_LONG);
         message.show();
-        message = Toast.makeText(context, "When they are different, it moves to the next slot in the array."
+        message = Toast.makeText(context, "If it's greater than " + middle + ", it checks the right "
+                , Toast.LENGTH_LONG);
+        message.show();
+        message = Toast.makeText(context, "If it's less than " + middle+ ", it checks the left"
+                , Toast.LENGTH_LONG);
+        message.show();
+        message = Toast.makeText(context, "and repeats, until it finds it or runs out of values."
                 , Toast.LENGTH_LONG);
         message.show();
     }
@@ -55,48 +61,32 @@ public class ArrayBinarySearchSurfaceView extends GLSurfaceView{
         try {
             start = false;
 
-            while(!found) {
-                int position = ArrayBinarySearchRenderer.split(values.length);
-                arrayBinarySearchRenderer.highLight(position);
+            int low = 0;
+            int high = values.length-1;
+            while(high >= low) {
+                middle = (low + high) / 2;
+                arrayBinarySearchRenderer.highLight(middle);
+                Thread.sleep(500);
 
-                if (searchFor.compareTo(values[position])== 0) {
+                if(values[middle].compareTo(searchFor)==0) {
+                    //Success case
                     messages();
                     Toast message = Toast.makeText(context, "They are the same, so we are done.", Toast.LENGTH_LONG);
                     message.show();
                     return;
                 }
+                arrayBinarySearchRenderer.removeHighLight(middle);
+                Thread.sleep(500);
+                if(values[middle].compareTo(searchFor) < 0){
+                    //searchFor is greater than middle
+                    low = middle + 1;
+                }
+                if(values[middle].compareTo(searchFor) > 0 ) {
+                    //searchFor is less than middle
+                    high = middle - 1;
+                }
+            }
 
-                else if(searchFor.compareTo(values[position])< 0){
-                    //Split on the left side of the array
-                    for(int i=0; i < position ; i++){
-                        arrayBinarySearchRenderer.highLight(i);
-                    }
-                    arrayBinarySearchRenderer.split(position-1);
-                }
-                else{
-                    //Split on the right side of the array
-                    for(int i=position+1; i > values.length ; i++){
-                       arrayBinarySearchRenderer.highLight(i);
-                    }
-                    arrayBinarySearchRenderer.split(position)
-                }
-            }
-            /*
-            for (int i = 0; i < values.length; i++) {
-                //highlight where you are.
-                arrayBinarySearchRenderer.highLight(i);
-                Thread.sleep(500);
-                if (searchFor.equals(values[i])) {
-                    messages();
-                    Toast message = Toast.makeText(context, "They are the same, so we are done.", Toast.LENGTH_LONG);
-                    message.show();
-                    return;
-                }
-                arrayBinarySearchRenderer.removeHighLight(i);
-                arrayBinarySearchRenderer.moveSearchItemNext(i);
-                Thread.sleep(500);
-            }
-            */
             messages();
             Toast message = Toast.makeText(context, "Array doesn't contain "+searchFor, Toast.LENGTH_LONG);
             message.show();

@@ -141,6 +141,17 @@
         </activity>
 
         <activity
+            android:name = "ArrayBinarySearchSurfaceActivity"
+            android:label = "Array Binary Search Surface Activity"
+            android:parentActivityName = ".ArrayBinarySearch">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ArrayTopicActivity"
+                />
+        </activity>
+
+        <activity
             android:name = ".LinkedListTopicActivity"
             android:label = "@string/linkedList_topic_activity"
             android:parentActivityName = ".TopicActivity">

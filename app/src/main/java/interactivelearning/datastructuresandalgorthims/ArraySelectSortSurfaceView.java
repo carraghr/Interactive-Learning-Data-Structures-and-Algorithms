@@ -40,8 +40,54 @@ public class ArraySelectSortSurfaceView extends GLSurfaceView{
     private void startProcess(){
         start = false;
         try {
-
+            for(int i= 0; i< values.length;i++){
+                int min = i;
+                for(int j = i+1; j<values.length; j++ ){
+                    if(values[min].compareTo(values[j]) > 0){
+                        if(min!=i){//if its not the first up move last one back down
+                            arraySelectSortRenderer.moveDown(min);
+                            Thread.sleep(500);
+                        }
+                        min = j;
+                        arraySelectSortRenderer.moveUp(min);
+                        Thread.sleep(500);
+                    }
+                }
+                //arraySelectSortRenderer.moveDown(min);
+                if(min!=i) {
+                    swapSquares(i, min);
+                    swapValues(i,min);
+                }
+            }
         }catch (Exception e){}
+    }
+
+    private void swapSquares(int pointA,int pointB){
+        float [] pointsA = arraySelectSortRenderer.getSquareTopPoint(pointA);
+        float [] pointsB = arraySelectSortRenderer.getSquareTopPoint(pointB);
+
+        try {
+            arraySelectSortRenderer.moveDown(pointA);
+            Thread.sleep(500);
+            while (!(pointsB[0] == pointsA[0])) {//while Point A's x does not equal point B's old x axis
+                arraySelectSortRenderer.moveRight(pointA);
+                arraySelectSortRenderer.moveLeft(pointB);
+                Thread.sleep(500);
+                pointsA = arraySelectSortRenderer.getSquareTopPoint(pointA);
+            }
+            arraySelectSortRenderer.moveUp(pointA);
+            arraySelectSortRenderer.moveDown(pointB);
+            Thread.sleep(500);
+            arraySelectSortRenderer.swap(pointA, pointB);
+            Thread.sleep(500);
+        }catch(Exception e){}
+        //do a swap with the actually array of squares so everything is the same.
+    }
+
+    private void swapValues(int pointA,int pointB){
+        String temp = values[pointA];
+        values[pointA] = values[pointB];
+        values[pointB]=temp;
     }
 
     public boolean onTouchEvent(MotionEvent e) {

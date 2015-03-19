@@ -73,7 +73,7 @@ public class ArraySelectSortRenderer implements GLSurfaceView.Renderer {
 
     public void setUpSquares() {
 
-        float offset = 0.001f;
+        float offset = 0.00f;
         int left,right;
         float radius = Square.getRadius();
         if(numberOfSquares%2!=0){
@@ -87,7 +87,7 @@ public class ArraySelectSortRenderer implements GLSurfaceView.Renderer {
         for(left = numberOfSquares/2 - 1; right<numberOfSquares && left >-1; right++, left--){
             squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[right],right);
             squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[left],left);
-            offset+=(2*radius)+0.002f;
+            offset+=(2*radius)+0.00f;
         }
     }
 
@@ -98,4 +98,36 @@ public class ArraySelectSortRenderer implements GLSurfaceView.Renderer {
         squares[place].moveDown(Square.getRadius()*2);
     }
 
+    public void swap(int pointA, int pointB){
+        Square temp = squares[pointA];
+        squares[pointA] = squares[pointB];
+        squares[pointB] = temp;
+    }
+
+    public float[] getSquareTopPoint(int place){
+        return squares[place].getRightCenterPoint();
+    }
+
+    public void moveRight(int place){
+        if(squares.length%2==0){
+            squares[place].moveRight((2*Square.getRadius())+0.00f);
+        }
+        else{
+            if(squares.length == 5){
+                squares[place].moveRight((2*Square.getRadius())+0.00f);
+            }else {
+                squares[place].moveRight((2 * Square.getRadius()) + 0.00f);
+            }
+        }
+
+    }
+
+    public void moveLeft(int place){
+        if(squares.length%2==0) {
+            squares[place].moveLeft((2*Square.getRadius())+0.00f);
+        }
+        else {
+            squares[place].moveLeft((2 * Square.getRadius()) + 0.00f);
+        }
+    }
 }

@@ -77,7 +77,7 @@ public class ArraySelectSortRenderer implements GLSurfaceView.Renderer {
         int left,right;
         float radius = Square.getRadius();
         if(numberOfSquares%2!=0){
-            squares[numberOfSquares/2] = new Square(new float[]{0.0f,0.0f},context,fileNames[numberOfSquares/2],numberOfSquares/2);
+            squares[numberOfSquares/2] = new Square(new float[]{0.0f,0.0f},context,fileNames[numberOfSquares/2]);
             offset+=2*radius;
             right =  numberOfSquares/2+1;
         }else{
@@ -85,8 +85,8 @@ public class ArraySelectSortRenderer implements GLSurfaceView.Renderer {
             right =  numberOfSquares/2;
         }
         for(left = numberOfSquares/2 - 1; right<numberOfSquares && left >-1; right++, left--){
-            squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[right],right);
-            squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[left],left);
+            squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[right]);
+            squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[left]);
             offset+=(2*radius)+0.00f;
         }
     }
@@ -109,25 +109,10 @@ public class ArraySelectSortRenderer implements GLSurfaceView.Renderer {
     }
 
     public void moveRight(int place){
-        if(squares.length%2==0){
-            squares[place].moveRight((2*Square.getRadius())+0.00f);
-        }
-        else{
-            if(squares.length == 5){
-                squares[place].moveRight((2*Square.getRadius())+0.00f);
-            }else {
-                squares[place].moveRight((2 * Square.getRadius()) + 0.00f);
-            }
-        }
-
+        squares[place].moveRight(2*Square.getRadius());
     }
 
     public void moveLeft(int place){
-        if(squares.length%2==0) {
-            squares[place].moveLeft((2*Square.getRadius())+0.00f);
-        }
-        else {
-            squares[place].moveLeft((2 * Square.getRadius()) + 0.00f);
-        }
+        squares[place].moveLeft(2*Square.getRadius());
     }
 }

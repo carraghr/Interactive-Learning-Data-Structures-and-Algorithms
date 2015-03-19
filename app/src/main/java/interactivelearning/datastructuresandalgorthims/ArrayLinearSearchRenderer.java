@@ -84,12 +84,11 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
     }
 
     public void setUpSquares() {
-
         float offset = 0.001f;
         int left,right;
         float radius = Square.getRadius();
         if(numberOfSquares%2!=0){
-            squares[numberOfSquares/2] = new Square(new float[]{0.0f,0.0f},context,fileNames[numberOfSquares/2],numberOfSquares/2);
+            squares[numberOfSquares/2] = new Square(new float[]{0.0f,0.0f},context,fileNames[numberOfSquares/2]);
             offset+=2*radius;
             right =  numberOfSquares/2+1;
         }else{
@@ -97,8 +96,8 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
             right =  numberOfSquares/2;
         }
         for(left = numberOfSquares/2 - 1; right<numberOfSquares && left >-1; right++, left--){
-            squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[right],right);
-            squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[left],left);
+            squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[right]);
+            squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[left]);
             offset+=(2*radius)+0.002f;
         }
     }
@@ -112,7 +111,7 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
     public void addSearchFor(){
       float[] startPoint = squares[0].getTopCenterPoint();
       startPoint[1]+=(Square.getRadius()*5)+0.005f;
-      searchFor = new Square(startPoint,context,searchForImage,0);
+      searchFor = new Square(startPoint,context,searchForImage);
     }
     public void moveSearchItemNexted(int place){
         float [] a = squares[place].getTopCenterPoint();

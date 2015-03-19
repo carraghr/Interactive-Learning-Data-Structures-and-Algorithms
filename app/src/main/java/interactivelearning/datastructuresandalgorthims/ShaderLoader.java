@@ -10,6 +10,28 @@ public class ShaderLoader{
 
     private static final String TAG = "ShaderLoader";
 
+    public final static String VertexShaderCode =
+            //Is necessary for drawing
+            "uniform mat4 uMVPMatrix;" +
+                    "attribute vec4 vPosition;" +
+                    "attribute vec2 a_texCoord;" +
+                    "varying vec2 v_texCoord;" +
+                    "void main() {" +
+                    "  gl_Position = uMVPMatrix * vPosition;"+
+                    "  v_texCoord = a_texCoord;" +
+                    "}";
+
+
+    public final static String FragmentShaderCode =
+            //Is necessary for image
+            "precision mediump float;" +
+                    "varying vec2 v_texCoord;" +
+                    "uniform sampler2D s_texture;" +
+                    "void main() {" +
+                    "  gl_FragColor = texture2D( s_texture, v_texCoord );" +
+                    "}";
+
+
     public static int loadShader(int type,String shaderCode){
 
         // create a vertex shader type (GLES20.GL_VERTEX_SHADER)

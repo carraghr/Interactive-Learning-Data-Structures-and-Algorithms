@@ -63,6 +63,7 @@ public class ArraySelectSortSurfaceView extends GLSurfaceView{
     }
 
     private void swapSquares(int pointA,int pointB){
+        //Get start and end point
         float [] pointsA = arraySelectSortRenderer.getSquareTopPoint(pointA);
         float [] pointsB = arraySelectSortRenderer.getSquareTopPoint(pointB);
 

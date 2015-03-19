@@ -13,11 +13,9 @@ import javax.microedition.khronos.opengles.GL10;
  */
 public class ArrayMergeSortRenderer implements GLSurfaceView.Renderer {
 
-    private Square[] squares;
     private int numberOfSquares;
     private String [] fileNames;
-    private Square searchFor;
-    private String searchForImage;
+    private Square [] squares;
 
 
     Context context;
@@ -27,19 +25,16 @@ public class ArrayMergeSortRenderer implements GLSurfaceView.Renderer {
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
 
-    ArrayMergeSortRenderer(Context context,int numberOfSquares,String [] fileNames,String searchForImage){
-
+    ArrayMergeSortRenderer(Context context,int numberOfSquares,String [] fileNames){
         super();
+
         this.context = context;
 
         this.fileNames = fileNames;
 
         this.numberOfSquares=numberOfSquares;
 
-        squares = new Square[this.numberOfSquares];
-
-        this.searchForImage = searchForImage;
-
+        this.squares = new Square[numberOfSquares];
     }
 
     @Override
@@ -49,7 +44,7 @@ public class ArrayMergeSortRenderer implements GLSurfaceView.Renderer {
 
         // set up squares
         setUpSquares();
-        addSearchFor();
+
     }
 
     @Override
@@ -78,9 +73,6 @@ public class ArrayMergeSortRenderer implements GLSurfaceView.Renderer {
         for(int i=0;i<numberOfSquares;i++) {
             squares[i].draw(mMVPMatrix);
         }
-        if(!(searchFor == null)){
-            searchFor.draw(mMVPMatrix);
-        }
     }
 
     public void setUpSquares() {
@@ -105,17 +97,9 @@ public class ArrayMergeSortRenderer implements GLSurfaceView.Renderer {
     public void moveUp(int place){
         squares[place].moveUp(2*Square.getRadius());
     }
-    public void  moveDown(int place){
+
+    public void moveDown(int place){
         squares[place].moveDown(Square.getRadius()*2);
-    }
-    public void addSearchFor(){
-        float[] startPoint = squares[0].getTopCenterPoint();
-        startPoint[1]+=(Square.getRadius()*5)+0.005f;
-        searchFor = new Square(startPoint,context,searchForImage);
-    }
-    public void moveSearchItemNext(int place){
-        float [] a = squares[place].getTopCenterPoint();
-        searchFor.moveRight(0.075f * 2);
     }
 
     public void moveLeft(int place){

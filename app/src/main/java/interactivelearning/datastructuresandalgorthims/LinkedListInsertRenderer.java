@@ -1,0 +1,30 @@
+package interactivelearning.datastructuresandalgorthims;
+
+import android.opengl.GLSurfaceView;
+
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.opengles.GL10;
+
+/**
+ * Created by Richard on 19/03/2015.
+ */
+public class LinkedListInsertRenderer implements GLSurfaceView.Renderer {
+
+    private Node nodes,insertValue;
+
+
+    @Override
+    public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+
+    }
+
+    @Override
+    public void onSurfaceChanged(GL10 gl, int width, int height) {
+
+    }
+
+    @Override
+    public void onDrawFrame(GL10 gl) {
+
+    }
+}

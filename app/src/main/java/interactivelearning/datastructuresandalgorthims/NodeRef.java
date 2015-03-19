@@ -13,7 +13,7 @@ import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
 
 /**
- * Created by Richard on 19/03/2015.
+ * Created on 19/03/2015.
  */
 public class NodeRef {
 
@@ -32,7 +32,7 @@ public class NodeRef {
     // anti-clock wise direction
 
     float [] centerPoint;
-    private final static float radius = 0.06f;
+    private float width= 0.015f, height= 0.075f;
     private float [] imageVertex = new float[]{0.0f, 0.0f,
                                                0.0f, 1.0f,
                                                1.0f, 1.0f,
@@ -40,14 +40,17 @@ public class NodeRef {
 
     private final FloatBuffer imageBuffer;
     private Context context;
-    private int [] texturenames;
+    private int [] texturenames = new int[2];
 
     private String nullReference = "null_ref", nextReference = "next_ref";
 
-    NodeRef(float [] center,Context context,String imageFilename){
+    private boolean ref;
+
+    NodeRef(float [] center,Context context,boolean ref){
 
         this.context = context;
         this.centerPoint = center;
+        this.ref = ref;
 
         createNodeReference();
 
@@ -79,14 +82,18 @@ public class NodeRef {
         imageBuffer.position(0);
 
         //Generate Textures
-        texturenames = new int[2];
-        GLES20.glGenTextures(1,texturenames,0);
+        GLES20.glGenTextures(2,texturenames,0);
 
         //Retrieve image from resources
-        int id = context.getResources().getIdentifier(imageFilename,"drawable",context.getPackageName());
+        int id = context.getResources().getIdentifier(nullReference,"drawable",context.getPackageName());
 
         //Temporary create a bitmap
         Bitmap bmp= BitmapFactory.decodeResource(context.getResources(), id);
+
+        int id2 = context.getResources().getIdentifier(nextReference, "drawable", context.getPackageName());
+
+        //Temporary create a bitmap
+        Bitmap bmp2= BitmapFactory.decodeResource(context.getResources(), id);
 
         //bind texture to texture name
         GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
@@ -104,8 +111,12 @@ public class NodeRef {
         GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, bmp, 0);
         ShaderLoader.checkGlError("texImage2D");
 
-        //recycle bitmap
+        GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, bmp2, 0);
+        ShaderLoader.checkGlError("texImage2D");
+
+        //recycle bitmaps
         bmp.recycle();
+        bmp2.recycle();
 
         //prepare OpenGL Program and bind the shaders for square
         MyProgram = GLES20.glCreateProgram();               //create empty OpenGL Program
@@ -129,12 +140,66 @@ public class NodeRef {
     }
 
     public void createNodeReference() {
-        //    x                                   y           z - 2d never changes
-        coords = new float[] {(centerPoint[0] + radius), (centerPoint[1] - radius), 0.00f,    //LT
-                (centerPoint[0] + radius), (centerPoint[1] + radius), 0.00f,    //LB
-                (centerPoint[0] - radius), (centerPoint[1] + radius), 0.00f,    //RB
-                (centerPoint[0] - radius), (centerPoint[1] - radius), 0.00f};   //RT
+                              //    x                                   y           z - 2d never changes
+        coords = new float[] {(centerPoint[0] + width), (centerPoint[1] - height), 0.00f,    //LT
+                              (centerPoint[0] + width), (centerPoint[1] + height), 0.00f,    //LB
+                              (centerPoint[0] - width), (centerPoint[1] + height), 0.00f,    //RB
+                              (centerPoint[0] - width), (centerPoint[1] - height), 0.00f};   //RT
     }
 
+    public void draw(float[] mvpMatrix){
 
+        vertexBuffer.put(coords);
+        vertexBuffer.position(0);
+
+        imageBuffer.put(imageVertex);
+        imageBuffer.position(0);
+
+        if(ref) {
+            GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, texturenames[0]);
+        }else{
+            GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,texturenames[1]);
+        }
+        //get handle to vertex shader vPosition member
+        int myPositionHandle = GLES20.glGetAttribLocation(MyProgram, "vPosition");
+
+        //Enable a handle to the triangle vertices
+        GLES20.glEnableVertexAttribArray(myPositionHandle);
+
+        //Prepare the triangle coordinate data
+        GLES20.glVertexAttribPointer(myPositionHandle,COORDS_PER_VERTEX,
+                GLES20.GL_FLOAT,false,
+                0, vertexBuffer);
+
+        //get handle to texture coordinates location
+        int mTexCoordLoc = GLES20.glGetAttribLocation(MyProgram, "a_texCoord");
+
+        GLES20.glEnableVertexAttribArray (mTexCoordLoc);
+
+        GLES20.glVertexAttribPointer(mTexCoordLoc, 2, GLES20.GL_FLOAT, false, 0, imageBuffer);
+
+        //get handler to shapes's transformation matrix
+        int myMVPMatrixHandle = GLES20.glGetUniformLocation(MyProgram, "uMVPMatrix");
+
+        // Apply the projection and view transformation
+        GLES20.glUniformMatrix4fv(myMVPMatrixHandle, 1, false, mvpMatrix, 0);
+
+        //get handle to textures locations
+        int mSamplerLoc = GLES20.glGetUniformLocation(MyProgram, "s_texture");
+
+        //set the sampler texture unit to 0,where we have saved the texture
+        GLES20.glUniform1f(mSamplerLoc,0);
+
+        //Draw the square
+        GLES20.glDrawElements(GLES20.GL_TRIANGLES, drawOrder.length,
+                GLES20.GL_UNSIGNED_SHORT, drawListBuffer);
+
+        //Disable vertex array
+        GLES20.glDisableVertexAttribArray(myPositionHandle);
+        GLES20.glDisableVertexAttribArray(mTexCoordLoc);
+    }
+
+    public void change(boolean type){
+        ref=type;
+    }
 }

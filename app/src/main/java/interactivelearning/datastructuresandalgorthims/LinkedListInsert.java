@@ -43,5 +43,7 @@ public class LinkedListInsert extends Activity{
                 LinkedListInsert.this.startActivity(intent);
             }
         });
+
+
     }
 }

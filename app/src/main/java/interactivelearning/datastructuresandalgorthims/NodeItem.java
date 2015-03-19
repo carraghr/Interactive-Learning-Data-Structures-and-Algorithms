@@ -13,7 +13,7 @@ import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
 
 /**
- * Created by Richard on 19/03/2015.
+ * Created on 19/03/2015.
  */
 public class NodeItem {
 
@@ -32,7 +32,7 @@ public class NodeItem {
                                                          // anti-clock wise direction
 
     float [] centerPoint;
-    private final static float radius = 0.06f;
+    private float width = 0.06f, height = 0.075f;
     private float [] imageVertex = new float[]{0.0f, 0.0f,
             0.0f, 1.0f,
             1.0f, 1.0f,
@@ -56,7 +56,7 @@ public class NodeItem {
         vertexBuffer.put(coords);
         vertexBuffer.position(0);
 
-        //initialize byte buffer for the draw list.
+        // initialize byte buffer for the draw list.
         // number of coordinate values * 2 bytes per short
         ByteBuffer drawListBb = ByteBuffer.allocateDirect( drawOrder.length * 2 );
 
@@ -68,8 +68,6 @@ public class NodeItem {
         //prepare the two shaders
         int vertexShader = ShaderLoader.loadShader(GLES20.GL_VERTEX_SHADER, ShaderLoader.VertexShaderCode);
         int fragmentShader = ShaderLoader.loadShader(GLES20.GL_FRAGMENT_SHADER, ShaderLoader.FragmentShaderCode);
-
-
 
         // Image variables
 
@@ -131,11 +129,11 @@ public class NodeItem {
     }
 
     public void createNodeItem() {
-        //    x                                   y           z - 2d never changes
-        coords = new float[] {(centerPoint[0] + radius), (centerPoint[1] - radius), 0.00f,    //LT
-                (centerPoint[0] + radius), (centerPoint[1] + radius), 0.00f,    //LB
-                (centerPoint[0] - radius), (centerPoint[1] + radius), 0.00f,    //RB
-                (centerPoint[0] - radius), (centerPoint[1] - radius), 0.00f};   //RT
+                                //    x                                   y           z - 2d never changes
+        coords = new float[] {(centerPoint[0] + width), (centerPoint[1] - height), 0.00f,    //Left Top
+                              (centerPoint[0] + width), (centerPoint[1] + height), 0.00f,    //Left Bottom
+                              (centerPoint[0] - width), (centerPoint[1] + height), 0.00f,    //Right Bottom
+                              (centerPoint[0] - width), (centerPoint[1] - height), 0.00f};   //Right Top
     }
 
     public void moveDown(float amount){
@@ -157,33 +155,27 @@ public class NodeItem {
     }
 
     public float [] getRightCenterPoint(){
-        return new float[]{ centerPoint[0] - radius, centerPoint[1], 0.00f};
+        return new float[]{ centerPoint[0] - width, centerPoint[1], 0.00f};
     }
 
     public float [] getLeftCenterPoint(){
-        return new float[]{ centerPoint[0] + radius, centerPoint[1], 0.00f};
+        return new float[]{ centerPoint[0] + width, centerPoint[1], 0.00f};
     }
 
     public float [] getTopCenterPoint(){
-        return new float[]{ centerPoint[0], centerPoint[1] - radius, 0.00f};
+        return new float[]{ centerPoint[0], centerPoint[1] - height, 0.00f};
     }
 
     public float [] getBottomCenterPoint(){
-        return new float[]{ centerPoint[0], centerPoint[1] + radius, 0.00f};
+        return new float[]{ centerPoint[0], centerPoint[1] + height, 0.00f};
     }
 
     // called by render to draw part of a node.
     public void draw(float[] mvpMatrix){
 
-
-        GLES20.glIsProgram(MyProgram);
-        //checkGlError("glIsProgram");
-        //Add program to OpenGL environment
         GLES20.glUseProgram(MyProgram);
 
-        //checkGlError("glUseProgram");
         vertexBuffer.put(coords);
-
         vertexBuffer.position(0);
 
         imageBuffer.put(imageVertex);
@@ -211,12 +203,9 @@ public class NodeItem {
 
         //get handler to shapes's transformation matrix
         int myMVPMatrixHandle = GLES20.glGetUniformLocation(MyProgram, "uMVPMatrix");
-        //checkGlError("glGetUniformLocation");
 
         // Apply the projection and view transformation
         GLES20.glUniformMatrix4fv(myMVPMatrixHandle, 1, false, mvpMatrix, 0);
-        //checkGlError("glUniformMatrix4fv");
-
 
         //get handle to textures locations
         int mSamplerLoc = GLES20.glGetUniformLocation(MyProgram, "s_texture");
@@ -232,6 +221,4 @@ public class NodeItem {
         GLES20.glDisableVertexAttribArray(myPositionHandle);
         GLES20.glDisableVertexAttribArray(mTexCoordLoc);
     }
-
-
 }

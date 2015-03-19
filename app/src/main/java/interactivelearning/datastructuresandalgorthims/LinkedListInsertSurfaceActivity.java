@@ -7,7 +7,8 @@ import android.os.Bundle;
 /**
  * Created on 19/03/2015.
  */
-public class ArrayMergeSortSurfaceActivity extends Activity {
+public class LinkedListInsertSurfaceActivity extends Activity {
+
     private GLSurfaceView myView;
 
     @Override
@@ -15,9 +16,10 @@ public class ArrayMergeSortSurfaceActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         Bundle bundle = this.getIntent().getExtras();
-        String [] values = bundle.getStringArray("values");
+        String index = bundle.getString("index");
+        String value = bundle.getString("value");
 
-        myView = new ArrayMergeSortSurfaceView(getApplicationContext(), values);
+        myView = new LinkedListInsertSurfaceView(getApplicationContext(), index, value);
         setContentView(myView);
     }
 }

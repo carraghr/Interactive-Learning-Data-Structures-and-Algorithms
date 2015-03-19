@@ -9,14 +9,14 @@ import android.widget.Toast;
  * Created on 19/03/2015.
  */
 public class ArrayMergeSortSurfaceView extends GLSurfaceView{
-    Context context;
 
-    String searchFor;
+    Context context;
     String[] values;
     boolean start = true;
+
     static ArrayMergeSortRenderer arrayMergeSortRenderer;
 
-    public ArrayMergeSortSurfaceView(Context context, String searchFor, String[] values){
+    public ArrayMergeSortSurfaceView(Context context, String[] values){
 
         super(context);
 
@@ -24,15 +24,13 @@ public class ArrayMergeSortSurfaceView extends GLSurfaceView{
         setEGLContextClientVersion(2);
 
         this.context = context;
-        this.searchFor = searchFor;
         this.values = values;
         String [] fileNames = InputControls.addImageNames(values);
-        String searchForImage = InputControls.addImageName(this.searchFor);
 
-        arrayMergeSortRenderer = new ArrayMergeSortRenderer(context,values.length,fileNames,searchForImage);
+        arrayMergeSortRenderer = new ArrayMergeSortRenderer(context,values.length,fileNames);
         setRenderer(arrayMergeSortRenderer);
 
-        //render the view only when there is a change in the drawing data
+        //render the view all the time.
         setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
 
         Toast toast = Toast.makeText(context,"Please tap the screen to begin !",Toast.LENGTH_SHORT);
@@ -41,7 +39,7 @@ public class ArrayMergeSortSurfaceView extends GLSurfaceView{
 
     private void messages() {
         Toast message;
-        message = Toast.makeText(context, "We check each number and see if its equal to " + searchFor
+        message = Toast.makeText(context, "We check each number and see if its equal to "
                 , Toast.LENGTH_LONG);
         message.show();
         message = Toast.makeText(context, "When they are different, it moves to the next slot in the array."
@@ -54,12 +52,8 @@ public class ArrayMergeSortSurfaceView extends GLSurfaceView{
         try {
             start = false;
             mergeSort(values);
-
-
-
-
             messages();
-            Toast message = Toast.makeText(context, "Array doesn't contain "+searchFor, Toast.LENGTH_LONG);
+            Toast message = Toast.makeText(context, "Array doesn't contain ", Toast.LENGTH_LONG);
             message.show();
         }catch (Exception e){
             System.err.println("Error in start process");

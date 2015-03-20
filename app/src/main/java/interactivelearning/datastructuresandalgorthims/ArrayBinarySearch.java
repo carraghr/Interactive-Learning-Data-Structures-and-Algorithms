@@ -33,7 +33,7 @@ public class ArrayBinarySearch extends Activity{
 
         binarySearchButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            EditText input = (EditText) findViewById(R.id.input_box_one);
+            EditText input = (EditText) findViewById(R.id.input_one);
             String value = input.getText().toString();
             if(value.equals("")) {
                 Toast toast = Toast.makeText(getApplicationContext(),

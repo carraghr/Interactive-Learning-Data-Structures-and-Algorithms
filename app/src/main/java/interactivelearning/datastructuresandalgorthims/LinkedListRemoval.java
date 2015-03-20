@@ -58,7 +58,6 @@ public class LinkedListRemoval extends Activity {
                             , Toast.LENGTH_SHORT);
                     toast.show();
                 }
-
                 else {
                     Bundle bundle = new Bundle();
                     bundle.putString("index", index);

@@ -41,7 +41,7 @@ public class ArrayDeclaration extends Activity{
 
         declarationButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                EditText one_input = (EditText) findViewById(R.id.input_box_one);
+                EditText one_input = (EditText) findViewById(R.id.input_one);
                 String input = one_input.getText().toString();
 
                 if(input.equals("")) {

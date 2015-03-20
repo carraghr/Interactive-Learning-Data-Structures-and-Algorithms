@@ -11,18 +11,18 @@ public class Node {
     private float [] centerPoint;
     private String fileName;
     Context context;
-    boolean hasref;
+    boolean hasRef;
 
     Node(float[] centerPoint,String fileName,Context context,boolean hasRef){
         this.centerPoint = centerPoint;
         this.fileName = fileName;
-        this.hasref = hasRef;
+        this.hasRef = hasRef;
         setUpNode();
     }
 
     private void setUpNode(){
         item = new NodeItem(new float[]{centerPoint[0] + 0.06f,centerPoint[1],0.00f},context,fileName);
-        reference = new NodeRef(new float[]{centerPoint[0] - 0.015f,centerPoint[1],0.00f},context,hasref);
+        reference = new NodeRef(new float[]{centerPoint[0] - 0.015f,centerPoint[1],0.00f},context,hasRef);
     }
 
     public void draw(float[] mvpMatrix){
@@ -32,5 +32,12 @@ public class Node {
 
     public void changeRef(boolean refType){
         reference.change(refType);
+    }
+
+    public float [] getCenterPoint(){
+        return centerPoint;
+    }
+    public float getHeight(){
+        return item.getHeight();
     }
 }

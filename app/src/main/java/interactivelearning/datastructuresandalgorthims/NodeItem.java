@@ -221,4 +221,8 @@ public class NodeItem {
         GLES20.glDisableVertexAttribArray(myPositionHandle);
         GLES20.glDisableVertexAttribArray(mTexCoordLoc);
     }
+
+    public float getHeight(){
+        return height;
+    }
 }

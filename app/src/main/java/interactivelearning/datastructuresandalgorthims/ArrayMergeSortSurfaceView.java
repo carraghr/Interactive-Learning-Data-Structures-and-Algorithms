@@ -43,7 +43,7 @@ public class ArrayMergeSortSurfaceView extends GLSurfaceView{
         try {
             start = false;
 
-            mergeSort(values,0);
+            mergeSort(values);
 
             messages();
             Toast message = Toast.makeText(context, "Array doesn't contain ", Toast.LENGTH_LONG);
@@ -54,7 +54,7 @@ public class ArrayMergeSortSurfaceView extends GLSurfaceView{
         }
     }
 
-    public static void mergeSort(String[] values,offset) throws InterruptedException {
+    public static void mergeSort(String[] values) throws InterruptedException {
         if(values.length > 1) {
             int size1 = values.length/2;
             int size2 = values.length - size1;
@@ -70,12 +70,12 @@ public class ArrayMergeSortSurfaceView extends GLSurfaceView{
 
             for (int i = 0; i <= size2; i++) {
                 right[i] = values[i + size1];
-                arrayMergeSortRenderer.moveRight(i + offset + size1);
+                arrayMergeSortRenderer.moveRight(i + size1);
             }
             Thread.sleep(500);
 
-            mergeSort(left,0);
-            mergeSort(right,size1);
+            mergeSort(left);
+            mergeSort(right);
 
            // merge(values, left, right);
         }

@@ -239,6 +239,17 @@
         </activity>
 
         <activity
+            android:name = ".LinkedListRemovalSurfaceActivity"
+            android:label = "Linked List Removal Surface Activity"
+            android:parentActivityName = ".LinkedListTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LinkedListRemoval"
+                />
+        </activity>
+
+        <activity
             android:name = ".LinkedListRotation"
             android:label = "@string/linkedList_rotation"
             android:parentActivityName = ".LinkedListTopicActivity">

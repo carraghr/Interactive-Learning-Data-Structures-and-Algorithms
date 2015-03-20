@@ -32,8 +32,8 @@ public class Node {
         reference.draw(mvpMatrix);
     }
 
-    public void changeRef(boolean refType){
-        reference.change(refType);
+    public void changeRef(){
+        reference.change();
     }
 
     public float [] getCenterPoint(){
@@ -46,5 +46,20 @@ public class Node {
     public void moveUp(){
         item.moveUp(2);
         reference.moveUp(2);
+    }
+
+    public void moveDown(){
+        item.moveDown(2);
+        reference.moveDown(2);
+    }
+
+    public void moveLeft(){
+        item.moveLeft(2);
+        reference.moveLeft(2);
+    }
+
+    public void moveRight(){
+        item.moveRight(2);
+        reference.moveRight(2);
     }
 }

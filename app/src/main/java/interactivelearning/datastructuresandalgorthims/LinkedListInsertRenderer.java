@@ -98,22 +98,38 @@ public class LinkedListInsertRenderer implements GLSurfaceView.Renderer {
             offset+=(2*radius);
         }
     }
-/**
- *
- * insertValue
- *
- * node0 node1 node2 ....
- *
- * [0.065,0.015] [0.065,0.015]
- *        [0.015 + 0.060]
- *
- *
- */
-
-
 
     private void setUpInsert(){
         float [] center = nodes[0].getCenterPoint();
-        insertValue = new Node(new float[]{center[0],center[1]-((nodes[0].getHeight()*5)+0.005f)},insertValueFileName,context,true);
+        insertValue = new Node(new float[]{center[0],center[1]+(nodes[0].getHeight()*4)},insertValueFileName,context,true);
+    }
+
+    public void moveUp(int place){
+        nodes[place].moveUp();
+    }
+    public void moveDown(int place){
+        nodes[place].moveDown();
+    }
+    public void moveRight(int place){
+        nodes[place].moveRight();
+    }
+    public void moveLeft(int place){
+        nodes[place].moveLeft();
+    }
+
+    public void moveInsertNext(){
+        insertValue.moveRight();
+    }
+
+    public void moveInsertDown(){
+        insertValue.moveDown();
+    }
+
+    public void nodeChangeRef(int place){
+        nodes[place].changeRef();
+    }
+
+    public void changeinsertRef(){
+        insertValue.changeRef();
     }
 }

@@ -120,8 +120,13 @@ public class NodeRef {
         //GLES20.glDisableVertexAttribArray(myPositionHandle);
     }
 
-    public void change(boolean type){
-        ref=type;
+    public void change(){
+        if(ref){
+            ref = false;
+        }
+        else{
+            ref = true;
+        }
     }
 
     public void moveDown(float amount){
@@ -133,11 +138,11 @@ public class NodeRef {
         createNodeReference();
     }
     public void moveRight(float amount){
-        centerPoint[0] -= ( width * amount);
+        centerPoint[0] -= ( 0.075f * amount);
         createNodeReference();
     }
     public void moveLeft(float amount){
-        centerPoint[0] += ( width * amount);
+        centerPoint[0] += ( 0.075f * amount);
         createNodeReference();
     }
 }

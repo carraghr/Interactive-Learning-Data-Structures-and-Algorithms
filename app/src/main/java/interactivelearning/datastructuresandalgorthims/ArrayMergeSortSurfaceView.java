@@ -54,7 +54,7 @@ public class ArrayMergeSortSurfaceView extends GLSurfaceView{
         }
     }
 
-    public static void mergeSort(String[] values,offset) throws InterruptedException {
+    public static void mergeSort(String[] values,int offset) throws InterruptedException {
         if(values.length > 1) {
             int size1 = values.length/2;
             int size2 = values.length - size1;

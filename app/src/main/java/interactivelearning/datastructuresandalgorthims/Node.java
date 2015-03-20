@@ -6,6 +6,7 @@ import android.content.Context;
  * Created on 19/03/2015.
  */
 public class Node {
+
     private NodeItem item;
     private NodeRef reference;
     private float [] centerPoint;
@@ -17,12 +18,13 @@ public class Node {
         this.centerPoint = centerPoint;
         this.fileName = fileName;
         this.hasRef = hasRef;
+        this.context = context;
         setUpNode();
     }
 
     private void setUpNode(){
         item = new NodeItem(new float[]{centerPoint[0] + 0.06f,centerPoint[1],0.00f},context,fileName);
-        reference = new NodeRef(new float[]{centerPoint[0] - 0.015f,centerPoint[1],0.00f},context,hasRef);
+        reference = new NodeRef(new float[]{centerPoint[0] - 0.015f,centerPoint[1],0.00f},hasRef);
     }
 
     public void draw(float[] mvpMatrix){
@@ -39,5 +41,10 @@ public class Node {
     }
     public float getHeight(){
         return item.getHeight();
+    }
+
+    public void moveUp(){
+        item.moveUp(2);
+        reference.moveUp(2);
     }
 }

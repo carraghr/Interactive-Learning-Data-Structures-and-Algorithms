@@ -20,10 +20,13 @@ public class LinkedListInsertSurfaceView extends GLSurfaceView {
         this.index = index;
         this.value = value;
 
+        //Create an OpenGL ES 2.0 context.
+        setEGLContextClientVersion(2);
+
         String valuefileName = InputControls.addImageName(value);
         String [] valuesfileNames = InputControls.addImageNames(SearchValues.LINKEDLIST_INSERT);
 
-        linkedListInsertRenderer = new LinkedListInsertRenderer();//context,valuesfileNames.length,valuefileName,valuesfileNames);
+        linkedListInsertRenderer = new LinkedListInsertRenderer(context,valuesfileNames.length,valuesfileNames,valuefileName);
         setRenderer(linkedListInsertRenderer);
 
         //render the view only when there is a change in the drawing data

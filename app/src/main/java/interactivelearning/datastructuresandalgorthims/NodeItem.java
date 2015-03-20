@@ -136,40 +136,6 @@ public class NodeItem {
                               (centerPoint[0] - width), (centerPoint[1] - height), 0.00f};   //Right Top
     }
 
-    public void moveDown(float amount){
-        centerPoint[1] = centerPoint[1] - amount;
-        createNodeItem();
-    }
-
-    public void moveUp(float amount){
-        centerPoint[1] = centerPoint[1] + amount;
-        createNodeItem();
-    }
-    public void moveRight(float amount){
-        centerPoint[0] -= amount;
-        createNodeItem();
-    }
-    public void moveLeft(float amount){
-        centerPoint[0] = centerPoint[0] + amount;
-        createNodeItem();
-    }
-
-    public float [] getRightCenterPoint(){
-        return new float[]{ centerPoint[0] - width, centerPoint[1], 0.00f};
-    }
-
-    public float [] getLeftCenterPoint(){
-        return new float[]{ centerPoint[0] + width, centerPoint[1], 0.00f};
-    }
-
-    public float [] getTopCenterPoint(){
-        return new float[]{ centerPoint[0], centerPoint[1] - height, 0.00f};
-    }
-
-    public float [] getBottomCenterPoint(){
-        return new float[]{ centerPoint[0], centerPoint[1] + height, 0.00f};
-    }
-
     // called by render to draw part of a node.
     public void draw(float[] mvpMatrix){
 
@@ -219,7 +185,40 @@ public class NodeItem {
 
         //Disable vertex array
         GLES20.glDisableVertexAttribArray(myPositionHandle);
-        GLES20.glDisableVertexAttribArray(mTexCoordLoc);
+    }
+
+    public void moveDown(float amount){
+        centerPoint[1] -= (height * amount);
+        createNodeItem();
+    }
+
+    public void moveUp(float amount){
+        centerPoint[1] += (height* amount);
+        createNodeItem();
+    }
+    public void moveRight(float amount){
+        centerPoint[0] -= (height*amount);
+        createNodeItem();
+    }
+    public void moveLeft(float amount){
+        centerPoint[0] += (height * amount);
+        createNodeItem();
+    }
+
+    public float [] getRightCenterPoint(){
+        return new float[]{ centerPoint[0] - width, centerPoint[1], 0.00f};
+    }
+
+    public float [] getLeftCenterPoint(){
+        return new float[]{ centerPoint[0] + width, centerPoint[1], 0.00f};
+    }
+
+    public float [] getTopCenterPoint(){
+        return new float[]{ centerPoint[0], centerPoint[1] - height, 0.00f};
+    }
+
+    public float [] getBottomCenterPoint(){
+        return new float[]{ centerPoint[0], centerPoint[1] + height, 0.00f};
     }
 
     public float getHeight(){

@@ -31,6 +31,19 @@ public class ShaderLoader{
                     "  gl_FragColor = texture2D( s_texture, v_texCoord );" +
                     "}";
 
+    public final static  String VertexShaderCodeColor =
+                    "uniform mat4 uMVPMatrix;" +
+                    "attribute vec4 vPosition;" +
+                    "void main() {" +
+                    "  gl_Position = uMVPMatrix * vPosition;" +
+                    "}";
+
+    public final static String FragmentShaderCodeColor =
+                    "precision mediump float;" +
+                    "uniform vec4 vColor;" +
+                    "void main() {" +
+                    "  gl_FragColor = vColor;" +
+                    "}";
 
     public static int loadShader(int type,String shaderCode){
 

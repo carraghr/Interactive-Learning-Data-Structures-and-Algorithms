@@ -27,11 +27,15 @@ public class LinkedListInsertRenderer implements GLSurfaceView.Renderer {
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
 
-    LinkedListInsertRenderer(Context context, int numberOfNodes, String fileNames, String insertValueFileName ){
+    LinkedListInsertRenderer(Context context, int numberOfNodes, String [] fileNames, String insertValueFileName ){
 
         super();
+        this.context = context;
+
         this.numberOfNodes = numberOfNodes;
         nodes = new Node[this.numberOfNodes];
+        this.fileNames = fileNames;
+
         this.insertValueFileName = insertValueFileName;
 
     }
@@ -83,12 +87,13 @@ public class LinkedListInsertRenderer implements GLSurfaceView.Renderer {
         float radius = Square.getRadius();
         if(numberOfNodes%2!=0 && numberOfNodes>0){
             right =  numberOfNodes/2+1;
-            nodes[numberOfNodes/2] = new Node(new float[]{0.0f,0.0f},fileNames[numberOfNodes/2],context,!(right <  numberOfNodes -1));
+            nodes[numberOfNodes/2] = new Node(new float[]{0.0f,0.0f},fileNames[numberOfNodes/2],context,!(right ==  numberOfNodes -1));
+            offset+=offset;
         }else{
             right =  numberOfNodes/2;
         }
         for(left = numberOfNodes/2 - 1; right<numberOfNodes && left >-1; right++, left--){
-            nodes[right] = new Node(new float[]{0.0f - offset, 0.0f},fileNames[right], context,!(right <  numberOfNodes -1) );
+            nodes[right] = new Node(new float[]{0.0f - offset, 0.0f},fileNames[right], context,!(right ==  numberOfNodes -1) );
             nodes[left] = new Node(new float[]{ 0.0f + offset,0.0f}, fileNames[left], context, true);
             offset+=(2*radius);
         }

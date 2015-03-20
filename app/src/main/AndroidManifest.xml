@@ -216,6 +216,16 @@
                 android:value=".LinkedListTopicActivity"
             />
         </activity>
+        <activity
+            android:name = ".LinkedListInsertSurfaceActivity"
+            android:label = "Linked List Insert Surface Activity"
+            android:parentActivityName = ".LinkedListTopicActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LinkedListInsert"
+                />
+        </activity>
 
         <activity
             android:name = ".LinkedListRemoval"

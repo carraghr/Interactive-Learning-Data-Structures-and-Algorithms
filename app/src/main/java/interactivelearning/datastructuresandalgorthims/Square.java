@@ -158,7 +158,7 @@ public class Square{
         createSquare();
     }
     public void moveRight(float amount){
-        centerPoint[0] -= amount;
+        centerPoint[0] = centerPoint[0] - amount;
         createSquare();
     }
     public void moveLeft(float amount){

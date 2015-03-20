@@ -14,8 +14,8 @@ import javax.microedition.khronos.opengles.GL10;
 public class ArrayMergeSortRenderer implements GLSurfaceView.Renderer {
 
     private int numberOfSquares;
-    private String [] fileNames;
-    private Square [] squares;
+    private String[] fileNames;
+    private Square[] squares;
 
 
     Context context;
@@ -25,14 +25,14 @@ public class ArrayMergeSortRenderer implements GLSurfaceView.Renderer {
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
 
-    ArrayMergeSortRenderer(Context context,int numberOfSquares,String [] fileNames){
+    ArrayMergeSortRenderer(Context context, int numberOfSquares, String[] fileNames) {
         super();
 
         this.context = context;
 
         this.fileNames = fileNames;
 
-        this.numberOfSquares=numberOfSquares;
+        this.numberOfSquares = numberOfSquares;
 
         this.squares = new Square[numberOfSquares];
     }
@@ -52,7 +52,7 @@ public class ArrayMergeSortRenderer implements GLSurfaceView.Renderer {
 
         GLES20.glViewport(0, 0, width, height);
 
-        float ratio = (float) width/height;
+        float ratio = (float) width / height;
 
         Matrix.frustumM(mProjectionMatrix, 0, -ratio, ratio, -1, 1, 3, 7);
 
@@ -70,55 +70,50 @@ public class ArrayMergeSortRenderer implements GLSurfaceView.Renderer {
         // Calculate the projection and view transformation
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
 
-        for(int i=0;i<numberOfSquares;i++) {
+        for (int i = 0; i < numberOfSquares; i++) {
             squares[i].draw(mMVPMatrix);
         }
     }
 
     public void setUpSquares() {
         float offset = 0.001f;
-        int left,right;
+        int left, right;
         float radius = Square.getRadius();
-        if(numberOfSquares%2!=0){
-            squares[numberOfSquares/2] = new Square(new float[]{0.0f,0.0f},context,fileNames[numberOfSquares/2]);
-            offset+=2*radius;
-            right =  numberOfSquares/2+1;
-        }else{
-            offset+=radius;
-            right =  numberOfSquares/2;
+        if (numberOfSquares % 2 != 0) {
+            squares[numberOfSquares / 2] = new Square(new float[]{0.0f, 0.0f}, context, fileNames[numberOfSquares / 2]);
+            offset += 2 * radius;
+            right = numberOfSquares / 2 + 1;
         }
-        for(left = numberOfSquares/2 - 1; right<numberOfSquares && left >-1; right++, left--){
-            squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[right]);
-            squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[left]);
-            offset+=(2*radius)+0.002f;
+        else {
+            offset += radius;
+            right = numberOfSquares / 2;
         }
-    }
-
-    public void moveUp(int place){
-        squares[place].moveUp(2*Square.getRadius());
-    }
-
-    public void moveDown(int place){
-        squares[place].moveDown(Square.getRadius()*2);
-    }
-
-    public void moveLeft(int place){
-        squares[place].moveLeft(2*Square.getRadius());
-    }
-
-    public void moveRight(int place){
-        squares[place].moveRight(2*Square.getRadius());
-    }
-
-    public void splitLeft(int place){
-        for(int i = 0; i < place ; i++){
-            squares[i].moveLeft(Square.getRadius()/2);
+        for (left = numberOfSquares / 2 - 1; right < numberOfSquares && left > -1; right++, left--) {
+            squares[right] = new Square(new float[]{0.0f - offset, 0.0f}, context, fileNames[right]);
+            squares[left] = new Square(new float[]{0.0f + offset, 0.0f}, context, fileNames[left]);
+            offset += (2 * radius) + 0.002f;
         }
     }
 
-    public void splitRight(int place){
-        for(int i = 0; i < place ; i++){
-            squares[i].moveRight(Square.getRadius()/2);
-        }
+    public void moveUp(int place) {
+        squares[place].moveUp(2 * Square.getRadius());
+    }
+
+    public void moveDown(int place) {
+        squares[place].moveDown(Square.getRadius() * 2);
+    }
+
+    public void moveLeft(int place) {
+        squares[place].moveLeft(Square.getRadius());
+    }
+
+    public void moveRight(int place) {
+        squares[place].moveRight(Square.getRadius());
+    }
+
+    public void swap(int pointA, int pointB){
+        Square temp = squares[pointA];
+        squares[pointA] = squares[pointB];
+        squares[pointB] = temp;
     }
 }

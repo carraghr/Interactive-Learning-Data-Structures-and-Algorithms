@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
-        android:id="@+id/input_one"
+        android:id="@+id/input_box_one"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
@@ -23,7 +23,7 @@
         android:text="@string/button_text"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_below="@+id/input_one"
+        android:layout_below="@+id/input_box_one"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 

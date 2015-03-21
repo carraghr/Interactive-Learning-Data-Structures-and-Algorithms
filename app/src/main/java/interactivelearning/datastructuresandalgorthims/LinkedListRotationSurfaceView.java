@@ -28,9 +28,9 @@ public class LinkedListRotationSurfaceView extends GLSurfaceView {
 
         String [] valuesfileNames = InputControls.addImageNames(SearchValues.LINKEDLIST_ROTATE);
 
-        size = 5;
+        size = valuesfileNames.length;
 
-        this.numberOfRoations = 1;
+        this.numberOfRoations = numberOfRotations % size;
 
         linkedListRotationRenderer = new LinkedListRotationRenderer(context,size,valuesfileNames);
         setRenderer(linkedListRotationRenderer);
@@ -70,15 +70,15 @@ public class LinkedListRotationSurfaceView extends GLSurfaceView {
                 }
                 for(int j = 0; j < last; j++){
                     linkedListRotationRenderer.moveLeft(last);
-                    Thread.sleep(500);
                 }
+                Thread.sleep(500);
                 linkedListRotationRenderer.nodeChangeRef(last);
                 Thread.sleep(500);
                 linkedListRotationRenderer.moveUp(last);
                 Thread.sleep(500);
                 linkedListRotationRenderer.swapAllNodes();
+                Thread.sleep(900);
             }
-
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

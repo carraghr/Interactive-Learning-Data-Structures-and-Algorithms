@@ -102,11 +102,20 @@ public class LinkedListRotationRenderer implements GLSurfaceView.Renderer {
     }
 
     public void swapAllNodes(){
-        for (int i = 0,j = 1; i< numberOfElements;i++){
-            Node temp = nodes[i];
-            //nodes[i] = nodes
+        Node temp = nodes[numberOfElements -1];
+        for (int i = numberOfElements - 2; i >=0 ;i--){
+            nodes[i+1] = nodes[i];
         }
+        nodes[0] = temp;
     }
+
+    /**
+     * for 0 < 5
+     *      temp = 0
+     *      0 = 1
+     *
+     *
+     */
     public void nodeChangeRef(int place){
         nodes[place].changeRef();
     }

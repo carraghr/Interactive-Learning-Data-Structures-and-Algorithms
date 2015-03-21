@@ -14,7 +14,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/last_topic_button">
+        android:layout_below="@+id/last_topic_button"
+        android:background="#FFFFFF">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -26,7 +27,7 @@
                      android:id="@+id/textview">
             </include>
 
-            <include layout = "@layout/one_button_five_inputs"
+            <include layout = "@layout/one_button_one_input"
                      android:layout_height="wrap_content"
                      android:layout_width="match_parent"
                      android:layout_below="@+id/textview">

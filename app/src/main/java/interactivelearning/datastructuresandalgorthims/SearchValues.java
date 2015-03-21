@@ -9,4 +9,6 @@ public class SearchValues {
 
     public static final String[] LINKEDLIST_INSERT = new String[]{"1","2","3","4","7"};
 
+    public static final String[] LINKEDLIST_ROTATE = new String[]{"2","4","6","8","0"};
+
 }

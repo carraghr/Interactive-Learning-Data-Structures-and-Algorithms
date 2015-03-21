@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created on 10/03/2015.
@@ -29,7 +31,7 @@ public class LinkedListRotation extends Activity {
         textViewToChange.setText(this.getResources().getString(R.string.linkedList_rotation_paragraph));
 
         Button previous = (Button) findViewById(R.id.previous);
-        Button next = (Button) findViewById(R.id.next);
+        Button submit = (Button) findViewById(R.id.submit_one);
 
         previous.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -37,13 +39,28 @@ public class LinkedListRotation extends Activity {
                 LinkedListRotation.this.startActivity(intent);
             }
         });
-/*
-        next.setOnClickListener(new View.OnClickListener() {
+
+        submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(LinkedListRotation.this, LinkedListRotation.class);
-                LinkedListRotation.this.startActivity(intent);
+                EditText input_one = (EditText) findViewById(R.id.input_box_one);
+                String rotations = input_one.getText().toString();
+
+                if (rotations.equals("")) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please input a number of rotations you want to see."
+                            , Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+
+                else {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("numberOfRotates", rotations);
+                    Intent intent = new Intent(LinkedListRotation.this, LinkedListRotationSurfaceActivity.class);
+                    intent.putExtras(bundle);
+                    LinkedListRotation.this.startActivity(intent);
+
+                }
             }
         });
-        */
+
     }
 }

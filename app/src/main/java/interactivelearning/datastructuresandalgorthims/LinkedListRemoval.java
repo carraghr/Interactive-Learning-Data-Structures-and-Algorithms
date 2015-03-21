@@ -50,7 +50,7 @@ public class LinkedListRemoval extends Activity {
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                EditText input_one = (EditText) findViewById(R.id.input_one);
+                EditText input_one = (EditText) findViewById(R.id.input_box_one);
                 String index = input_one.getText().toString();
 
                 if (index.equals("")) {

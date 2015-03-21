@@ -2,6 +2,7 @@ package interactivelearning.datastructuresandalgorthims;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
+import android.view.MotionEvent;
 import android.widget.Toast;
 
 /**
@@ -37,6 +38,16 @@ public class LinkedListRemovalSurfaceView extends GLSurfaceView{
         startProcess();
     }
 
+    public boolean onTouchEvent(MotionEvent e) {
+
+        switch (e.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                if(start) {
+                    startProcess();
+                }
+        }
+        return true;
+    }
     private void startProcess() {
         start = false;
         int index1 = Integer.parseInt(index);

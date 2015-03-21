@@ -13,6 +13,7 @@ public class LinkedListRemovalSurfaceView extends GLSurfaceView{
     private Context context;
     private String index;
     private String[] values;
+    private boolean start;
 
     public LinkedListRemovalSurfaceView(Context context, String index) {
         super(context);
@@ -33,7 +34,40 @@ public class LinkedListRemovalSurfaceView extends GLSurfaceView{
 
         Toast toast = Toast.makeText(context,"Please tap the screen to begin !",Toast.LENGTH_SHORT);
         toast.show();
+        startProcess();
     }
 
+    private void startProcess() {
+        start = false;
+        int index1 = Integer.parseInt(index);
+        try {
+            for (int i = 0; i <= index1; i++) {
+                linkedListRemovalRenderer.moveUp(i);
+                Thread.sleep(500);
+                linkedListRemovalRenderer.moveDown(i);
+                Thread.sleep(500);
+            }
+/*
+            if(index == numberOfNodes){
+                //update the list
+                linkedListInsertRenderer.nodeChangeRef(index-1);
+                linkedListInsertRenderer.changeinsertRef();
+            }
+
+            for(int i = index ; i < numberOfNodes ; i++ ){
+                linkedListInsertRenderer.moveRight(i);
+                Thread.sleep(500);
+            }
+
+            linkedListInsertRenderer.moveInsertDown();
+            Thread.sleep(500);
+            linkedListInsertRenderer.moveInsertDown();
+            Thread.sleep(500);
+            */
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
 

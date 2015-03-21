@@ -12,33 +12,27 @@ import javax.microedition.khronos.opengles.GL10;
  * Created on 20/03/2015.
  */
 public class LinkedListRemovalRenderer implements GLSurfaceView.Renderer {
-    private Node [] nodes;
-    private String [] fileNames;
 
-    private Node insertValue;
-    //private String insertValueFileName;
-
-    private int numberOfNodes;
+    private Node[] nodes;
     private Context context;
+    private int numberOfElements;
+    private String[] fileNames;
 
     // myMVPMatrix is an abbreviation for "Model View Projection Matrix"
     private final float[] mMVPMatrix = new float[16];
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
 
-    LinkedListRemovalRenderer(Context context, int numberOfNodes, String[] fileNames){ //,String insertValueFileName){
-
+    LinkedListRemovalRenderer(Context context, int numberOfElements, String[] fileNames) {
         super();
-        this.context = context;
 
-        this.numberOfNodes = numberOfNodes;
-        nodes = new Node[this.numberOfNodes];
+        this.context = context;
+        this.numberOfElements = numberOfElements;
         this.fileNames = fileNames;
 
-        //this.insertValueFileName = insertValueFileName;
+        this.nodes = new Node[this.numberOfElements];
 
     }
-
 
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
@@ -46,9 +40,8 @@ public class LinkedListRemovalRenderer implements GLSurfaceView.Renderer {
         // Set the background frame colour
         GLES20.glClearColor(0.24f, 0.522f, 0.863f, 0.0f);
 
-        // set up squares
+        // set up nodes
         setUpNodes();
-        //setUpInsert();
 
     }
 
@@ -56,7 +49,7 @@ public class LinkedListRemovalRenderer implements GLSurfaceView.Renderer {
     public void onSurfaceChanged(GL10 gl, int width, int height) {
         GLES20.glViewport(0, 0, width, height);
 
-        float ratio = (float) width/height;
+        float ratio = (float) width / height;
 
         Matrix.frustumM(mProjectionMatrix, 0, -ratio, ratio, -1, 1, 3, 7);
     }
@@ -72,29 +65,43 @@ public class LinkedListRemovalRenderer implements GLSurfaceView.Renderer {
         // Calculate the projection and view transformation
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
 
-        for(int i=0;i<numberOfNodes;i++) {
+        for (int i = 0; i < numberOfElements; i++) {
             nodes[i].draw(mMVPMatrix);
-        }
-        if(!(insertValue == null)){
-            insertValue.draw(mMVPMatrix);
         }
     }
 
-    private void setUpNodes(){
+    private void setUpNodes() {
         float offset = 0.075f;
-        int left,right;
+        int left, right;
         float radius = Square.getRadius();
-        if(numberOfNodes%2!=0 && numberOfNodes>0){
-            right =  numberOfNodes/2+1;
-            nodes[numberOfNodes/2] = new Node(new float[]{0.0f,0.0f},fileNames[numberOfNodes/2],context,!(right ==  numberOfNodes -1));
-            offset+=offset;
-        }else{
-            right =  numberOfNodes/2;
+        if (numberOfElements % 2 != 0 && numberOfElements > 0) {
+            right = numberOfElements / 2 + 1;
+            nodes[numberOfElements / 2] = new Node(new float[]{0.0f, 0.0f}, fileNames[numberOfElements / 2], context, !(right == numberOfElements - 1));
+            offset += offset;
         }
-        for(left = numberOfNodes/2 - 1; right<numberOfNodes && left >-1; right++, left--){
-            nodes[right] = new Node(new float[]{0.0f - offset, 0.0f},fileNames[right], context,!(right ==  numberOfNodes -1) );
-            nodes[left] = new Node(new float[]{ 0.0f + offset,0.0f}, fileNames[left], context, true);
-            offset+=(2*radius);
+        else {
+            right = numberOfElements / 2;
         }
+        for (left = numberOfElements / 2 - 1; right < numberOfElements && left > -1; right++, left--) {
+            nodes[right] = new Node(new float[]{0.0f - offset, 0.0f}, fileNames[right], context, !(right == numberOfElements - 1));
+            nodes[left] = new Node(new float[]{0.0f + offset, 0.0f}, fileNames[left], context, true);
+            offset += (2 * radius);
+        }
+    }
+
+    public void moveUp(int place) {
+        nodes[place].moveUp();
+    }
+
+    public void moveDown(int place) {
+        nodes[place].moveDown();
+    }
+
+    public void moveRight(int place) {
+        nodes[place].moveRight();
+    }
+
+    public void moveLeft(int place) {
+        nodes[place].moveLeft();
     }
 }

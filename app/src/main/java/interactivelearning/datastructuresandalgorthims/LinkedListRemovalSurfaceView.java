@@ -14,7 +14,8 @@ public class LinkedListRemovalSurfaceView extends GLSurfaceView{
     private Context context;
     private String index;
     private String[] values;
-    private boolean start;
+    private boolean start = true;
+    String [] valuesfileNames;
 
     public LinkedListRemovalSurfaceView(Context context, String index) {
         super(context);
@@ -25,7 +26,7 @@ public class LinkedListRemovalSurfaceView extends GLSurfaceView{
         setEGLContextClientVersion(2);
 
         //String valuefileName = InputControls.addImageName(value);
-        String [] valuesfileNames = InputControls.addImageNames(SearchValues.LINKEDLIST_INSERT);
+        valuesfileNames = InputControls.addImageNames(SearchValues.LINKEDLIST_INSERT);
 
         linkedListRemovalRenderer = new LinkedListRemovalRenderer(context,valuesfileNames.length,valuesfileNames);//,valuefileName);
         setRenderer(linkedListRemovalRenderer);
@@ -35,7 +36,6 @@ public class LinkedListRemovalSurfaceView extends GLSurfaceView{
 
         Toast toast = Toast.makeText(context,"Please tap the screen to begin !",Toast.LENGTH_SHORT);
         toast.show();
-        startProcess();
     }
 
     public boolean onTouchEvent(MotionEvent e) {
@@ -52,12 +52,17 @@ public class LinkedListRemovalSurfaceView extends GLSurfaceView{
         start = false;
         int index1 = Integer.parseInt(index);
         try {
-            for (int i = 0; i <= index1; i++) {
+            for (int i = 0; i < index1; i++) {
                 linkedListRemovalRenderer.moveUp(i);
                 Thread.sleep(500);
                 linkedListRemovalRenderer.moveDown(i);
                 Thread.sleep(500);
             }
+
+            for(int i = index1; i < valuesfileNames.length; i++){
+                linkedListRemovalRenderer.moveLeft(i);
+            }
+            Thread.sleep(500);
 /*
             if(index == numberOfNodes){
                 //update the list

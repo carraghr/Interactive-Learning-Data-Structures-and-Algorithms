@@ -13,7 +13,9 @@ import android.widget.Toast;
  * Created on 08/03/2015.
  */
 public class ArrayBubbleSort extends Activity{
+
     @Override
+    //process to start when activity is created.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setUI();
@@ -26,6 +28,7 @@ public class ArrayBubbleSort extends Activity{
         Button previous = (Button) findViewById(R.id.previous);
         Button next = (Button) findViewById(R.id.next);
 
+        //set up back button to go to last topic
         previous.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(ArrayBubbleSort.this, ArraySelectSort.class);
@@ -33,6 +36,7 @@ public class ArrayBubbleSort extends Activity{
             }
         });
 
+        //set up back button to go to next topic
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(ArrayBubbleSort.this, ArrayMergeSort.class);
@@ -40,8 +44,11 @@ public class ArrayBubbleSort extends Activity{
             }
         });
 
+        //set up diagram submit button
         bubbleSortButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                //get users input and convert it to string array for diagram.
                 EditText one_input = (EditText) findViewById(R.id.input_one);
                 EditText two_input = (EditText) findViewById(R.id.input_two);
                 EditText three_input = (EditText) findViewById(R.id.input_three);
@@ -55,23 +62,26 @@ public class ArrayBubbleSort extends Activity{
                         five_input.getText().toString()};
                 values = InputControls.sortedValues(values);
 
+                //ensure user has inputted a values to sort
                 if(values.length == 0){
                     Toast toast = Toast.makeText(getApplicationContext(), "Please input values to sort"
                             , Toast.LENGTH_SHORT);
                     toast.show();
                 }
                 else {
+                    //pass values to be sorted to new activity. via a bundle
                     Bundle bundle = new Bundle();
                     bundle.putStringArray("values",values);
+                    //create new intent to start and add bundle to it.
                     Intent intent = new Intent(ArrayBubbleSort.this, ArrayBubbleSortSurfaceActivity.class);
                     intent.putExtras(bundle);
+                    //start new activity
                     ArrayBubbleSort.this.startActivity(intent);
 
                 }
             }
         });
 
-        //TODO write function to out new strings for declaring arrays of set length.
         TextView textViewToChange = (TextView) findViewById(R.id.topic);
         textViewToChange.setText(R.string.array_bubble_sort);
 

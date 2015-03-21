@@ -11,7 +11,8 @@ import android.widget.TextView;
  * Created on 15/03/2015.
  */
 public class CodeLinearSearch extends Activity {
-    @Override
+
+    @Override//process to start when activity is created.
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setUI();
@@ -29,6 +30,7 @@ public class CodeLinearSearch extends Activity {
         Button previous = (Button) findViewById(R.id.previous);
         Button next = (Button) findViewById(R.id.next);
 
+        //set up back button to go to last topic
         previous.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(CodeLinearSearch.this, CodeBinarySearch.class);
@@ -36,6 +38,7 @@ public class CodeLinearSearch extends Activity {
             }
         });
 
+        //set up back button to go to next topic
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(CodeLinearSearch.this, CodeBinarySearch.class);

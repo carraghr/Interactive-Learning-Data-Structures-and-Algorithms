@@ -21,7 +21,7 @@ public class Line {
                     "}";
 
     private final String FragmentShaderCode =
-            //Is necessary for drawing
+            //Is necessary for color
             "precision mediump float;" +
                     "uniform vec4 vColor;" +
                     "void main() {" +
@@ -138,8 +138,5 @@ public class Line {
         //Draw the square
         GLES20.glDrawElements(GLES20.GL_TRIANGLES, drawOrder.length,
                 GLES20.GL_UNSIGNED_SHORT, drawListBuffer);
-
-        //Disable vertex array
-        //GLES20.glDisableVertexAttribArray(myPositionHandle);
     }
 }

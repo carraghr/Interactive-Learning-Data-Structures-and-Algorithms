@@ -33,6 +33,7 @@ public class LinkedListInsert extends Activity{
         Button next = (Button) findViewById(R.id.next);
         Button submit = (Button) findViewById(R.id.submit_two);
 
+        //set up back button to go to last topic
         previous.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(LinkedListInsert.this, LinkedListDeclaration.class);
@@ -40,7 +41,7 @@ public class LinkedListInsert extends Activity{
             }
         });
 
-
+        //set up back button to go to next topic
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(LinkedListInsert.this, LinkedListRemoval.class);
@@ -50,12 +51,15 @@ public class LinkedListInsert extends Activity{
 
         submit.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+
+                //get user input and change to strings
                 EditText input_one = (EditText) findViewById(R.id.input_one);
                 EditText input_two = (EditText) findViewById(R.id.input_two);
 
                 String index = input_one.getText().toString();
                 String value = input_two.getText().toString();
 
+                //ensure user has inputted two values.
                 if(index.equals("")){
                     Toast toast = Toast.makeText(getApplicationContext(), "Please input index to insert to."
                             , Toast.LENGTH_SHORT);
@@ -67,11 +71,17 @@ public class LinkedListInsert extends Activity{
                     toast.show();
                 }
                 else {
+
+                    //create bundle and insert values to be passed to new activity.
                     Bundle bundle = new Bundle();
                     bundle.putString("value",value);
                     bundle.putString("index",index);
+
+                    //create new intent and pass it a bundle
                     Intent intent = new Intent(LinkedListInsert.this, LinkedListInsertSurfaceActivity.class);
                     intent.putExtras(bundle);
+
+                    //start new activity
                     LinkedListInsert.this.startActivity(intent);
 
                 }

@@ -11,6 +11,7 @@ import android.widget.TextView;
  * Created on 06/03/2015.
  */
 public class LinkedListDeclaration extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -29,6 +30,7 @@ public class LinkedListDeclaration extends Activity {
         Button previous = (Button) findViewById(R.id.previous);
         Button next = (Button) findViewById(R.id.next);
 
+        //set up back button to go to last topic
         previous.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(LinkedListDeclaration.this, LinkedListIntro.class);
@@ -36,6 +38,7 @@ public class LinkedListDeclaration extends Activity {
             }
         });
 
+        //set up back button to go to next topic
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(LinkedListDeclaration.this, LinkedListInsert.class);

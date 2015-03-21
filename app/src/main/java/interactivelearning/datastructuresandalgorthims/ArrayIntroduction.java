@@ -31,6 +31,7 @@ public class ArrayIntroduction extends Activity{
 
         Button nextButton = (Button) findViewById(R.id.next);
 
+        //set up next topic button
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 

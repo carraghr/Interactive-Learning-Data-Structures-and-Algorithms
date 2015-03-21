@@ -11,7 +11,8 @@ import android.widget.TextView;
  * Created on 15/03/2015.
  */
 public class CodeBubbleSort extends Activity {
-    @Override
+
+    @Override//process to start when activity is created.
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setUI();
@@ -36,6 +37,7 @@ public class CodeBubbleSort extends Activity {
             }
         });
 
+        //set up back button to go to next topic
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(CodeBubbleSort.this, CodeSelectSort.class);

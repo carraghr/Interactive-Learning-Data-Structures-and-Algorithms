@@ -11,7 +11,8 @@ import android.widget.TextView;
  * Created on 15/03/2015.
  */
 public class CodeAddingANode extends Activity {
-    @Override
+
+    @Override //process to start when activity is created.
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setUI();

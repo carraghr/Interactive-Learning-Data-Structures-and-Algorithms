@@ -11,7 +11,8 @@ import android.widget.TextView;
  * Created on 15/03/2015.
  */
 public class CodeBinarySearch extends Activity {
-    @Override
+
+    @Override//process to start when activity is created.
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setUI();
@@ -36,6 +37,7 @@ public class CodeBinarySearch extends Activity {
             }
         });
 
+        //set up back button to go to next topic
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(CodeBinarySearch.this, CodeLinkedListDeclaration.class);

@@ -42,7 +42,7 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
 
     }
 
-    @Override
+    @Override//to be called on set up of renderer
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         // Set the background frame colour
         GLES20.glClearColor(0.24f, 0.522f, 0.863f, 0.0f);
@@ -52,7 +52,7 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
         addSearchFor();
     }
 
-    @Override
+    @Override//to be called when user changes device rotation
     public void onSurfaceChanged(GL10 gl, int width, int height) {
 
         GLES20.glViewport(0, 0, width, height);
@@ -63,7 +63,7 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
 
     }
 
-    @Override
+    @Override//to be called when render requested
     public void onDrawFrame(GL10 gl) {
 
         //Draw background color
@@ -84,17 +84,31 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
     }
 
     public void setUpSquares() {
+        // space between each square
         float offset = 0.001f;
+
+        //left and right from the center
         int left,right;
+
+        //get the radius of a square ie length of center to one side.
         float radius = Square.getRadius();
+
+        //if odd number of squares first is at center point of screen
         if(numberOfSquares%2!=0){
+            //create square at center
             squares[numberOfSquares/2] = new Square(new float[]{0.0f,0.0f},context,fileNames[numberOfSquares/2]);
+            //add to offset
             offset+=2*radius;
+            //move right pointer over to next square location.
             right =  numberOfSquares/2+1;
-        }else{
+
+        }
+        else{
+            //else start with center touching two sides.
             offset+=radius;
             right =  numberOfSquares/2;
         }
+        //loop through squares an crate each one from the center outwards.
         for(left = numberOfSquares/2 - 1; right<numberOfSquares && left >-1; right++, left--){
             squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[right]);
             squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[left]);
@@ -105,14 +119,18 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
     public void highLight(int place){
         squares[place].moveUp(2*Square.getRadius());
     }
+
     public void removeHighLight(int place){
         squares[place].moveDown(Square.getRadius()*2);
     }
+
     public void addSearchFor(){
-      float[] startPoint = squares[0].getTopCenterPoint();
-      startPoint[1]+=(Square.getRadius()*5)+0.005f;
-      searchFor = new Square(startPoint,context,searchForImage);
+        //add search value to the screen over the first element in the array.
+        float[] startPoint = squares[0].getTopCenterPoint();
+        startPoint[1]+=(Square.getRadius()*5)+0.005f;
+        searchFor = new Square(startPoint,context,searchForImage);
     }
+
     public void moveSearchItemNext(int place){
         float [] a = squares[place].getTopCenterPoint();
         searchFor.moveRight(0.075f * 2);

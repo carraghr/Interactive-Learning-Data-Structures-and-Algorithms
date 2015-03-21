@@ -17,22 +17,28 @@ public class ArrayBubbleSortSurfaceView extends GLSurfaceView {
     private boolean start = true;
 
     ArrayBubbleSortSurfaceView(Context context,String[] values){
+
+        //call constructor for view
         super(context);
 
         //Create an OpenGL ES 2.0 context.
         setEGLContextClientVersion(2);
 
+        //set up variables.
         this.context = context;
         this.values = values;
 
+        //get image names for input to be shown.
         String [] fileNames = InputControls.addImageNames(values);
 
+        //set up renderer for surfaceView and set the renderer.
         arrayBubbleSortRenderer = new ArrayBubbleSortRenderer(context, values.length, fileNames);
         setRenderer(arrayBubbleSortRenderer);
 
-        //render all the time
+        //continue to render at all times.
         setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
 
+        //Message to tell user to tap screen to start the diagram.
         Toast toast = Toast.makeText(context,"Please tap the screen to begin !",Toast.LENGTH_SHORT);
         toast.show();
     }
@@ -47,7 +53,7 @@ public class ArrayBubbleSortSurfaceView extends GLSurfaceView {
                     Thread.sleep(500);
 
                     if(values[j-1].compareTo( values[j]) > 0){
-                        //swap the elements!
+                        //swap the elements
                         swapSquares(j);
                     }
                     else{
@@ -63,6 +69,7 @@ public class ArrayBubbleSortSurfaceView extends GLSurfaceView {
         }
     }
 
+    //method to swap two pairs of squares.
     public void swapSquares(int j){
         arrayBubbleSortRenderer.moveDown(j-1);
         try {
@@ -82,6 +89,7 @@ public class ArrayBubbleSortSurfaceView extends GLSurfaceView {
         arrayBubbleSortRenderer.swap(j-1,j);
     }
 
+    //Messages to be shown after diagrams process is finished.
     private void messages() {
         Toast message;
         message = Toast.makeText(context, "We check two numbers and see if they're in order"
@@ -95,6 +103,7 @@ public class ArrayBubbleSortSurfaceView extends GLSurfaceView {
         message.show();
     }
 
+    //get on touch event to start diagram process.
     public boolean onTouchEvent(MotionEvent e) {
 
         switch (e.getAction()) {

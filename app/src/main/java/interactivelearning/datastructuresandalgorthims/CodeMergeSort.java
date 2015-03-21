@@ -11,7 +11,8 @@ import android.widget.TextView;
  * Created on 15/03/2015.
  */
 public class CodeMergeSort extends Activity {
-    @Override
+
+    @Override//process to start when activity is created.
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setUI();
@@ -28,6 +29,7 @@ public class CodeMergeSort extends Activity {
 
         Button next = (Button) findViewById(R.id.next);
 
+        //set up back button to go to next topic
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(CodeMergeSort.this, CodeBubbleSort.class);

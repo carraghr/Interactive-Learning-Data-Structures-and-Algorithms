@@ -24,6 +24,7 @@ public class ArrayDeclarationRenderer implements GLSurfaceView.Renderer {
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
 
+    //constructor for declare diagram
     ArrayDeclarationRenderer(Context context, int numberOfSquares){
         super();
         this.context = context;
@@ -37,6 +38,7 @@ public class ArrayDeclarationRenderer implements GLSurfaceView.Renderer {
         squares = new Square[numberOfSquares];
     }
 
+    //constructor for initialize diagram
     ArrayDeclarationRenderer(Context context, int numberOfSquares, String [] fileNames){
         super();
         this.context = context;
@@ -85,18 +87,31 @@ public class ArrayDeclarationRenderer implements GLSurfaceView.Renderer {
     }
 
     private void setUpSquares() {
-
+        // space between each square
         float offset = 0.001f;
+
+        //left and right from the center
         int left,right;
+
+        //get the radius of a square ie length of center to one side.
         float radius = Square.getRadius();
+
+        //if odd number of squares first is at center point of screen
         if(numberOfSquares%2!=0){
+            //create square at center
             squares[numberOfSquares/2] = new Square(new float[]{0.0f,0.0f},context,fileNames[numberOfSquares/2]);
+            //add to offset
             offset+=2*radius;
+            //move right pointer over to next square location.
             right =  numberOfSquares/2+1;
-        }else{
+
+        }
+        else{
+            //else start with center touching two sides.
             offset+=radius;
             right =  numberOfSquares/2;
         }
+        //loop through squares an crate each one from the center outwards.
         for(left = numberOfSquares/2 - 1; right<numberOfSquares && left >-1; right++, left--){
             squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[right]);
             squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[left]);

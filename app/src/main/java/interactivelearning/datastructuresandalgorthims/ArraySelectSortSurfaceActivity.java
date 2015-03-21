@@ -9,15 +9,18 @@ import android.os.Bundle;
  */
 public class ArraySelectSortSurfaceActivity extends Activity {
 
+    //GLSurface to draw to for activity
     private GLSurfaceView myView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
 
+        //get information passed to it via a bundle.
         Bundle bundle = this.getIntent().getExtras();
         String [] values = bundle.getStringArray("values");
 
+        //Assign GLSurfaceView a view
         myView = new ArraySelectSortSurfaceView(getApplicationContext(), values);
         setContentView(myView);
     }

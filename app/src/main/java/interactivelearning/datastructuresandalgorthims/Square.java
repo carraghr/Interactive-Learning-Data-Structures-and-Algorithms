@@ -31,7 +31,7 @@ public class Square{
     static final short [] drawOrder ={0, 1, 2, 0, 2, 3}; //order to draw vertices in an
                                                           // anti-clock wise direction
     float [] centerPoint;
-    private final static float radius = 0.075f;
+    public final static float radius = 0.075f;
 
     /*
      * Image shaders and coords below.

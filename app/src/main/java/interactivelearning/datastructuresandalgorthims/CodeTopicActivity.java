@@ -15,7 +15,7 @@ public class CodeTopicActivity extends Activity{
 
     String [] subtopics;
 
-    @Override
+    @Override //process to start when activity is created.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setUI();

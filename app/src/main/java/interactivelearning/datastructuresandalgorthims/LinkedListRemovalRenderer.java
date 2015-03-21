@@ -35,8 +35,6 @@ public class LinkedListRemovalRenderer implements GLSurfaceView.Renderer {
         nodes = new Node[this.numberOfNodes];
         this.fileNames = fileNames;
 
-        //this.insertValueFileName = insertValueFileName;
-
     }
 
 
@@ -48,7 +46,6 @@ public class LinkedListRemovalRenderer implements GLSurfaceView.Renderer {
 
         // set up squares
         setUpNodes();
-        //setUpInsert();
 
     }
 

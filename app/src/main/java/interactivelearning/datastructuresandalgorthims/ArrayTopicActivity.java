@@ -30,9 +30,7 @@ public class ArrayTopicActivity extends Activity {
         Bundle bundle = this.getIntent().getExtras();
         subtopics = bundle.getStringArray("subtopic");
 
-
-       // populateListView(topics);
-
+        //populate list view with subtopics
         ListViewPopulate.populateTopicList(this, subtopics);
 
         registerClickCallback();
@@ -44,11 +42,14 @@ public class ArrayTopicActivity extends Activity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 TextView textView = (TextView) view;
 
                 Intent intent;
 
+                //see which subtopic is been click on and create the activity for it.
                 switch(textView.getText().toString()){
+
                     case "Introduction":
 
                         intent = new Intent(ArrayTopicActivity.this,ArrayIntroduction.class);

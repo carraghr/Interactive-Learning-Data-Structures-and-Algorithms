@@ -1,27 +1,27 @@
-//package interactivelearning.datastructuresandalgorthims;
-
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.Scanner;
 
 /**
- * Created by Richard on 26/02/2015.
+ * Created on 26/02/2015.
  */
 public class Txt_to_Dat {
 
     public static void main(String [] args){
         String line;
         try{
-            
+            //read from txt file
             Scanner brTxt = new Scanner(new File("topics.txt"));
-
+            //create new dat file
             RandomAccessFile topicFile = new RandomAccessFile("topics.dat","rw");
+            //read in number of topics
             if(brTxt.hasNext()){
                 line = brTxt.nextLine();
                 topicFile.writeInt(Integer.parseInt(line));
             }
-
+            //loop through rest of txt file
             while(brTxt.hasNext()){
+                //get topic name and number of subtopics
                 line = brTxt.nextLine();
                 String [] lines = line.split(" ");
 
@@ -34,6 +34,7 @@ public class Txt_to_Dat {
                 int end =Integer.parseInt(lines[1]);
                 System.out.println(lines[0]+" "+ lines[1]);
 
+                //get all subtopics
                 for(int i=0;i<end;i++){
                     line = brTxt.nextLine();
 					line = line.replace("_"," ");
@@ -42,6 +43,7 @@ public class Txt_to_Dat {
                     System.out.println(line);
                 }
             }
+            //close both files.
             brTxt.close();
             topicFile.close();
 

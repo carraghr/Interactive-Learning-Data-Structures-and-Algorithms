@@ -64,6 +64,7 @@ public class ArrayBubbleSortSurfaceView extends GLSurfaceView {
                     }
                 }
             }
+            messages();
         }catch (Exception e){
             System.err.println("Error in start process");
         }

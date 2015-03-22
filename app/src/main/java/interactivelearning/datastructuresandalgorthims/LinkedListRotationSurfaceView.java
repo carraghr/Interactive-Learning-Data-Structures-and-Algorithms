@@ -16,7 +16,6 @@ public class LinkedListRotationSurfaceView extends GLSurfaceView {
     int numberOfRoations, size;
     boolean start = true;
 
-
     LinkedListRotationSurfaceView(Context context, int numberOfRotations){
 
         super(context);
@@ -94,8 +93,22 @@ public class LinkedListRotationSurfaceView extends GLSurfaceView {
                 linkedListRotationRenderer.swapAllNodes();
                 Thread.sleep(900);
             }
+            messages();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    private void messages(){
+        Toast message;
+        message = Toast.makeText(context, "take the last node and create a temp of it."
+                , Toast.LENGTH_LONG);
+        message.show();
+        message = Toast.makeText(context, "make the last node the node before it."
+                , Toast.LENGTH_LONG);
+        message.show();message = Toast.makeText(context, "place the last temp node as the head and" +
+                                                         " make it reference the old head as its next"
+                , Toast.LENGTH_LONG);
+        message.show();
     }
 }

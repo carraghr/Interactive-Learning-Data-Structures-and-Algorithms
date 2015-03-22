@@ -14,11 +14,12 @@ public class LinkedListRemovalSurfaceView extends GLSurfaceView{
     private String index;
     private boolean start = true;
     String [] valueFileNames;
+    private Context context;
 
     public LinkedListRemovalSurfaceView(Context context, String index) {
         super(context);
         this.index = index;
-
+        this.context = context;
         //Create an OpenGL ES 2.0 context.
         setEGLContextClientVersion(2);
 
@@ -71,9 +72,21 @@ public class LinkedListRemovalSurfaceView extends GLSurfaceView{
                 }
             }
             Thread.sleep(500);
+            messages();
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }
+    }
+
+    private void messages(){
+        Toast message;
+        message = Toast.makeText(context, "We go to the index by traveling through all the nodes in front off the index "
+                , Toast.LENGTH_LONG);
+        message.show();
+        message = Toast.makeText(context, "when we reach the node to be removed we remove the reference " +
+                                          "to it before it and change it to the one ahead of it."
+                , Toast.LENGTH_LONG);
+        message.show();
     }
 }
 

@@ -72,7 +72,19 @@ public class ArraySelectSortSurfaceView extends GLSurfaceView{
                     arraySelectSortRenderer.moveDown(min);
                 }
             }
+            messages();
         }catch (Exception e){}
+    }
+
+    public void messages(){
+        Toast message = Toast.makeText(context,"Get first element and go though the array looking for another one that is smaller",Toast.LENGTH_LONG);
+        message.show();
+        message = Toast.makeText(context,"when we find a smaller one continue to end of the array looking for something smaller",Toast.LENGTH_LONG);
+        message.show();
+        message = Toast.makeText(context,"when we reach the end swap the start position with the smallest",Toast.LENGTH_LONG);
+        message.show();
+        message = Toast.makeText(context,"move on to the next element and continue till you reach the end of the array",Toast.LENGTH_LONG);
+        message.show();
     }
 
     private void swapSquares(int pointA,int pointB){

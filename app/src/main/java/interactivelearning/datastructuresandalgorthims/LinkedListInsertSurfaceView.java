@@ -51,7 +51,7 @@ public class LinkedListInsertSurfaceView extends GLSurfaceView {
     //messages to be displayed at the end of the process.
     private void messages() {
         Toast message;
-        message = Toast.makeText(context, "We go to the index by all the nodes in front off the index "
+        message = Toast.makeText(context, "We go to the index by traveling through all the nodes in front off the index "
                 , Toast.LENGTH_LONG);
         message.show();
         message = Toast.makeText(context, "when we reach the index we insert the value and change any references as we need to."
@@ -77,6 +77,9 @@ public class LinkedListInsertSurfaceView extends GLSurfaceView {
             //get node to index
             for (int i = 0; i < index; i++) {
                 linkedListInsertRenderer.moveInsertNext();
+                linkedListInsertRenderer.moveUp(i);
+                Thread.sleep(500);
+                linkedListInsertRenderer.moveDown(i);
                 Thread.sleep(500);
             }
             //if the index is at the last one change its ref to red and the old last to green
@@ -95,6 +98,7 @@ public class LinkedListInsertSurfaceView extends GLSurfaceView {
             Thread.sleep(500);
             linkedListInsertRenderer.moveInsertDown();
             Thread.sleep(500);
+            messages();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

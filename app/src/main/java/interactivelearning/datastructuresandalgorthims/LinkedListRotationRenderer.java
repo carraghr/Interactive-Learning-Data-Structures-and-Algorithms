@@ -74,23 +74,27 @@ public class LinkedListRotationRenderer implements GLSurfaceView.Renderer {
 
     private void setUpNodes(){
 
-        float offset = 0.075f;
-        int left,right;
+        int left, right;
         float radius = Square.getRadius();
-        //if odd start at center
-        if(numberOfElements%2!=0 && numberOfElements>0){
-            right =  numberOfElements/2+1;
-            nodes[numberOfElements/2] = new Node(new float[]{0.0f,0.0f},fileNames[numberOfElements/2],context,!(right ==  numberOfElements -1));
-            offset+=offset;
+        float offset = radius;
+        //If the number of elements is odd
+        if (numberOfElements % 2 != 0) {
+            right = numberOfElements / 2 + 1;
+            //Draw the middle one in the centre and work outwords.
+            nodes[numberOfElements / 2] = new Node(new float[]{0.0f, 0.0f}, fileNames[numberOfElements / 2], context, !(right == numberOfElements - 1));
+            offset += offset;
         }
-        else{ //else start at sides
-            right =  numberOfElements/2;
+        //Else if the numberOfElements is even
+        else {
+            //Start on the node to the right of the centre
+            right = numberOfElements / 2;
         }
-        //work from the center out
-        for(left = numberOfElements/2 - 1; right<numberOfElements && left >-1; right++, left--){
-            nodes[right] = new Node(new float[]{0.0f - offset, 0.0f},fileNames[right], context,!(right ==  numberOfElements -1) );
-            nodes[left] = new Node(new float[]{ 0.0f + offset,0.0f}, fileNames[left], context, true);
-            offset+=(2*radius);
+        //And draw right and left .075 off the centre of the screen in opposite directions
+        //Then work outwards.
+        for (left = numberOfElements / 2 - 1; right < numberOfElements && left > -1; right++, left--) {
+            nodes[right] = new Node(new float[]{0.0f - offset, 0.0f}, fileNames[right], context, !(right == numberOfElements - 1));
+            nodes[left] = new Node(new float[]{0.0f + offset, 0.0f}, fileNames[left], context, true);
+            offset += (2 * radius);
         }
     }
 

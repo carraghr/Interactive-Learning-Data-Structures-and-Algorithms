@@ -71,23 +71,16 @@ public class LinkedListRemovalRenderer implements GLSurfaceView.Renderer {
     }
 
     private void setUpNodes() {
-        /*TODO
-        Changed offset to = radius
-         */
         int left, right;
         float radius = Square.getRadius();
         float offset = radius;
-        /*TODO
-        Not sure if the && numberOfElements > 0 is required.
-         */
         //If the number of elements is odd
-        if (numberOfElements % 2 != 0 && numberOfElements > 0) {
+        if (numberOfElements % 2 != 0) {
             right = numberOfElements / 2 + 1;
             //Draw the middle one in the centre and work outwords.
             nodes[numberOfElements / 2] = new Node(new float[]{0.0f, 0.0f}, fileNames[numberOfElements / 2], context, !(right == numberOfElements - 1));
             offset += offset;
         }
-
         //Else if the numberOfElements is even
         else {
             //Start on the node to the right of the centre
@@ -101,6 +94,7 @@ public class LinkedListRemovalRenderer implements GLSurfaceView.Renderer {
             offset += (2 * radius);
         }
     }
+
     //Moves the node one unit of distance (2 times the radius of the node).
     public void moveUp(int place) {
         nodes[place].moveUp();

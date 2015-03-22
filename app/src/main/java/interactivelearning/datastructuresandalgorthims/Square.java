@@ -43,10 +43,7 @@ public class Square{
                                                1.0f, 0.0f};
 
     private final FloatBuffer imageBuffer;
-    /*TODO
-    Can get rid of context as a field.
-     */
-    private Context context;
+
     private int [] texturenames;
 
     /*
@@ -55,7 +52,6 @@ public class Square{
 
     public Square(float [] center,Context context,String imageFilename){
 
-        this.context = context;
         this.centerPoint = center;
 
         createSquare();
@@ -79,9 +75,6 @@ public class Square{
         //prepare the two shaders
         int vertexShader = ShaderLoader.loadShader(GLES20.GL_VERTEX_SHADER, ShaderLoader.VertexShaderCode);
         int fragmentShader = ShaderLoader.loadShader(GLES20.GL_FRAGMENT_SHADER, ShaderLoader.FragmentShaderCode);
-
-        // Image variables
-        this.context=context;
 
         //The texture buffer
         ByteBuffer imagebb = ByteBuffer.allocateDirect(imageVertex.length * 4);
@@ -175,20 +168,8 @@ public class Square{
         return new float[]{ centerPoint[0] - radius, centerPoint[1], 0.00f};
     }
 
-    /*TODO
-     * Get rid of unused code
-     *
-     */
-    public float [] getLeftCenterPoint(){
-        return new float[]{ centerPoint[0] + radius, centerPoint[1], 0.00f};
-    }
-
     public float [] getTopCenterPoint(){
         return new float[]{ centerPoint[0], centerPoint[1] - radius, 0.00f};
-    }
-
-    public float [] getBottomCenterPoint(){
-        return new float[]{ centerPoint[0], centerPoint[1] + radius, 0.00f};
     }
 
     // which to draw this shape.

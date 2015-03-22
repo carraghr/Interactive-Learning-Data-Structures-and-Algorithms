@@ -36,9 +36,11 @@
         \n
         \n
         int[] myIntArray = new int[3];
+        \n
+        \n
+        Below enter a length of an array to see what an array of ints would look like declared.
     </string>
     <string name="array_initialisation_paragraph">
-
         \n
         \n
         The following shows the declaration as well as initialization of the values in the array.
@@ -47,15 +49,22 @@
         \n
         \n
         int[] myIntArray = {1,2,3};
+        \n
+        \n
+        Below enter values to initialize an array of ints.Blank spaces will be ignored.
     </string>
 
     <string name="array_select_sort">Select Sort</string>
     <string name="array_select_sort_button_text">Submit values</string>
     <string name="array_select_sort_paragraph">
         The algorithm divides the input list into two parts:
-        the sublist of sorted items, which is built up from left to right,
-        and the sublist of unsorted items that occupy the rest of the list.
+        \n
+         - the sub-list of sorted items, which is built up from left to right,
+        \n
+         - and the sub-list of unsorted items that occupy the rest of the list.
+        \n
         Initially, the sorted sublist is empty and the unsorted sublist is the entire input list.
+        \n
         \n
         The algorithm proceeds by finding the smallest (or largest,
         depending on sorting order) element in the unsorted sublist,
@@ -64,6 +73,9 @@
         \n
         Select sorts complexity is rated for best, worst and average case as O(n^2).
         It is mainly used for real-time computing as it\'s behaviour is identical no matter what.
+        \n
+        \n
+        Below enter up to any five digits and see the select sort process applied to it. Blank spaces will be ignored.
     </string>
 
     <string name="array_bubble_sort">Bubble Sort</string>
@@ -75,6 +87,9 @@
         \n
         Bubble sorts complexity comes in at an O(n^2) for it\'s worst, average and best case.
         It is mainly used when a list is mostly sorted, with only a few items out of place.
+        \n
+        \n
+        Below enter up to any five digits and see the bubble sort process applied to it. Blank spaces will be ignored.
     </string>
 
 
@@ -95,11 +110,14 @@
     <string name="array_linear_search_paragraph">
         Linear Search is the most easiest way of searching elements from an Array.
         In this approach we iterate over an Array and  try every element in it until,
-         we have found the element or until we reach the end of the collection or Array.
+        we have found the element or until we reach the end of the collection or Array.
         Here is an example.
-
+        \n
         Linear Search iterate over each element until it found the right element,
         hence it has a variable best case and a fixed average and worst case complexity of O(n).
+        \n
+        \n
+        Below enter up to any one digit and see the linear search process applied to the array 1,2,3,4,5.
 
     </string>
 
@@ -114,6 +132,10 @@
         See the code section for sample code
 
         Binary Search divided the search space into half in each iteration and hence has a O(log n) complexity.
+        \n
+        \n
+        Below enter up to any one digit and see the linear search process applied to the array 1,2,3,4,5,6.
+
     </string>
 
     <string name="linkedList_topic_activity">LinkedLists</string>
@@ -180,8 +202,10 @@
                     list grows. When adding to the middle you must read through x number of nodes from
                     the start until you get to the position you want to add an item.
 
-                    Once again, see the code section for an example of this.
-
+                    See the code section for an example of this.
+                    \n
+                    \n
+                    Below enter up to any two digit. The first for the index of where to insert and the second for the value to insert.
                     \n
                    </string>
 
@@ -218,10 +242,14 @@
                     remove its reference to the last node.
                     \n
                     See the Code section for all of the above
-                     \n
+                    \n
                     \n
                     Of course if you were to implement doubly LinkedList, you would have to do it for
                     both removal of the first and middle nodes. These are not implemented in this tutorial.
+                    \n
+                    \n
+                    Below enter one digit for the index of where to remove from.
+                    \n
     </string>
 
     <string name = "linkedList_rotation">Rotation</string>
@@ -241,6 +269,10 @@
         would require a doubly linked node for the best results in speed and time.
         \n
         The code section shows how to achieve this.
+        \n
+        \n
+        Below enter one digit that will be the times you want to rotate a LinkedList right.
+        \n
     </string>
     <string name="button_text">Submit</string>
     <string name="Code_topic_activity">Code</string>

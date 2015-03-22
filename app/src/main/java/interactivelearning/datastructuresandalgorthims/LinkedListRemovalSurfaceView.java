@@ -11,24 +11,20 @@ import android.widget.Toast;
 public class LinkedListRemovalSurfaceView extends GLSurfaceView{
 
     private LinkedListRemovalRenderer linkedListRemovalRenderer;
-    private Context context;
     private String index;
-    private String[] values;
     private boolean start = true;
-    String [] valuesfileNames;
+    String [] valueFileNames;
 
     public LinkedListRemovalSurfaceView(Context context, String index) {
         super(context);
-        this.context = context;
         this.index = index;
 
         //Create an OpenGL ES 2.0 context.
         setEGLContextClientVersion(2);
 
-        //String valuefileName = InputControls.addImageName(value);
-        valuesfileNames = InputControls.addImageNames(SearchValues.LINKEDLIST_INSERT);
+        valueFileNames = InputControls.addImageNames(SearchValues.LINKEDLIST_INSERT);
 
-        linkedListRemovalRenderer = new LinkedListRemovalRenderer(context,valuesfileNames.length,valuesfileNames);//,valuefileName);
+        linkedListRemovalRenderer = new LinkedListRemovalRenderer(context, valueFileNames.length, valueFileNames);
         setRenderer(linkedListRemovalRenderer);
 
         //render the view only when there is a change in the drawing data
@@ -51,22 +47,26 @@ public class LinkedListRemovalSurfaceView extends GLSurfaceView{
     private void startProcess() {
         start = false;
         int index1 = Integer.parseInt(index);
-        if(index1 >= valuesfileNames.length){
-            index1 = valuesfileNames.length - 1;
+        if(index1 >= valueFileNames.length){
+            index1 = valueFileNames.length - 1;
         }
         try {
+            //Highlight which square you are looking at
             for (int i = 0; i < index1; i++) {
                 linkedListRemovalRenderer.moveUp(i);
                 Thread.sleep(500);
                 linkedListRemovalRenderer.moveDown(i);
                 Thread.sleep(500);
             }
-            if(index1 == valuesfileNames.length-1) {
+            //If the index is the last one, change the second last nodes colour
+            //To show that it does not connect to anything
+            if(index1 == valueFileNames.length-1) {
                 linkedListRemovalRenderer.removeNode(index1);
                 linkedListRemovalRenderer.nodeChangeRef(index1-1);
             }
             else {
-                for (int i = index1 + 1; i < valuesfileNames.length; i++) {
+                //Otherwise, just move all the squares to the left
+                for (int i = index1 + 1; i < valueFileNames.length; i++) {
                     linkedListRemovalRenderer.moveLeft(i);
                 }
             }

@@ -30,7 +30,7 @@ public class ArrayLinearSearch extends Activity {
         //set up previous button to go to last topic.
         previous.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(ArrayLinearSearch.this, ArrayMergeSort.class);
+                Intent intent = new Intent(ArrayLinearSearch.this, ArrayBubbleSort.class);
                 ArrayLinearSearch.this.startActivity(intent);
             }
         });

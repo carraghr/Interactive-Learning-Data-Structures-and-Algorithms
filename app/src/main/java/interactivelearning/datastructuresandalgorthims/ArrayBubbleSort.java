@@ -39,7 +39,7 @@ public class ArrayBubbleSort extends Activity{
         //set up back button to go to next topic
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(ArrayBubbleSort.this, ArrayMergeSort.class);
+                Intent intent = new Intent(ArrayBubbleSort.this, ArrayLinearSearch.class);
                 ArrayBubbleSort.this.startActivity(intent);
             }
         });

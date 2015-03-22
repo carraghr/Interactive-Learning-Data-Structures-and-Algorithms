@@ -43,6 +43,9 @@ public class Square{
                                                1.0f, 0.0f};
 
     private final FloatBuffer imageBuffer;
+    /*TODO
+    Can get rid of context as a field.
+     */
     private Context context;
     private int [] texturenames;
 
@@ -172,6 +175,10 @@ public class Square{
         return new float[]{ centerPoint[0] - radius, centerPoint[1], 0.00f};
     }
 
+    /*TODO
+     * Get rid of unused code
+     *
+     */
     public float [] getLeftCenterPoint(){
         return new float[]{ centerPoint[0] + radius, centerPoint[1], 0.00f};
     }

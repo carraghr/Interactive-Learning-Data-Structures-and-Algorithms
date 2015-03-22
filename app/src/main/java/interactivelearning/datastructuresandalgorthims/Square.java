@@ -127,6 +127,8 @@ public class Square{
         GLES20.glLinkProgram(MyProgram);                    //create OpenGL program executables
         ShaderLoader.checkGlError("glLinkProgram");
 
+
+        //error checking to ensure link is working
         int[] linkStatus = new int[1];
         GLES20.glGetProgramiv(MyProgram, GLES20.GL_LINK_STATUS, linkStatus, 0);
 
@@ -185,17 +187,15 @@ public class Square{
     // which to draw this shape.
     public void draw(float[] mvpMatrix){
 
-
-        GLES20.glIsProgram(MyProgram);
-        //checkGlError("glIsProgram");
         //Add program to OpenGL environment
         GLES20.glUseProgram(MyProgram);
 
-        //checkGlError("glUseProgram");
-        vertexBuffer.put(squareCoords);
 
+        //update coords
+        vertexBuffer.put(squareCoords);
         vertexBuffer.position(0);
 
+        //update texture for this instance of square
         imageBuffer.put(imageVertex);
         imageBuffer.position(0);
 
@@ -221,12 +221,10 @@ public class Square{
 
         //get handler to shapes's transformation matrix
         int myMVPMatrixHandle = GLES20.glGetUniformLocation(MyProgram, "uMVPMatrix");
-        //checkGlError("glGetUniformLocation");
+
 
         // Apply the projection and view transformation
         GLES20.glUniformMatrix4fv(myMVPMatrixHandle, 1, false, mvpMatrix, 0);
-        //checkGlError("glUniformMatrix4fv");
-
 
         //get handle to textures locations
         int mSamplerLoc = GLES20.glGetUniformLocation(MyProgram, "s_texture");
@@ -239,8 +237,8 @@ public class Square{
                               GLES20.GL_UNSIGNED_SHORT, drawListBuffer);
 
         //Disable vertex array
-       // GLES20.glDisableVertexAttribArray(myPositionHandle);
-       // GLES20.glDisableVertexAttribArray(mTexCoordLoc);
+        GLES20.glDisableVertexAttribArray(myPositionHandle);
+        GLES20.glDisableVertexAttribArray(mTexCoordLoc);
     }
 
     public static float getRadius(){

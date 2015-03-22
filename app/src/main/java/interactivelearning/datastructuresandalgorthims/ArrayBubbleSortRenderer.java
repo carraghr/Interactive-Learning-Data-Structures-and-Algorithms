@@ -75,7 +75,7 @@ public class ArrayBubbleSortRenderer implements GLSurfaceView.Renderer {
     public void setUpSquares() {
 
         // space between each square
-        float offset = 0.001f;
+        float offset = 0.00f;
 
         //left and right from the center
         int left,right;
@@ -102,7 +102,7 @@ public class ArrayBubbleSortRenderer implements GLSurfaceView.Renderer {
         for(left = numberOfSquares/2 - 1; right<numberOfSquares && left >-1; right++, left--){
             squares[right] = new Square(new float[]{ 0.0f - offset ,0.0f},context,fileNames[right]);
             squares[left] = new Square(new float[]{ 0.0f + offset,0.0f},context,fileNames[left]);
-            offset+=(2*radius)+0.002f;
+            offset+=(2*radius);
         }
     }
 

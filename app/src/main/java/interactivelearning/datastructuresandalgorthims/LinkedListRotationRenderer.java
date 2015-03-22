@@ -24,12 +24,12 @@ public class LinkedListRotationRenderer implements GLSurfaceView.Renderer {
     private final float[] mViewMatrix = new float[16];
 
     LinkedListRotationRenderer(Context context, int numberOfElements,String[] fileNames){
+
         super();
 
         this.context = context;
         this.numberOfElements = numberOfElements;
         this.fileNames = fileNames;
-
         this.nodes = new Node[this.numberOfElements];
 
     }
@@ -42,11 +42,11 @@ public class LinkedListRotationRenderer implements GLSurfaceView.Renderer {
 
         // set up squares
         setUpNodes();
-        //setUpInsert();
     }
 
     @Override
     public void onSurfaceChanged(GL10 gl, int width, int height) {
+
         GLES20.glViewport(0, 0, width, height);
 
         float ratio = (float) width/height;
@@ -56,6 +56,7 @@ public class LinkedListRotationRenderer implements GLSurfaceView.Renderer {
 
     @Override
     public void onDrawFrame(GL10 gl) {
+
         //Draw background color
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
 
@@ -65,22 +66,27 @@ public class LinkedListRotationRenderer implements GLSurfaceView.Renderer {
         // Calculate the projection and view transformation
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
 
+        //draw each node
         for(int i=0;i<numberOfElements;i++) {
             nodes[i].draw(mMVPMatrix);
         }
     }
 
     private void setUpNodes(){
+
         float offset = 0.075f;
         int left,right;
         float radius = Square.getRadius();
+        //if odd start at center
         if(numberOfElements%2!=0 && numberOfElements>0){
             right =  numberOfElements/2+1;
             nodes[numberOfElements/2] = new Node(new float[]{0.0f,0.0f},fileNames[numberOfElements/2],context,!(right ==  numberOfElements -1));
             offset+=offset;
-        }else{
+        }
+        else{ //else start at sides
             right =  numberOfElements/2;
         }
+        //work from the center out
         for(left = numberOfElements/2 - 1; right<numberOfElements && left >-1; right++, left--){
             nodes[right] = new Node(new float[]{0.0f - offset, 0.0f},fileNames[right], context,!(right ==  numberOfElements -1) );
             nodes[left] = new Node(new float[]{ 0.0f + offset,0.0f}, fileNames[left], context, true);
@@ -102,6 +108,7 @@ public class LinkedListRotationRenderer implements GLSurfaceView.Renderer {
     }
 
     public void swapAllNodes(){
+        //moves all nodes forwards one and takes the last node and puts it first.
         Node temp = nodes[numberOfElements -1];
         for (int i = numberOfElements - 2; i >=0 ;i--){
             nodes[i+1] = nodes[i];
@@ -109,13 +116,6 @@ public class LinkedListRotationRenderer implements GLSurfaceView.Renderer {
         nodes[0] = temp;
     }
 
-    /**
-     * for 0 < 5
-     *      temp = 0
-     *      0 = 1
-     *
-     *
-     */
     public void nodeChangeRef(int place){
         nodes[place].changeRef();
     }

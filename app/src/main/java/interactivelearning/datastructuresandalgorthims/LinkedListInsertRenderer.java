@@ -73,6 +73,7 @@ public class LinkedListInsertRenderer implements GLSurfaceView.Renderer {
         // Calculate the projection and view transformation
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
 
+        //draw each node in the linkedlist
         for(int i=0;i<numberOfNodes;i++) {
             nodes[i].draw(mMVPMatrix);
         }
@@ -82,9 +83,11 @@ public class LinkedListInsertRenderer implements GLSurfaceView.Renderer {
     }
 
     private void setUpNodes(){
+        //process for setting up nodes of the linkedlist
         float offset = 0.075f;
         int left,right;
         float radius = Square.getRadius();
+        //where to start the center
         if(numberOfNodes%2!=0 && numberOfNodes>0){
             right =  numberOfNodes/2+1;
             nodes[numberOfNodes/2] = new Node(new float[]{0.0f,0.0f},fileNames[numberOfNodes/2],context,!(right ==  numberOfNodes -1));
@@ -92,6 +95,7 @@ public class LinkedListInsertRenderer implements GLSurfaceView.Renderer {
         }else{
             right =  numberOfNodes/2;
         }
+        //go from the center out both left and right
         for(left = numberOfNodes/2 - 1; right<numberOfNodes && left >-1; right++, left--){
             nodes[right] = new Node(new float[]{0.0f - offset, 0.0f},fileNames[right], context,!(right ==  numberOfNodes -1) );
             nodes[left] = new Node(new float[]{ 0.0f + offset,0.0f}, fileNames[left], context, true);
@@ -100,6 +104,7 @@ public class LinkedListInsertRenderer implements GLSurfaceView.Renderer {
     }
 
     private void setUpInsert(){
+
         float [] center = nodes[0].getCenterPoint();
         insertValue = new Node(new float[]{center[0],center[1]+(nodes[0].getHeight()*4)},insertValueFileName,context,true);
     }

@@ -9,9 +9,6 @@ public class Topics{
     private int numberOfTopics = 0;
 
     Topics(int numberOfTopics){ topics = new Topic[numberOfTopics];}
-    Topics(Topic[] topics) {
-        this.topics = topics;
-    }
 
     public String[] getTopicNames(){
         String[] names = new String[topics.length];

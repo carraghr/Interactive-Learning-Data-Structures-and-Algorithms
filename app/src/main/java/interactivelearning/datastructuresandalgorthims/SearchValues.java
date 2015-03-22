@@ -5,6 +5,8 @@ package interactivelearning.datastructuresandalgorthims;
  */
 public class SearchValues {
 
+    //class contains strings for search diagrams to take there default input to search through
+
     public static final String[] ARRAY_LINEAR_SEARCH = new String[]{"1","2","3","4","5"};
 
     public static final String[] ARRAY_BINARY_SEARCH = new String[]{"1","2","3","4","5","6"};

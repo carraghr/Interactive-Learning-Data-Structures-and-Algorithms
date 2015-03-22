@@ -32,11 +32,13 @@ public class NodeItem {
                                                          // anti-clock wise direction
 
     float [] centerPoint;
+
     private float width = 0.06f, height = 0.075f;
+
     private float [] imageVertex = new float[]{0.0f, 0.0f,
-            0.0f, 1.0f,
-            1.0f, 1.0f,
-            1.0f, 0.0f};
+                                                0.0f, 1.0f,
+                                                1.0f, 1.0f,
+                                                1.0f, 0.0f};
 
     private final FloatBuffer imageBuffer;
     private Context context;
@@ -139,14 +141,18 @@ public class NodeItem {
     // called by render to draw part of a node.
     public void draw(float[] mvpMatrix){
 
+        //link opengl program to get handlers
         GLES20.glUseProgram(MyProgram);
 
+        //update position
         vertexBuffer.put(coords);
         vertexBuffer.position(0);
 
+        //update to image texture of this nodes instance
         imageBuffer.put(imageVertex);
         imageBuffer.position(0);
 
+        //bind texture to be drawn
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,texturenames[0]);
 
         //get handle to vertex shader vPosition member
@@ -203,22 +209,6 @@ public class NodeItem {
     public void moveLeft(float amount){
         centerPoint[0] += (height * amount);
         createNodeItem();
-    }
-
-    public float [] getRightCenterPoint(){
-        return new float[]{ centerPoint[0] - width, centerPoint[1], 0.00f};
-    }
-
-    public float [] getLeftCenterPoint(){
-        return new float[]{ centerPoint[0] + width, centerPoint[1], 0.00f};
-    }
-
-    public float [] getTopCenterPoint(){
-        return new float[]{ centerPoint[0], centerPoint[1] - height, 0.00f};
-    }
-
-    public float [] getBottomCenterPoint(){
-        return new float[]{ centerPoint[0], centerPoint[1] + height, 0.00f};
     }
 
     public float getHeight(){

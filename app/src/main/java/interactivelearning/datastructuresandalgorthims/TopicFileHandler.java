@@ -26,7 +26,7 @@ public class TopicFileHandler {
     private void openFile() throws IOException {
 
         String fileName = "topics.dat";
-        //file = new DataInputStream(con.getAssets().open(fileName));
+        //open file
         file = new DataInputStream(con.getAssets().open(fileName));
 
     }
@@ -39,8 +39,11 @@ public class TopicFileHandler {
         String [] subtopics ;
 
         for(int i=0;i<numberOfTopics;i++){
+            //read topic name and remove padding
             name=file.readUTF().trim();
+            //get number of subtopics
             numOfSubTopics = file.readInt();
+            //read subtopics in
             if(numOfSubTopics > 0){
                 subtopics = new String[numOfSubTopics];
                 for(int j=0; j < numOfSubTopics; j++ ){
@@ -50,6 +53,7 @@ public class TopicFileHandler {
             else{
                 subtopics = null;
             }
+            //create a topic and add it to topics
             topics.putTopic( new Topic( name, numOfSubTopics, subtopics));
         }
         return topics;

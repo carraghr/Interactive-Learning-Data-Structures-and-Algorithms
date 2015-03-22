@@ -33,6 +33,7 @@ public class TopicActivity extends Activity {
             topics = handler.getTopics();
             handler.close();
 
+            //pop list with main topics
             ListViewPopulate.populateTopicList(this,topics.getTopicNames());
             registerClickCallback();
 

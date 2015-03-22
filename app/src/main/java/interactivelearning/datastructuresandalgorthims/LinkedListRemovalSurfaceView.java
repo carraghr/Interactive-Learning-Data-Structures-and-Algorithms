@@ -51,6 +51,9 @@ public class LinkedListRemovalSurfaceView extends GLSurfaceView{
     private void startProcess() {
         start = false;
         int index1 = Integer.parseInt(index);
+        if(index1 >= valuesfileNames.length){
+            index1 = valuesfileNames.length - 1;
+        }
         try {
             for (int i = 0; i < index1; i++) {
                 linkedListRemovalRenderer.moveUp(i);
@@ -58,32 +61,19 @@ public class LinkedListRemovalSurfaceView extends GLSurfaceView{
                 linkedListRemovalRenderer.moveDown(i);
                 Thread.sleep(500);
             }
-
-            for(int i = index1; i < valuesfileNames.length; i++){
-                linkedListRemovalRenderer.moveLeft(i);
+            if(index1 == valuesfileNames.length-1) {
+                linkedListRemovalRenderer.removeNode(index1);
+                linkedListRemovalRenderer.nodeChangeRef(index1-1);
+            }
+            else {
+                for (int i = index1 + 1; i < valuesfileNames.length; i++) {
+                    linkedListRemovalRenderer.moveLeft(i);
+                }
             }
             Thread.sleep(500);
-/*
-            if(index == numberOfNodes){
-                //update the list
-                linkedListInsertRenderer.nodeChangeRef(index-1);
-                linkedListInsertRenderer.changeinsertRef();
-            }
-
-            for(int i = index ; i < numberOfNodes ; i++ ){
-                linkedListInsertRenderer.moveRight(i);
-                Thread.sleep(500);
-            }
-
-            linkedListInsertRenderer.moveInsertDown();
-            Thread.sleep(500);
-            linkedListInsertRenderer.moveInsertDown();
-            Thread.sleep(500);
-            */
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
         }
-
     }
 }
 

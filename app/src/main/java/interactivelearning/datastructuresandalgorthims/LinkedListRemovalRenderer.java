@@ -66,7 +66,9 @@ public class LinkedListRemovalRenderer implements GLSurfaceView.Renderer {
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
 
         for (int i = 0; i < numberOfElements; i++) {
-            nodes[i].draw(mMVPMatrix);
+            if(nodes[i]!=null) {
+                nodes[i].draw(mMVPMatrix);
+            }
         }
     }
 
@@ -103,5 +105,13 @@ public class LinkedListRemovalRenderer implements GLSurfaceView.Renderer {
 
     public void moveLeft(int place) {
         nodes[place].moveLeft();
+    }
+
+    public void removeNode(int place){
+        nodes[place] = null;
+    }
+
+    public void nodeChangeRef(int place){
+        nodes[place].changeRef();
     }
 }

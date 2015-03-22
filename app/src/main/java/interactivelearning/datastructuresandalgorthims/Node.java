@@ -23,11 +23,13 @@ public class Node {
     }
 
     private void setUpNode(){
+        //set up item node and ref node
         item = new NodeItem(new float[]{centerPoint[0] + 0.06f,centerPoint[1],0.00f},context,fileName);
         reference = new NodeRef(new float[]{centerPoint[0] - 0.015f,centerPoint[1],0.00f},hasRef);
     }
 
     public void draw(float[] mvpMatrix){
+        //call nodes draw methods
         item.draw(mvpMatrix);
         reference.draw(mvpMatrix);
     }

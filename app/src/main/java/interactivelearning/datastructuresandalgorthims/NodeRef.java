@@ -78,15 +78,20 @@ public class NodeRef {
 
     public void draw(float[] mvpMatrix){
 
+        //link opengl program to be used.
         GLES20.glUseProgram(MyProgram);
+
+        //update coords to were shape is to be drawn on screen
         vertexBuffer.put(coords);
         vertexBuffer.position(0);
 
+        //set colour by if it has ref or not
         if(ref) {
-            color = new float[]{0.196078f , 0.8f , 0.196078f, 0f };
+            color = new float[]{0.196078f , 0.8f , 0.196078f, 0f };//green - lime
         }else{
-            color = new float[]{0.80f, 0f, 0.f, 0f };
+            color = new float[]{0.80f, 0f, 0.f, 0f };//red
         }
+
         //get handle to vertex shader vPosition member
         int myPositionHandle = GLES20.glGetAttribLocation(MyProgram, "vPosition");
 
@@ -121,6 +126,7 @@ public class NodeRef {
     }
 
     public void change(){
+        //if true becomes false, opposite applies
         if(ref){
             ref = false;
         }

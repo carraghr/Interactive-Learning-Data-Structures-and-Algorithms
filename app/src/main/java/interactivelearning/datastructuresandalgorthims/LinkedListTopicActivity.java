@@ -24,12 +24,15 @@ public class LinkedListTopicActivity extends Activity{
     private void setUI() {
         setContentView(R.layout.activity_topic);
 
+        //set topic header
         final TextView textViewToChange = (TextView) findViewById(R.id.topic);
         textViewToChange.setText(R.string.linkedList_topic_activity);
 
+        //get subtopics to be shown
         Bundle bundle = this.getIntent().getExtras();
         subtopics = bundle.getStringArray("subtopic");
 
+        //pop list view
         ListViewPopulate.populateTopicList(this, subtopics);
 
         registerClickCallback();

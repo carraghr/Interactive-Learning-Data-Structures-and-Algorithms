@@ -30,6 +30,7 @@ public class LinkedListIntro extends Activity{
 
         Button next = (Button) findViewById(R.id.next);
 
+        //set button to go to next topic
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(LinkedListIntro.this, LinkedListDeclaration.class);

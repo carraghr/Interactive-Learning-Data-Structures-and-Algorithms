@@ -55,29 +55,30 @@ public class ArrayBubbleSort extends Activity{
                 EditText four_input = (EditText) findViewById(R.id.input_four);
                 EditText five_input = (EditText) findViewById(R.id.input_five);
 
-                String [] values = new String[]{one_input.getText().toString(),
+                String [] values = new String[]{
+                        one_input.getText().toString(),
                         two_input.getText().toString(),
                         three_input.getText().toString(),
                         four_input.getText().toString(),
                         five_input.getText().toString()};
+
                 values = InputControls.sortedValues(values);
 
-                //ensure user has inputted a values to sort
+                //ensure user has inputted values to sort
                 if(values.length == 0){
                     Toast toast = Toast.makeText(getApplicationContext(), "Please input values to sort"
                             , Toast.LENGTH_SHORT);
                     toast.show();
                 }
                 else {
-                    //pass values to be sorted to new activity. via a bundle
+                    //pass values to be sorted to new activity via a bundle
                     Bundle bundle = new Bundle();
                     bundle.putStringArray("values",values);
-                    //create new intent to start and add bundle to it.
+                    //create new intent to start and add bundle to it
                     Intent intent = new Intent(ArrayBubbleSort.this, ArrayBubbleSortSurfaceActivity.class);
                     intent.putExtras(bundle);
                     //start new activity
                     ArrayBubbleSort.this.startActivity(intent);
-
                 }
             }
         });

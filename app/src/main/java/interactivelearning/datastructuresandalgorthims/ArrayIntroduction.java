@@ -17,7 +17,7 @@ public class ArrayIntroduction extends Activity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setUI();
-}
+    }
 
     private void setUI(){
         //this method sets up the page to include information about the tutorial.

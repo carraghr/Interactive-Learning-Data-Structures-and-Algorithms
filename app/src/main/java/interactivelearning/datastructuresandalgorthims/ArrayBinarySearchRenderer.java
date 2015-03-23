@@ -109,7 +109,7 @@ public class ArrayBinarySearchRenderer implements GLSurfaceView.Renderer {
             offset += radius;
             right = numberOfSquares / 2;
         }
-        //loop through squares an crate each one from the center outwards.
+        //loop through squares and create each one from the center outwards.
         for (left = numberOfSquares / 2 - 1; right < numberOfSquares && left > -1; right++, left--) {
             squares[right] = new Square(new float[]{0.0f - offset, 0.0f}, context, fileNames[right]);
             squares[left] = new Square(new float[]{0.0f + offset, 0.0f}, context, fileNames[left]);

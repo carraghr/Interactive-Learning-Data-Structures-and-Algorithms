@@ -18,7 +18,6 @@ public class LinkedListRotationRenderer implements GLSurfaceView.Renderer {
     private int numberOfElements;
     private String [] fileNames;
 
-    // myMVPMatrix is an abbreviation for "Model View Projection Matrix"
     private final float[] mMVPMatrix = new float[16];
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
@@ -40,7 +39,7 @@ public class LinkedListRotationRenderer implements GLSurfaceView.Renderer {
         // Set the background frame colour
         GLES20.glClearColor(0.24f, 0.522f, 0.863f, 0.0f);
 
-        // set up squares
+        // set up nodes
         setUpNodes();
     }
 

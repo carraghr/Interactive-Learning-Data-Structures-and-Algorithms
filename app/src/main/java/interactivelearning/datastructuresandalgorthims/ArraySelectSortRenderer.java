@@ -18,7 +18,6 @@ public class ArraySelectSortRenderer implements GLSurfaceView.Renderer {
     private Square[] squares;
     private String[] fileNames;
 
-    // myMVPMatrix is an abbreviation for "Model View Projection Matrix"
     private final float[] mMVPMatrix = new float[16];
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
@@ -109,6 +108,7 @@ public class ArraySelectSortRenderer implements GLSurfaceView.Renderer {
     public void moveUp(int place){
         squares[place].moveUp(2*Square.getRadius());
     }
+
     public void moveDown(int place){
         squares[place].moveDown(Square.getRadius()*2);
     }

@@ -18,7 +18,6 @@ public class LinkedListRemovalRenderer implements GLSurfaceView.Renderer {
     private int numberOfElements;
     private String[] fileNames;
 
-    // myMVPMatrix is an abbreviation for "Model View Projection Matrix"
     private final float[] mMVPMatrix = new float[16];
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];

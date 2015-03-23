@@ -54,11 +54,12 @@ public class ArraySelectSort extends Activity{
                 EditText five_input = (EditText) findViewById(R.id.input_five);
 
 
-                String [] values = new String[]{one_input.getText().toString(),
-                                                two_input.getText().toString(),
-                                                three_input.getText().toString(),
-                                                four_input.getText().toString(),
-                                                five_input.getText().toString()};
+                String [] values = new String[]{
+                        one_input.getText().toString(),
+                        two_input.getText().toString(),
+                        three_input.getText().toString(),
+                        four_input.getText().toString(),
+                        five_input.getText().toString()};
 
                 //remove any empty strings
                 values = InputControls.sortedValues(values);

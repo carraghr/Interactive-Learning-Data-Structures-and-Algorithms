@@ -22,7 +22,6 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
 
     Context context;
 
-    // myMVPMatrix is an abbreviation for "Model View Projection Matrix"
     private final float[] mMVPMatrix = new float[16];
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
@@ -78,9 +77,7 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
         for(int i=0;i<numberOfSquares;i++) {
             squares[i].draw(mMVPMatrix);
         }
-        if(!(searchFor == null)){
-            searchFor.draw(mMVPMatrix);
-        }
+        searchFor.draw(mMVPMatrix);
     }
 
     public void setUpSquares() {
@@ -132,7 +129,6 @@ public class ArrayLinearSearchRenderer implements GLSurfaceView.Renderer {
     }
 
     public void moveSearchItemNext(int place){
-        float [] a = squares[place].getTopCenterPoint();
-        searchFor.moveRight(0.075f * 2);
+        searchFor.moveRight(Square.getRadius()* 2);
     }
 }

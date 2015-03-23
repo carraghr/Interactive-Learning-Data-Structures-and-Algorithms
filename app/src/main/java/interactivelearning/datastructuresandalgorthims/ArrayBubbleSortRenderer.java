@@ -109,6 +109,7 @@ public class ArrayBubbleSortRenderer implements GLSurfaceView.Renderer {
     public void moveUp(int place){
         squares[place].moveUp(2*Square.getRadius());
     }
+
     public void moveDown(int place){
         squares[place].moveDown(Square.getRadius()*2);
     }
@@ -128,4 +129,3 @@ public class ArrayBubbleSortRenderer implements GLSurfaceView.Renderer {
         squares[place].moveLeft(2*Square.getRadius());
     }
 }
-

@@ -25,7 +25,8 @@ public class ArrayDeclarationSurfaceActivity extends Activity {
         //check to see if there are any values been passed by type of diagram user has entered
         if(type.equals("Declaration")){
             values=null;
-        }else{
+        }
+        else{
             values = bundle.getStringArray("values");
         }
         //create and set view to be used.

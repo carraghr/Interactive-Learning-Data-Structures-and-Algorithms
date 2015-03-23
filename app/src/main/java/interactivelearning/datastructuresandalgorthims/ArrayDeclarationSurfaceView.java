@@ -2,7 +2,6 @@ package interactivelearning.datastructuresandalgorthims;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
-import android.widget.Toast;
 
 /**
  * Created on 06/03/2015.
@@ -34,5 +33,4 @@ public class ArrayDeclarationSurfaceView extends GLSurfaceView{
         //both diagrams are static so is never used.
         setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
     }
-
 }

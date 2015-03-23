@@ -80,7 +80,9 @@ public class ArrayLinearSearchSurfaceView extends GLSurfaceView{
             messages();
             Toast message = Toast.makeText(context, "Array doesn't contain "+searchFor, Toast.LENGTH_LONG);
             message.show();
-        }catch (Exception e){}
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     //on touch method to start diagram.

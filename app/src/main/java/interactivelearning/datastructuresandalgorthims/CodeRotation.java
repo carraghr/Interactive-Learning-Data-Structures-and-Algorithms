@@ -41,8 +41,7 @@ public class CodeRotation extends Activity {
         //set up back button to go to next topic
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(CodeRotation.this, CodeRotation.class);
-                CodeRotation.this.startActivity(intent);
+                //For next code
             }
         });
     }

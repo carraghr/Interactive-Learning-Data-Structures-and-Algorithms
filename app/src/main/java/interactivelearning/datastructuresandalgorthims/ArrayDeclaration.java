@@ -79,11 +79,13 @@ public class ArrayDeclaration extends Activity{
                 EditText four_input = (EditText) findViewById(R.id.input_four);
                 EditText five_input = (EditText) findViewById(R.id.input_five);
 
-                String [] values = new String[]{one_input.getText().toString(),
-                                                two_input.getText().toString(),
-                                                three_input.getText().toString(),
-                                                four_input.getText().toString(),
-                                                five_input.getText().toString()};
+                String [] values = new String[]{
+                        one_input.getText().toString(),
+                        two_input.getText().toString(),
+                        three_input.getText().toString(),
+                        four_input.getText().toString(),
+                        five_input.getText().toString()};
+
                 values = InputControls.sortedValues(values);
 
                 //ensure user has inputted a value to declare an array.
